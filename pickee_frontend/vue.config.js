@@ -22,7 +22,7 @@ module.exports = {
     publicPath: process.env.NODE_ENV === 'production'
         ? ''
         : 'http://localhost:8080/',
-    outputDir: '../pickee/static/vue/',
+    outputDir: '../pickee_project/static/vue/',
 
     chainWebpack: config => {
 
