@@ -10,7 +10,7 @@ const pages = {
         chunks: ['chunk-vendors']
     },
     'vue_app_02': {
-        entry: './src/newhampshir.js',
+        entry: './src/mainTwo.js',
         chunks: ['chunk-vendors']
     },
 }

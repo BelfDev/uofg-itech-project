@@ -1,7 +1,7 @@
 <template>
   <div id="app02">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App02"/>
+    <HelloWorld msg="Welcome to Your SECOND Vue.js App02"/>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'app02',
+  name: 'App Two',
   components: {
     HelloWorld
   }
