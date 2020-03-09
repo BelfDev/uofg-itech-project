@@ -22,8 +22,47 @@
     --font-weight-h1: 300;
     --font-size-h1-accent: 130px;
     --font-line-height-h1-accent: 159px;
+    --font-weight-h1-accent: 600;
 
     --font-size-h2: 64px;
     --font-line-height-h2: 78px;
     --font-weight-h2: 600;
+}
+
+.text-large {
+    font-size: var(--font-size-large);
+    font-weight: var(--font-weight-large);
+    line-height: var(--font-line-height-large);
+}
+
+.text-medium {
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--font-line-height-medium);
+}
+
+.text-small {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-small);
+    line-height: var(--font-line-height-small);
+}
+
+h1,
+.h1 {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-h1);
+    line-height: var(--font-line-height-h1);
+}
+
+.h1-accent {
+    font-size: var(--font-size-h1-accent);
+    font-weight: var(--font-weight-h1-accent);
+    line-height: var(--font-line-height-h1-accent);
+}
+
+h2,
+.h2 {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-h2);
+    line-height: var(--font-line-height-h2);
 }
