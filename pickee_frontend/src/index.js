@@ -3,18 +3,20 @@ import HelloWorld from "./components/HelloWorld";
 
 Vue.config.productionTip = false;
 
+import "@/assets/styles/app.css";
+
 /* NOTE: in order to retrieve props from static HTML, we must instantiate Vue with
 el/component style below instead of the render(h) -> h(MyWidget) / $mount syntax. However, doing so will
 utilize a runtime build without the template compiler. To work around this, vue must be imported
 from dist/vue/vue. Be careful about changing this import or the way vue is instantiated. */
 
 new Vue({
-  el: "#hello_world_a",
-  components: {HelloWorld}
+    el: "#hello_world_a",
+    components: { HelloWorld }
 });
 new Vue({
-  el: "#hello_world_b",
-  components: {HelloWorld}
+    el: "#hello_world_b",
+    components: { HelloWorld }
 });
 
 // Include any other components on the page

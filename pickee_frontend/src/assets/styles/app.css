@@ -1,0 +1,5 @@
+@import "./common/normalize.css";
+@import "./common/fonts.css";
+@import "./common/general.css";
+
+@import "./pages/home.css";
