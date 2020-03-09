@@ -33,13 +33,11 @@
 
     export default {
         name: "AppOne",
-        data() {
-            return {
-                select: ["Vuetify", "Programming"],
-                items: ["Programming", "Design", "Vue", "Vuetify"],
-                iconAccount: mdiAccount
-            };
-        },
+        data: () => ({
+            select: ["Vuetify", "Programming"],
+            items: ["Programming", "Design", "Vue", "Vuetify"],
+            iconAccount: mdiAccount
+        }),
         components: {
             HelloWorld
         }

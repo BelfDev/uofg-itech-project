@@ -1,4 +1,5 @@
 const BundleTracker = require("webpack-bundle-tracker");
+const VuetifyLoaderPlugin = require("vuetify-loader/lib/plugin");
 
 const pages = {
     index: {
@@ -46,6 +47,8 @@ module.exports = {
             .use(BundleTracker, [
                 { filename: "../pickee_frontend/webpack-stats.json" }
             ]);
+
+        config.plugin("VuetifyLoaderPlugin").use(VuetifyLoaderPlugin);
 
         config.resolve.alias.set("__STATIC__", "static");
 
