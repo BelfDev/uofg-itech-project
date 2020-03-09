@@ -57,20 +57,5 @@ module.exports = {
             .watchOptions({ poll: 1000 })
             .https(false)
             .headers({ "Access-Control-Allow-Origin": ["*"] });
-
-        config.plugin("VuetifyLoaderPlugin").tap(args => [
-            {
-                match(originalTag, { kebabTag, camelTag, path, component }) {
-                    if (kebabTag.startsWith("core-")) {
-                        return [
-                            camelTag,
-                            `import ${camelTag} from '@/components/core/${camelTag.substring(
-                                4
-                            )}.vue'`
-                        ];
-                    }
-                }
-            }
-        ]);
     }
 };
