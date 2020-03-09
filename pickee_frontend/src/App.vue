@@ -48,7 +48,6 @@
 
 <style>
     #app {
-        color: var(--v-general-base);
         margin-top: 60px;
     }
 </style>

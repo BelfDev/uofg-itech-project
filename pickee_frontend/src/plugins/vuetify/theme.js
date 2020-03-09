@@ -1,5 +1,4 @@
 export default {
-    general: "#fbfbfb",
     primary: "#ffbf69",
     secondary: "#2d3142",
     grey100: "#fbfbfb",
@@ -12,5 +11,7 @@ export default {
     grey960: "#262626",
     grey970: "#242424",
     grey980: "#191919",
-    grey990: "#151515"
+    grey990: "#151515",
+    bodyText: "#fbfbfb",
+    bodyBg: "#242424"
 };
