@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your FIRST Vue.js App"/>
-  </div>
+    <div id="app">
+        <HelloWorld msg="Welcome to Your FIRST Vue.js App" />
+        <v-card>
+            <v-icon>{{ iconAccount }}</v-icon> Test
+            <br />
+            <v-btn rounded color="primary" dark>
+                <v-icon>{{ iconAccount }}</v-icon
+                >Rounded Button</v-btn
+            >
+            <br />
+            <v-btn rounded large color="primary" dark>
+                <v-icon>{{ iconAccount }}</v-icon
+                >Rounded Button</v-btn
+            >
+        </v-card>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import { mdiAccount } from "@mdi/js";
+    import HelloWorld from "./components/HelloWorld.vue";
 
-export default {
-  name: 'App One',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: "AppOne",
+        data: () => ({
+            iconAccount: mdiAccount
+        }),
+        components: {
+            HelloWorld
+        }
+    };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    #app {
+        color: var(--v-secondary-base);
+        margin-top: 60px;
+    }
 </style>
