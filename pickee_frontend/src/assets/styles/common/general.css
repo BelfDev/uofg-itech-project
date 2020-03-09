@@ -1,4 +1,5 @@
 html {
+    background-color: var(--v-grey970-base);
     font-family: var(--font-family);
     font-size: var(--font-size-general);
     font-weight: var(--font-weight-general);
