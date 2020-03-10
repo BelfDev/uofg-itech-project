@@ -1,0 +1,8 @@
+.dialog-close.v-icon {
+    position: absolute;
+}
+
+.dialog-actions {
+    display: block;
+    padding: 24px 66px 0;
+}
