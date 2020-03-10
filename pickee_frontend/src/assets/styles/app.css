@@ -3,3 +3,5 @@
 @import "./common/general.css";
 
 @import "./components/core/button.css";
+@import "./components/core/label.css";
+@import "./components/core/text-field.css";
