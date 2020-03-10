@@ -13,5 +13,5 @@ export default {
     grey980: "#191919",
     grey990: "#151515",
     bodyText: "#fbfbfb",
-    bodyBg: "#242424"
+    bodyBg: "#242424",
 };

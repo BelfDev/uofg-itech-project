@@ -1,0 +1,49 @@
+.v-btn {
+    font-weight: 600;
+    letter-spacing: 0;
+    border-radius: 8px;
+}
+
+.theme--dark.v-btn {
+    color: var(--v-secondary-base);
+}
+
+.theme--dark.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
+    background-color: var(--v-grey100-base);
+}
+
+.theme--light.v-btn {
+    color: var(--v-secondary-base);
+}
+
+.v-btn--rounded {
+    border-radius: 64px;
+}
+
+.v-btn:not(.v-btn--outlined).primary {
+    color: var(--v-secondary-base);
+}
+
+.v-btn:not(.v-btn--round).v-size--default {
+    height: 54px;
+    padding: 0 67px;
+}
+
+.v-btn.v-size--default,
+.v-btn.v-size--large {
+    font-size: var(--font-size-body-4);
+}
+
+.v-btn:not(.v-btn--round).v-size--large {
+    height: 80px;
+    padding: 0 56px;
+}
+
+.v-btn:not(.v-btn--round).v-size--x-large {
+    height: 103px;
+    padding: 0 56px;
+}
+
+.v-btn.v-size--x-large {
+    font-size: var(--font-size-body-1);
+}
