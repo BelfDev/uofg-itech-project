@@ -1,0 +1,7 @@
+.v-chip.v-size--default {
+    height: 36px;
+    padding: 0 16px;
+    border-radius: 24px;
+    font-size: var(--font-size-body-4);
+    line-height: var(--font-line-height-body-4);
+}

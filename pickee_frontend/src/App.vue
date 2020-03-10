@@ -67,10 +67,25 @@
                             v-model="select"
                             :items="items"
                             label="Select genres from this list"
+                            item-color="white"
                             solo
                             multiple
                             chips
-                        ></v-combobox>
+                            ><template v-slot:selection="data">
+                                <v-chip
+                                    color="primary"
+                                    :key="JSON.stringify(data.item)"
+                                    v-bind="data.attrs"
+                                    :input-value="data.selected"
+                                    :disabled="data.disabled"
+                                    @click:close="
+                                        data.parent.selectItem(data.item)
+                                    "
+                                >
+                                    {{ data.item }}
+                                </v-chip>
+                            </template></v-combobox
+                        >
                     </div>
                     <div class="mb-6">
                         <TimeSlider />
@@ -141,6 +156,8 @@
         data: () => ({
             dialog: false,
             first: "belfdev@gmail.com",
+            select: ["Vuetify", "Programming"],
+            items: ["Programming", "Design", "Vue", "Vuetify"],
             iconClose: mdiClose,
             iconPlus: mdiPlusCircle,
             iconArrowRight: mdiChevronRight
