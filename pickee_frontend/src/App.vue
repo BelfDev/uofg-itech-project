@@ -1,28 +1,68 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your FIRST Vue.js App"/>
-  </div>
+    <div id="app">
+        <v-app>
+            <TestComponent />
+
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua
+            </p>
+            <p class="text-small">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua
+            </p>
+            <p class="text-medium">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua
+            </p>
+            <p class="text-large">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua
+            </p>
+
+            <v-card>
+                <v-card-text>
+                    <v-icon>{{ iconAccount }}</v-icon> Test
+
+                    <div
+                        style="display: flex; justify-content: space-between; margin-top: 20px;"
+                    >
+                        <v-btn rounded color="primary" dark>
+                            <v-icon>{{ iconAccount }}</v-icon
+                            >Rounded Button</v-btn
+                        >
+
+                        <v-btn rounded large color="primary" dark>
+                            <v-icon>{{ iconAccount }}</v-icon
+                            >Rounded Button</v-btn
+                        >
+                    </div>
+                </v-card-text>
+            </v-card>
+        </v-app>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+    import { mdiAccount } from "@mdi/js";
+    import TestComponent from "./components/TestComponent.vue";
 
-export default {
-  name: 'App One',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: "AppOne",
+        data: () => ({
+            iconAccount: mdiAccount
+        }),
+        components: {
+            TestComponent
+        }
+    };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+    #app {
+        margin: 20px;
+    }
 </style>
