@@ -5,3 +5,7 @@
 @import "./components/core/button.css";
 @import "./components/core/label.css";
 @import "./components/core/text-field.css";
+@import "./components/core/card.css";
+
+@import "./components/avatar.css";
+@import "./components/dialog.css";

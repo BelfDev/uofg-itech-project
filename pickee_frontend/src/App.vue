@@ -118,6 +118,15 @@
                         </v-card>
                     </v-dialog>
                 </div>
+
+                <div>
+                    <v-avatar size="100">
+                        <img
+                            src="https://cdn.vuetifyjs.com/images/john.jpg"
+                            alt="John"
+                        />
+                    </v-avatar>
+                </div>
             </v-content>
         </v-app>
     </div>
