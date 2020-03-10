@@ -1,0 +1,32 @@
+.v-text-field.v-text-field--solo:not(.v-text-field--solo-flat):not(.v-select)
+    > .v-input__control
+    > .v-input__slot {
+    box-shadow: none;
+}
+
+.theme--dark.v-text-field--solo > .v-input__control > .v-input__slot {
+    background-color: var(--v-grey700-base);
+}
+
+.v-text-field.v-text-field--enclosed:not(.v-text-field--rounded)
+    > .v-input__control
+    > .v-input__slot,
+.v-text-field.v-text-field--enclosed .v-text-field__details {
+    padding: 0 24px 0 31px;
+}
+
+.v-text-field.v-text-field--solo .v-input__control {
+    min-height: 100px;
+}
+
+.v-text-field fieldset,
+.v-text-field .v-input__control,
+.v-text-field .v-input__slot {
+    border-radius: 8px;
+}
+
+.v-text-field input {
+    font-size: var(--font-size-body-2);
+    font-weight: 400;
+    line-height: var(--font-line-height-body-2);
+}
