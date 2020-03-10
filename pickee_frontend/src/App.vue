@@ -2,7 +2,7 @@
     <div id="app">
         <v-app>
             <v-content>
-                <h1>Heading 1</h1>
+                <h1>Feeling <span class="heading1-accent">Pickee?</span></h1>
                 <h2>Heading 2</h2>
 
                 <p>
@@ -30,38 +30,76 @@
                     <v-btn outlined>Logout</v-btn>
                 </v-card>
 
-                <div class="mb-6">
-                    <v-btn>Logout</v-btn>
+                <div class="mb-10">
+                    <div class="mb-6">
+                        <v-btn>Logout</v-btn>
+                    </div>
+
+                    <div class="mb-6">
+                        <v-btn color="primary">Add actor</v-btn>
+                    </div>
+
+                    <div class="mb-6">
+                        <v-btn large color="primary">Search</v-btn>
+                    </div>
+
+                    <v-btn rounded x-large color="primary"
+                        >Pick a movie for me
+                        <v-icon class="ml-5" size="56">{{
+                            iconArrowRight
+                        }}</v-icon></v-btn
+                    >
                 </div>
 
-                <div class="mb-6">
-                    <v-btn color="primary">Add actor</v-btn>
+                <div>
+                    <div class="mb-6">
+                        <v-text-field
+                            v-model="first"
+                            label="First Name"
+                            :append-icon="iconPlus"
+                            @click:append="testInputAppend"
+                            solo
+                        ></v-text-field>
+                    </div>
+                    <div class="mb-6">
+                        <label class="label">Any genres in mind?</label>
+                        <v-combobox
+                            v-model="select"
+                            :items="items"
+                            label="Select genres from this list"
+                            solo
+                            multiple
+                            chips
+                        ></v-combobox>
+                    </div>
+                    <div class="mb-6">
+                        <TimeSlider />
+                    </div>
                 </div>
-
-                <div class="mb-6">
-                    <v-btn large color="primary">Search</v-btn>
-                </div>
-
-                <v-btn rounded x-large color="primary"
-                    >Pick a movie for me
-                    <v-icon class="ml-5" size="56">{{
-                        iconArrowRight
-                    }}</v-icon></v-btn
-                >
             </v-content>
         </v-app>
     </div>
 </template>
 
 <script>
-    import { mdiChevronRight } from "@mdi/js";
+    import { mdiChevronRight, mdiPlusCircle } from "@mdi/js";
+    import TimeSlider from "./components/TimeSlider/TimeSlider.vue";
 
     export default {
         name: "AppOne",
         data: () => ({
+            first: "belfdev@gmail.com",
+            iconPlus: mdiPlusCircle,
             iconArrowRight: mdiChevronRight
         }),
-        components: {}
+        methods: {
+            testInputAppend: function() {
+                console.log("testInputAppend");
+            }
+        },
+        components: {
+            TimeSlider
+        }
     };
 </script>
 
