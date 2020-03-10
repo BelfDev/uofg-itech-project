@@ -17,10 +17,21 @@
     border-radius: 8px;
 }
 
-.v-input__slot {
+.time-slider__input .v-input__slot {
     margin-bottom: 0;
 }
 
-.v-messages {
+.time-slider__input .v-messages {
     display: none;
+}
+
+.time-slider__input .v-slider__thumb {
+    width: 24px;
+    height: 24px;
+    left: -12px;
+}
+
+.time-slider__input .v-slider__thumb:before {
+    left: -6px;
+    top: -6px;
 }
