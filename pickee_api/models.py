@@ -14,23 +14,22 @@ class UserProfile(models.Model):
     age = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)])
     associated_users = models.ManyToManyField("self")
 
-    favourite_actors = models.ManyToManyField(Actor, symmetrical=False)
-    favourite_movies = models.ManyToManyField(Movie, symmetrical=False)
-    favourite_genres = models.ManyToManyField(Genre, symmetrical=False)
-
     def __str__(self):
         return self.user.first_name + " " + self.user.last_name
 
-class Actor(models.Model):
+class FavouriteActors(models.Model):
+    user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
     name = models.CharField(max_length=128, unique=True)
     picture = models.ImageField()
     #need some way to retrieve from an API
 
-class Movie(models.Model):
+class FavouriteMovies(models.Model):
+    user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
     name = models.CharField(max_length=128, unique=True)
     picture = models.ImageField()
     #need some way to retrieve from an API
 
-class Genre(models.Model):
+class FavouriteGenres(models.Model):
+    user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
     name = models.CharField(max_length=128, unique=True)
     #need some way to retrieve from an API
