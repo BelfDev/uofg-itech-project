@@ -4,6 +4,10 @@
     border-radius: 8px;
 }
 
+.v-btn--contained {
+    box-shadow: none;
+}
+
 .theme--dark.v-btn {
     color: var(--v-secondary-base);
 }
