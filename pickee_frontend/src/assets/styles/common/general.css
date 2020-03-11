@@ -3,7 +3,7 @@ html,
     color: var(--v-bodyText-base);
     background-color: var(--v-bodyBg-base);
     font-family: var(--font-family);
-    font-size: var(--font-size-general);
-    font-weight: var(--font-weight-general);
-    line-height: var(--font-line-height-general);
+    font-size: var(--font-size-body-3);
+    font-weight: var(--font-weight-body-3);
+    line-height: var(--font-line-height-body-3);
 }
