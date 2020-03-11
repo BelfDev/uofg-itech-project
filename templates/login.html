@@ -2,12 +2,19 @@
 
 {% block content %}
 
-     <h1>Pickee Login</h1>
+    <h1>Pickee Login</h1>
+
+    <strong>
+        {% if user.is_authenticated %}
+            Hi {{ user.username }}! <br><br>
+        {% endif %}
+    </strong>
+
     <form id="login_form" method="post" action="{% url 'login' %}">
         {% csrf_token %}
         Username: <input type="text" name="username" value="" size="50"/> <br/>
         Password: <input type="password" name="password" value="" size="50"/> <br/>
-        <input type="submit" value="submit" />
+        <input type="submit" value="submit"/>
     </form>
 
 {% endblock %}
