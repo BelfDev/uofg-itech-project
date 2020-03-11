@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load render_bundle from webpack_loader %}
+
+
+{% block content %}
+
+    <div id="signup">
+        <app></app>
+    </div>
+
+    {% render_bundle 'chunk-vendors' %}
+    {% render_bundle 'SignUp' %}
+
+{% endblock %}
