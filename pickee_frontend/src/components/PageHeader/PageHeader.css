@@ -1,0 +1,12 @@
+.page-header {
+    display: flex;
+    align-items: center;
+}
+
+.page-header .header-auth {
+    margin-left: 80px;
+}
+
+.page-header .header-nav {
+    margin-left: auto;
+}
