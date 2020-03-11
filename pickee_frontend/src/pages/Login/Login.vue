@@ -3,7 +3,6 @@
         <div class="page-wrapper">
             <PageHeader />
             <v-content>
-                <Logo />
                 <p>Login</p>
             </v-content>
         </div>
@@ -11,14 +10,13 @@
 </template>
 
 <script>
-import Logo from "@/components/Logo/Logo.vue";
 import PageHeader from "@/components/PageHeader/PageHeader.vue";
 
 export default {
     name: "Login",
     data: () => ({}),
     methods: {},
-    components: { Logo, PageHeader }
+    components: { PageHeader }
 };
 </script>
 
