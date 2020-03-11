@@ -1,11 +1,10 @@
 <template>
     <header class="page-header">
-        <Logo />
+        <Logo v-if="logo"/>
         <Navigation />
         <HeaderAuth />
     </header>
 </template>
 
-<script src="./PageHeader.js"></script>
-<style src="./PageHeader.css">
-</style>
+<script src="./PageHeader.js" />
+<style src="./PageHeader.css" />

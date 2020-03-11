@@ -4,6 +4,9 @@ import Logo from "@/components/Logo/Logo.vue";
 
 export default {
     name: "PageHeader",
+    props: {
+        logo: Boolean
+    },
     components: {
         Navigation, 
         HeaderAuth, 
