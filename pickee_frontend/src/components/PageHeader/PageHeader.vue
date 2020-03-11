@@ -1,6 +1,8 @@
 <template>
-    <header>
+    <header class="page-header">
+        <Logo />
         <Navigation />
+        <HeaderAuth />
     </header>
 </template>
 
