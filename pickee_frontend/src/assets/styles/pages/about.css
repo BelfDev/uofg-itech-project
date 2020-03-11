@@ -1,0 +1,9 @@
+.about-page {
+    position: relative;
+}
+
+.about-page .page-header {
+    position: absolute;
+    top: 50px;
+    right: 40px;
+}
