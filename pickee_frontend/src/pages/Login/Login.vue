@@ -1,6 +1,7 @@
 <template>
     <v-app>
         <div class="page-wrapper">
+            <Navigation />
             <v-content>
                 <Logo />
                 <p>Login</p>
@@ -11,11 +12,13 @@
 
 <script>
 import Logo from "@/components/Logo/Logo.vue";
+import Navigation from "@/components/Navigation/Navigation.vue";
+
 export default {
     name: "Login",
     data: () => ({}),
     methods: {},
-    components: { Logo }
+    components: { Logo, Navigation }
 };
 </script>
 
