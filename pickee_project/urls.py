@@ -25,4 +25,5 @@ urlpatterns = [
     path("vue_app_01/", TemplateView.as_view(template_name="vue_app_01.html"),
          name="vue_app_01"),
     path("login/", TemplateView.as_view(template_name="login.html"), name="login"),
+    path("signup/", TemplateView.as_view(template_name="signup.html"), name="signup")
 ]
