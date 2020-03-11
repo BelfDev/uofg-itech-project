@@ -1,3 +1,5 @@
 <template>
-    <a class="link" href="#">About Us</a>
+    <nav class="header-nav">
+        <a class="link" href="#">About Us</a>
+    </nav>
 </template>
