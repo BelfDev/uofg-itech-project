@@ -1,14 +1,14 @@
 import Vue from "vue";
-import App from "./App.vue";
+import Home from "./Home.vue";
 
 import vuetify from "@/plugins/vuetify/vuetify";
 
 import "@/assets/styles/app.css";
-import "@/assets/styles/pages/home.css";
+// import "@/assets/styles/pages/home.css";
 
 Vue.config.productionTip = false;
 
 new Vue({
     vuetify,
-    render: h => h(App)
-}).$mount("#app");
+    render: h => h(Home)
+}).$mount("#home");
