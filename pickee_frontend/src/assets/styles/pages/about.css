@@ -7,3 +7,22 @@
     top: 50px;
     right: 40px;
 }
+
+.about-page__content {
+    display: flex;
+    margin-top: 30px;
+}
+
+.about-page__text {
+    width: 638px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-page__text p {
+    color: var(--v-grey200-base)
+}
+
+.about-page__text h2 {
+   margin-bottom: 28px;
+}
