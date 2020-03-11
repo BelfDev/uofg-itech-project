@@ -8,6 +8,7 @@ class UserProfile(models.Model):
     user.last_name.blank = False
 
     picture = models.ImageField(upload_to='profile_images', blank=True)
+    avatar = models.CharField()
 
     GENDER_CHOICES = ('Male', 'Female', 'Other', 'Prefer not to say')
     gender = models.CharField(max_length=18, choices=GENDER_CHOICES)
@@ -19,7 +20,7 @@ class UserProfile(models.Model):
 
 class FavouriteActors(models.Model):
     user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
-    name = models.CharField(max_length=128, unique=True)
+    name = models.CharField(max_length=128)
     picture = models.ImageField()
     #need some way to retrieve from an API
 
@@ -36,7 +37,6 @@ class FavouriteMovies(models.Model):
 class FavouriteGenres(models.Model):
     user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
     name = models.CharField(max_length=128)
-    #need some way to retrieve from an API
 
     def __str__(self):
         return self.name
@@ -44,7 +44,9 @@ class FavouriteGenres(models.Model):
 class Movie(models.Model):
     name = models.CharField(max_length=128)
     picture = models.ImageField()
-    #need some way to retrieve from an API
+    rating = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)])
+    release_date = models.DateField(auto_now=False)
+    description = models.CharField()
 
     def __str__(self):
         return self.name
