@@ -1,24 +1,23 @@
 <template>
-    <div id="about">
-        <v-app>
-            <v-content>
-                <p>Home</p>
+    <v-app>
+        <div class="page-wrapper about-page">
+            <PageHeader />
+            <v-content class="page-content">
+                       <h1>We are<br /> <span class="heading1-accent">Pickee.</span></h1>
             </v-content>
-        </v-app>
-    </div>
+        </div>
+    </v-app>
 </template>
 
 <script>
+    import PageHeader from "@/components/PageHeader/PageHeader.vue";
+
     export default {
         name: "About",
         data: () => ({}),
         methods: {},
-        components: {}
+        components: { PageHeader }
     };
 </script>
 
-<style>
-    #about {
-        margin: 20px;
-    }
-</style>
+
