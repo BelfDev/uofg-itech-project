@@ -1,24 +1,24 @@
 <template>
-    <div id="login">
-        <v-app>
-            <v-content>
-                <p>Login</p>
-            </v-content>
-        </v-app>
-    </div>
+    <v-app>
+        <v-content>
+            <Logo />
+            <p>Login</p>
+        </v-content>
+    </v-app>
 </template>
 
 <script>
-    export default {
-        name: "Login",
-        data: () => ({}),
-        methods: {},
-        components: {}
-    };
+import Logo from "@/components/Logo/Logo.vue";
+export default {
+    name: "Login",
+    data: () => ({}),
+    methods: {},
+    components: { Logo }
+};
 </script>
 
 <style>
-    #login {
-        margin: 20px;
-    }
+#Login {
+    margin: 20px;
+}
 </style>
