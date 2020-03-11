@@ -1,0 +1,19 @@
+.person {
+    display: flex;
+    align-items: center;
+}
+
+.person__info {
+    margin-left: 34px;
+}
+
+.person__name {
+    margin: 0 0 8px;
+    padding: 0;
+    font-weight: 400;
+}
+
+.person__role {
+    margin: 0;
+    padding: 0;
+}
