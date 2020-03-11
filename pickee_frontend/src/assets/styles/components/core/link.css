@@ -1,0 +1,7 @@
+.v-application .link {
+    color: white;
+    text-decoration: none;
+    font-size: var(--font-size-body-2);
+    line-height: var(--font-line-height-body-2);
+    font-weight: 600;
+}
