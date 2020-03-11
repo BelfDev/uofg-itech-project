@@ -1,8 +1,8 @@
 <template>
     <v-app>
         <div class="page-wrapper">
-            <PageHeader />
-            <v-content class="page-content">
+            <PageHeader logo />
+            <v-content class="page-content page-content--centered">
                 <LoginBox />
             </v-content>
         </div>
