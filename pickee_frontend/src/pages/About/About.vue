@@ -22,7 +22,7 @@
                 </div>
             </v-content>
         </div>
-    </v-app>
+    </v-app>    
 </template>
 
 <script>
