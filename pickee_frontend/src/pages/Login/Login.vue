@@ -1,9 +1,11 @@
 <template>
     <v-app>
-        <v-content>
-            <Logo />
-            <p>Login</p>
-        </v-content>
+        <div class="page-wrapper">
+            <v-content>
+                <Logo />
+                <p>Login</p>
+            </v-content>
+        </div>
     </v-app>
 </template>
 
