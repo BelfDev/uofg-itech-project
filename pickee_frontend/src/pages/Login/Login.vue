@@ -2,8 +2,8 @@
     <v-app>
         <div class="page-wrapper">
             <PageHeader />
-            <v-content>
-                <p>Login</p>
+            <v-content class="page-content">
+                <LoginBox />
             </v-content>
         </div>
     </v-app>
@@ -11,12 +11,13 @@
 
 <script>
 import PageHeader from "@/components/PageHeader/PageHeader.vue";
+import LoginBox from "@/components/LoginBox/LoginBox.vue";
 
 export default {
     name: "Login",
     data: () => ({}),
     methods: {},
-    components: { PageHeader }
+    components: { PageHeader, LoginBox }
 };
 </script>
 
