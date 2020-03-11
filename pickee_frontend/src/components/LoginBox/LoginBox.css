@@ -1,0 +1,31 @@
+.login-box {
+    padding: 22px 57px 40px;
+    box-shadow: 0px 3px 6px #00000029;
+    width: 640px;
+    margin: 75px auto 50px;
+    position: relative;
+}
+
+.login-box__header {
+    font-weight: 600;
+    color: var(--v-grey200-base)
+}
+
+.login-box__submit {
+    position: absolute !important;
+    left: 54px;
+    bottom: -27px;
+    width: 248px;
+}
+
+.v-application a.login-box__signup-link{
+    text-transform: uppercase;
+    color: var(--v-grey400-base);
+    text-decoration: none;
+    font-weight: 600;
+    position: absolute;
+    right: 10px;
+    bottom: -50px;
+    font-size: var(--font-size-body-2);
+    line-height: var(--font-line-height-body-2);
+}
