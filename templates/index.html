@@ -6,7 +6,6 @@
 
     <ul>
         <li><a href="{% url 'vue_app_01' %}">Vue App 01</a></li>
-        <li><a href="{% url 'vue_app_02' %}">Vue App 02</a></li>
     </ul>
 
     <hr>
@@ -21,6 +20,6 @@
     {% endwith %}
 
     {% render_bundle 'chunk-vendors' %}
-    {% render_bundle 'index' %}
+    {% render_bundle 'Home' %}
 
 {% endblock %}

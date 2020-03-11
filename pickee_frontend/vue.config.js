@@ -1,20 +1,26 @@
 const BundleTracker = require("webpack-bundle-tracker");
 const VuetifyLoaderPlugin = require("vuetify-loader/lib/plugin");
 
-const pages = {
-    index: {
-        entry: "./src/index.js",
+const pagesList = [
+    "_Demo",
+    "Home",
+    "Login",
+    "SignUp",
+    "About",
+    "ProfileMain",
+    "ProfileHistory",
+    "ProfilePreferences",
+    "Recommendation"
+];
+
+let pages = {};
+
+pagesList.forEach(pageName => {
+    pages[pageName] = {
+        entry: `./src/pages/${pageName}/${pageName}`,
         chunks: ["chunk-vendors"]
-    },
-    vue_app_01: {
-        entry: "./src/main.js",
-        chunks: ["chunk-vendors"]
-    },
-    vue_app_02: {
-        entry: "./src/mainTwo.js",
-        chunks: ["chunk-vendors"]
-    }
-};
+    };
+});
 
 module.exports = {
     pages: pages,
