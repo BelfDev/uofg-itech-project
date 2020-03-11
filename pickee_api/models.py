@@ -18,28 +18,26 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.first_name + " " + self.user.last_name
 
-class FavouriteActors(models.Model):
+class FavoriteActor(models.Model):
     user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
+    actor = models.ForeignKey('Actor', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.actor.name
+
+class Actor(models.Model):
     name = models.CharField(max_length=128)
     picture = models.ImageField()
-    #need some way to retrieve from an API
 
     def __str__(self):
         return self.name
 
-class FavouriteMovies(models.Model):
+class FavoriteMovie(models.Model):
     user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user + ": " + self.movie
-
-class FavouriteGenres(models.Model):
-    user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
-    name = models.CharField(max_length=128)
-
-    def __str__(self):
-        return self.name
 
 class Movie(models.Model):
     name = models.CharField(max_length=128)
@@ -47,6 +45,26 @@ class Movie(models.Model):
     rating = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)])
     release_date = models.DateField(auto_now=False)
     description = models.CharField()
+
+    def __str__(self):
+        return self.name
+
+class MovieCast(models.Model):
+    movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
+    actor = models.ForeignKey('Actor', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.actor.name
+
+class FavoriteGenre(models.Model):
+    user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
+    genre = models.ForeignKey('Genre', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.genre.name
+
+class Genre(models.Model):
+    name = models.CharField(max_length=128)
 
     def __str__(self):
         return self.name
