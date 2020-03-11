@@ -1,8 +1,13 @@
 from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from rest_framework import permissions
+from rest_framework import viewsets
+
+from pickee_api.serializers import UserSerializer
 
 
 # Temporary renders login.html
@@ -45,3 +50,11 @@ def user_signup(request):
 
 def user_logout(request):
     logout(request)
+
+
+# Temporary serializer example
+# TODO: remove this after creating other API views
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all().order_by('-date_joined')
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticated]
