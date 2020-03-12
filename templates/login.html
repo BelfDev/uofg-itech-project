@@ -5,8 +5,15 @@
 {% block content %}
 
     <div id="login">
+        {% csrf_token %}
         <app></app>
     </div>
+
+    <script>
+        window.formOptions = {
+            url: "{% url 'login' %}"
+        }
+    </script>
 
     {% render_bundle 'chunk-vendors' %}
     {% render_bundle 'Login' %}
