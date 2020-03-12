@@ -7,6 +7,16 @@
     <div id="demo">
         <app></app>
     </div>
+
+    <script>
+        {% if user.is_authenticated %}
+            window.user = {
+                id: {{ user.id }},
+                name: "{{ user.username }}"
+            }
+        {% endif %}
+    </script>
+
     {% render_bundle 'chunk-vendors' %}
     {% render_bundle '_Demo' %}
 
