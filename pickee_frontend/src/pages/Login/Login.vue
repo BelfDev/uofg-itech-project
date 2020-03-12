@@ -3,7 +3,7 @@
         <div class="page-wrapper">
             <PageHeader />
             <v-content class="page-content">
-                <LoginBox />
+                <LoginBox :formUrl="formUrl" />
             </v-content>
         </div>
     </v-app>
@@ -15,7 +15,11 @@ import LoginBox from "@/components/LoginBox/LoginBox.vue";
 
 export default {
     name: "Login",
-    data: () => ({}),
+    data: function() {
+        return {
+            formUrl: window.formOptions.url
+        };
+    },
     methods: {},
     components: { PageHeader, LoginBox }
 };
