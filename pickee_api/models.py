@@ -3,14 +3,16 @@ from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User)
-    user.first_name.blank = False
-    user.last_name.blank = False
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     picture = models.ImageField(upload_to='profile_images', blank=True)
-    avatar = models.CharField()
+    avatar = models.CharField(max_length=500)
 
-    GENDER_CHOICES = ('Male', 'Female', 'Other', 'Prefer not to say')
+    GENDER_CHOICES = [
+        ('MALE', 'Male'), 
+        ('FEMALE', 'Female'), 
+        ('OTHER','Other'), 
+        ('UNSPECIFIED','Prefer not to say')]
     gender = models.CharField(max_length=18, choices=GENDER_CHOICES)
     age = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)])
     associated_users = models.ManyToManyField('self')
@@ -44,7 +46,7 @@ class Movie(models.Model):
     picture = models.ImageField()
     rating = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)])
     release_date = models.DateField(auto_now=False)
-    description = models.CharField()
+    description = models.CharField(max_length=500)
 
     def __str__(self):
         return self.name
@@ -72,7 +74,10 @@ class Genre(models.Model):
 class Recommendation(models.Model):
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
     session = models.ForeignKey('Session', on_delete=models.CASCADE)
-    USER_CHOICES = ('Accepted', 'Rejected', 'Bookmarked')
+    USER_CHOICES = [
+        ('ACCEPTED','Accepted'), 
+        ('REJECTED','Rejected'), 
+        ('BOOKMARKED','Bookmarked')]
     user_choice = models.CharField(max_length=10, choices=USER_CHOICES)
 
     def __str__(self):
