@@ -9,6 +9,7 @@
     },
     "dependencies": {
         "vue": "^2.6.11",
+        "vue-cookies": "^1.7.0",
         "vuetify": "^2.2.15"
     },
     "devDependencies": {
