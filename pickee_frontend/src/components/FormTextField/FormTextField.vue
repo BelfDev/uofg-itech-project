@@ -1,7 +1,7 @@
 <template>
     <div class="form-text-field">
         <label class="label">{{ label }}</label>
-        <v-text-field solo dark></v-text-field>
+        <v-text-field :name="name" solo dark></v-text-field>
     </div>
 </template>
 
