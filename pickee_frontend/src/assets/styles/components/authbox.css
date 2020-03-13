@@ -1,8 +1,8 @@
 .auth-box {
-    padding: 22px 57px 40px;
-    box-shadow: 0px 3px 6px #00000029;
-    width: 640px;
-    margin: 75px auto 50px;
+    padding: 2.2rem 5.7rem 4rem;
+    box-shadow: 0 .3rem .6rem #00000029;
+    width: 64rem;
+    margin: 0 auto 5rem;
     position: relative;
 }
 
@@ -14,9 +14,9 @@
 
 .auth-box__submit {
     position: absolute !important;
-    left: 54px;
-    bottom: -27px;
-    width: 248px;
+    left: 5.4rem;
+    bottom: -2.7rem;
+    width: 24.8rem;
 }
 
 .v-application a.auth-box__signup-link{
@@ -25,8 +25,8 @@
     text-decoration: none;
     font-weight: 600;
     position: absolute;
-    right: 10px;
-    bottom: -50px;
+    right: 1rem;
+    bottom: -5rem;
     font-size: var(--font-size-body-2);
     line-height: var(--font-line-height-body-2);
 }
