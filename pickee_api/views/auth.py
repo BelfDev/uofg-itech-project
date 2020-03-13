@@ -1,13 +1,12 @@
+import json
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from rest_framework import permissions
 from rest_framework import viewsets
-from django.http import JsonResponse
-import json
 
 from pickee_api.serializers import UserSerializer
 
@@ -26,8 +25,6 @@ def user_login(request):
                 # If valid, log in the user
                 login(request, user)
                 return redirect('index')
-            else:
-                return HttpResponse("Your account is disabled.")
         else:
             # If there are any authentication errors, send error feedback
             loginFeedback = json.dumps({
@@ -53,7 +50,9 @@ def user_signup(request):
             return redirect('index')
     else:
         form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+        context = {'signupFeedback': form.error_messages}
+        return render(request, 'signup.html', context=context)
+    return render(request, 'signup.html')
 
 
 def user_logout(request):
