@@ -40,7 +40,7 @@
 
                 <v-btn rounded x-large color="primary"
                     >Pick a movie for me
-                    <v-icon class="ml-5" size="56">{{
+                    <v-icon class="ml-5" size="5.6rem">{{
                         iconArrowRight
                     }}</v-icon></v-btn
                 >
@@ -128,7 +128,7 @@
             </div>
 
             <div>
-                <v-avatar size="100">
+                <v-avatar size="10rem">
                     <img
                         src="https://cdn.vuetifyjs.com/images/john.jpg"
                         alt="John"
