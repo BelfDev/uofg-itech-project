@@ -165,9 +165,3 @@
         }
     };
 </script>
-
-<style>
-    #demo {
-        margin: 20px;
-    }
-</style>
