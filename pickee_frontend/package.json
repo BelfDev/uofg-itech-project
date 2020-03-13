@@ -8,6 +8,7 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
+        "mobile-detect": "^1.4.4",
         "vue": "^2.6.11",
         "vue-cookies": "^1.7.0",
         "vuetify": "^2.2.15"
