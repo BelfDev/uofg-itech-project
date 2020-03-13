@@ -7,30 +7,34 @@ from django.shortcuts import render, redirect
 from rest_framework import permissions
 from rest_framework import viewsets
 from django.http import JsonResponse
+import json
 
 from pickee_api.serializers import UserSerializer
 
 
 # Temporary renders login.html
-# TODO: replace this by the Login Vue App
 def user_login(request):
     if request.method == 'POST':
+        # Retrieves username and password
         username = request.POST['username']
         password = request.POST['password']
+        # Authenticates the user
         user = authenticate(request, username=username, password=password)
 
         if user:
             if user.is_active:
+                # If valid, log in the user
                 login(request, user)
                 return redirect('index')
             else:
                 return HttpResponse("Your account is disabled.")
         else:
-            print(f"Invalid login details: {username}, {password}")
-            data = {
-                'name': 'Yo Anton'
-            }
-            return JsonResponse(data)
+            # If there are any authentication errors, send error feedback
+            loginFeedback = json.dumps({
+                "error": "invalid credentials"
+            })
+            context = {'loginFeedback': loginFeedback}
+            return render(request, 'login.html', context=context)
     else:
         return render(request, 'login.html')
 

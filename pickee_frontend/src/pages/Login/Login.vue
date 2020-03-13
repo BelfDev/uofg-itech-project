@@ -25,6 +25,9 @@ export default {
     beforeMount() {
         const appElement = document.getElementsByTagName('app')[0];
         this.formUrl = appElement.getAttribute('formUrl');
+        console.log(appElement.getAttribute('something'));
+        console.log(appElement.getAttribute('data'));
+        console.log(JSON.parse(appElement.getAttribute('data')));
     }
 };
 </script>
