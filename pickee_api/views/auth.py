@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from rest_framework import permissions
 from rest_framework import viewsets
+from django.http import JsonResponse
 
 from pickee_api.serializers import UserSerializer
 
@@ -26,7 +27,10 @@ def user_login(request):
                 return HttpResponse("Your account is disabled.")
         else:
             print(f"Invalid login details: {username}, {password}")
-            return HttpResponse("Invalid login details supplied.")
+            data = {
+                'name': 'Yo Anton'
+            }
+            return JsonResponse(data)
     else:
         return render(request, 'login.html')
 
