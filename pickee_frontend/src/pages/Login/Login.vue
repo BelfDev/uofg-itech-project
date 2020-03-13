@@ -3,7 +3,7 @@
         <div class="page-wrapper">
             <PageHeader />
             <v-content class="page-content">
-                <LoginBox :formUrl="formUrl" />
+                <LoginBox :actionUrl="actionUrl" :data="data" />
             </v-content>
         </div>
     </v-app>
@@ -17,17 +17,19 @@ export default {
     name: "Login",
     data: function() {
         return {
-            formUrl: ''
+            actionUrl: '',
+            data: {}
         };
     },
     methods: {},
     components: { PageHeader, LoginBox },
     beforeMount() {
         const appElement = document.getElementsByTagName('app')[0];
-        this.formUrl = appElement.getAttribute('formUrl');
-        console.log(appElement.getAttribute('something'));
-        console.log(appElement.getAttribute('data'));
-        console.log(JSON.parse(appElement.getAttribute('data')));
+        this.actionUrl = appElement.getAttribute('actionUrl');
+        const data = appElement.getAttribute('data');
+        if (data) {
+            this.data = JSON.parse(data);
+        }
     }
 };
 </script>

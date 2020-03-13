@@ -6,7 +6,7 @@
 
     <div id="login">
         {% csrf_token %}
-        <app formUrl="{% url 'login' %}" data="{{ loginFeedback }}"></app>
+        <app actionUrl="{% url 'login' %}" data="{{ loginFeedback }}"></app>
     </div>
 
     {% render_bundle 'chunk-vendors' %}

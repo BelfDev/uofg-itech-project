@@ -7,7 +7,7 @@ export default {
             token: this.$cookies.get("csrftoken")
         }
     },
-    props: ['formUrl'],
+    props: ['actionUrl', 'data'],
     components: {
         FormTextField
     }
