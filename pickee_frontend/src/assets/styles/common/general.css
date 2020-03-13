@@ -7,3 +7,18 @@ html,
     font-weight: var(--font-weight-body-3);
     line-height: var(--font-line-height-body-3);
 }
+
+.page-wrapper {
+    padding: 50px 40px;
+    min-height: 100%;
+}
+
+.page-content {
+    min-height: 100%;
+}
+
+.page-content .v-content__wrap {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+}

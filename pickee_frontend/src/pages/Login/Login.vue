@@ -1,24 +1,32 @@
 <template>
-    <div id="login">
-        <v-app>
-            <v-content>
-                <p>Login</p>
+    <v-app>
+        <div class="page-wrapper">
+            <PageHeader />
+            <v-content class="page-content">
+                <LoginBox :formUrl="formUrl" />
             </v-content>
-        </v-app>
-    </div>
+        </div>
+    </v-app>
 </template>
 
 <script>
-    export default {
-        name: "Login",
-        data: () => ({}),
-        methods: {},
-        components: {}
-    };
+import PageHeader from "@/components/PageHeader/PageHeader.vue";
+import LoginBox from "@/components/LoginBox/LoginBox.vue";
+
+export default {
+    name: "Login",
+    data: function() {
+        return {
+            formUrl: window.formOptions.url
+        };
+    },
+    methods: {},
+    components: { PageHeader, LoginBox }
+};
 </script>
 
 <style>
-    #login {
-        margin: 20px;
-    }
+#Login {
+    margin: 20px;
+}
 </style>

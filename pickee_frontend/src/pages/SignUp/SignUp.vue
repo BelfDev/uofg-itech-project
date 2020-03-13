@@ -1,24 +1,22 @@
 <template>
-    <div id="signup">
-        <v-app>
-            <v-content>
-                <p>Home</p>
+    <v-app>
+        <div class="page-wrapper">
+            <PageHeader />
+            <v-content class="page-content">
+                <SignUpBox />
             </v-content>
-        </v-app>
-    </div>
+        </div>
+    </v-app>
 </template>
 
 <script>
-    export default {
-        name: "signup",
-        data: () => ({}),
-        methods: {},
-        components: {}
-    };
-</script>
+import PageHeader from "@/components/PageHeader/PageHeader.vue";
+import SignUpBox from "@/components/SignUpBox/SignUpBox.vue";
 
-<style>
-    #signup {
-        margin: 20px;
-    }
-</style>
+export default {
+    name: "SignUp",
+    data: () => ({}),
+    methods: {},
+    components: { PageHeader, SignUpBox }
+};
+</script>
