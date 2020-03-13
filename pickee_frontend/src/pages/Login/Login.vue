@@ -17,10 +17,14 @@ export default {
     name: "Login",
     data: function() {
         return {
-            formUrl: window.formOptions.url
+            formUrl: ''
         };
     },
     methods: {},
-    components: { PageHeader, LoginBox }
+    components: { PageHeader, LoginBox },
+    beforeMount() {
+        const appElement = document.getElementsByTagName('app')[0];
+        this.formUrl = appElement.getAttribute('formUrl');
+    }
 };
 </script>
