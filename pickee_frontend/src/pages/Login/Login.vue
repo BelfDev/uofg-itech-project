@@ -24,9 +24,3 @@ export default {
     components: { PageHeader, LoginBox }
 };
 </script>
-
-<style>
-#Login {
-    margin: 20px;
-}
-</style>
