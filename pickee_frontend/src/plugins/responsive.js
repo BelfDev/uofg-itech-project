@@ -54,7 +54,6 @@ export default class {
      * Resize screen
      */
     runScreenResize() {
-        // If window size is larger than minimal size - change root font size
         this.switchBodyClasses();
         this.changeBaseFontSize();
     }
@@ -81,18 +80,9 @@ export default class {
             ? document.documentElement.clientWidth
             : Math.min(this.$window.innerWidth, baseWidth);
         
-        console.log(
-            this.$window.innerWidth,
-            document.documentElement.clientWidth,
-            targetWidth
-        );
-        
         const size = (targetWidth / baseWidth) * BASE_SIZE + 'px';
         
         return size;
-        // const targetWidth = this.getTargetWidth();
-
-        // return (targetWidth / BASE_WIDTH) * BASE_SIZE + "px"
     }
 
     /**
