@@ -1,25 +1,21 @@
 <template>
     <v-app>
-        <v-navigation-drawer> 
-            
-        </v-navigation-drawer>
-
-        <div class="page-wrapper profile-page">
+        <div class="profile-page">
+            <ProfileNavDrawer />
             <PageHeader />
         </div>
-      
     </v-app>
 </template>
 
 <script>
-import PageHeader from "@/components/PageHeader/PageHeader.vue";
+    import PageHeader from "@/components/PageHeader/PageHeader.vue";
+    import ProfileNavDrawer from "@/components/ProfileNavDrawer/ProfileNavDrawer.vue";
 
-export default {
-    name: "ProfileMain",
-    data: function() {
-        return {};
-    },
-
-    components: { PageHeader }
-};
+    export default {
+        name: "ProfileMain",
+        data: function() {
+            return {};
+        },
+        components: { PageHeader, ProfileNavDrawer }
+    };
 </script>

@@ -1,0 +1,10 @@
+.profile-page {
+    min-height: 100%;
+}
+
+.profile-page .page-header {
+    position: absolute;
+    top: 50px;
+    right: 40px;
+}
+
