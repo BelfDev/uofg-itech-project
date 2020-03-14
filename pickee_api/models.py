@@ -4,6 +4,9 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=300, unique=True, blank=False)
+    first_name = models.CharField(max_length=36, blank=False)
+    last_name = models.CharField(max_length=36, blank=False)
 
     picture = models.ImageField(upload_to='profile_images', blank=True)
     avatar = models.CharField(max_length=500)
@@ -28,6 +31,7 @@ class FavoriteActor(models.Model):
         return self.actor.name
 
 class Actor(models.Model):
+    person_id = models.IntegerField()
     name = models.CharField(max_length=128)
     picture = models.ImageField()
 
@@ -42,11 +46,12 @@ class FavoriteMovie(models.Model):
         return self.user + ": " + self.movie
 
 class Movie(models.Model):
+    movie_id = models.IntegerField()
     name = models.CharField(max_length=128)
     picture = models.ImageField()
     rating = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)])
     release_date = models.DateField(auto_now=False)
-    description = models.CharField(max_length=500)
+    description = models.TextField()
 
     def __str__(self):
         return self.name
@@ -66,6 +71,7 @@ class FavoriteGenre(models.Model):
         return self.genre.name
 
 class Genre(models.Model):
+    genre_id = models.IntegerField()
     name = models.CharField(max_length=128)
 
     def __str__(self):
