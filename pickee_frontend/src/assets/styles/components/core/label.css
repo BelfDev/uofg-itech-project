@@ -1,8 +1,8 @@
 .label-accented {
     display: inline-block;
     position: relative;
-    padding: 6px 0 7px 16px;
-    margin-bottom: 26px;
+    padding: .6rem 0 .7rem 1.6rem;
+    margin-bottom: 2.6rem;
     font-size: var(--font-size-body-1);
     font-weight: var(--font-weight-body-1);
     line-height: var(--font-line-height-body-1);
@@ -15,9 +15,9 @@
     left: 0;
     top: 0;
     bottom: 0;
-    width: 4px;
+    width: .4rem;
     background-color: var(--v-primary-base);
-    border-radius: 10px;
+    border-radius: 1rem;
 }
 
 .label {

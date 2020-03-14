@@ -8,8 +8,13 @@ html,
     line-height: var(--font-line-height-body-3);
 }
 
+body {
+    font-size: var(--font-size-body-3);
+    line-height: var(--font-line-height-body-3);
+}
+
 .page-wrapper {
-    padding: 50px 40px;
+    padding: 5rem 4rem;
     min-height: 100%;
 }
 

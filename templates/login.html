@@ -6,14 +6,8 @@
 
     <div id="login">
         {% csrf_token %}
-        <app></app>
+        <app actionUrl="{% url 'login' %}" signupUrl="{% url 'signup' %}" data="{{ loginFeedback }}"></app>
     </div>
-
-    <script>
-        window.formOptions = {
-            url: "{% url 'login' %}"
-        }
-    </script>
 
     {% render_bundle 'chunk-vendors' %}
     {% render_bundle 'Login' %}

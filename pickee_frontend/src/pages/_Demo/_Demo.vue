@@ -1,7 +1,10 @@
 <template>
     <v-app>
         <v-content>
-            <h1>Hello, <span class="heading1-accent">{{ user.name }}</span></h1>
+            <h1>Hello, 
+                <span v-if="user" class="heading1-accent">{{ user.name }}</span>
+                <span v-else class="heading1-accent">guest</span>
+            </h1>
             <h2>Heading 2</h2>
 
             <p>
@@ -40,7 +43,7 @@
 
                 <v-btn rounded x-large color="primary"
                     >Pick a movie for me
-                    <v-icon class="ml-5" size="56">{{
+                    <v-icon class="ml-5" size="5.6rem">{{
                         iconArrowRight
                     }}</v-icon></v-btn
                 >
@@ -128,7 +131,7 @@
             </div>
 
             <div>
-                <v-avatar size="100">
+                <v-avatar size="10rem">
                     <img
                         src="https://cdn.vuetifyjs.com/images/john.jpg"
                         alt="John"
@@ -165,9 +168,3 @@
         }
     };
 </script>
-
-<style>
-    #demo {
-        margin: 20px;
-    }
-</style>

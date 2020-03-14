@@ -12,17 +12,17 @@
     > .v-input__control
     > .v-input__slot,
 .v-text-field.v-text-field--enclosed .v-text-field__details {
-    padding: 0 24px 0 31px;
+    padding: 0 2.4rem 0 3.1rem;
 }
 
 .v-text-field.v-text-field--solo .v-input__control {
-    min-height: 100px;
+    min-height: 10rem;
 }
 
 .v-text-field fieldset,
 .v-text-field .v-input__control,
 .v-text-field .v-input__slot {
-    border-radius: 8px;
+    border-radius: .8rem;
 }
 
 .v-text-field input {

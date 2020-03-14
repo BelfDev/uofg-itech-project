@@ -7,9 +7,9 @@ from pickee_api.views import auth
 page_urls = [
     path("", TemplateView.as_view(template_name="index.html"), name="index"),
     path("vue_app_01/", TemplateView.as_view(template_name="vue_app_01.html"), name="vue_app_01"),
-    path("vue_app_02/", TemplateView.as_view(template_name="vue_app_02.html"), name="vue_app_02"),
     path("login/", auth.user_login, name='login'),
-    path("signup/", auth.user_signup, name='signup')
+    path("signup/", auth.user_signup, name='signup'),
+    path('logout/', auth.user_logout, name='logout'),
 ]
 
 urlpatterns = [

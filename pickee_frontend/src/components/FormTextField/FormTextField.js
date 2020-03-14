@@ -1,4 +1,4 @@
 export default {
     name: "FormTextField",
-    props: ['label', 'name']
+    props: ['label', 'name', 'type']
 }

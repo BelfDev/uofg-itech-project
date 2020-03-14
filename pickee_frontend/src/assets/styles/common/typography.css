@@ -4,33 +4,33 @@
 
     /* Headings */
 
-    --font-size-heading1: 120px;
-    --font-line-height-heading1: 146px;
+    --font-size-heading1: 12rem;
+    --font-line-height-heading1: 14.6rem;
     --font-weight-heading1: 300;
-    --font-size-heading1-accent: 130px;
-    --font-line-height-heading1-accent: 159px;
+    --font-size-heading1-accent: 13rem;
+    --font-line-height-heading1-accent: 15.9rem;
     --font-weight-heading1-accent: 600;
 
-    --font-size-heading2: 64px;
-    --font-line-height-heading2: 78px;
+    --font-size-heading2: 6.4rem;
+    --font-line-height-heading2: 7.8rem;
     --font-weight-heading2: 600;
 
     /* Body text */
 
-    --font-size-body-1: 32px;
-    --font-line-height-body-1: 39px;
+    --font-size-body-1: 3.2rem;
+    --font-line-height-body-1: 3.9rem;
     --font-weight-body-1: 400;
 
-    --font-size-body-2: 28px;
-    --font-line-height-body-2: 34px;
+    --font-size-body-2: 2.8rem;
+    --font-line-height-body-2: 3.4rem;
     --font-weight-body-2: 400;
 
-    --font-size-body-3: 24px;
-    --font-line-height-body-3: 29px;
+    --font-size-body-3: 2.4rem;
+    --font-line-height-body-3: 2.9rem;
     --font-weight-body-3: 300;
 
-    --font-size-body-4: 18px;
-    --font-line-height-body-4: 22px;
+    --font-size-body-4: 1.8rem;
+    --font-line-height-body-4: 2.2rem;
     --font-weight-body-4: 600;
 }
 
