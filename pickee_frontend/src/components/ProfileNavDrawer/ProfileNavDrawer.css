@@ -1,0 +1,30 @@
+.nav-drawer {
+    padding: 1.7rem
+}
+
+.nav-drawer__logo {
+    padding: 5rem 2.3rem;
+    border-bottom: 0.1rem solid var(--v-grey400-base);
+    margin-bottom: 2.5rem;
+}
+
+.v-application a.nav-drawer-links__item {
+    display: block;
+    text-decoration: none;
+    color: var(--v-grey100-base);
+    font-size: var(--font-size-body-2);
+    line-height: var(--font-line-height-body-2);
+    margin-bottom: 3rem;
+    padding-left: 0.8rem;
+}
+
+.v-application a.nav-drawer-links__item--active {
+    font-weight: 600;
+}
+
+.nav-drawer__logout-btn {
+    position: absolute;
+    bottom: 5.6rem;
+    left: 6.8rem;
+    right: 6.8rem;
+}
