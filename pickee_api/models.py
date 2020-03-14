@@ -43,6 +43,7 @@ class FavoriteMovie(models.Model):
         return self.user + ": " + self.movie
 
 class Movie(models.Model):
+    movie_id = models.IntegerField()
     name = models.CharField(max_length=128)
     picture = models.ImageField()
     rating = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)])
