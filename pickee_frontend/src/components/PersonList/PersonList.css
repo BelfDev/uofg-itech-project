@@ -1,0 +1,7 @@
+.person-list .person {
+    margin-bottom: 46px;
+}
+
+.person-list .person:last-child {
+    margin-bottom: 0;
+}
