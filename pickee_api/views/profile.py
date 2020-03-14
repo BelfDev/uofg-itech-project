@@ -17,27 +17,27 @@ class ActorViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.ActorSerializer
 
 
-class FavoriteMovie(viewsets.ModelViewSet):
+class FavoriteMovieViewSet(viewsets.ModelViewSet):
     queryset = models.FavoriteMovie.objects.all()
     serializer_class = serializers.FavoriteMovieSerializer
 
 
-class Movie(viewsets.ModelViewSet):
+class MovieViewSet(viewsets.ModelViewSet):
     queryset = models.Movie.objects.all()
     serializer_class = serializers.MovieSerializer
 
 
-class MovieCast(viewsets.ModelViewSet):
+class MovieCastViewSet(viewsets.ModelViewSet):
     queryset = models.MovieCast.objects.all()
     serializer_class = serializers.MovieCastSerializer
 
 
-class FavoriteGenre(viewsets.ModelViewSet):
+class FavoriteGenreViewSet(viewsets.ModelViewSet):
     queryset = models.FavoriteGenre.objects.all()
     serializer_class = serializers.FavoriteGenreSerializer
 
 
-class Genre(viewsets.ModelViewSet):
+class GenreViewSet(viewsets.ModelViewSet):
     queryset = models.Genre.objects.all()
     serializer_class = serializers.GenreSerializer
 
