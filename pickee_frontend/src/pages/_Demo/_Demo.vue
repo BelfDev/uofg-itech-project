@@ -1,7 +1,10 @@
 <template>
     <v-app>
         <v-content>
-            <h1>Hello, <span class="heading1-accent">{{ user.name }}</span></h1>
+            <h1>Hello, 
+                <span v-if="user" class="heading1-accent">{{ user.name }}</span>
+                <span v-else class="heading1-accent">guest</span>
+            </h1>
             <h2>Heading 2</h2>
 
             <p>
