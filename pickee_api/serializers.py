@@ -25,7 +25,7 @@ class FavoriteActorSerializer(serializers.ModelSerializer):
 class ActorSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Actor
-        fields = ['person_id', 'name', 'picture']
+        fields = ['person_id', 'name', 'image_url']
 
 
 class FavoriteMovieSerializer(serializers.ModelSerializer):
@@ -35,7 +35,7 @@ class FavoriteMovieSerializer(serializers.ModelSerializer):
 
 class MovieSerializer(serializers.ModelSerializer):
     model = models.Movie
-    fields = ['movie_id', 'name', 'picture', 'rating', 'release_date', 'description']
+    fields = ['movie_id', 'name', 'image_url', 'rating', 'release_date', 'description']
 
 
 class MovieCastSerializer(serializers.ModelSerializer):
