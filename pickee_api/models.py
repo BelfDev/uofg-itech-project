@@ -50,7 +50,7 @@ class Movie(models.Model):
     picture = models.ImageField()
     rating = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)])
     release_date = models.DateField(auto_now=False)
-    description = models.CharField(max_length=500)
+    description = models.TextField()
 
     def __str__(self):
         return self.name
