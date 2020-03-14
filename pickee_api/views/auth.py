@@ -48,15 +48,22 @@ def user_signup(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             return redirect('index')
-    else:
-        form = UserCreationForm()
-        context = {'signupFeedback': form.error_messages}
-        return render(request, 'signup.html', context=context)
+        else:
+            errorMsgs = {}
+            for field in form:
+                errorMsgs[str(field.label)] = field.errors
+
+            signupFeedback = json.dumps({
+                'errors': errorMsgs
+            })
+            context = {'signupFeedback': signupFeedback}
+            return render(request, 'signup.html', context=context)
     return render(request, 'signup.html')
 
 
 def user_logout(request):
     logout(request)
+    return redirect('index')
 
 
 # Temporary serializer example
