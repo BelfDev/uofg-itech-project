@@ -16,9 +16,3 @@
         components: {}
     };
 </script>
-
-<style>
-    #about {
-        margin: 20px;
-    }
-</style>
