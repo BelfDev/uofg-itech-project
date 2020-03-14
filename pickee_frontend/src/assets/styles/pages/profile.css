@@ -1,5 +1,6 @@
 .profile-page {
     min-height: 100%;
+    display: flex;
 }
 
 .profile-page .page-header {
@@ -8,3 +9,10 @@
     right: 40px;
 }
 
+.profile-page-main {
+    flex: 1 1 auto;
+}
+
+.profile-page-content .v-content__wrap {
+    padding: 19.2rem 25.6rem;
+}
