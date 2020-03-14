@@ -67,6 +67,7 @@ class FavoriteGenre(models.Model):
         return self.genre.name
 
 class Genre(models.Model):
+    genre_id = models.IntegerField()
     name = models.CharField(max_length=128)
 
     def __str__(self):
