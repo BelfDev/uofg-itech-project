@@ -34,7 +34,7 @@ class FavoriteActor(models.Model):
 
 
 class Actor(models.Model):
-    person_id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=128)
     image_url = models.URLField(blank=True, null=True)
 
@@ -51,7 +51,7 @@ class FavoriteMovie(models.Model):
 
 
 class Movie(models.Model):
-    movie_id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=128)
     image_url = models.URLField(blank=True, null=True)
     rating = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)])
@@ -79,7 +79,7 @@ class FavoriteGenre(models.Model):
 
 
 class Genre(models.Model):
-    genre_id = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=128)
 
     def __str__(self):

@@ -23,41 +23,55 @@ class FavoriteActorSerializer(serializers.ModelSerializer):
 
 
 class ActorSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField()
+
     class Meta:
         model = models.Actor
-        fields = ['person_id', 'name', 'image_url']
+        fields = ['id', 'name', 'image_url']
 
 
 class FavoriteMovieSerializer(serializers.ModelSerializer):
-    model = models.FavoriteMovie
-    fields = ['user', 'movie']
+    class Meta:
+        model = models.FavoriteMovie
+        fields = ['user', 'movie']
 
 
 class MovieSerializer(serializers.ModelSerializer):
-    model = models.Movie
-    fields = ['movie_id', 'name', 'image_url', 'rating', 'release_date', 'description']
+    id = serializers.IntegerField()
+
+    class Meta:
+        model = models.Movie
+        fields = ['id', 'name', 'image_url', 'rating', 'release_date', 'description']
 
 
 class MovieCastSerializer(serializers.ModelSerializer):
-    model = models.MovieCast
-    fields = ['movie', 'actor']
+    class Meta:
+        model = models.MovieCast
+        fields = ['movie', 'actor']
 
 
 class FavoriteGenreSerializer(serializers.ModelSerializer):
-    model = models.FavoriteGenre
-    fields = ['user', 'genre']
+    class Meta:
+        model = models.FavoriteGenre
+        fields = ['user', 'genre']
 
 
 class GenreSerializer(serializers.ModelSerializer):
-    model = models.Genre
-    fields = ['genre_id', 'name']
+    id = serializers.IntegerField()
+
+    class Meta:
+        model = models.Genre
+        fields = ['id', 'name']
 
 
 class RecommendationSerializer(serializers.ModelSerializer):
-    model = models.Recommendation
-    fields = ['movie', 'session', 'user_choice']
+    class Meta:
+        model = models.Recommendation
+        fields = ['movie', 'session', 'user_choice']
 
 
 class SessionSerializer(serializers.ModelSerializer):
-    model = models.Session
-    fields = ['users']
+    class Meta:
+        model = models.Session
+        fields = ['users']
+
