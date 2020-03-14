@@ -12,7 +12,7 @@ page_urls = [
     path("signup/", auth.user_signup, name='signup'),
     path("profile/", TemplateView.as_view(template_name="profile_main.html"), name='profle_main'),
     path("preferences/", TemplateView.as_view(template_name="profile_preferences.html"), name='profile_preferences'),
-    path("history/", TemplateView.as_view(template_name="profile_history"), name='profile_history')
+    path("history/", TemplateView.as_view(template_name="profile_history.html"), name='profile_history')
 ]
 
 urlpatterns = [
