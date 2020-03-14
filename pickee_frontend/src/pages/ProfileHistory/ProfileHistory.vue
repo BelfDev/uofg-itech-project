@@ -1,14 +1,15 @@
-import Vue from "vue";
-import App from "./App.vue";
+<template>
+    <v-app>
+      
+    </v-app>
+</template>
 
-import vuetify from "@/plugins/vuetify/vuetify";
+<script>
 
-import "@/assets/styles/app.css";
-import "@/assets/styles/pages/about.css";
-
-Vue.config.productionTip = false;
-
-new Vue({
-    vuetify,
-    render: h => h(App)
-}).$mount("#about");
+export default {
+    name: "ProfileHistory",
+    data: function() {
+        return {};
+    },
+};
+</script>

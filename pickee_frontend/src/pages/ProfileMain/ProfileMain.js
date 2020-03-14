@@ -14,4 +14,4 @@ Vue.config.productionTip = false;
 new Vue({
     vuetify,
     render: h => h(ProfileMain)
-}).$mount("#profile");
+}).$mount("#profile-main");

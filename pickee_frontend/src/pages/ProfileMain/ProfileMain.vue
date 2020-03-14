@@ -1,14 +1,25 @@
-import Vue from "vue";
-import App from "./App.vue";
+<template>
+    <v-app>
+        <v-navigation-drawer> 
+            
+        </v-navigation-drawer>
 
-import vuetify from "@/plugins/vuetify/vuetify";
+        <div class="page-wrapper profile-page">
+            <PageHeader />
+        </div>
+      
+    </v-app>
+</template>
 
-import "@/assets/styles/app.css";
-import "@/assets/styles/pages/about.css";
+<script>
+import PageHeader from "@/components/PageHeader/PageHeader.vue";
 
-Vue.config.productionTip = false;
+export default {
+    name: "ProfileMain",
+    data: function() {
+        return {};
+    },
 
-new Vue({
-    vuetify,
-    render: h => h(App)
-}).$mount("#about");
+    components: { PageHeader }
+};
+</script>
