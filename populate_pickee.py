@@ -68,6 +68,14 @@ movies = [
 ]
 
 movie_casts = [
+    {}
+]
+
+favorite_genres = [
+    {}
+]
+
+genres = [
     {'genre_id':28,'name':'Action'},
     {'genre_id':12,'name':'Adventure'},
     {'genre_id':16,'name':'Animation'},
@@ -87,14 +95,6 @@ movie_casts = [
     {'genre_id':53,'name':'Thriller'},
     {'genre_id':10752,'name':'War'},
     {'genre_id':37,'name':'Western'}
-]
-
-favorite_genres = [
-    {}
-]
-
-genres = [
-    {}
 ]
 
 recommendations = [
