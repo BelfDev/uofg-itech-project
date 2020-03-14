@@ -28,6 +28,7 @@ class FavoriteActor(models.Model):
         return self.actor.name
 
 class Actor(models.Model):
+    person_id = models.IntegerField()
     name = models.CharField(max_length=128)
     picture = models.ImageField()
 
