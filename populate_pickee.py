@@ -41,7 +41,13 @@ actors = [
 ]
 
 favorite_movies = [
-    {}
+    {'username':'rhys','movie_id':301528},
+    {'username':'pedro','movie_id':10184},
+    {'username':'pedro','movie_id':102651},
+    {'username':'nathan','movie_id':10184},
+    {'username':'anton','movie_id':26205},
+    {'username':'anton','movie_id':278},
+    {'username':'anton','movie_id':284053},
 ]
 
 movies = [
@@ -148,5 +154,9 @@ def add_genre(genre_id,name):
                                         name=name)
 
 def add_favorite_actor(username,actor_id):
-    favorite_actor = FavoriteActor.objects.get_or_create(user=UserProfile.objects.get(username=username),
+    favorite_actor = FavoriteActor.objects.get_or_create(user=User.objects.get(username=username),
                                                         actor=Actor.objects.get(person_id=actor_id))
+
+def add_favorite_movie(username,movie_id):
+    favorite_movie = FavoriteMovie.objects.get_or_create(user=User.objects.get(username=username),
+                                                        movie=Movie.objects.get(movie_id=movie_id))
