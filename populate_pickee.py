@@ -106,6 +106,18 @@ sessions = [
 ]
 
 def add_actor(person_id, name, picture):
-    a, created = Actor.objects.get_or_create(person_id=person_id,
-                                            name=name,
-                                            picture=picture)
+    actor = Actor.objects.get_or_create(person_id=person_id,
+                                        name=name,
+                                        picture=picture)
+
+def add_movie(movie_id,name,picture,rating,release_date,description):
+    movie = Movie.objects.get_or_create(movie_id=movie_id,
+                                        name=name,
+                                        picture=picture,
+                                        rating=rating,
+                                        release_date=release_date,
+                                        description=description)
+
+def add_genre(genre_id,name):
+    genre = Genre.objects.get_or_create(genre_id=genre_id,
+                                        name=name)
