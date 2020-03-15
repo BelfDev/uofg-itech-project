@@ -1,13 +1,34 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
 from pickee_api import models
+from pickee_api.forms import PickeeUserCreationForm, PickeeUserChangeForm
+from pickee_api.models import PickeeUser
 
 
-@admin.register(models.UserProfile)
-class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['id', 'email', 'first_name']
-    list_editable = ['email', 'first_name']
-    ordering = ['id']
+# Custom admin for the PickeeUser
+@admin.register(models.PickeeUser)
+class CustomUserAdmin(UserAdmin):
+    add_form = PickeeUserCreationForm
+    form = PickeeUserChangeForm
+    model = PickeeUser
+    list_display = ('id', 'email', 'first_name')
+    list_filter = ('email', 'is_staff', 'is_active',)
+    fieldsets = (
+        (None,
+         {'fields': ('email', 'password', 'first_name', 'last_name', 'picture', 'gender', 'age', 'associated_users')}),
+        ('Permissions', {'fields': ('is_staff', 'is_active')}),
+    )
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': (
+                'email', 'password1', 'password2', 'is_staff', 'is_active', 'first_name', 'last_name', 'picture',
+                'gender', 'age', 'associated_users')}
+         ),
+    )
+    search_fields = ('email',)
+    ordering = ('email',)
 
 
 @admin.register(models.FavoriteGenre)

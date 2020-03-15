@@ -21,9 +21,12 @@ STATIC_DIR = os.path.join(PROJECT_DIR, 'static')
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
+<<<<<<< HEAD
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 
+=======
+>>>>>>> 8e306a3797b7d0ffcb673bade7b82097024ebc8d
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -34,7 +37,6 @@ SECRET_KEY = 'g(c-@a@knp%bqc(g&kz8c1+%nupy549vfic&m0(=xgangbb2a%'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -47,7 +49,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pickee_api.apps.PickeeApiConfig',
     'webpack_loader',
-    'rest_framework'
+    'rest_framework',
+    'admin_reorder'
 ]
 
 # REST framework
@@ -83,7 +86,28 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'admin_reorder.middleware.ModelAdminReorder',
 ]
+
+# Admin
+ADMIN_REORDER = (
+    # Reorder app models
+    {'app': 'auth', 'models': ('pickee_api.PickeeUser', 'auth.Group')},
+
+    # Reorder app models
+    {'app': 'pickee_api', 'label': 'api', 'models': (
+        'pickee_api.UserProfile',
+        'pickee_api.FavoriteActor',
+        'pickee_api.Actor',
+        'pickee_api.FavoriteMovie',
+        'pickee_api.Movie',
+        'pickee_api.MovieCast',
+        'pickee_api.FavoriteGenre',
+        'pickee_api.Genre',
+        'pickee_api.Recommendation',
+        'pickee_api.Session',
+    )},
+)
 
 ROOT_URLCONF = 'pickee_project.urls'
 
@@ -105,7 +129,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'pickee_project.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -139,7 +162,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -152,7 +174,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
