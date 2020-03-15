@@ -4,8 +4,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
-
 # Temporary renders login.html
+from pickee_api.forms import PickeeUserCreationForm
+
+
 def user_login(request):
     if request.method == 'POST':
         # Retrieves username and password
@@ -33,12 +35,13 @@ def user_login(request):
 # Temporary renders signup.html
 def user_signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = PickeeUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate(username=username, password=password)
+            email = form.cleaned_data['email']
+            password1 = form.cleaned_data['password1']
+            password2 = form.cleaned_data['password2']
+            user = authenticate(email=email, password1=password1, password2=password2)
             login(request, user)
             return redirect('index')
         else:
