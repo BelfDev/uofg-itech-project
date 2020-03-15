@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pickee_api',
+    'pickee_api.apps.PickeeApiConfig',
     'webpack_loader',
     'rest_framework'
 ]

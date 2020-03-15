@@ -1,12 +1,10 @@
 import json
 
-from django.contrib.auth import authenticate, login
-from django.contrib.auth import logout
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from rest_framework import permissions
-from rest_framework import viewsets
+from rest_framework import permissions, viewsets
 
 from pickee_api.serializers import UserSerializer
 
