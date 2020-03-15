@@ -64,9 +64,9 @@ def user_logout(request):
     return redirect('index')
 
 
-# Temporary serializer example
-# TODO: remove this after creating other API views
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+# # Temporary serializer example
+# # TODO: remove this after creating other API views
+# class UserViewSet(viewsets.ModelViewSet):
+#     queryset = User.objects.all().order_by('-date_joined')
+#     serializer_class = UserSerializer
+#     permission_classes = [permissions.IsAuthenticated]

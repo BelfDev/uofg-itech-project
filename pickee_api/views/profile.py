@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from pickee_api import models, serializers
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
@@ -16,6 +16,7 @@ class FavoriteActorViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
 class ActorViewSet(viewsets.ModelViewSet):
     queryset = models.Actor.objects.all()
     serializer_class = serializers.ActorSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class FavoriteMovieViewSet(NestedViewSetMixin, viewsets.ModelViewSet):

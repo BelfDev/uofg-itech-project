@@ -114,6 +114,9 @@ DATABASES = {
     }
 }
 
+# Auth
+
+AUTH_USER_MODEL = 'pickee_api.PickeeUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

@@ -1,10 +1,31 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import PermissionsMixin
+from django.utils import timezone
+from django.utils.translation import gettext_lazy as _
+
+from pickee_api.managers import PickeeUserManager
+
+
+class PickeeUser(AbstractBaseUser, PermissionsMixin):
+    email = models.EmailField(_('email address'), unique=True)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    date_joined = models.DateTimeField(default=timezone.now)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+
+    objects = PickeeUserManager()
+
+    def __str__(self):
+        return self.email
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(PickeeUser, on_delete=models.CASCADE)
     email = models.EmailField(max_length=300, unique=True, blank=False)
     first_name = models.CharField(max_length=36, blank=False)
     last_name = models.CharField(max_length=36, blank=False)
@@ -54,7 +75,8 @@ class Movie(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=128)
     image_url = models.URLField(blank=True, null=True)
-    rating = models.DecimalField(max_digits=2, decimal_places=1, validators=[MaxValueValidator(10.0), MinValueValidator(0)])
+    rating = models.DecimalField(max_digits=2, decimal_places=1,
+                                 validators=[MaxValueValidator(10.0), MinValueValidator(0)])
     release_date = models.DateField(auto_now=False)
     description = models.TextField()
 
