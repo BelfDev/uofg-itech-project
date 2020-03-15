@@ -6,6 +6,7 @@ from pickee_api.forms import PickeeUserCreationForm, PickeeUserChangeForm
 from pickee_api.models import PickeeUser
 
 
+# Custom admin for the PickeeUser
 @admin.register(models.PickeeUser)
 class CustomUserAdmin(UserAdmin):
     add_form = PickeeUserCreationForm
