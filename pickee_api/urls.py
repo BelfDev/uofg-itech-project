@@ -1,32 +1,46 @@
 from django.urls import include, path
 from rest_framework import routers
+from rest_framework_extensions.routers import NestedRouterMixin
 
-from pickee_api.views import auth, profile, recommendation
+from pickee_api import api
 
 app_name = 'pickee_api'
 
-# Routers provide an easy way of automatically determining the URL conf.
+
+class DefaultNestedRouter(NestedRouterMixin, routers.DefaultRouter):
+    pass
+
+
+# Routers automatically determine the URL conf.
 # - Main Router ('api/$')
-rootRouter = routers.DefaultRouter()
-rootRouter.register(r'users', auth.UserViewSet)
-rootRouter.register(r'profiles', profile.UserProfileViewSet)
-rootRouter.register(r'actors', profile.ActorViewSet)
-rootRouter.register(r'movies', profile.MovieViewSet)
-rootRouter.register(r'movie-cast', profile.MovieCastViewSet)
-rootRouter.register(r'genres', profile.GenreViewSet)
-rootRouter.register(r'recommendations', recommendation.RecommendationViewSet)
-rootRouter.register(r'sessions', recommendation.SessionViewSet)
+rootRouter = DefaultNestedRouter()
+userRouter = rootRouter.register(r'users', api.PickeeUserViewSet)
+rootRouter.register(r'actors', api.ActorViewSet)
+rootRouter.register(r'movies', api.MovieViewSet)
+rootRouter.register(r'movie-cast', api.MovieCastViewSet)
+rootRouter.register(r'genres', api.GenreViewSet)
+rootRouter.register(r'recommendations', api.RecommendationViewSet)
+rootRouter.register(r'sessions', api.SessionViewSet)
 
-# TODO: Finish the nested routes
 # - Profile Router ('api/profile/$')
-# profileRouter = routers.DefaultRouter()
-# profileRouter.register(r'favorite-actors', profile.FavoriteActorViewSet)
-# profileRouter.register(r'favorite-genres', profile.FavoriteGenreViewSet)
+userRouter.register(r'favorite-actors',
+                    api.FavoriteActorViewSet,
+                    basename='favorite-actors',
+                    parents_query_lookups=['user'])
 
-# Wire up our API using automatic URL routing.
+userRouter.register(r'favorite-movies',
+                    api.FavoriteMovieViewSet,
+                    basename='favorite-movies',
+                    parents_query_lookups=['user'])
+
+userRouter.register(r'favorite-genres',
+                    api.FavoriteGenreViewSet,
+                    basename='favorite-genres',
+                    parents_query_lookups=['user'])
+
+# Register URLs
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(rootRouter.urls)),
-    # path('profiles/<int:pk>/', include(profileRouter.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

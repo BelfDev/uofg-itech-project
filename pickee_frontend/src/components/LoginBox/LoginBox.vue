@@ -4,7 +4,7 @@
         <template v-if="data.error">{{ data.error }}</template>
         <form id="login_form" method="post" :action="actionUrl">
             <input type="hidden" name="csrfmiddlewaretoken" :value="token">
-            <FormTextField type="text" label="Username" name="username" />
+            <FormTextField type="text" label="Email" name="email" />
             <FormTextField type="password" label="Password" name="password" />
             <v-btn class="auth-box__submit" type="submit" color="primary">Login</v-btn>
         </form>

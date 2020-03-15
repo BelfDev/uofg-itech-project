@@ -15,12 +15,13 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-PROJECT_DIR = os.path.join(BASE_DIR, 'pickee_project');
+PROJECT_DIR = os.path.join(BASE_DIR, 'pickee_project')
 
 STATIC_DIR = os.path.join(PROJECT_DIR, 'static')
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -33,7 +34,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pickee_api.apps.PickeeApiConfig',
     'webpack_loader',
-    'rest_framework'
+    'rest_framework',
+    'admin_reorder'
 ]
 
 # REST framework
@@ -81,7 +82,28 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'admin_reorder.middleware.ModelAdminReorder',
 ]
+
+# Admin
+ADMIN_REORDER = (
+    # Reorder app models
+    {'app': 'auth', 'models': ('pickee_api.PickeeUser', 'auth.Group')},
+
+    # Reorder app models
+    {'app': 'pickee_api', 'label': 'api', 'models': (
+        'pickee_api.UserProfile',
+        'pickee_api.FavoriteActor',
+        'pickee_api.Actor',
+        'pickee_api.FavoriteMovie',
+        'pickee_api.Movie',
+        'pickee_api.MovieCast',
+        'pickee_api.FavoriteGenre',
+        'pickee_api.Genre',
+        'pickee_api.Recommendation',
+        'pickee_api.Session',
+    )},
+)
 
 ROOT_URLCONF = 'pickee_project.urls'
 
@@ -96,13 +118,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'pickee_project.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -114,6 +136,9 @@ DATABASES = {
     }
 }
 
+# Auth
+
+AUTH_USER_MODEL = 'pickee_api.PickeeUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -133,7 +158,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -147,10 +171,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATICFILES_DIRS = [STATIC_DIR, ]
-
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
