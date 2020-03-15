@@ -28,17 +28,17 @@ profileRouter = rootRouter.register(r'profiles', profile.UserProfileViewSet)
 profileRouter.register(r'favorite-actors',
                        profile.FavoriteActorViewSet,
                        basename='favorite-actors',
-                       parents_query_lookups=['id'])
+                       parents_query_lookups=['user'])
 
 profileRouter.register(r'favorite-movies',
                        profile.FavoriteMovieViewSet,
                        basename='favorite-movies',
-                       parents_query_lookups=['id'])
+                       parents_query_lookups=['user'])
 
 profileRouter.register(r'favorite-genres',
                        profile.FavoriteGenreViewSet,
                        basename='favorite-genres',
-                       parents_query_lookups=['id'])
+                       parents_query_lookups=['user'])
 
 # Register URLs
 # Additionally, we include login URLs for the browsable API.

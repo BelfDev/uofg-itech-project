@@ -22,7 +22,7 @@ class UserProfile(models.Model):
     associated_users = models.ManyToManyField('self', blank=True)
 
     def __str__(self):
-        return self.user.first_name + " " + self.user.last_name
+        return str(self.user.username)
 
 
 class FavoriteActor(models.Model):
@@ -71,7 +71,7 @@ class MovieCast(models.Model):
 
 
 class FavoriteGenre(models.Model):
-    user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
+    user = models.ForeignKey('UserProfile', on_delete=models.CASCADE, default=None)
     genre = models.ForeignKey('Genre', on_delete=models.CASCADE)
 
     def __str__(self):

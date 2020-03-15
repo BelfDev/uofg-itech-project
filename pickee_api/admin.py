@@ -10,6 +10,11 @@ class UserProfileAdmin(admin.ModelAdmin):
     ordering = ['id']
 
 
+@admin.register(models.FavoriteGenre)
+class FavoriteGenreAdmin(admin.ModelAdmin):
+    list_display = ['user', 'genre']
+
+
 @admin.register(models.Session)
 class SessionAdmin(admin.ModelAdmin):
     list_display = ['id']
@@ -26,5 +31,4 @@ admin.site.register(models.Actor)
 admin.site.register(models.FavoriteMovie)
 admin.site.register(models.Movie)
 admin.site.register(models.MovieCast)
-admin.site.register(models.FavoriteGenre)
 admin.site.register(models.Genre)
