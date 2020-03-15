@@ -21,12 +21,9 @@ STATIC_DIR = os.path.join(PROJECT_DIR, 'static')
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
-<<<<<<< HEAD
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 
-=======
->>>>>>> 8e306a3797b7d0ffcb673bade7b82097024ebc8d
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
