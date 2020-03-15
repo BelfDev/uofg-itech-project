@@ -84,7 +84,25 @@ movies = [
     'decription':'''Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne 
         begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During 
         his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named 
-        Red -- for his integrity and unquenchable sense of hope.'''}
+        Red -- for his integrity and unquenchable sense of hope.'''},
+    {'movie_id':5255,'name':'The Polar Express','picture':None,'rating':66,'release_date':datetime.date(2004,11,10),
+    'decription':'''When a doubting young boy takes an extraordinary train ride to the North Pole, he embarks on a 
+        journey of self-discovery that shows him that the wonder of life never fades for those who believe.'''},
+    {'movie_id':32407,'name':'Malice In Wonderland','picture':None,'rating':57,'release_date':datetime.date(2009,1,1),
+    'decription':'''A modern take on the classic fairytale, Alice in Wonderland, set in South East England.An American 
+        law student in London. Knocked down by a black cab, she wakes with amnesia in a world that's a million miles 
+        from home - Wonderland. We follow her adventures as she's dragged through an underworld filled with twisted 
+        individuals and the lowest low-lifers, by the enigmatic cab driver, Whitey. She needs to find out who she is, 
+        where she's from and use what wits she has left to get back home in one piece. As her journey progresses she 
+        discovers nothing is what it seems, realizes that fate and life are terminally entwined, and finds true love 
+        lurking in the unlikeliest place.'''},
+    {'movie_id':8999,'name':'Derailed','picture':None,'rating':62,'release_date':datetime.date(2005,11,11),
+    'decription':'''When two married business executives having an affair are blackmailed by a violent 
+        criminal, they are forced to turn the tables on him to save their families.'''},
+    {'movie_id':393624,'name':'Official Secrets','picture':None,'rating':73,'release_date':datetime.date(2019,8,30),
+    'decription':'''The true story of British intelligence whistleblower Katharine Gun who—prior to the 2003 Iraq 
+        invasion—leaked a top-secret NSA memo exposing a joint US-UK illegal spying operation against members of 
+        the UN Security Council. The memo proposed blackmailing member states into voting for war.'''}
 ]
 
 movie_casts = [
@@ -131,14 +149,17 @@ genres = [
 ]
 
 recommendations = [
-    {}
+    {'movie_id':5255,'session_id':1,'user_choice':'ACCEPTED'},
+    {'movie_id':32407,'session_id':2,'user_choice':'ACCEPTED'},
+    {'movie_id':8999,'session_id':3,'user_choice':'REJECTED'},
+    {'movie_id':393624,'session_id':4,'user_choice':'BOOKMARKED'}
 ]
 
 sessions = [
     {'users':{'rhys','pedro'}},
     {'users':{'rhys','pedro','nathan','anton'}},
     {'users':{'nathan'}},
-    {'users':{'nathan','anton'}},
+    {'users':{'nathan','anton'}}
 ]
 
 def add_user(username,password,email,first_name,last_name,picture,avatar,gender,age,associated_users):
@@ -189,3 +210,8 @@ def add_session(users):
     session = Session.objects.create()
     for user in users:
         session.users.add(user=User.objects.get(username=user))
+
+def add_recommendation(movie_id,session_id,user_choice):
+    recommendation = Recommendation.objects.get_or_create(movie=Movie.objects.get(movie_id=movie_id),
+                                                        session=Session.objects.get(id=session_id),
+                                                        user_choice=user_choice)
