@@ -162,6 +162,39 @@ sessions = [
     {'users':{'nathan','anton'}}
 ]
 
+def populate():
+    for user in users:
+        add_user(user['username'],user['password'],user['email'],user['first_name'],user['last_name'],
+                    user['picture'],user['avatar'],user['gender'],user['age'],user['associated_users'])
+    
+    for actor in actors:
+        add_actor(actor['person_id'],actor['name'],actor['picture'])
+    
+    for movie in movies:
+        add_movie(movie['movie_id'],movie['name'],movie['picture'],movie['rating'],movie['release_date'],
+                    movie['description'])
+    
+    for genre in genres:
+        add_genre(genre['genre_id'],genre['name'])
+    
+    for actor in favorite_actors:
+        add_favorite_actor(actor['username']),actor['actor_id']
+    
+    for movie in favorite_movies:
+        add_favorite_movie(movie['username'],movie['movie_id'])
+    
+    for actor in movie_casts:
+        add_movie_cast(actor['movie_id'],actor['actor_id'])
+    
+    for genre in favorite_genres:
+        add_favorite_genre(genre['username'],genre['genre_id'])
+    
+    for session in sessions:
+        add_session(session['users'])
+    
+    for recommendation in recommendations:
+        add_recommendation(recommendation['movie_id'],recommendation['session_id'],recommendation['user_choice'])
+
 def add_user(username,password,email,first_name,last_name,picture,avatar,gender,age,associated_users):
     user = UserProfile.objects.get_or_create(user=User.objects.create_user(username,None,password),
                                             email=email,
@@ -215,3 +248,7 @@ def add_recommendation(movie_id,session_id,user_choice):
     recommendation = Recommendation.objects.get_or_create(movie=Movie.objects.get(movie_id=movie_id),
                                                         session=Session.objects.get(id=session_id),
                                                         user_choice=user_choice)
+
+if __name__=='__main__':
+    print('Starting Pickee population script...')
+    populate()
