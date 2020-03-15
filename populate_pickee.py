@@ -209,8 +209,7 @@ def add_user(username,password,email,first_name,last_name,picture,avatar,gender,
                                             picture=picture,
                                             avatar=avatar,
                                             gender=gender,
-                                            age=age,
-                                            associated_users=associated_users)
+                                            age=age)
 
 def add_actor(person_id, name, picture):
     actor = Actor.objects.get_or_create(person_id=person_id,
