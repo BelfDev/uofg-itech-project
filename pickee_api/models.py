@@ -19,7 +19,7 @@ class UserProfile(models.Model):
         ('UNSPECIFIED', 'Prefer not to say')]
     gender = models.CharField(max_length=18, choices=GENDER_CHOICES)
     age = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)])
-    associated_users = models.ManyToManyField('self')
+    associated_users = models.ManyToManyField('self', blank=True)
 
     def __str__(self):
         return self.user.first_name + " " + self.user.last_name
@@ -54,7 +54,7 @@ class Movie(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=128)
     image_url = models.URLField(blank=True, null=True)
-    rating = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)])
+    rating = models.DecimalField(max_digits=2, decimal_places=1, validators=[MaxValueValidator(10.0), MinValueValidator(0)])
     release_date = models.DateField(auto_now=False)
     description = models.TextField()
 
@@ -93,14 +93,14 @@ class Recommendation(models.Model):
         ('ACCEPTED', 'Accepted'),
         ('REJECTED', 'Rejected'),
         ('BOOKMARKED', 'Bookmarked')]
-    user_choice = models.CharField(max_length=10, choices=USER_CHOICES)
+    user_choice = models.CharField(max_length=10, choices=USER_CHOICES, blank=True, null=True)
 
     def __str__(self):
-        return self.movie
+        return str(self.id)
 
 
 class Session(models.Model):
-    users = models.ManyToManyField('UserProfile')
+    users = models.ManyToManyField(UserProfile)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
