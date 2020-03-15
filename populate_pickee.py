@@ -194,6 +194,12 @@ def populate():
     
     for recommendation in recommendations:
         add_recommendation(recommendation['movie_id'],recommendation['session_id'],recommendation['user_choice'])
+    
+    for user in UserProfile.objects.all():
+        for actor in Actor.objects.filter(user=user):
+            print(f'- {user}: {actor}')
+        for movie in Movie.objects.filter(user=user):
+            print(f'- {user}: {movie}')
 
 def add_user(username,password,email,first_name,last_name,picture,avatar,gender,age,associated_users):
     user = UserProfile.objects.get_or_create(user=User.objects.create_user(username,None,password),
