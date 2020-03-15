@@ -104,3 +104,8 @@ recommendations = [
 sessions = [
     {}
 ]
+
+def add_actor(person_id, name, picture):
+    a, created = Actor.objects.get_or_create(person_id=person_id,
+                                            name=name,
+                                            picture=picture)
