@@ -11,10 +11,10 @@ from pickee_api.forms import PickeeUserCreationForm
 def user_login(request):
     if request.method == 'POST':
         # Retrieves username and password
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
         # Authenticates the user
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, email=email, password=password)
 
         if user:
             if user.is_active:
