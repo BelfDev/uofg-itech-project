@@ -33,7 +33,7 @@ class MovieCastViewSet(viewsets.ModelViewSet):
 
 
 class FavoriteGenreViewSet(viewsets.ModelViewSet):
-    queryset = models.FavoriteGenre.objects.all
+    queryset = models.FavoriteGenre.objects.all()
     serializer_class = serializers.FavoriteGenreSerializer
 
 
