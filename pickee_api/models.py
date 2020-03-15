@@ -48,6 +48,9 @@ class FavoriteActor(models.Model):
     user = models.ForeignKey('PickeeUser', on_delete=models.CASCADE)
     actor = models.ForeignKey('Actor', on_delete=models.CASCADE)
 
+    class Meta:
+        unique_together = ('user', 'actor')
+
     def __str__(self):
         return self.actor.name
 
@@ -64,6 +67,9 @@ class Actor(models.Model):
 class FavoriteMovie(models.Model):
     user = models.ForeignKey('PickeeUser', on_delete=models.CASCADE)
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'movie')
 
     def __str__(self):
         return self.user + ": " + self.movie
@@ -93,6 +99,9 @@ class MovieCast(models.Model):
 class FavoriteGenre(models.Model):
     user = models.ForeignKey('PickeeUser', on_delete=models.CASCADE, default=None)
     genre = models.ForeignKey('Genre', on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'genre')
 
     def __str__(self):
         return self.genre.name

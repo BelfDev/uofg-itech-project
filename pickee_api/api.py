@@ -9,7 +9,7 @@ from pickee_api.serializers import PickeeUserSerializer
 class PickeeUserViewSet(viewsets.ModelViewSet):
     queryset = PickeeUser.objects.all().order_by('-date_joined')
     serializer_class = PickeeUserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class FavoriteActorViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
@@ -20,7 +20,7 @@ class FavoriteActorViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
 class ActorViewSet(viewsets.ModelViewSet):
     queryset = models.Actor.objects.all()
     serializer_class = serializers.ActorSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class FavoriteMovieViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
