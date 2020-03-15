@@ -2,11 +2,11 @@ import json
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from rest_framework import permissions, viewsets
 
-from pickee_api.serializers import UserSerializer
+from pickee_api.models import PickeeUser
+from pickee_api.serializers import PickeeUserSerializer
 
 
 # Temporary renders login.html
@@ -64,9 +64,9 @@ def user_logout(request):
     return redirect('index')
 
 
-# # Temporary serializer example
-# # TODO: remove this after creating other API views
-# class UserViewSet(viewsets.ModelViewSet):
-#     queryset = User.objects.all().order_by('-date_joined')
-#     serializer_class = UserSerializer
-#     permission_classes = [permissions.IsAuthenticated]
+# Temporary serializer example
+# TODO: remove this after creating other API views
+class PickeeUserViewSet(viewsets.ModelViewSet):
+    queryset = PickeeUser.objects.all().order_by('-date_joined')
+    serializer_class = PickeeUserSerializer
+    permission_classes = [permissions.IsAuthenticated]

@@ -1,6 +1,34 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
 from pickee_api import models
+from pickee_api.forms import PickeeUserCreationForm, PickeeUserChangeForm
+from pickee_api.models import PickeeUser
+
+
+@admin.register(models.PickeeUser)
+class CustomUserAdmin(UserAdmin):
+    add_form = PickeeUserCreationForm
+    form = PickeeUserChangeForm
+    model = PickeeUser
+    list_display = ('email', 'is_staff', 'is_active',)
+    list_filter = ('email', 'is_staff', 'is_active',)
+    fieldsets = (
+        (None, {'fields': ('email', 'password')}),
+        ('Permissions', {'fields': ('is_staff', 'is_active')}),
+    )
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'password1', 'password2', 'is_staff', 'is_active')}
+         ),
+    )
+    search_fields = ('email',)
+    ordering = ('email',)
+
+
+class RecommendationAdmin(admin.ModelAdmin):
+    list_display = ['id', 'email', 'date_joined']
 
 
 @admin.register(models.UserProfile)

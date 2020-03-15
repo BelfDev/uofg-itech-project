@@ -1,13 +1,12 @@
-from django.contrib.auth.models import User
 from rest_framework import serializers
 
 from . import models
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class PickeeUserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = User
-        fields = ['username', 'email', 'groups']
+        model = models.PickeeUser
+        fields = ['id', 'email', 'groups']
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
@@ -74,4 +73,3 @@ class SessionSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Session
         fields = ['users']
-

@@ -14,7 +14,7 @@ class DefaultNestedRouter(NestedRouterMixin, routers.DefaultRouter):
 # Routers automatically determine the URL conf.
 # - Main Router ('api/$')
 rootRouter = DefaultNestedRouter()
-# rootRouter.register(r'users', auth.UserViewSet)
+rootRouter.register(r'users', auth.PickeeUserViewSet)
 rootRouter.register(r'actors', profile.ActorViewSet)
 rootRouter.register(r'movies', profile.MovieViewSet)
 rootRouter.register(r'movie-cast', profile.MovieCastViewSet)
