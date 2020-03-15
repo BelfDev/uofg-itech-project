@@ -21,14 +21,14 @@ class PickeeUser(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=36, blank=True)
     last_name = models.CharField(max_length=36, blank=True)
     picture = models.ImageField(upload_to='profile_images', blank=True)
-    age = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)], null=True)
+    age = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)], blank=True, null=True)
 
     GENDER_CHOICES = [
         ('MALE', 'Male'),
         ('FEMALE', 'Female'),
         ('OTHER', 'Other'),
         ('UNSPECIFIED', 'Prefer not to say')]
-    gender = models.CharField(max_length=18, choices=GENDER_CHOICES, null=True)
+    gender = models.CharField(max_length=18, choices=GENDER_CHOICES, blank=True, null=True)
 
     associated_users = models.ManyToManyField('self', blank=True)
 
