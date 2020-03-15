@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from pickee_api import models, serializers
+from rest_framework_extensions.mixins import NestedViewSetMixin
 
 
 class UserProfileViewSet(viewsets.ModelViewSet):
@@ -7,7 +8,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.UserProfileSerializer
 
 
-class FavoriteActorViewSet(viewsets.ModelViewSet):
+class FavoriteActorViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = models.FavoriteActor.objects.all()
     serializer_class = serializers.FavoriteActorSerializer
 
@@ -17,7 +18,7 @@ class ActorViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.ActorSerializer
 
 
-class FavoriteMovieViewSet(viewsets.ModelViewSet):
+class FavoriteMovieViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = models.FavoriteMovie.objects.all()
     serializer_class = serializers.FavoriteMovieSerializer
 
@@ -32,7 +33,7 @@ class MovieCastViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.MovieCastSerializer
 
 
-class FavoriteGenreViewSet(viewsets.ModelViewSet):
+class FavoriteGenreViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = models.FavoriteGenre.objects.all()
     serializer_class = serializers.FavoriteGenreSerializer
 
