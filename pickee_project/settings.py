@@ -85,9 +85,6 @@ MIDDLEWARE = [
 
 # Admin
 ADMIN_REORDER = (
-    # Original label and models
-    'sites',
-
     # Reorder app models
     {'app': 'auth', 'models': ('pickee_api.PickeeUser', 'auth.Group')},
 
@@ -104,21 +101,6 @@ ADMIN_REORDER = (
         'pickee_api.Recommendation',
         'pickee_api.Session',
     )},
-
-    # Exclude models
-    {'app': 'api', 'models': ('pickee_api.PickeeUser',)},
-
-    # # Exclude models
-    # {'app': 'auth', 'models': ('auth.User', )},
-    #
-    # # Cross-linked models
-    # {'app': 'auth', 'models': ('auth.User', 'sites.Site')},
-    #
-    # # models with custom name
-    # {'app': 'auth', 'models': (
-    #     'auth.Group',
-    #     {'model': 'auth.User', 'label': 'Staff'},
-    # )},
 )
 
 ROOT_URLCONF = 'pickee_project.urls'
