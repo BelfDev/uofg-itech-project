@@ -1,11 +1,15 @@
 from rest_framework import viewsets, permissions
-from pickee_api import models, serializers
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
+from pickee_api import models, serializers
+from pickee_api.models import PickeeUser
+from pickee_api.serializers import PickeeUserSerializer
 
-class UserProfileViewSet(viewsets.ModelViewSet):
-    queryset = models.UserProfile.objects.all()
-    serializer_class = serializers.UserProfileSerializer
+
+class PickeeUserViewSet(viewsets.ModelViewSet):
+    queryset = PickeeUser.objects.all().order_by('-date_joined')
+    serializer_class = PickeeUserSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class FavoriteActorViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
@@ -43,3 +47,12 @@ class GenreViewSet(viewsets.ModelViewSet):
     queryset = models.Genre.objects.all()
     serializer_class = serializers.GenreSerializer
 
+
+class RecommendationViewSet(viewsets.ModelViewSet):
+    queryset = models.Recommendation.objects.all()
+    serializer_class = serializers.RecommendationSerializer
+
+
+class SessionViewSet(viewsets.ModelViewSet):
+    queryset = models.Session.objects.all()
+    serializer_class = serializers.SessionSerializer

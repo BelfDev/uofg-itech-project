@@ -3,10 +3,6 @@ import json
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from rest_framework import permissions, viewsets
-
-from pickee_api.models import PickeeUser
-from pickee_api.serializers import PickeeUserSerializer
 
 
 # Temporary renders login.html
@@ -35,7 +31,6 @@ def user_login(request):
 
 
 # Temporary renders signup.html
-# TODO: replace this by the SignUp Vue App
 def user_signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -62,11 +57,3 @@ def user_signup(request):
 def user_logout(request):
     logout(request)
     return redirect('index')
-
-
-# Temporary serializer example
-# TODO: remove this after creating other API views
-class PickeeUserViewSet(viewsets.ModelViewSet):
-    queryset = PickeeUser.objects.all().order_by('-date_joined')
-    serializer_class = PickeeUserSerializer
-    permission_classes = [permissions.IsAuthenticated]

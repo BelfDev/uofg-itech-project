@@ -1,8 +1,7 @@
-from django.db import models
-from django.contrib.auth.models import User
-from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
+from django.core.validators import MinValueValidator, MaxValueValidator
+from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
@@ -10,10 +9,28 @@ from pickee_api.managers import PickeeUserManager
 
 
 class PickeeUser(AbstractBaseUser, PermissionsMixin):
+    # Required field
     email = models.EmailField(_('email address'), unique=True)
+
+    # Pre-populated fields
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
+
+    # Optional fields (profile)
+    first_name = models.CharField(max_length=36, blank=True)
+    last_name = models.CharField(max_length=36, blank=True)
+    picture = models.ImageField(upload_to='profile_images', blank=True)
+    age = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)], null=True)
+
+    GENDER_CHOICES = [
+        ('MALE', 'Male'),
+        ('FEMALE', 'Female'),
+        ('OTHER', 'Other'),
+        ('UNSPECIFIED', 'Prefer not to say')]
+    gender = models.CharField(max_length=18, choices=GENDER_CHOICES, null=True)
+
+    associated_users = models.ManyToManyField('self', blank=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -27,30 +44,8 @@ class PickeeUser(AbstractBaseUser, PermissionsMixin):
         return self.email
 
 
-class UserProfile(models.Model):
-    user = models.OneToOneField(PickeeUser, on_delete=models.CASCADE)
-    email = models.EmailField(max_length=300, unique=True, blank=False)
-    first_name = models.CharField(max_length=36, blank=False)
-    last_name = models.CharField(max_length=36, blank=False)
-
-    picture = models.ImageField(upload_to='profile_images', blank=True)
-    avatar = models.CharField(max_length=500)
-
-    GENDER_CHOICES = [
-        ('MALE', 'Male'),
-        ('FEMALE', 'Female'),
-        ('OTHER', 'Other'),
-        ('UNSPECIFIED', 'Prefer not to say')]
-    gender = models.CharField(max_length=18, choices=GENDER_CHOICES)
-    age = models.IntegerField(validators=[MaxValueValidator(100), MinValueValidator(0)])
-    associated_users = models.ManyToManyField('self', blank=True)
-
-    def __str__(self):
-        return str(self.user.username)
-
-
 class FavoriteActor(models.Model):
-    user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
+    user = models.ForeignKey('PickeeUser', on_delete=models.CASCADE)
     actor = models.ForeignKey('Actor', on_delete=models.CASCADE)
 
     def __str__(self):
@@ -67,7 +62,7 @@ class Actor(models.Model):
 
 
 class FavoriteMovie(models.Model):
-    user = models.ForeignKey('UserProfile', on_delete=models.CASCADE)
+    user = models.ForeignKey('PickeeUser', on_delete=models.CASCADE)
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
 
     def __str__(self):
@@ -96,7 +91,7 @@ class MovieCast(models.Model):
 
 
 class FavoriteGenre(models.Model):
-    user = models.ForeignKey('UserProfile', on_delete=models.CASCADE, default=None)
+    user = models.ForeignKey('PickeeUser', on_delete=models.CASCADE, default=None)
     genre = models.ForeignKey('Genre', on_delete=models.CASCADE)
 
     def __str__(self):
@@ -125,7 +120,7 @@ class Recommendation(models.Model):
 
 
 class Session(models.Model):
-    users = models.ManyToManyField(UserProfile)
+    users = models.ManyToManyField(PickeeUser)
 
     def __str__(self):
         return str(self.id)

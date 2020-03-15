@@ -12,7 +12,7 @@ class CustomUserAdmin(UserAdmin):
     add_form = PickeeUserCreationForm
     form = PickeeUserChangeForm
     model = PickeeUser
-    list_display = ('email', 'is_staff', 'is_active',)
+    list_display = ('id', 'email', 'first_name')
     list_filter = ('email', 'is_staff', 'is_active',)
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
@@ -26,17 +26,6 @@ class CustomUserAdmin(UserAdmin):
     )
     search_fields = ('email',)
     ordering = ('email',)
-
-
-class RecommendationAdmin(admin.ModelAdmin):
-    list_display = ['id', 'email', 'date_joined']
-
-
-@admin.register(models.UserProfile)
-class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ['id', 'email', 'first_name']
-    list_editable = ['email', 'first_name']
-    ordering = ['id']
 
 
 @admin.register(models.FavoriteGenre)

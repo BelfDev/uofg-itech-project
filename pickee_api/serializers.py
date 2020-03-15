@@ -3,16 +3,10 @@ from rest_framework import serializers
 from . import models
 
 
-class PickeeUserSerializer(serializers.HyperlinkedModelSerializer):
+class PickeeUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.PickeeUser
-        fields = ['id', 'email', 'groups']
-
-
-class UserProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.UserProfile
-        fields = ['user', 'email', 'first_name', 'last_name', 'picture', 'avatar', 'gender', 'age', 'associated_users']
+        fields = ['id', 'email', 'first_name', 'last_name', 'picture', 'gender', 'age', 'associated_users']
 
 
 class FavoriteActorSerializer(serializers.ModelSerializer):
