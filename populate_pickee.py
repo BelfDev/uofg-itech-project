@@ -88,7 +88,13 @@ movies = [
 ]
 
 movie_casts = [
-    {}
+    {'movie_id':301528,'actor_id':31},
+    {'movie_id':27205,'actor_id':6193},
+    {'movie_id':284053,'actor_id':74568},
+    {'movie_id':10184,'actor_id':4491},
+    {'movie_id':102651,'actor_id':11701},
+    {'movie_id':114150,'actor_id':84223},
+    {'movie_id':278,'actor_id':192},
 ]
 
 favorite_genres = [
@@ -160,3 +166,7 @@ def add_favorite_actor(username,actor_id):
 def add_favorite_movie(username,movie_id):
     favorite_movie = FavoriteMovie.objects.get_or_create(user=User.objects.get(username=username),
                                                         movie=Movie.objects.get(movie_id=movie_id))
+
+def add_movie_cast(movie_id,actor_id):
+    movie_cast = MovieCast.objects.get_or_create(movie=Movie.objects.get(movie_id=movie_id),
+                                                actor=Actor.objects.get(person_id=actor_id))
