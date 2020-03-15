@@ -135,7 +135,10 @@ recommendations = [
 ]
 
 sessions = [
-    {}
+    {'users':{'rhys','pedro'}},
+    {'users':{'rhys','pedro','nathan','anton'}},
+    {'users':{'nathan'}},
+    {'users':{'nathan','anton'}},
 ]
 
 def add_user(username,password,email,first_name,last_name,picture,avatar,gender,age,associated_users):
@@ -181,3 +184,8 @@ def add_movie_cast(movie_id,actor_id):
 def add_favorite_genre(username,genre_id):
     favorite_genre = FavoriteGenre.objects.get_or_create(user=User.objects.get(username=username),
                                                         genre=Genre.objects.get(genre_id=genre_id))
+
+def add_session(users):
+    session = Session.objects.create()
+    for user in users:
+        session.users.add(user=User.objects.get(username=user))
