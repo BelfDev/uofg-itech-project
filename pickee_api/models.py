@@ -52,7 +52,7 @@ class FavoriteActor(models.Model):
         unique_together = ('user', 'actor')
 
     def __str__(self):
-        return self.actor.name
+        return self.user.email + ": " + self.actor.name
 
 
 class Actor(models.Model):
@@ -72,7 +72,7 @@ class FavoriteMovie(models.Model):
         unique_together = ('user', 'movie')
 
     def __str__(self):
-        return self.user + ": " + self.movie
+        return self.movie.name
 
 
 class Movie(models.Model):
