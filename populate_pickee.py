@@ -10,14 +10,14 @@ from pickee_api.models import (PickeeUser,FavoriteActor,Actor,
                                 Session)
 
 users = [
-    {'email':'rhys@email.com','first_name':'Rhys','last_name':'Stephens','gender':'MALE','age':23,
-        'password':'rhyspassword'},
-    {'email':'pedro@email.com','first_name':'Pedro','last_name':'Belfort','gender':'MALE','age':42,
-        'password':'pedropassword'},
-    {'email':'nathan@email.com','first_name':'Nathan','last_name':'Schneddy','gender':'MALE','age':23,
-        'password':'nathanpassword'},
-    {'email':'anton@email.com','first_name':'Anton','last_name':'Samoilov','gender':'MALE','age':19,
-        'password':'antonpassword'},
+    {'email':'rhys@email.com','password':'rhyspassword','first_name':'Rhys','last_name':'Stephens',
+        'gender':'MALE','age':23},
+    {'email':'pedro@email.com','password':'pedropassword','first_name':'Pedro','last_name':'Belfort',
+        'gender':'MALE','age':42},
+    {'email':'nathan@email.com','password':'nathanpassword','first_name':'Nathan','last_name':'Schneddy',
+        'gender':'MALE','age':23},
+    {'email':'anton@email.com','password':'antonpassword','first_name':'Anton','last_name':'Samoilov',
+        'gender':'MALE','age':19},
 ]
 
 favorite_actors = [
@@ -166,30 +166,28 @@ sessions = [
 
 def populate():
     for user in users:
-        add_user(user['username'],user['password'],user['email'],user['first_name'],user['last_name'],
-                    user['picture'],user['avatar'],user['gender'],user['age'],user['associated_users'])
+        add_user(user['email'],user['password'],user['first_name'],user['last_name'],user['gender'],user['age'])
     
     for actor in actors:
-        add_actor(actor['person_id'],actor['name'],actor['picture'])
+        add_actor(actor['id'],actor['name'])
     
     for movie in movies:
-        add_movie(movie['movie_id'],movie['name'],movie['picture'],movie['rating'],movie['release_date'],
-                    movie['description'])
+        add_movie(movie['id'],movie['name'],movie['rating'],movie['release_date'],movie['description'])
     
     for genre in genres:
-        add_genre(genre['genre_id'],genre['name'])
+        add_genre(genre['id'],genre['name'])
     
     for actor in favorite_actors:
-        add_favorite_actor(actor['username']),actor['actor_id']
+        add_favorite_actor(actor['email']),actor['actor_id']
     
     for movie in favorite_movies:
-        add_favorite_movie(movie['username'],movie['movie_id'])
+        add_favorite_movie(movie['email'],movie['movie_id'])
     
     for actor in movie_casts:
         add_movie_cast(actor['movie_id'],actor['actor_id'])
     
     for genre in favorite_genres:
-        add_favorite_genre(genre['username'],genre['genre_id'])
+        add_favorite_genre(genre['email'],genre['genre_id'])
     
     for session in sessions:
         add_session(session['users'])
@@ -197,13 +195,13 @@ def populate():
     for recommendation in recommendations:
         add_recommendation(recommendation['movie_id'],recommendation['session_id'],recommendation['user_choice'])
     
-    for user in UserProfile.objects.all():
+    for user in PickeeUser.objects.all():
         for actor in Actor.objects.filter(user=user):
             print(f'- {user}: {actor}')
         for movie in Movie.objects.filter(user=user):
             print(f'- {user}: {movie}')
 
-def add_user(email,first_name,last_name,gender,age,password):
+def add_user(email,password,first_name,last_name,gender,age):
     user = PickeeUser.objects.create_user(email=email,
                                             password=password,
                                             first_name=first_name,
