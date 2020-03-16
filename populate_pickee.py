@@ -10,14 +10,14 @@ from pickee_api.models import (UserProfile,FavoriteActor,Actor,
                                 Session)
 
 users = [
-    {'username':'rhys','password':'rhyspassword','email':'rhys@email.com','first_name':'Rhys',
-        'last_name':'Stephens','picture':None,'avatar':None,'gender':'MALE','age':23,'associated_users':None},
-    {'username':'pedro','password':'pedropassword','email':'pedro@email.com','first_name':'Pedro',
-        'last_name':'Belfort','picture':None,'avatar':None,'gender':'MALE','age':42,'associated_users':None},
-    {'username':'nathan','password':'nathanpassword','email':'nathan@email.com','first_name':'Nathan',
-        'last_name':'Schneddy','picture':None,'avatar':None,'gender':'MALE','age':23,'associated_users':None},
-    {'username':'anton','password':'antonpassword','email':'anton@email.com','first_name':'Anton',
-        'last_name':'Samoilov','picture':None,'avatar':None,'gender':'MALE','age':19,'associated_users':None},
+    {'email':'rhys@email.com','first_name':'Rhys','last_name':'Stephens','gender':'MALE','age':23,
+        'password':'rhyspassword'},
+    {'email':'pedro@email.com','first_name':'Pedro','last_name':'Belfort','gender':'MALE','age':42,
+        'password':'pedropassword'},
+    {'email':'nathan@email.com','first_name':'Nathan','last_name':'Schneddy','gender':'MALE','age':23,
+        'password':'nathanpassword'},
+    {'email':'anton@email.com','first_name':'Anton','last_name':'Samoilov','gender':'MALE','age':19,
+        'password':'antonpassword'},
 ]
 
 favorite_actors = [
