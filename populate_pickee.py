@@ -41,13 +41,13 @@ actors = [
 ]
 
 favorite_movies = [
-    {'username':'rhys','movie_id':301528},
-    {'username':'pedro','movie_id':10184},
-    {'username':'pedro','movie_id':102651},
-    {'username':'nathan','movie_id':10184},
-    {'username':'anton','movie_id':26205},
-    {'username':'anton','movie_id':278},
-    {'username':'anton','movie_id':284053},
+    {'email':'rhys@email.com','movie_id':301528},
+    {'email':'pedro@email.com','movie_id':10184},
+    {'email':'pedro@email.com','movie_id':102651},
+    {'email':'nathan@email.com','movie_id':10184},
+    {'email':'anton@email.com','movie_id':26205},
+    {'email':'anton@email.com','movie_id':278},
+    {'email':'anton@email.com','movie_id':284053},
 ]
 
 movies = [
