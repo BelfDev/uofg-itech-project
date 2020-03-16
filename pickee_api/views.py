@@ -1,24 +1,19 @@
 import json
 
-from django.contrib.auth import authenticate, login
-from django.contrib.auth import logout
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
-from rest_framework import permissions
-from rest_framework import viewsets
-
-from pickee_api.serializers import UserSerializer
-
 
 # Temporary renders login.html
+from pickee_api.forms import PickeeUserCreationForm
+
+
 def user_login(request):
     if request.method == 'POST':
         # Retrieves username and password
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
         # Authenticates the user
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, email=email, password=password)
 
         if user:
             if user.is_active:
@@ -37,15 +32,15 @@ def user_login(request):
 
 
 # Temporary renders signup.html
-# TODO: replace this by the SignUp Vue App
 def user_signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = PickeeUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password1']
-            user = authenticate(username=username, password=password)
+            email = form.cleaned_data['email']
+            password1 = form.cleaned_data['password1']
+            password2 = form.cleaned_data['password2']
+            user = authenticate(email=email, password1=password1, password2=password2)
             login(request, user)
             return redirect('index')
         else:
@@ -64,11 +59,3 @@ def user_signup(request):
 def user_logout(request):
     logout(request)
     return redirect('index')
-
-
-# Temporary serializer example
-# TODO: remove this after creating other API views
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = UserSerializer
-    permission_classes = [permissions.IsAuthenticated]

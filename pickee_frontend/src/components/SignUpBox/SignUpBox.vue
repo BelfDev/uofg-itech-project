@@ -8,7 +8,7 @@
         </template>
         <form method="post" :action="actionUrl">
             <input type="hidden" name="csrfmiddlewaretoken" :value="token">
-            <FormTextField type="text" label="Username" name="username" />
+            <FormTextField type="text" label="Email" name="email" />
             <FormTextField type="password" label="Password" name="password1" />
             <FormTextField type="password" label="Password confirmation" name="password2" />
             <v-btn class="auth-box__submit" type="submit" color="primary">Sign Up</v-btn>
