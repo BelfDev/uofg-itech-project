@@ -118,14 +118,14 @@ movie_casts = [
 ]
 
 favorite_genres = [
-    {'username':'rhys','genre_id':16},
-    {'username':'rhys','genre_id':14},
-    {'username':'pedro','genre_id':28},
-    {'username':'pedro','genre_id':10402},
-    {'username':'nathan','genre_id':18},
-    {'username':'nathan','genre_id':53},
-    {'username':'anton','genre_id':10749},
-    {'username':'anton','genre_id':80},
+    {'email':'rhys@email.com','genre_id':16},
+    {'email':'rhys@email.com','genre_id':14},
+    {'email':'pedro@email.com','genre_id':28},
+    {'email':'pedro@email.com','genre_id':10402},
+    {'email':'nathan@email.com','genre_id':18},
+    {'email':'nathan@email.com','genre_id':53},
+    {'email':'anton@email.com','genre_id':10749},
+    {'email':'anton@email.com','genre_id':80},
 ]
 
 genres = [
