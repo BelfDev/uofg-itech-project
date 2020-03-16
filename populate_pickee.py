@@ -4,7 +4,7 @@ import django
 django.setup()
 import datetime
 from django.contrib.auth.models import User
-from pickee_api.models import (UserProfile,FavoriteActor,Actor,
+from pickee_api.models import (PickeeUser,FavoriteActor,Actor,
                                 FavoriteMovie,Movie,MovieCast,
                                 FavoriteGenre,Genre,Recommendation,
                                 Session)
@@ -203,56 +203,50 @@ def populate():
         for movie in Movie.objects.filter(user=user):
             print(f'- {user}: {movie}')
 
-def add_user(username,password,email,first_name,last_name,picture,avatar,gender,age,associated_users):
-    user = UserProfile.objects.get_or_create(user=User.objects.create_user(username,None,password),
-                                            email=email,
+def add_user(email,first_name,last_name,gender,age,password):
+    user = PickeeUser.objects.create_user(email=email,
+                                            password=password,
                                             first_name=first_name,
                                             last_name=last_name,
-                                            picture=picture,
-                                            avatar=avatar,
                                             gender=gender,
                                             age=age)
 
-def add_actor(person_id, name, picture):
-    actor = Actor.objects.get_or_create(person_id=person_id,
-                                        name=name,
-                                        picture=picture)
+def add_actor(id, name):
+    actor = Actor.objects.get_or_create(id=id, name=name)
 
-def add_movie(movie_id,name,picture,rating,release_date,description):
-    movie = Movie.objects.get_or_create(movie_id=movie_id,
+def add_movie(id,name,rating,release_date,description):
+    movie = Movie.objects.get_or_create(id=id,
                                         name=name,
-                                        picture=picture,
                                         rating=rating,
                                         release_date=release_date,
                                         description=description)
 
-def add_genre(genre_id,name):
-    genre = Genre.objects.get_or_create(genre_id=genre_id,
-                                        name=name)
+def add_genre(id,name):
+    genre = Genre.objects.get_or_create(id=id, name=name)
 
-def add_favorite_actor(username,actor_id):
-    favorite_actor = FavoriteActor.objects.get_or_create(user=User.objects.get(username=username),
-                                                        actor=Actor.objects.get(person_id=actor_id))
+def add_favorite_actor(email,actor_id):
+    favorite_actor = FavoriteActor.objects.get_or_create(user=PickeeUser.objects.get(email=email),
+                                                        actor=Actor.objects.get(id=actor_id))
 
-def add_favorite_movie(username,movie_id):
-    favorite_movie = FavoriteMovie.objects.get_or_create(user=User.objects.get(username=username),
-                                                        movie=Movie.objects.get(movie_id=movie_id))
+def add_favorite_movie(email,movie_id):
+    favorite_movie = FavoriteMovie.objects.get_or_create(user=PickeeUser.objects.get(email=email),
+                                                        movie=Movie.objects.get(id=movie_id))
 
 def add_movie_cast(movie_id,actor_id):
-    movie_cast = MovieCast.objects.get_or_create(movie=Movie.objects.get(movie_id=movie_id),
-                                                actor=Actor.objects.get(person_id=actor_id))
+    movie_cast = MovieCast.objects.get_or_create(movie=Movie.objects.get(id=movie_id),
+                                                actor=Actor.objects.get(id=actor_id))
 
-def add_favorite_genre(username,genre_id):
-    favorite_genre = FavoriteGenre.objects.get_or_create(user=User.objects.get(username=username),
-                                                        genre=Genre.objects.get(genre_id=genre_id))
+def add_favorite_genre(email,genre_id):
+    favorite_genre = FavoriteGenre.objects.get_or_create(user=PickeeUser.objects.get(email=email),
+                                                        genre=Genre.objects.get(id=genre_id))
 
 def add_session(users):
     session = Session.objects.create()
-    for user in users:
-        session.users.add(user=User.objects.get(username=user))
+    for user_email in users:
+        session.users.add(user=PickeeUser.objects.get(email=user_email))
 
 def add_recommendation(movie_id,session_id,user_choice):
-    recommendation = Recommendation.objects.get_or_create(movie=Movie.objects.get(movie_id=movie_id),
+    recommendation = Recommendation.objects.get_or_create(movie=Movie.objects.get(id=movie_id),
                                                         session=Session.objects.get(id=session_id),
                                                         user_choice=user_choice)
 
