@@ -21,13 +21,13 @@ users = [
 ]
 
 favorite_actors = [
-    {'username':'rhys','actor_id':74568},
-    {'username':'rhys','actor_id':84223},
-    {'username':'pedro','actor_id':31},
-    {'username':'nathan','actor_id':4491},
-    {'username':'nathan','actor_id':11701},
-    {'username':'nathan','actor_id':6193},
-    {'username':'anton','actor_id':192},
+    {'email':'rhys@email.com','actor_id':74568},
+    {'email':'rhys@email.com','actor_id':84223},
+    {'email':'pedro@email.com','actor_id':31},
+    {'email':'nathan@email.com','actor_id':4491},
+    {'email':'nathan@email.com','actor_id':11701},
+    {'email':'nathan@email.com','actor_id':6193},
+    {'email':'anton@email.com','actor_id':192},
 ]
 
 actors = [
