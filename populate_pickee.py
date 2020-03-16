@@ -51,58 +51,60 @@ favorite_movies = [
 ]
 
 movies = [
-    {'movie_id':301528,'name':'Toy Story 4','picture':None,'rating':75,'release_date':datetime.date(2019,6,19),
-    'decription':'''Woody has always been confident about his place in the world and that his priority is taking 
+    {'id':301528,'name':'Toy Story 4','rating':7.5,'release_date':datetime.date(2019,6,19),
+        'decription':'''Woody has always been confident about his place in the world and that his priority is taking 
         care of his kid, whether that's Andy or Bonnie. But when Bonnie adds a reluctant new toy called \"Forky\" 
         to her room, a road trip adventure alongside old and new friends will show Woody how big the world can be 
         for a toy.'''},
-    {'movie_id':27205,'name':'Inception','picture':None,'rating':83,'release_date':datetime.date(2010,7,15),
-    'decription':'''Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of his 
-        targets is offered a chance to regain his old life as payment for a task considered to be impossible: 
+    {'id':27205,'name':'Inception','rating':8.3,'release_date':datetime.date(2010,7,15),
+        'decription':'''Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of 
+        his targets is offered a chance to regain his old life as payment for a task considered to be impossible: 
         \"inception\", the implantation of another person's idea into a target's subconscious.'''},
-    {'movie_id':284053,'name':'Thor:Ragnarok','picture':None,'rating':75,'release_date':datetime.date(2017,10,25),
-    'decription':'''Thor is imprisoned on the other side of the universe and finds himself in a race against time to 
-        get back to Asgard to stop Ragnarok, the destruction of his home-world and the end of Asgardian civilization, 
-        at the hands of an all-powerful new threat, the ruthless Hela.'''},
-    {'movie_id':10184,'name':'He\'s Just Not That Into You','picture':None,'rating':64,'release_date':datetime.date(2009,2,6),
-    'decription':'''Remember that really cute girl/guy who said they'd call – and didn't? Maybe they lost your number. Maybe 
-        they're in the hospital. Maybe they're awed by your looks, brains or success. Or maybe... They're just not that into you.'''},
-    {'movie_id':102651,'name':'Maleficent','picture':None,'rating':71,'release_date':datetime.date(2014,5,28),
-    'decription':'''A beautiful, pure-hearted young woman, Maleficent has an idyllic life growing up in a peaceable 
-        forest kingdom, until one day when an invading army threatens the harmony of the land.  Maleficent rises to be 
-        the land's fiercest protector, but she ultimately suffers a ruthless betrayal – an act that begins to turn her 
-        heart into stone. Bent on revenge, Maleficent faces an epic battle with the invading King's successor and, as a 
-        result, places a curse upon his newborn infant Aurora. As the child grows, Maleficent realizes that Aurora holds 
-        the key to peace in the kingdom – and to Maleficent's true happiness as well.'''},
-    {'movie_id':114150,'name':'Pitch Perfect','picture':None,'rating':73,'release_date':datetime.date(2012,9,28),
-    'decription':'''College student Beca knows she does not want to be part of a clique, but that's exactly where 
-        she finds herself after arriving at her new school. Thrust in among mean gals, nice gals and just plain 
-        weird gals, Beca finds that the only thing they have in common is how well they sing together. She takes 
-        the women of the group out of their comfort zone of traditional arrangements and into a world of amazing 
-        harmonic combinations in a fight to the top of college music competitions.'''},
-    {'movie_id':278,'name':'The Shawshank Redemption','picture':None,'rating':87,'release_date':datetime.date(1994,9,23),
-    'decription':'''Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne 
-        begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During 
-        his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named 
-        Red -- for his integrity and unquenchable sense of hope.'''},
-    {'movie_id':5255,'name':'The Polar Express','picture':None,'rating':66,'release_date':datetime.date(2004,11,10),
-    'decription':'''When a doubting young boy takes an extraordinary train ride to the North Pole, he embarks on a 
-        journey of self-discovery that shows him that the wonder of life never fades for those who believe.'''},
-    {'movie_id':32407,'name':'Malice In Wonderland','picture':None,'rating':57,'release_date':datetime.date(2009,1,1),
-    'decription':'''A modern take on the classic fairytale, Alice in Wonderland, set in South East England.An American 
-        law student in London. Knocked down by a black cab, she wakes with amnesia in a world that's a million miles 
-        from home - Wonderland. We follow her adventures as she's dragged through an underworld filled with twisted 
-        individuals and the lowest low-lifers, by the enigmatic cab driver, Whitey. She needs to find out who she is, 
-        where she's from and use what wits she has left to get back home in one piece. As her journey progresses she 
-        discovers nothing is what it seems, realizes that fate and life are terminally entwined, and finds true love 
-        lurking in the unlikeliest place.'''},
-    {'movie_id':8999,'name':'Derailed','picture':None,'rating':62,'release_date':datetime.date(2005,11,11),
-    'decription':'''When two married business executives having an affair are blackmailed by a violent 
-        criminal, they are forced to turn the tables on him to save their families.'''},
-    {'movie_id':393624,'name':'Official Secrets','picture':None,'rating':73,'release_date':datetime.date(2019,8,30),
-    'decription':'''The true story of British intelligence whistleblower Katharine Gun who—prior to the 2003 Iraq 
-        invasion—leaked a top-secret NSA memo exposing a joint US-UK illegal spying operation against members of 
-        the UN Security Council. The memo proposed blackmailing member states into voting for war.'''}
+    {'id':284053,'name':'Thor:Ragnarok','rating':7.5,'release_date':datetime.date(2017,10,25),
+        'decription':'''Thor is imprisoned on the other side of the universe and finds himself in a race against 
+        time to get back to Asgard to stop Ragnarok, the destruction of his home-world and the end of Asgardian 
+        civilization, at the hands of an all-powerful new threat, the ruthless Hela.'''},
+    {'id':10184,'name':'He\'s Just Not That Into You','rating':6.4,'release_date':datetime.date(2009,2,6),
+        'decription':'''Remember that really cute girl/guy who said they'd call – and didn't? Maybe they lost your 
+        number. Maybe they're in the hospital. Maybe they're awed by your looks, brains or success. Or maybe... 
+        They're just not that into you.'''},
+    {'id':102651,'name':'Maleficent','rating':7.1,'release_date':datetime.date(2014,5,28),
+        'decription':'''A beautiful, pure-hearted young woman, Maleficent has an idyllic life growing up in a 
+        peaceable forest kingdom, until one day when an invading army threatens the harmony of the land.  Maleficent 
+        rises to be the land's fiercest protector, but she ultimately suffers a ruthless betrayal – an act that 
+        begins to turn her heart into stone. Bent on revenge, Maleficent faces an epic battle with the invading 
+        King's successor and, as a result, places a curse upon his newborn infant Aurora. As the child grows, 
+        Maleficent realizes that Aurora holds the key to peace in the kingdom – and to Maleficent's true happiness 
+        as well.'''},
+    {'id':114150,'name':'Pitch Perfect','rating':7.3,'release_date':datetime.date(2012,9,28),
+        'decription':'''College student Beca knows she does not want to be part of a clique, but that's exactly 
+        where she finds herself after arriving at her new school. Thrust in among mean gals, nice gals and just 
+        plain weird gals, Beca finds that the only thing they have in common is how well they sing together. She 
+        takes the women of the group out of their comfort zone of traditional arrangements and into a world of 
+        amazing harmonic combinations in a fight to the top of college music competitions.'''},
+    {'id':278,'name':'The Shawshank Redemption','rating':8.7,'release_date':datetime.date(1994,9,23),
+        'decription':'''Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy 
+        Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an 
+        amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- 
+        including an older prisoner named Red -- for his integrity and unquenchable sense of hope.'''},
+    {'id':5255,'name':'The Polar Express','rating':6.6,'release_date':datetime.date(2004,11,10),
+        'decription':'''When a doubting young boy takes an extraordinary train ride to the North Pole, he embarks on 
+        a journey of self-discovery that shows him that the wonder of life never fades for those who believe.'''},
+    {'id':32407,'name':'Malice In Wonderland','rating':5.7,'release_date':datetime.date(2009,1,1),
+        'decription':'''A modern take on the classic fairytale, Alice in Wonderland, set in South East England.An 
+        American law student in London. Knocked down by a black cab, she wakes with amnesia in a world that's a 
+        million miles from home - Wonderland. We follow her adventures as she's dragged through an underworld filled 
+        with twisted individuals and the lowest low-lifers, by the enigmatic cab driver, Whitey. She needs to find 
+        out who she is, where she's from and use what wits she has left to get back home in one piece. As her journey 
+        progresses she discovers nothing is what it seems, realizes that fate and life are terminally entwined, and 
+        finds true love lurking in the unlikeliest place.'''},
+    {'id':8999,'name':'Derailed','rating':6.2,'release_date':datetime.date(2005,11,11),
+        'decription':'''When two married business executives having an affair are blackmailed by a violent criminal, 
+        they are forced to turn the tables on him to save their families.'''},
+    {'id':393624,'name':'Official Secrets','rating':7.3,'release_date':datetime.date(2019,8,30),
+        'decription':'''The true story of British intelligence whistleblower Katharine Gun who—prior to the 2003 
+        Iraq invasion—leaked a top-secret NSA memo exposing a joint US-UK illegal spying operation against members 
+        of the UN Security Council. The memo proposed blackmailing member states into voting for war.'''}
 ]
 
 movie_casts = [
