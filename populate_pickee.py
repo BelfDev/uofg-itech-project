@@ -158,10 +158,10 @@ recommendations = [
 ]
 
 sessions = [
-    {'users':{'rhys','pedro'}},
-    {'users':{'rhys','pedro','nathan','anton'}},
-    {'users':{'nathan'}},
-    {'users':{'nathan','anton'}}
+    {'users':{'rhys@email.com','pedro@email.com'}},
+    {'users':{'rhys@email.com','pedro@email.com','nathan@email.com','anton@email.com'}},
+    {'users':{'nathan@email.com'}},
+    {'users':{'nathan@email.com','anton@email.com'}}
 ]
 
 def populate():
