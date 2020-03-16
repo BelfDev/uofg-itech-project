@@ -31,13 +31,13 @@ favorite_actors = [
 ]
 
 actors = [
-    {'person_id':31,'name':'Tom Hanks','picture':None},
-    {'person_id':6193,'name':'Leonardo DiCaprio','picture':None},
-    {'person_id':74568,'name':'Chris Hemsworth','picture':None},
-    {'person_id':4491,'name':'Jennifer Aniston','picture':None},
-    {'person_id':11701,'name':'Angelina Jolie','picture':None},
-    {'person_id':84223,'name':'Anna Kendrick','picture':None},
-    {'person_id':192,'name':'Morgan Freeman','picture':None}
+    {'id':31,'name':'Tom Hanks'},
+    {'id':6193,'name':'Leonardo DiCaprio'},
+    {'id':74568,'name':'Chris Hemsworth'},
+    {'id':4491,'name':'Jennifer Aniston'},
+    {'id':11701,'name':'Angelina Jolie'},
+    {'id':84223,'name':'Anna Kendrick'},
+    {'id':192,'name':'Morgan Freeman'}
 ]
 
 favorite_movies = [
