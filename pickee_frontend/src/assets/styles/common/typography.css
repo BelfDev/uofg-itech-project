@@ -5,7 +5,7 @@
     /* Headings */
 
     --font-size-heading1: 12rem;
-    --font-line-height-heading1: 14.6rem;
+    --font-line-height-heading1: 11rem;
     --font-weight-heading1: 300;
     --font-size-heading1-accent: 13rem;
     --font-line-height-heading1-accent: 15.9rem;
@@ -14,6 +14,11 @@
     --font-size-heading2: 6.4rem;
     --font-line-height-heading2: 7.8rem;
     --font-weight-heading2: 600;
+
+    --font-size-heading3: 5.6rem;
+    --font-line-height-heading3: 6.8rem;
+    --font-weight-heading3: 400;
+
 
     /* Body text */
 

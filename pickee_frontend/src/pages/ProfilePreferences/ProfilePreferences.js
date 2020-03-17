@@ -7,11 +7,11 @@ import Responsive from "@/plugins/responsive";
 new Responsive();
 
 import "@/assets/styles/app.css";
-// import "@/assets/styles/pages/profile-preferences.css";
+import "@/assets/styles/pages/profile.css";
 
 Vue.config.productionTip = false;
 
 new Vue({
     vuetify,
     render: h => h(ProfilePreferences)
-}).$mount("#preferences");
+}).$mount("#profile-preferences");

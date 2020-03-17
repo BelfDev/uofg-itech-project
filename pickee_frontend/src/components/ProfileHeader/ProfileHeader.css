@@ -1,0 +1,18 @@
+.profile-header {
+    display: flex;
+    align-items: center;
+}
+
+.profile-header__avatar {
+    margin-right: 3.2rem;
+}
+
+.profile-header__name {
+    margin-bottom: 0.4rem;
+}
+
+.v-application .profile-header__time-saved {
+    margin-bottom: 0;
+    font-size: var(--font-size-heading3);
+    line-height: var( --font-line-height-heading3);
+}
