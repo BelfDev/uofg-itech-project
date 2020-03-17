@@ -1,0 +1,7 @@
+.content-card-box {}
+
+.content-card-box__header {
+    color: var(--v-grey100-base);
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+}
