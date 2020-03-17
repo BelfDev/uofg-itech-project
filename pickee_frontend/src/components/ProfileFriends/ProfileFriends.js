@@ -6,7 +6,7 @@ export default {
     components: {
         ItemList
     },
-
+    // TODO: get from API
     data: () => ({
         items: [
             {
