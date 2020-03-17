@@ -1,0 +1,57 @@
+.form-dropdown-field .v-text-field > .v-input__control > .v-input__slot:after,
+.form-dropdown-field .theme--dark.v-text-field > .v-input__control > .v-input__slot:before {
+    display: none;
+}
+
+.form-dropdown-field {
+    display: flex;
+}
+
+.form-dropdown-field .label {
+    margin-top: 1.4rem;
+    flex-basis: 35rem;
+    font-size: var(--font-size-body-2);
+    line-height: var(--font-line-height-body-2);
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--v-grey200-base);
+}  
+
+.form-dropdown-field .v-text-field--filled > .v-input__control > .v-input__slot, 
+.form-dropdown-field .v-text-field--full-width,
+.form-dropdown-field .v-input__control > .v-input__slot, 
+.form-dropdown-field .v-text-field--outlined > .v-input__control > .v-input__slot {
+    min-height: 6rem;
+}
+
+.form-dropdown-field .v-text-field--filled .v-label, 
+.form-dropdown-field .v-text-field--full-width .v-label,
+.form-dropdown-field .theme--dark.v-select .v-select__selection--comma {
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: var(--font-size-body-2);
+    line-height: var(--font-line-height-body-2);
+    font-weight: 600;
+}
+
+.form-dropdown-field .v-input .v-label {
+    line-height: 4rem;
+    height: 4rem;
+}
+
+.v-application--is-ltr .form-dropdown-field .v-text-field .v-input__append-inner {
+    position: relative;
+    left: 1.6rem;
+}
+
+.form-dropdown-field .v-text-field__details {
+    display: none;
+}
+
+.form-dropdown-field .v-input__slot {
+    margin-bottom: 0;
+}
