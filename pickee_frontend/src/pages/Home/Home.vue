@@ -1,11 +1,16 @@
 <template>
-    <div id="home">
-        <v-app>
+    <v-app>
+        <div class="page-home">
             <v-content>
-                <p>Home</p>
+                <div class="stripe stripe--dark"></div>
+                <div class="stripe stripe--light"></div>
+                <div class="stripe stripe--lighter"></div>
+                <div class="page-home-content">
+                    <p>Home</p>
+                </div>
             </v-content>
-        </v-app>
-    </div>
+        </div>
+    </v-app>
 </template>
 
 <script>
