@@ -13,4 +13,5 @@
     </div>
 </template>
 
+<script src="./Intro.js" />
 <style src="./Intro.css" />
