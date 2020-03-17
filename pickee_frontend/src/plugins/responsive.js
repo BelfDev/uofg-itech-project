@@ -7,6 +7,7 @@ const BASE_WIDTH = {
     tablet: 768,
     phone: 320
 };
+const DESKTOP_MIN_WIDTH = 1024;
 const BASE_SIZE = 10;
 
 export default class {
@@ -76,9 +77,18 @@ export default class {
      * @returns {string} Font-size string in px
      */
     calculateFontSize(baseWidth) {
-        const targetWidth = this.device === 'phone'
-            ? document.documentElement.clientWidth
-            : Math.min(this.$window.innerWidth, baseWidth);
+        let targetWidth = document.documentElement.clientWidth;
+
+        if (this.device === 'tablet') {
+            targetWidth = Math.min(this.$window.innerWidth, baseWidth);
+        } else {
+            targetWidth = Math.min(Math.max(this.$window.innerWidth, DESKTOP_MIN_WIDTH), baseWidth);
+        }
+        // const targetWidth = this.device === 'phone'
+        //     ? document.documentElement.clientWidth
+        //     : Math.min(this.$window.innerWidth, baseWidth);
+
+        // console.log(Math.min(this.$window.innerWidth, baseWidth));
         
         const size = (targetWidth / baseWidth) * BASE_SIZE + 'px';
         
