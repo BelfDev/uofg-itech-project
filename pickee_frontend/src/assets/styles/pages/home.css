@@ -1,0 +1,15 @@
+.page-home,
+.page-home .v-content,
+.page-home-content {
+    height: 100%;
+    overflow: hidden;
+}
+
+.page-home-content {
+    /* padding-left: 20%; */
+    background-image: url(../../images/page-home-bg.jpg);
+    background-size: cover;
+    background-position: right top;
+    position: relative;
+    margin-left: 25rem;
+}
