@@ -5,11 +5,19 @@
     overflow: hidden;
 }
 
-.page-home-content {
+.page-home-content-bg {
     /* padding-left: 20%; */
     background-image: url(../../images/page-home-bg.jpg);
     background-size: cover;
     background-position: right top;
+    position: absolute;
+    left: 25rem;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.page-home-content {
     position: relative;
-    margin-left: 25rem;
+    z-index: 5;
 }
