@@ -1,6 +1,8 @@
 from rest_framework import viewsets, permissions
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
+from django.shortcuts import render, requests
+
 from pickee_api import models, serializers
 from pickee_api.models import PickeeUser
 from pickee_api.serializers import PickeeUserSerializer
@@ -63,3 +65,15 @@ class SessionViewSet(viewsets.ModelViewSet):
     queryset = models.Session.objects.all()
     serializer_class = serializers.SessionSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+class SearchActorViewSet(viewsets.ReadOnlyModelViewSet):
+    #using own API key, dont know how to get ours
+    def get_actor(self, request, actor_name):
+        api_url = 'https://api.themoviedb.org/3/search/person?api_key=5f4c13d593f8a5392b377ed7eed29c41&query=' + actor_name
+        response = requests.get(api_url)
+        actor = response.json()
+        #index as placeholder for now
+        return render(request,'index.html',{
+            'name': actor['name'],
+            'id': actor['id']
+        })
