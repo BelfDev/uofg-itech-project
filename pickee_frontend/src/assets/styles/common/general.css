@@ -1,6 +1,5 @@
 html,
 .theme--dark.v-application {
-    min-width: 102.4rem;
     color: var(--v-bodyText-base);
     background-color: var(--v-bodyBg-base);
     font-family: var(--font-family);

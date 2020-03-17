@@ -10,7 +10,7 @@
     left: -30rem;
     box-shadow: 0px 3px 12px #15151529;
     width: 48rem;
-    z-index: 2;
+    z-index: 1;
     top: -20rem;
     bottom: -20rem;
 }
@@ -20,7 +20,7 @@
     /* background-color: red; */
     box-shadow: 0px 3px 12px #15151529;
     width: 12rem;
-    z-index: 2;
+    z-index: 3;
     top: -20rem;
     bottom: -20rem;
     
@@ -30,8 +30,9 @@
     background-color: var(--v-grey950-base);
     box-shadow: 0px 4px 16px #15151529;
     /* background-color: green; */
-    z-index: 1;
-    width: 24rem;
+    z-index: 4;
+    width: 12rem;
+    left: 28.9rem;
     top: -20rem;
     bottom: -20rem;
 }
