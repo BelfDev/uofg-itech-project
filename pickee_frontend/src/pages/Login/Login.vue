@@ -3,7 +3,7 @@
         <div class="page-wrapper">
             <PageHeader />
             <v-content class="page-content">
-                <LoginBox :actionUrl="actionUrl" :data="data" />
+                <LoginBox :actionUrl="actionUrl" :signupUrl="signupUrl" :data="data" />
             </v-content>
         </div>
     </v-app>
@@ -18,6 +18,7 @@ export default {
     data: function() {
         return {
             actionUrl: '',
+            signupUrl: '',
             data: {}
         };
     },
@@ -26,6 +27,7 @@ export default {
     beforeMount() {
         const appElement = document.getElementsByTagName('app')[0];
         this.actionUrl = appElement.getAttribute('actionUrl');
+        this.signupUrl = appElement.getAttribute('signupUrl');
         const data = appElement.getAttribute('data');
         if (data) {
             this.data = JSON.parse(data);
