@@ -1,5 +1,5 @@
 
 export default {
     name: "ItemList",
-    props: ["items"]
+    props: ["items", "buttonAction"],
 }

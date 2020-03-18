@@ -3,7 +3,7 @@
         <h3 class="content-card-box__header">Friends</h3>
         <v-card dark>
             <v-card-text>
-                <ItemList :items="items" />
+                <ItemList :items="items" :button-action="removeFriend" />
             </v-card-text>
         </v-card> 
     </div>
