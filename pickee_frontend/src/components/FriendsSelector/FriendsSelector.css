@@ -28,3 +28,7 @@
 .friends-selector__popup-content {
     padding: 6rem 16rem 0;
 }
+
+.friends-selector__popup-content--unauthorized {
+    padding: 4rem 6rem;
+}

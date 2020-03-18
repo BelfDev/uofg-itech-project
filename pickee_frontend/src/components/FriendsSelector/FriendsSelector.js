@@ -1,5 +1,5 @@
 import ItemList from "@/components/ItemList/ItemList.vue";
-import { mdiPlusCircle, mdiPlus, mdiClose, mdiMinusCircle } from '@mdi/js';
+import { mdiPlusCircle, mdiPlus, mdiClose, mdiMinusCircle, mdiAccount } from '@mdi/js';
 
 export default {
     name: "FriendsSelector",
@@ -8,6 +8,9 @@ export default {
     },
     data: () => ({
         // TODO: get from API
+        // user: {
+        //     id: 1
+        // },
         items: [
             {
                 image: "https://cdn.vuetifyjs.com/images/john.jpg",
@@ -25,6 +28,7 @@ export default {
                 icon: mdiMinusCircle
             }
         ],
+        iconUser: mdiAccount,
         iconPlusCircle: mdiPlusCircle,
         iconPlus: mdiPlus,
         iconClose: mdiClose,
