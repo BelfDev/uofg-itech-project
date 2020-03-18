@@ -4,17 +4,17 @@
 
 .about-page .page-header {
     position: absolute;
-    top: 50px;
-    right: 40px;
+    top: 5rem;
+    right: 4rem;
 }
 
 .about-page__content {
     display: flex;
-    margin-top: 30px;
+    margin-top: 3rem;
 }
 
 .about-page__text {
-    width: 638px;
+    width: 63.8rem;
     margin-left: auto;
     margin-right: auto;
 }
@@ -24,5 +24,5 @@
 }
 
 .about-page__text h2 {
-   margin-bottom: 28px;
+   margin-bottom: 2.8rem;
 }

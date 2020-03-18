@@ -1,9 +1,38 @@
-import { mdiPlus } from '@mdi/js';
+import ItemList from "@/components/ItemList/ItemList.vue";
+import { mdiPlusCircle, mdiPlus, mdiClose, mdiMinusCircle, mdiAccount } from '@mdi/js';
 
 export default {
-    name: "FriendSelector",
+    name: "FriendsSelector",
+    components: {
+        ItemList
+    },
     data: () => ({
+        // TODO: get from API
+        // user: {
+        //     id: 1
+        // },
+        items: [
+            {
+                image: "https://cdn.vuetifyjs.com/images/john.jpg",
+                text: "Johnny Depp",
+                icon: mdiMinusCircle
+            },
+            {
+                image: "https://cdn.vuetifyjs.com/images/john.jpg",
+                text: "Brad Pitt",
+                icon: mdiMinusCircle
+            },
+            {
+                image: "https://cdn.vuetifyjs.com/images/john.jpg",
+                text: "Matt Damon",
+                icon: mdiMinusCircle
+            }
+        ],
+        iconUser: mdiAccount,
+        iconPlusCircle: mdiPlusCircle,
         iconPlus: mdiPlus,
+        iconClose: mdiClose,
+        dialog: false,
         selectedFriends: [
             {
                 id: 1,

@@ -5,7 +5,11 @@
             <main class="profile-page-main">
                 <PageHeader />
                 <v-content class="profile-page-content">
-                <ProfileHeader />
+                    <ProfileHeader />
+                    <div class="profile-page-blocks">
+                        <ProfilePersonalDetails class="mt-12" />
+                        <ProfileFriends class="mt-12" />
+                    </div>
                 </v-content>
             </main>
         </div>
@@ -16,12 +20,20 @@
     import PageHeader from "@/components/PageHeader/PageHeader.vue";
     import ProfileNavDrawer from "@/components/ProfileNavDrawer/ProfileNavDrawer.vue";
     import ProfileHeader from "@/components/ProfileHeader/ProfileHeader.vue";
+    import ProfilePersonalDetails from "@/components/ProfilePersonalDetails/ProfilePersonalDetails.vue";
+    import ProfileFriends from "@/components/ProfileFriends/ProfileFriends.vue";
 
     export default {
         name: "ProfileMain",
         data: function() {
             return {};
         },
-        components: { PageHeader, ProfileNavDrawer, ProfileHeader }
+        components: { 
+            PageHeader, 
+            ProfileNavDrawer, 
+            ProfileHeader, 
+            ProfilePersonalDetails, 
+            ProfileFriends
+        }
     };
 </script>

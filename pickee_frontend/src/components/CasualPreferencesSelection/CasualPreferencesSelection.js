@@ -5,7 +5,7 @@ import { mdiPlayCircleOutline } from "@mdi/js";
 export default {
     name: 'CasualPreferencesSelection',
     data: () => ({
-        select: ["Action", "Fantasy"],
+        select: ["Action"],
         items: ["Action", "Drama", "Fantasy", "Sci-Fi"],
         iconPlay: mdiPlayCircleOutline
     }),

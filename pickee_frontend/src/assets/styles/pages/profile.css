@@ -5,8 +5,8 @@
 
 .profile-page .page-header {
     position: absolute;
-    top: 50px;
-    right: 40px;
+    top: 5rem;
+    right: 4rem;
 }
 
 .profile-page-main {
@@ -14,5 +14,9 @@
 }
 
 .profile-page-content .v-content__wrap {
-    padding: 19.2rem 25.6rem;
+    padding: 19.2rem 31.6rem;
+}
+
+.profile-page-blocks {
+    margin: 0 10rem;
 }
