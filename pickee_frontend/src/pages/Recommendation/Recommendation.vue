@@ -1,18 +1,25 @@
 <template>
     <v-app>
-        <div class="page-recommendation">
+        <div class="page-wrapper page-recommendation">
+            <PageHeader logo />
             <v-content>
-                Recommendation
+                <RecommendationBox />
             </v-content>
         </div>
     </v-app>
 </template>
 
 <script>
+    import PageHeader from "@/components/PageHeader/PageHeader.vue";
+    import RecommendationBox from "@/components/RecommendationBox/RecommendationBox.vue";
+    
     export default {
         name: "Recommendation",
         data: () => ({}),
         methods: {},
-        components: {}
+        components: {
+            PageHeader,
+            RecommendationBox
+        }
     };
 </script>
