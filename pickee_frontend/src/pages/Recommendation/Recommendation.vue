@@ -1,14 +1,18 @@
-import Vue from "vue";
-import App from "./App.vue";
+<template>
+    <v-app>
+        <div class="page-recommendation">
+            <v-content>
+                Recommendation
+            </v-content>
+        </div>
+    </v-app>
+</template>
 
-import vuetify from "@/plugins/vuetify/vuetify";
-
-import "@/assets/styles/app.css";
-import "@/assets/styles/pages/about.css";
-
-Vue.config.productionTip = false;
-
-new Vue({
-    vuetify,
-    render: h => h(App)
-}).$mount("#about");
+<script>
+    export default {
+        name: "Recommendation",
+        data: () => ({}),
+        methods: {},
+        components: {}
+    };
+</script>
