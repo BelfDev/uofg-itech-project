@@ -5,7 +5,7 @@
         </h1>
         <div class="label-accented">Save the thrill for the picture</div>
         <div class="intro__button">
-            <v-btn rounded x-large color="primary">
+            <v-btn rounded x-large color="primary" @click="changeScreenMethod">
                 Pick a movie for me
                 <v-icon class="ml-5" size="5.6rem">{{ iconArrowRight }}</v-icon>
             </v-btn>

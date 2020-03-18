@@ -1,8 +1,7 @@
 .page-home,
 .page-home .v-content,
 .page-home-content {
-    height: 100%;
-    overflow: hidden;
+    min-height: 100%;
 }
 
 .page-home .page-header {
@@ -48,7 +47,6 @@
 
 .page-home-screen--2 {
     min-height: 100%;
-    position: relative;
     z-index: 10;
     background-color: var(--v-bodyBg-base);
     transform: translateX(100%);

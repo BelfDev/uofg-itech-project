@@ -1,5 +1,6 @@
 @import "./common/fonts.css";
 @import "./common/typography.css";
+@import "./common/spacing.css";
 @import "./common/general.css";
 
 @import "./components/core/link.css";
