@@ -1,0 +1,17 @@
+.friends-selector {
+    padding-left: 5.5rem;
+}
+
+.friends-selector__selected-item,
+.friends-selector__selector {
+    margin-left: -5.5rem;
+}
+
+.friends-selector__selector.v-avatar {
+    background-color: white;
+    border-color: var(--v-secondary-base);
+}
+
+.friends-selector__selector-icon.theme--dark.v-icon {
+    color: var(--v-secondary-base);
+}
