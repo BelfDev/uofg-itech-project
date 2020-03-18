@@ -20,7 +20,8 @@
     border-radius: 0 0 0.8rem 0.8rem;
 }
 
-.item-list__element-icon.theme--dark.v-icon {
+.item-list__element-icon.theme--dark.v-icon,
+.item-list__element-icon.theme--light.v-icon {
     color: var(--v-secondary-base);
     margin-left: auto;
     

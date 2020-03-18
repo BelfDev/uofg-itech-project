@@ -42,3 +42,7 @@
 .v-select--is-multi .theme--dark.v-list-item.v-list-item--highlighted::before {
     opacity: 0.2;
 }
+
+.v-autocomplete__content.v-menu__content.menuable__content__active {
+    z-index: 20 !important;
+}

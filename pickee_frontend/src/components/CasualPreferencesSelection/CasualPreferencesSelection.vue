@@ -15,7 +15,8 @@
                     solo
                     multiple
                     chips
-                    ><template v-slot:selection="data">
+                    >
+                    <template v-slot:selection="data">
                         <v-chip
                             color="primary"
                             :key="JSON.stringify(data.item)"

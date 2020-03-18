@@ -7,7 +7,7 @@
         </v-avatar>
 
         <v-overlay
-          absolute="true"
+          :absolute="true"
           color=""
           :value="overlay"
         >
@@ -21,7 +21,7 @@
                         >{{ iconClose }}</v-icon
                     >
                     <v-card-text class="text-center pa-0">
-                        <v-avatar class="mb-6" size="13rem" v-on="on">
+                        <v-avatar class="mb-6" size="13rem">
                             <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
                         </v-avatar>
                         <h3>Nathan</h3>

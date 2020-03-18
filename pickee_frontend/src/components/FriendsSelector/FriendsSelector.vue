@@ -23,28 +23,25 @@
                         large
                         color="black"
                         @click="dialog = false"
-                        >{{ iconClose }}</v-icon
-                    >
-                    <v-card-text class="friends-selector__popup-content">
+                        >{{ iconClose }}</v-icon>
+                    <v-card-text class="friends-selector__popup-content pb-4">
                         <div class="friends-selector__popup-header mb-8">
-                            <v-avatar size="10rem" v-on="on">
+                            <v-avatar size="10rem">
                                 <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
                             </v-avatar>
                             <p>Hey Nathan, <strong>add friends</strong> to your movie session by typing their user ids in the list below</p>
                         </div>
                         <v-text-field
                             dark
-                            class="mb-8"
-                            v-model="first"
                             label="Enter your friend's email"
                             :append-icon="iconPlusCircle"
-                            @click:append="testInputAppend"
                             solo
                         ></v-text-field>
+                        <ItemList :items="items" />
                     </v-card-text>
 
                     <v-card-actions class="dialog-actions text-right">
-                        <button class="dialog-actions__button">Done</button>
+                        <button class="dialog-actions__button" @click="dialog = false">Done</button>
                     </v-card-actions>
                 </div>
             </v-card>
