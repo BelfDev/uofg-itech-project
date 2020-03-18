@@ -1,5 +1,28 @@
 .casual-prefences-selection {
+    min-height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.casual-prefences-selection__form {
     padding: 6.4rem;
-    margin-top: auto;
-    margin-bottom: auto;
+    flex-basis: 81rem;
+}
+
+.casual-prefences-selection__action-block {
+    flex: 1;
+    padding-left: 15rem;
+}
+
+.casual-prefences-selection__action-btn {
+    padding: 5.8rem;
+    border-radius: 100%;
+    background: transparent linear-gradient(148deg, var(--v-grey950-base) 0%, var(--v-grey985-base) 100%) 0% 0% no-repeat padding-box;
+    /* background: transparent linear-gradient(148deg, #282828 0%, #2B2B2B 100%) 0% 0% no-repeat padding-box; */
+    box-shadow: -5px -5px 11px #71717126, 5px 5px 11px #00000015;
+}
+
+.casual-prefences-selection__action-icon.theme--dark.v-icon {
+    color: var(--v-primary-base);
 }
