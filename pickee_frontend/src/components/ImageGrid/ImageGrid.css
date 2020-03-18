@@ -1,0 +1,43 @@
+.image-grid {
+    margin-left: -17rem;
+    margin-top:5rem;
+}
+
+
+.image-grid-header {
+    font-size: var(--font-size-body-1);
+    line-height: var(--font-line-height-body-1);
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+    margin-top: 1.1rem;
+}
+
+.image-grid-content {
+    display: flex;
+}
+
+.image-grid-card {
+    width: 75rem;
+    height: 35rem;
+}
+
+.image-grid-content__block {
+    margin-right: 2.6rem;
+}
+
+.image-grid-content__label {
+    text-align: center;
+    font-size: var(--font-size-body-4);
+    line-height: var(--font-line-height-body-4);
+    font-weight: 400;
+    margin-top: 0.8rem;
+}
+
+.image-grid-content__btn { 
+    display: block;
+    margin-left: auto;
+    margin-top: 3.4rem;
+    margin-bottom: 0.8rem;
+    width: 35%;
+}
+
