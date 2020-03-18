@@ -9,9 +9,15 @@
                 <img src="https://image.tmdb.org/t/p/w500/eFCzU9Jqp2Ea17ysDkG8PB0NLiR.jpg" alt="A Rainy Day in New York" />
             </swiper-slide>
             <swiper-slide class="recommendation-carousel__swiper-slide">
+                <div class="recommendation-carousel__action-button action-button">
+                    <v-icon color="primary" size="4.5rem">{{ iconFavorites }}</v-icon>
+                </div>
                 <img src="https://image.tmdb.org/t/p/w500/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg" alt="Sonic the Hedgehog" />
             </swiper-slide>
             <swiper-slide class="recommendation-carousel__swiper-slide">
+                <div class="recommendation-carousel__action-button action-button">
+                    <v-icon color="red" size="4.5rem">{{ iconThumbDown }}</v-icon>
+                </div>
                 <img src="https://image.tmdb.org/t/p/w500/db32LaOibwEliAmSL2jjDF6oDdj.jpg" alt="Star Wars: The Rise of Skywalker" />
             </swiper-slide>
             <swiper-slide class="recommendation-carousel__swiper-slide">

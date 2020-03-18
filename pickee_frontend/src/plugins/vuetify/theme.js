@@ -1,6 +1,8 @@
 export default {
     primary: "#ffbf69",
     secondary: "#2d3142",
+    red: "#FF6969",
+    green: "#69FF80",
     grey100: "#fbfbfb",
     grey200: "#eaeaea",
     grey300: "#d3d0c5",

@@ -1,6 +1,6 @@
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
-import { mdiChevronLeft, mdiChevronRight } from '@mdi/js';
+import { mdiChevronLeft, mdiChevronRight, mdiThumbDown, mdiThumbUp, mdiBookmark } from '@mdi/js';
 
 export default {
     name: "RecommendationCarousel",
@@ -12,6 +12,9 @@ export default {
         return {
             iconArrowLeft: mdiChevronLeft,
             iconArrowRight: mdiChevronRight,
+            iconFavorites: mdiBookmark,
+            iconThumbDown: mdiThumbDown,
+            iconThumbUp: mdiThumbUp,
             swiperOption: {
                 effect: "coverflow",
                 centeredSlides: true,
