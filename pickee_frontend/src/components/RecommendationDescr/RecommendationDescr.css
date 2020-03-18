@@ -75,3 +75,7 @@
     padding: 0 1.6rem;
     justify-content: space-between;
 }
+
+.recommendation-descr__popup-text {
+    padding: 2rem 12rem 6rem;
+}

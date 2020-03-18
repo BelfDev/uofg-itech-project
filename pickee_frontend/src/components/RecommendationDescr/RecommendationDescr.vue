@@ -35,9 +35,28 @@
             <button class="action-button">
                 <v-icon color="primary" size="7.5rem">{{ iconFavorites }}</v-icon>
             </button>
-            <button class="action-button">
-                <v-icon color="green" size="7.5rem">{{ iconThumbUp }}</v-icon>
-            </button>
+            <v-dialog v-model="dialog" width="84rem">
+                <template v-slot:activator="{ on }">
+                    <button class="action-button" v-on="on">
+                        <v-icon color="green" size="7.5rem">{{ iconThumbUp }}</v-icon>
+                    </button>
+                </template>
+
+                <v-card light>
+                    <div class="px-8 py-6">
+                        <v-icon
+                            class="dialog-close"
+                            large
+                            color="black"
+                            @click="dialog = false"
+                            >{{ iconClose }}</v-icon>
+                        <v-card-text class="px-12 pb-4">
+                            <p class="recommendation-descr__popup-text"><strong>Yessssss!</strong> Habemus movie. Now go ahead and watch it.</p>
+                            <ItemList :items="items" :button-action="openProvider" />
+                        </v-card-text>
+                    </div>
+                </v-card>
+            </v-dialog>
         </div>
     </div>
 </template>
