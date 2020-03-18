@@ -2,10 +2,10 @@
     margin: 0 !important;
 }
 .v-application .ma-1 {
-    margin: .4rem !important;
+    margin: 0.4rem !important;
 }
 .v-application .ma-2 {
-    margin: .8rem !important;
+    margin: 0.8rem !important;
 }
 .v-application .ma-3 {
     margin: 1.2rem !important;
@@ -29,7 +29,7 @@
     margin: 3.6rem !important;
 }
 .v-application .ma-10 {
-    margin: .4rem !important;
+    margin: 0.4rem !important;
 }
 .v-application .ma-11 {
     margin: 4.4rem !important;
@@ -45,12 +45,12 @@
     margin-left: 0 !important;
 }
 .v-application .mx-1 {
-    margin-right: .4rem !important;
-    margin-left: .4rem !important;
+    margin-right: 0.4rem !important;
+    margin-left: 0.4rem !important;
 }
 .v-application .mx-2 {
-    margin-right: .8rem !important;
-    margin-left: .8rem !important;
+    margin-right: 0.8rem !important;
+    margin-left: 0.8rem !important;
 }
 .v-application .mx-3 {
     margin-right: 1.2rem !important;
@@ -81,8 +81,8 @@
     margin-left: 3.6rem !important;
 }
 .v-application .mx-10 {
-    margin-right: .4rem !important;
-    margin-left: .4rem !important;
+    margin-right: 0.4rem !important;
+    margin-left: 0.4rem !important;
 }
 .v-application .mx-11 {
     margin-right: 4.4rem !important;
@@ -101,12 +101,12 @@
     margin-bottom: 0 !important;
 }
 .v-application .my-1 {
-    margin-top: .4rem !important;
-    margin-bottom: .4rem !important;
+    margin-top: 0.4rem !important;
+    margin-bottom: 0.4rem !important;
 }
 .v-application .my-2 {
-    margin-top: .8rem !important;
-    margin-bottom: .8rem !important;
+    margin-top: 0.8rem !important;
+    margin-bottom: 0.8rem !important;
 }
 .v-application .my-3 {
     margin-top: 1.2rem !important;
@@ -137,8 +137,8 @@
     margin-bottom: 3.6rem !important;
 }
 .v-application .my-10 {
-    margin-top: .4rem !important;
-    margin-bottom: .4rem !important;
+    margin-top: 0.4rem !important;
+    margin-bottom: 0.4rem !important;
 }
 .v-application .my-11 {
     margin-top: 4.4rem !important;
@@ -156,10 +156,10 @@
     margin-top: 0 !important;
 }
 .v-application .mt-1 {
-    margin-top: .4rem !important;
+    margin-top: 0.4rem !important;
 }
 .v-application .mt-2 {
-    margin-top: .8rem !important;
+    margin-top: 0.8rem !important;
 }
 .v-application .mt-3 {
     margin-top: 1.2rem !important;
@@ -183,7 +183,7 @@
     margin-top: 3.6rem !important;
 }
 .v-application .mt-10 {
-    margin-top: .4rem !important;
+    margin-top: 0.4rem !important;
 }
 .v-application .mt-11 {
     margin-top: 4.4rem !important;
@@ -198,10 +198,10 @@
     margin-right: 0 !important;
 }
 .v-application .mr-1 {
-    margin-right: .4rem !important;
+    margin-right: 0.4rem !important;
 }
 .v-application .mr-2 {
-    margin-right: .8rem !important;
+    margin-right: 0.8rem !important;
 }
 .v-application .mr-3 {
     margin-right: 1.2rem !important;
@@ -225,7 +225,7 @@
     margin-right: 3.6rem !important;
 }
 .v-application .mr-10 {
-    margin-right: .4rem !important;
+    margin-right: 0.4rem !important;
 }
 .v-application .mr-11 {
     margin-right: 4.4rem !important;
@@ -240,10 +240,10 @@
     margin-bottom: 0 !important;
 }
 .v-application .mb-1 {
-    margin-bottom: .4rem !important;
+    margin-bottom: 0.4rem !important;
 }
 .v-application .mb-2 {
-    margin-bottom: .8rem !important;
+    margin-bottom: 0.8rem !important;
 }
 .v-application .mb-3 {
     margin-bottom: 1.2rem !important;
@@ -282,10 +282,10 @@
     margin-left: 0 !important;
 }
 .v-application .ml-1 {
-    margin-left: .4rem !important;
+    margin-left: 0.4rem !important;
 }
 .v-application .ml-2 {
-    margin-left: .8rem !important;
+    margin-left: 0.8rem !important;
 }
 .v-application .ml-3 {
     margin-left: 1.2rem !important;
@@ -312,10 +312,10 @@
     margin-left: 4rem !important;
 }
 .v-application .ml-11 {
-    margin-left: 44rem !important;
+    margin-left: 4.4rem !important;
 }
 .v-application .ml-12 {
-    margin-left: 48rem !important;
+    margin-left: 4.8rem !important;
 }
 .v-application .ml-auto {
     margin-left: auto !important;
@@ -325,10 +325,10 @@
     margin: 0 !important;
 }
 .v-application .ma-sm-1 {
-    margin: .4rem !important;
+    margin: 0.4rem !important;
 }
 .v-application .ma-sm-2 {
-    margin: .8rem !important;
+    margin: 0.8rem !important;
 }
 .v-application .ma-sm-3 {
     margin: 1.2rem !important;
@@ -355,10 +355,10 @@
     margin: 4rem !important;
 }
 .v-application .ma-sm-11 {
-    margin: 44rem !important;
+    margin: 4.4rem !important;
 }
 .v-application .ma-sm-12 {
-    margin: 48rem !important;
+    margin: 4.8rem !important;
 }
 .v-application .ma-sm-auto {
     margin: auto !important;
@@ -368,12 +368,12 @@
     margin-left: 0 !important;
 }
 .v-application .mx-sm-1 {
-    margin-right: .4rem !important;
-    margin-left: .4rem !important;
+    margin-right: 0.4rem !important;
+    margin-left: 0.4rem !important;
 }
 .v-application .mx-sm-2 {
-    margin-right: .8rem !important;
-    margin-left: .8rem !important;
+    margin-right: 0.8rem !important;
+    margin-left: 0.8rem !important;
 }
 .v-application .mx-sm-3 {
     margin-right: 1.2rem !important;
@@ -408,12 +408,12 @@
     margin-left: 4rem !important;
 }
 .v-application .mx-sm-11 {
-    margin-right: 44rem !important;
-    margin-left: 44rem !important;
+    margin-right: 4.4rem !important;
+    margin-left: 4.4rem !important;
 }
 .v-application .mx-sm-12 {
-    margin-right: 48rem !important;
-    margin-left: 48rem !important;
+    margin-right: 4.8rem !important;
+    margin-left: 4.8rem !important;
 }
 .v-application .mx-sm-auto {
     margin-right: auto !important;
@@ -424,12 +424,12 @@
     margin-bottom: 0 !important;
 }
 .v-application .my-sm-1 {
-    margin-top: .4rem !important;
-    margin-bottom: .4rem !important;
+    margin-top: 0.4rem !important;
+    margin-bottom: 0.4rem !important;
 }
 .v-application .my-sm-2 {
-    margin-top: .8rem !important;
-    margin-bottom: .8rem !important;
+    margin-top: 0.8rem !important;
+    margin-bottom: 0.8rem !important;
 }
 .v-application .my-sm-3 {
     margin-top: 1.2rem !important;
@@ -464,12 +464,12 @@
     margin-bottom: 4rem !important;
 }
 .v-application .my-sm-11 {
-    margin-top: 44rem !important;
-    margin-bottom: 44rem !important;
+    margin-top: 4.4rem !important;
+    margin-bottom: 4.4rem !important;
 }
 .v-application .my-sm-12 {
-    margin-top: 48rem !important;
-    margin-bottom: 48rem !important;
+    margin-top: 4.8rem !important;
+    margin-bottom: 4.8rem !important;
 }
 .v-application .my-sm-auto {
     margin-top: auto !important;
@@ -479,10 +479,10 @@
     margin-top: 0 !important;
 }
 .v-application .mt-sm-1 {
-    margin-top: .4rem !important;
+    margin-top: 0.4rem !important;
 }
 .v-application .mt-sm-2 {
-    margin-top: .8rem !important;
+    margin-top: 0.8rem !important;
 }
 .v-application .mt-sm-3 {
     margin-top: 1.2rem !important;
@@ -509,10 +509,10 @@
     margin-top: 4rem !important;
 }
 .v-application .mt-sm-11 {
-    margin-top: 44rem !important;
+    margin-top: 4.4rem !important;
 }
 .v-application .mt-sm-12 {
-    margin-top: 48rem !important;
+    margin-top: 4.8rem !important;
 }
 .v-application .mt-sm-auto {
     margin-top: auto !important;
@@ -521,10 +521,10 @@
     margin-right: 0 !important;
 }
 .v-application .mr-sm-1 {
-    margin-right: .4rem !important;
+    margin-right: 0.4rem !important;
 }
 .v-application .mr-sm-2 {
-    margin-right: .8rem !important;
+    margin-right: 0.8rem !important;
 }
 .v-application .mr-sm-3 {
     margin-right: 1.2rem !important;
@@ -551,10 +551,10 @@
     margin-right: 4rem !important;
 }
 .v-application .mr-sm-11 {
-    margin-right: 44rem !important;
+    margin-right: 4.4rem !important;
 }
 .v-application .mr-sm-12 {
-    margin-right: 48rem !important;
+    margin-right: 4.8rem !important;
 }
 .v-application .mr-sm-auto {
     margin-right: auto !important;
@@ -563,10 +563,10 @@
     margin-bottom: 0 !important;
 }
 .v-application .mb-sm-1 {
-    margin-bottom: .4rem !important;
+    margin-bottom: 0.4rem !important;
 }
 .v-application .mb-sm-2 {
-    margin-bottom: .8rem !important;
+    margin-bottom: 0.8rem !important;
 }
 .v-application .mb-sm-3 {
     margin-bottom: 1.2rem !important;
@@ -593,10 +593,10 @@
     margin-bottom: 4rem !important;
 }
 .v-application .mb-sm-11 {
-    margin-bottom: 44rem !important;
+    margin-bottom: 4.4rem !important;
 }
 .v-application .mb-sm-12 {
-    margin-bottom: 48rem !important;
+    margin-bottom: 4.8rem !important;
 }
 .v-application .mb-sm-auto {
     margin-bottom: auto !important;
@@ -605,10 +605,10 @@
     margin-left: 0 !important;
 }
 .v-application .ml-sm-1 {
-    margin-left: .4rem !important;
+    margin-left: 0.4rem !important;
 }
 .v-application .ml-sm-2 {
-    margin-left: .8rem !important;
+    margin-left: 0.8rem !important;
 }
 .v-application .ml-sm-3 {
     margin-left: 1.2rem !important;
@@ -635,10 +635,10 @@
     margin-left: 4rem !important;
 }
 .v-application .ml-sm-11 {
-    margin-left: 44rem !important;
+    margin-left: 4.4rem !important;
 }
 .v-application .ml-sm-12 {
-    margin-left: 48rem !important;
+    margin-left: 4.8rem !important;
 }
 .v-application .ml-sm-auto {
     margin-left: auto !important;
@@ -648,10 +648,10 @@
     margin: 0 !important;
 }
 .v-application .ma-md-1 {
-    margin: .4rem !important;
+    margin: 0.4rem !important;
 }
 .v-application .ma-md-2 {
-    margin: .8rem !important;
+    margin: 0.8rem !important;
 }
 .v-application .ma-md-3 {
     margin: 1.2rem !important;
@@ -678,10 +678,10 @@
     margin: 4rem !important;
 }
 .v-application .ma-md-11 {
-    margin: 44rem !important;
+    margin: 4.4rem !important;
 }
 .v-application .ma-md-12 {
-    margin: 48rem !important;
+    margin: 4.8rem !important;
 }
 .v-application .ma-md-auto {
     margin: auto !important;
@@ -691,12 +691,12 @@
     margin-left: 0 !important;
 }
 .v-application .mx-md-1 {
-    margin-right: .4rem !important;
-    margin-left: .4rem !important;
+    margin-right: 0.4rem !important;
+    margin-left: 0.4rem !important;
 }
 .v-application .mx-md-2 {
-    margin-right: .8rem !important;
-    margin-left: .8rem !important;
+    margin-right: 0.8rem !important;
+    margin-left: 0.8rem !important;
 }
 .v-application .mx-md-3 {
     margin-right: 1.2rem !important;
@@ -731,12 +731,12 @@
     margin-left: 4rem !important;
 }
 .v-application .mx-md-11 {
-    margin-right: 44rem !important;
-    margin-left: 44rem !important;
+    margin-right: 4.4rem !important;
+    margin-left: 4.4rem !important;
 }
 .v-application .mx-md-12 {
-    margin-right: 48rem !important;
-    margin-left: 48rem !important;
+    margin-right: 4.8rem !important;
+    margin-left: 4.8rem !important;
 }
 .v-application .mx-md-auto {
     margin-right: auto !important;
@@ -747,12 +747,12 @@
     margin-bottom: 0 !important;
 }
 .v-application .my-md-1 {
-    margin-top: .4rem !important;
-    margin-bottom: .4rem !important;
+    margin-top: 0.4rem !important;
+    margin-bottom: 0.4rem !important;
 }
 .v-application .my-md-2 {
-    margin-top: .8rem !important;
-    margin-bottom: .8rem !important;
+    margin-top: 0.8rem !important;
+    margin-bottom: 0.8rem !important;
 }
 .v-application .my-md-3 {
     margin-top: 1.2rem !important;
@@ -787,12 +787,12 @@
     margin-bottom: 4rem !important;
 }
 .v-application .my-md-11 {
-    margin-top: 44rem !important;
-    margin-bottom: 44rem !important;
+    margin-top: 4.4rem !important;
+    margin-bottom: 4.4rem !important;
 }
 .v-application .my-md-12 {
-    margin-top: 48rem !important;
-    margin-bottom: 48rem !important;
+    margin-top: 4.8rem !important;
+    margin-bottom: 4.8rem !important;
 }
 .v-application .my-md-auto {
     margin-top: auto !important;
@@ -802,10 +802,10 @@
     margin-top: 0 !important;
 }
 .v-application .mt-md-1 {
-    margin-top: .4rem !important;
+    margin-top: 0.4rem !important;
 }
 .v-application .mt-md-2 {
-    margin-top: .8rem !important;
+    margin-top: 0.8rem !important;
 }
 .v-application .mt-md-3 {
     margin-top: 1.2rem !important;
@@ -832,10 +832,10 @@
     margin-top: 4rem !important;
 }
 .v-application .mt-md-11 {
-    margin-top: 44rem !important;
+    margin-top: 4.4rem !important;
 }
 .v-application .mt-md-12 {
-    margin-top: 48rem !important;
+    margin-top: 4.8rem !important;
 }
 .v-application .mt-md-auto {
     margin-top: auto !important;
@@ -844,10 +844,10 @@
     margin-right: 0 !important;
 }
 .v-application .mr-md-1 {
-    margin-right: .4rem !important;
+    margin-right: 0.4rem !important;
 }
 .v-application .mr-md-2 {
-    margin-right: .8rem !important;
+    margin-right: 0.8rem !important;
 }
 .v-application .mr-md-3 {
     margin-right: 1.2rem !important;
@@ -874,10 +874,10 @@
     margin-right: 4rem !important;
 }
 .v-application .mr-md-11 {
-    margin-right: 44rem !important;
+    margin-right: 4.4rem !important;
 }
 .v-application .mr-md-12 {
-    margin-right: 48rem !important;
+    margin-right: 4.8rem !important;
 }
 .v-application .mr-md-auto {
     margin-right: auto !important;
@@ -886,10 +886,10 @@
     margin-bottom: 0 !important;
 }
 .v-application .mb-md-1 {
-    margin-bottom: .4rem !important;
+    margin-bottom: 0.4rem !important;
 }
 .v-application .mb-md-2 {
-    margin-bottom: .8rem !important;
+    margin-bottom: 0.8rem !important;
 }
 .v-application .mb-md-3 {
     margin-bottom: 1.2rem !important;
@@ -916,10 +916,10 @@
     margin-bottom: 4rem !important;
 }
 .v-application .mb-md-11 {
-    margin-bottom: 44rem !important;
+    margin-bottom: 4.4rem !important;
 }
 .v-application .mb-md-12 {
-    margin-bottom: 48rem !important;
+    margin-bottom: 4.8rem !important;
 }
 .v-application .mb-md-auto {
     margin-bottom: auto !important;
@@ -928,10 +928,10 @@
     margin-left: 0 !important;
 }
 .v-application .ml-md-1 {
-    margin-left: .4rem !important;
+    margin-left: 0.4rem !important;
 }
 .v-application .ml-md-2 {
-    margin-left: .8rem !important;
+    margin-left: 0.8rem !important;
 }
 .v-application .ml-md-3 {
     margin-left: 1.2rem !important;
@@ -958,10 +958,10 @@
     margin-left: 4rem !important;
 }
 .v-application .ml-md-11 {
-    margin-left: 44rem !important;
+    margin-left: 4.4rem !important;
 }
 .v-application .ml-md-12 {
-    margin-left: 48rem !important;
+    margin-left: 4.8rem !important;
 }
 .v-application .ml-md-auto {
     margin-left: auto !important;
@@ -971,10 +971,10 @@
     margin: 0 !important;
 }
 .v-application .ma-lg-1 {
-    margin: .4rem !important;
+    margin: 0.4rem !important;
 }
 .v-application .ma-lg-2 {
-    margin: .8rem !important;
+    margin: 0.8rem !important;
 }
 .v-application .ma-lg-3 {
     margin: 1.2rem !important;
@@ -1001,10 +1001,10 @@
     margin: 4rem !important;
 }
 .v-application .ma-lg-11 {
-    margin: 44rem !important;
+    margin: 4.4rem !important;
 }
 .v-application .ma-lg-12 {
-    margin: 48rem !important;
+    margin: 4.8rem !important;
 }
 .v-application .ma-lg-auto {
     margin: auto !important;
@@ -1014,12 +1014,12 @@
     margin-left: 0 !important;
 }
 .v-application .mx-lg-1 {
-    margin-right: .4rem !important;
-    margin-left: .4rem !important;
+    margin-right: 0.4rem !important;
+    margin-left: 0.4rem !important;
 }
 .v-application .mx-lg-2 {
-    margin-right: .8rem !important;
-    margin-left: .8rem !important;
+    margin-right: 0.8rem !important;
+    margin-left: 0.8rem !important;
 }
 .v-application .mx-lg-3 {
     margin-right: 1.2rem !important;
@@ -1054,12 +1054,12 @@
     margin-left: 4rem !important;
 }
 .v-application .mx-lg-11 {
-    margin-right: 44rem !important;
-    margin-left: 44rem !important;
+    margin-right: 4.4rem !important;
+    margin-left: 4.4rem !important;
 }
 .v-application .mx-lg-12 {
-    margin-right: 48rem !important;
-    margin-left: 48rem !important;
+    margin-right: 4.8rem !important;
+    margin-left: 4.8rem !important;
 }
 .v-application .mx-lg-auto {
     margin-right: auto !important;
@@ -1070,12 +1070,12 @@
     margin-bottom: 0 !important;
 }
 .v-application .my-lg-1 {
-    margin-top: .4rem !important;
-    margin-bottom: .4rem !important;
+    margin-top: 0.4rem !important;
+    margin-bottom: 0.4rem !important;
 }
 .v-application .my-lg-2 {
-    margin-top: .8rem !important;
-    margin-bottom: .8rem !important;
+    margin-top: 0.8rem !important;
+    margin-bottom: 0.8rem !important;
 }
 .v-application .my-lg-3 {
     margin-top: 1.2rem !important;
@@ -1114,8 +1114,8 @@
     margin-bottom: 44rem !important;
 }
 .v-application .my-lg-12 {
-    margin-top: 48rem !important;
-    margin-bottom: 48rem !important;
+    margin-top: 4.8rem !important;
+    margin-bottom: 4.8rem !important;
 }
 .v-application .my-lg-auto {
     margin-top: auto !important;
@@ -1125,10 +1125,10 @@
     margin-top: 0 !important;
 }
 .v-application .mt-lg-1 {
-    margin-top: .4rem !important;
+    margin-top: 0.4rem !important;
 }
 .v-application .mt-lg-2 {
-    margin-top: .8rem !important;
+    margin-top: 0.8rem !important;
 }
 .v-application .mt-lg-3 {
     margin-top: 1.2rem !important;
@@ -1155,10 +1155,10 @@
     margin-top: 4rem !important;
 }
 .v-application .mt-lg-11 {
-    margin-top: 44rem !important;
+    margin-top: 4.4rem !important;
 }
 .v-application .mt-lg-12 {
-    margin-top: 48rem !important;
+    margin-top: 4.8rem !important;
 }
 .v-application .mt-lg-auto {
     margin-top: auto !important;
@@ -1167,10 +1167,10 @@
     margin-right: 0 !important;
 }
 .v-application .mr-lg-1 {
-    margin-right: .4rem !important;
+    margin-right: 0.4rem !important;
 }
 .v-application .mr-lg-2 {
-    margin-right: .8rem !important;
+    margin-right: 0.8rem !important;
 }
 .v-application .mr-lg-3 {
     margin-right: 1.2rem !important;
@@ -1197,10 +1197,10 @@
     margin-right: 4rem !important;
 }
 .v-application .mr-lg-11 {
-    margin-right: 44rem !important;
+    margin-right: 4.4rem !important;
 }
 .v-application .mr-lg-12 {
-    margin-right: 48rem !important;
+    margin-right: 4.8rem !important;
 }
 .v-application .mr-lg-auto {
     margin-right: auto !important;
@@ -1209,10 +1209,10 @@
     margin-bottom: 0 !important;
 }
 .v-application .mb-lg-1 {
-    margin-bottom: .4rem !important;
+    margin-bottom: 0.4rem !important;
 }
 .v-application .mb-lg-2 {
-    margin-bottom: .8rem !important;
+    margin-bottom: 0.8rem !important;
 }
 .v-application .mb-lg-3 {
     margin-bottom: 1.2rem !important;
@@ -1239,10 +1239,10 @@
     margin-bottom: 4rem !important;
 }
 .v-application .mb-lg-11 {
-    margin-bottom: 44rem !important;
+    margin-bottom: 4.4rem !important;
 }
 .v-application .mb-lg-12 {
-    margin-bottom: 48rem !important;
+    margin-bottom: 4.8rem !important;
 }
 .v-application .mb-lg-auto {
     margin-bottom: auto !important;
@@ -1251,10 +1251,10 @@
     margin-left: 0 !important;
 }
 .v-application .ml-lg-1 {
-    margin-left: .4rem !important;
+    margin-left: 0.4rem !important;
 }
 .v-application .ml-lg-2 {
-    margin-left: .8rem !important;
+    margin-left: 0.8rem !important;
 }
 .v-application .ml-lg-3 {
     margin-left: 1.2rem !important;
@@ -1281,10 +1281,10 @@
     margin-left: 4rem !important;
 }
 .v-application .ml-lg-11 {
-    margin-left: 44rem !important;
+    margin-left: 4.4rem !important;
 }
 .v-application .ml-lg-12 {
-    margin-left: 48rem !important;
+    margin-left: 4.8rem !important;
 }
 .v-application .ml-lg-auto {
     margin-left: auto !important;
@@ -1294,10 +1294,10 @@
     margin: 0 !important;
 }
 .v-application .ma-xl-1 {
-    margin: .4rem !important;
+    margin: 0.4rem !important;
 }
 .v-application .ma-xl-2 {
-    margin: .8rem !important;
+    margin: 0.8rem !important;
 }
 .v-application .ma-xl-3 {
     margin: 1.2rem !important;
@@ -1324,10 +1324,10 @@
     margin: 4rem !important;
 }
 .v-application .ma-xl-11 {
-    margin: 44rem !important;
+    margin: 4.4rem !important;
 }
 .v-application .ma-xl-12 {
-    margin: 48rem !important;
+    margin: 4.8rem !important;
 }
 .v-application .ma-xl-auto {
     margin: auto !important;
@@ -1337,12 +1337,12 @@
     margin-left: 0 !important;
 }
 .v-application .mx-xl-1 {
-    margin-right: .4rem !important;
-    margin-left: .4rem !important;
+    margin-right: 0.4rem !important;
+    margin-left: 0.4rem !important;
 }
 .v-application .mx-xl-2 {
-    margin-right: .8rem !important;
-    margin-left: .8rem !important;
+    margin-right: 0.8rem !important;
+    margin-left: 0.8rem !important;
 }
 .v-application .mx-xl-3 {
     margin-right: 1.2rem !important;
@@ -1377,12 +1377,12 @@
     margin-left: 4rem !important;
 }
 .v-application .mx-xl-11 {
-    margin-right: 44rem !important;
-    margin-left: 44rem !important;
+    margin-right: 4.4rem !important;
+    margin-left: 4.4rem !important;
 }
 .v-application .mx-xl-12 {
-    margin-right: 48rem !important;
-    margin-left: 48rem !important;
+    margin-right: 4.8rem !important;
+    margin-left: 4.8rem !important;
 }
 .v-application .mx-xl-auto {
     margin-right: auto !important;
@@ -1393,12 +1393,12 @@
     margin-bottom: 0 !important;
 }
 .v-application .my-xl-1 {
-    margin-top: .4rem !important;
-    margin-bottom: .4rem !important;
+    margin-top: 0.4rem !important;
+    margin-bottom: 0.4rem !important;
 }
 .v-application .my-xl-2 {
-    margin-top: .8rem !important;
-    margin-bottom: .8rem !important;
+    margin-top: 0.8rem !important;
+    margin-bottom: 0.8rem !important;
 }
 .v-application .my-xl-3 {
     margin-top: 1.2rem !important;
@@ -1433,12 +1433,12 @@
     margin-bottom: 4rem !important;
 }
 .v-application .my-xl-11 {
-    margin-top: 44rem !important;
-    margin-bottom: 44rem !important;
+    margin-top: 4.4rem !important;
+    margin-bottom: 4.4rem !important;
 }
 .v-application .my-xl-12 {
-    margin-top: 48rem !important;
-    margin-bottom: 48rem !important;
+    margin-top: 4.8rem !important;
+    margin-bottom: 4.8rem !important;
 }
 .v-application .my-xl-auto {
     margin-top: auto !important;
@@ -1448,10 +1448,10 @@
     margin-top: 0 !important;
 }
 .v-application .mt-xl-1 {
-    margin-top: .4rem !important;
+    margin-top: 0.4rem !important;
 }
 .v-application .mt-xl-2 {
-    margin-top: .8rem !important;
+    margin-top: 0.8rem !important;
 }
 .v-application .mt-xl-3 {
     margin-top: 1.2rem !important;
@@ -1478,10 +1478,10 @@
     margin-top: 4rem !important;
 }
 .v-application .mt-xl-11 {
-    margin-top: 44rem !important;
+    margin-top: 4.4rem !important;
 }
 .v-application .mt-xl-12 {
-    margin-top: 48rem !important;
+    margin-top: 4.8rem !important;
 }
 .v-application .mt-xl-auto {
     margin-top: auto !important;
@@ -1490,10 +1490,10 @@
     margin-right: 0 !important;
 }
 .v-application .mr-xl-1 {
-    margin-right: .4rem !important;
+    margin-right: 0.4rem !important;
 }
 .v-application .mr-xl-2 {
-    margin-right: .8rem !important;
+    margin-right: 0.8rem !important;
 }
 .v-application .mr-xl-3 {
     margin-right: 1.2rem !important;
@@ -1520,10 +1520,10 @@
     margin-right: 4rem !important;
 }
 .v-application .mr-xl-11 {
-    margin-right: 44rem !important;
+    margin-right: 4.4rem !important;
 }
 .v-application .mr-xl-12 {
-    margin-right: 48rem !important;
+    margin-right: 4.8rem !important;
 }
 .v-application .mr-xl-auto {
     margin-right: auto !important;
@@ -1532,10 +1532,10 @@
     margin-bottom: 0 !important;
 }
 .v-application .mb-xl-1 {
-    margin-bottom: .4rem !important;
+    margin-bottom: 0.4rem !important;
 }
 .v-application .mb-xl-2 {
-    margin-bottom: .8rem !important;
+    margin-bottom: 0.8rem !important;
 }
 .v-application .mb-xl-3 {
     margin-bottom: 1.2rem !important;
@@ -1562,10 +1562,10 @@
     margin-bottom: 4rem !important;
 }
 .v-application .mb-xl-11 {
-    margin-bottom: 44rem !important;
+    margin-bottom: 4.4rem !important;
 }
 .v-application .mb-xl-12 {
-    margin-bottom: 48rem !important;
+    margin-bottom: 4.8rem !important;
 }
 .v-application .mb-xl-auto {
     margin-bottom: auto !important;
@@ -1574,10 +1574,10 @@
     margin-left: 0 !important;
 }
 .v-application .ml-xl-1 {
-    margin-left: .4rem !important;
+    margin-left: 0.4rem !important;
 }
 .v-application .ml-xl-2 {
-    margin-left: .8rem !important;
+    margin-left: 0.8rem !important;
 }
 .v-application .ml-xl-3 {
     margin-left: 1.2rem !important;
@@ -1604,11 +1604,311 @@
     margin-left: 4rem !important;
 }
 .v-application .ml-xl-11 {
-    margin-left: 44rem !important;
+    margin-left: 4.4rem !important;
 }
 .v-application .ml-xl-12 {
-    margin-left: 48rem !important;
+    margin-left: 4.8rem !important;
 }
 .v-application .ml-xl-auto {
     margin-left: auto !important;
+}
+
+.v-application .pa-0 {
+    padding: 0 !important;
+}
+.v-application .pa-1 {
+    padding: .4rem !important;
+}
+.v-application .pa-2 {
+    padding: .8rem !important;
+}
+.v-application .pa-3 {
+    padding: 1.2rem !important;
+}
+.v-application .pa-4 {
+    padding: 1.6rem !important;
+}
+.v-application .pa-5 {
+    padding: 2rem !important;
+}
+.v-application .pa-6 {
+    padding: 2.4rem !important;
+}
+.v-application .pa-7 {
+    padding: 2.8rem !important;
+}
+.v-application .pa-8 {
+    padding: 3.2rem !important;
+}
+.v-application .pa-9 {
+    padding: 3.6rem !important;
+}
+.v-application .pa-10 {
+    padding: 4rem !important;
+}
+.v-application .pa-11 {
+    padding: 4.4rem !important;
+}
+.v-application .pa-12 {
+    padding: 4.8rem !important;
+}
+.v-application .px-0 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+.v-application .px-1 {
+    padding-right: .4rem !important;
+    padding-left: .4rem !important;
+}
+.v-application .px-2 {
+    padding-right: .8rem !important;
+    padding-left: .8rem !important;
+}
+.v-application .px-3 {
+    padding-right: 1.2rem !important;
+    padding-left: 1.2rem !important;
+}
+.v-application .px-4 {
+    padding-right: 1.6rem !important;
+    padding-left: 1.6rem !important;
+}
+.v-application .px-5 {
+    padding-right: 2rem !important;
+    padding-left: 2rem !important;
+}
+.v-application .px-6 {
+    padding-right: 2.4rem !important;
+    padding-left: 2.4rem !important;
+}
+.v-application .px-7 {
+    padding-right: 2.8rem !important;
+    padding-left: 2.8rem !important;
+}
+.v-application .px-8 {
+    padding-right: 3.2rem !important;
+    padding-left: 3.2rem !important;
+}
+.v-application .px-9 {
+    padding-right: 3.6rem !important;
+    padding-left: 3.6rem !important;
+}
+.v-application .px-10 {
+    padding-right: 4rem !important;
+    padding-left: 4rem !important;
+}
+.v-application .px-11 {
+    padding-right: 4.4rem !important;
+    padding-left: 4.4rem !important;
+}
+.v-application .px-12 {
+    padding-right: 4.8rem !important;
+    padding-left: 4.8rem !important;
+}
+.v-application .py-0 {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.v-application .py-1 {
+    padding-top: .4rem !important;
+    padding-bottom: .4rem !important;
+}
+.v-application .py-2 {
+    padding-top: .8rem !important;
+    padding-bottom: .8rem !important;
+}
+.v-application .py-3 {
+    padding-top: 1.2rem !important;
+    padding-bottom: 1.2rem !important;
+}
+.v-application .py-4 {
+    padding-top: 1.6rem !important;
+    padding-bottom: 1.6rem !important;
+}
+.v-application .py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+.v-application .py-6 {
+    padding-top: 2.4rem !important;
+    padding-bottom: 2.4rem !important;
+}
+.v-application .py-7 {
+    padding-top: 2.8rem !important;
+    padding-bottom: 2.8rem !important;
+}
+.v-application .py-8 {
+    padding-top: 3.2rem !important;
+    padding-bottom: 3.2rem !important;
+}
+.v-application .py-9 {
+    padding-top: 3.6rem !important;
+    padding-bottom: 3.6rem !important;
+}
+.v-application .py-10 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+.v-application .py-11 {
+    padding-top: 4.4rem !important;
+    padding-bottom: 4.4rem !important;
+}
+.v-application .py-12 {
+    padding-top: 4.8rem !important;
+    padding-bottom: 4.8rem !important;
+}
+.v-application .pt-0 {
+    padding-top: 0 !important;
+}
+.v-application .pt-1 {
+    padding-top: .4rem !important;
+}
+.v-application .pt-2 {
+    padding-top: .8rem !important;
+}
+.v-application .pt-3 {
+    padding-top: 1.2rem !important;
+}
+.v-application .pt-4 {
+    padding-top: 1.6rem !important;
+}
+.v-application .pt-5 {
+    padding-top: 2rem !important;
+}
+.v-application .pt-6 {
+    padding-top: 2.4rem !important;
+}
+.v-application .pt-7 {
+    padding-top: 2.8rem !important;
+}
+.v-application .pt-8 {
+    padding-top: 3.2rem !important;
+}
+.v-application .pt-9 {
+    padding-top: 3.6rem !important;
+}
+.v-application .pt-10 {
+    padding-top: 4rem !important;
+}
+.v-application .pt-11 {
+    padding-top: 4.4rem !important;
+}
+.v-application .pt-12 {
+    padding-top: 4.8rem !important;
+}
+.v-application .pr-0 {
+    padding-right: 0 !important;
+}
+.v-application .pr-1 {
+    padding-right: .4rem !important;
+}
+.v-application .pr-2 {
+    padding-right: .8rem !important;
+}
+.v-application .pr-3 {
+    padding-right: 1.2rem !important;
+}
+.v-application .pr-4 {
+    padding-right: 1.6rem !important;
+}
+.v-application .pr-5 {
+    padding-right: 2rem !important;
+}
+.v-application .pr-6 {
+    padding-right: 2.4rem !important;
+}
+.v-application .pr-7 {
+    padding-right: 2.8rem !important;
+}
+.v-application .pr-8 {
+    padding-right: 3.2rem !important;
+}
+.v-application .pr-9 {
+    padding-right: 3.6rem !important;
+}
+.v-application .pr-10 {
+    padding-right: 4rem !important;
+}
+.v-application .pr-11 {
+    padding-right: 4.4rem !important;
+}
+.v-application .pr-12 {
+    padding-right: 4.8rem !important;
+}
+.v-application .pb-0 {
+    padding-bottom: 0 !important;
+}
+.v-application .pb-1 {
+    padding-bottom: .4rem !important;
+}
+.v-application .pb-2 {
+    padding-bottom: .8rem !important;
+}
+.v-application .pb-3 {
+    padding-bottom: 1.2rem !important;
+}
+.v-application .pb-4 {
+    padding-bottom: 1.6rem !important;
+}
+.v-application .pb-5 {
+    padding-bottom: 2rem !important;
+}
+.v-application .pb-6 {
+    padding-bottom: 2.4rem !important;
+}
+.v-application .pb-7 {
+    padding-bottom: 2.8rem !important;
+}
+.v-application .pb-8 {
+    padding-bottom: 3.2rem !important;
+}
+.v-application .pb-9 {
+    padding-bottom: 3.6rem !important;
+}
+.v-application .pb-10 {
+    padding-bottom: 4rem !important;
+}
+.v-application .pb-11 {
+    padding-bottom: 4.4rem !important;
+}
+.v-application .pb-12 {
+    padding-bottom: 4.8rem !important;
+}
+.v-application .pl-0 {
+    padding-left: 0 !important;
+}
+.v-application .pl-1 {
+    padding-left: .4rem !important;
+}
+.v-application .pl-2 {
+    padding-left: .8rem !important;
+}
+.v-application .pl-3 {
+    padding-left: 1.2rem !important;
+}
+.v-application .pl-4 {
+    padding-left: 1.6rem !important;
+}
+.v-application .pl-5 {
+    padding-left: 2rem !important;
+}
+.v-application .pl-6 {
+    padding-left: 2.4rem !important;
+}
+.v-application .pl-7 {
+    padding-left: 2.8rem !important;
+}
+.v-application .pl-8 {
+    padding-left: 3.2rem !important;
+}
+.v-application .pl-9 {
+    padding-left: 3.6rem !important;
+}
+.v-application .pl-10 {
+    padding-left: 4rem !important;
+}
+.v-application .pl-11 {
+    padding-left: 4.4rem !important;
+}
+.v-application .pl-12 {
+    padding-left: 4.8rem !important;
 }
