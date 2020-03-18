@@ -1,6 +1,8 @@
 .page-header {
     display: flex;
     align-items: center;
+    position: absolute;
+
 }
 
 .page-header .header-auth {
