@@ -15,3 +15,16 @@
 .friends-selector__selector-icon.theme--dark.v-icon {
     color: var(--v-secondary-base);
 }
+
+.friends-selector__popup-header {
+    display: flex;
+    align-items: center;
+}
+
+.v-application .friends-selector__popup-header p {
+    margin: 0 0 0 2rem;
+}
+
+.friends-selector__popup-content {
+    padding: 6rem 16rem 0;
+}

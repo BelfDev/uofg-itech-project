@@ -1,9 +1,11 @@
-import { mdiPlus } from '@mdi/js';
+import { mdiPlusCircle, mdiPlus, mdiClose } from '@mdi/js';
 
 export default {
     name: "FriendSelector",
     data: () => ({
+        iconPlusCircle: mdiPlusCircle,
         iconPlus: mdiPlus,
+        iconClose: mdiClose,
         selectedFriends: [
             {
                 id: 1,
