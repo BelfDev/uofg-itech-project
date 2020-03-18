@@ -39,22 +39,36 @@
     --font-weight-body-4: 600;
 }
 
-.body-1 {
-    font-size: var(--font-size-body-1);
+.v-application .body-1 {
+    letter-spacing: 0 !important;
+    font-family: var(--font-family) !important;
+    font-size: var(--font-size-body-1) !important;
     font-weight: var(--font-weight-body-1);
-    line-height: var(--font-line-height-body-1);
+    line-height: var(--font-line-height-body-1) !important;
 }
 
-.body-2 {
-    font-size: var(--font-size-body-2);
+.v-application .body-2 {
+    letter-spacing: 0 !important;
+    font-family: var(--font-family) !important;
+    font-size: var(--font-size-body-2) !important;
     font-weight: var(--font-weight-body-2);
-    line-height: var(--font-line-height-body-2);
+    line-height: var(--font-line-height-body-2) !important;
 }
 
-.body-3 {
-    font-size: var(--font-size-body-3);
+.v-application .body-3 {
+    letter-spacing: 0 !important;
+    font-family: var(--font-family) !important;
+    font-size: var(--font-size-body-3) !important;
     font-weight: var(--font-weight-body-3);
-    line-height: var(--font-line-height-body-3);
+    line-height: var(--font-line-height-body-3) !important;
+}
+
+.v-application .body-4 {
+    letter-spacing: 0 !important;
+    font-family: var(--font-family) !important;
+    font-size: var(--font-size-body-4) !important;
+    font-weight: var(--font-weight-body-4);
+    line-height: var(--font-line-height-body-4) !important;
 }
 
 h1,
@@ -76,3 +90,5 @@ h2,
     font-weight: var(--font-weight-heading2);
     line-height: var(--font-line-height-heading2);
 }
+
+
