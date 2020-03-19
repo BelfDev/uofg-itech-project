@@ -11,6 +11,17 @@ class PickeeUserViewSet(viewsets.ModelViewSet):
     serializer_class = PickeeUserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+    def get_queryset(self):
+        """
+        Optionally restricts the returned users to a given user,
+        by filtering against a `email` query parameter in the URL.
+        """
+        queryset = PickeeUser.objects.all()
+        email = self.request.query_params.get('email', None)
+        if email is not None:
+            queryset = queryset.filter(email=email)
+        return queryset
+
 
 class FavoriteActorViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = models.FavoriteActor.objects.all()
