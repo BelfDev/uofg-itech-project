@@ -1,0 +1,93 @@
+.recommendation-carousel {
+    width: 110rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.recommendation-carousel__swiper {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    right: -8.7rem;
+    padding-left: 46.6rem;
+}
+
+.recommendation-carousel__swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 46rem;
+    height: 68rem;
+    text-align: center;
+    font-weight: bold;
+    background: none;
+}
+
+.recommendation-carousel__swiper-slide img {
+    width: 46rem;
+    height: 68rem;
+    border-radius: .8rem;
+}
+
+.recommendation-carousel__swiper-slide.swiper-slide:after {
+    position: absolute;
+    display: block;
+    content: '';
+    background: rgba(50, 50, 50, .6);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: .8rem;
+    transition: opacity .3s, background .3s;
+}
+
+.recommendation-carousel__swiper-slide.swiper-slide.swiper-slide-prev:after {
+    background: rgba(50, 50, 50, .4);
+}
+
+.recommendation-carousel__swiper-slide.swiper-slide.swiper-slide-active:after {
+    opacity: 0;
+}
+
+.recommendation-carousel__swiper-button-prev,
+.recommendation-carousel__swiper-button-next {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 10;
+    outline: 0;
+    cursor: pointer !important;
+}
+
+.recommendation-carousel__swiper-button-prev .theme--dark.v-icon,
+.recommendation-carousel__swiper-button-next .theme--dark.v-icon {
+    color: rgba(255, 255, 255, .6);
+    transition: color .3s;
+}
+
+.recommendation-carousel__swiper-button-prev:hover .theme--dark.v-icon,
+.recommendation-carousel__swiper-button-next:hover .theme--dark.v-icon {
+    color: rgba(255, 255, 255, 1);
+}
+
+.recommendation-carousel__swiper-button-prev.swiper-button-disabled,
+.recommendation-carousel__swiper-button-next.swiper-button-disabled {
+    display: none;
+}
+
+.recommendation-carousel__swiper-button-prev {
+    left: 0rem;
+}
+
+.recommendation-carousel__swiper-button-next {
+    right: 0;
+}
+
+.recommendation-carousel__action-button.action-button {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 8rem;
+    height: 8rem;
+}

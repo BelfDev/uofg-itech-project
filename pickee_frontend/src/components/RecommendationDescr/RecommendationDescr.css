@@ -1,0 +1,81 @@
+.recommendation-descr {
+    /* flex-basis: 66rem; */
+    flex: 1;
+    padding-left: 3.2rem;
+}
+
+.recommendation-descr__rating {
+    width: 6.4rem !important;
+    height: 6.4rem !important;
+}
+
+.recommendation-descr__rating .v-progress-circular__info {
+    background: white;
+    border-radius: 100%;
+    padding: 1rem;
+    font-size: var(--font-size-body-2);
+    line-height: var(--font-line-height-body-2);
+    font-weight: var(--font-weight-body-2);
+    color: var(--v-secondary-base);
+}
+
+.recommendation-descr__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.recommendation-descr__heading {
+    margin-left: 1.6rem;
+}
+
+.recommendation-descr__title {
+    font-size: var(--font-size-body-1);
+    line-height: var(--font-line-height-body-1);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.recommendation-descr__date {
+    font-size: var(--font-size-body-3);
+    line-height: var(--font-line-height-body-3);
+    font-weight: var(--font-weight-body-3);
+    margin: 0 !important;
+}
+
+.recommendation-descr__text {
+    margin-bottom: 3rem;
+}
+
+.recommendation-descr__text:last-child,
+.recommendation-descr__text:last-child p {
+    margin-bottom: 0;
+}
+
+.recommendation-descr__text:last-child {
+    margin-bottom: -2.4rem;
+}
+
+.recommendation-descr__text-item {
+    display: inline-block;
+    margin-right: 2.4rem;
+    margin-bottom: 2.4rem;
+}
+
+.recommendation-descr__text-heading {
+    margin-bottom: 1.6rem;
+    font-size: var(--font-size-body-3);
+    line-height: var(--font-line-height-body-3);
+    font-weight: 600;
+}
+
+.recommendation-descr__actions {
+    display: flex;
+    margin-top: 3.2rem;
+    padding: 0 1.6rem;
+    justify-content: space-between;
+}
+
+.recommendation-descr__popup-text {
+    padding: 2rem 12rem 6rem;
+}

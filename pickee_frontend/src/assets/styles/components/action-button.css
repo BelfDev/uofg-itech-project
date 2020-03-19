@@ -1,0 +1,11 @@
+.action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    width: 14rem;
+    height: 14rem;
+    background: var(--v-grey100-base);
+    box-shadow: 0 .3rem .6rem #00000029;
+    border: .4rem solid var(--v-grey200-base);
+}

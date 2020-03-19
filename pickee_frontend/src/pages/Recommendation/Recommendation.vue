@@ -1,14 +1,25 @@
-import Vue from "vue";
-import App from "./App.vue";
+<template>
+    <v-app>
+        <div class="page-wrapper page-recommendation">
+            <PageHeader logo />
+            <v-content>
+                <RecommendationBox />
+            </v-content>
+        </div>
+    </v-app>
+</template>
 
-import vuetify from "@/plugins/vuetify/vuetify";
-
-import "@/assets/styles/app.css";
-import "@/assets/styles/pages/about.css";
-
-Vue.config.productionTip = false;
-
-new Vue({
-    vuetify,
-    render: h => h(App)
-}).$mount("#about");
+<script>
+    import PageHeader from "@/components/PageHeader/PageHeader.vue";
+    import RecommendationBox from "@/components/RecommendationBox/RecommendationBox.vue";
+    
+    export default {
+        name: "Recommendation",
+        data: () => ({}),
+        methods: {},
+        components: {
+            PageHeader,
+            RecommendationBox
+        }
+    };
+</script>

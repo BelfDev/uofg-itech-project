@@ -37,7 +37,7 @@
                             :append-icon="iconPlusCircle"
                             solo
                         ></v-text-field>
-                        <ItemList :items="items" />
+                        <ItemList :items="items" :button-action="removeFriend" />
                     </v-card-text>
 
                     <v-card-actions class="dialog-actions text-right">

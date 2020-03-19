@@ -6,10 +6,15 @@
 .item-list__element {
     background-color: var(--v-grey200-base);
     color: var(--v-secondary-base);
+    margin-bottom: 0.1rem;
+}
+
+.item-list__element-button {
     display: flex;
+    width: 100%;
     align-items: center;
     padding: 1.6rem 2.4rem;
-    margin-bottom: 0.1rem;
+    outline: 0;
 }
 
 .item-list__element:first-child {
@@ -31,10 +36,29 @@
     margin-right: 8.5rem;
 }
 
+.item-list__element-logo {
+    margin-right: 2.4rem;
+    background: var(--v-primary-base);
+    border-radius: .8rem;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    text-align: center;
+}
+
 .item-list__element-text {
     font-size: var(--font-size-body-2);
     line-height: var(--font-line-height-body-2);
     font-weight: 400;
+}
+
+.item-list__element-type {
+    font-size: var(--font-size-body-4);
+    line-height: var(--font-line-height-body-4);
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-left: auto;
 }
 
 .phone .item-list__element-text {
