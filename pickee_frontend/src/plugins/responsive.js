@@ -84,11 +84,6 @@ export default class {
         } else {
             targetWidth = Math.min(Math.max(this.$window.innerWidth, DESKTOP_MIN_WIDTH), baseWidth);
         }
-        // const targetWidth = this.device === 'phone'
-        //     ? document.documentElement.clientWidth
-        //     : Math.min(this.$window.innerWidth, baseWidth);
-
-        // console.log(Math.min(this.$window.innerWidth, baseWidth));
         
         const size = (targetWidth / baseWidth) * BASE_SIZE + 'px';
         
