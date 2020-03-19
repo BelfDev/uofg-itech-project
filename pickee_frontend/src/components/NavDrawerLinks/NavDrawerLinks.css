@@ -1,0 +1,14 @@
+.v-application a.nav-drawer-links__item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--v-grey100-base);
+    font-size: var(--font-size-body-2);
+    line-height: var(--font-line-height-body-2);
+    margin-bottom: 3rem;
+    padding-left: 0.8rem;
+}
+
+.v-application a.nav-drawer-links__item--active {
+    font-weight: 600;
+}

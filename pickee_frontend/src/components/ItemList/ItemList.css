@@ -1,0 +1,37 @@
+.v-application .item-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.item-list__element {
+    background-color: var(--v-grey200-base);
+    color: var(--v-secondary-base);
+    display: flex;
+    align-items: center;
+    padding: 1.6rem 2.4rem;
+    margin-bottom: 0.1rem;
+}
+
+.item-list__element:first-child {
+    border-radius: 0.8rem 0.8rem 0 0;
+}
+
+.item-list__element:last-child {
+    border-radius: 0 0 0.8rem 0.8rem;
+}
+
+.item-list__element-icon.theme--dark.v-icon {
+    color: var(--v-secondary-base);
+    margin-left: auto;
+    
+}
+
+.item-list__element-avatar {
+    margin-right: 8.5rem;
+}
+
+.item-list__element-text {
+    font-size: var(--font-size-body-2);
+    line-height: var(--font-line-height-body-2);
+    font-weight: 400;
+}

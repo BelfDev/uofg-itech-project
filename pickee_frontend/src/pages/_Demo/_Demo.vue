@@ -41,12 +41,10 @@
                     <v-btn large color="primary">Search</v-btn>
                 </div>
 
-                <v-btn rounded x-large color="primary"
-                    >Pick a movie for me
-                    <v-icon class="ml-5" size="5.6rem">{{
-                        iconArrowRight
-                    }}</v-icon></v-btn
-                >
+                <v-btn rounded x-large color="primary">
+                    Pick a movie for me
+                    <v-icon class="ml-5" size="5.6rem">{{ iconArrowRight }}</v-icon>
+                </v-btn>
             </div>
 
             <div>

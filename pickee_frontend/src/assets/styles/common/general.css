@@ -22,7 +22,7 @@ body {
     min-height: 100%;
 }
 
-.page-content .v-content__wrap {
+.page-content--centered .v-content__wrap {
     min-height: 100%;
     display: flex;
     align-items: center;

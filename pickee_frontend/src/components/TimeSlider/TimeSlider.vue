@@ -15,5 +15,5 @@
     </div>
 </template>
 
-<script src="./TimeSlider.js"></script>
-<style src="./TimeSlider.css"></style>
+<script src="./TimeSlider.js" />
+<style src="./TimeSlider.css" />
