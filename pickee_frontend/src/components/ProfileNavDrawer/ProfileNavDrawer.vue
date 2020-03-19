@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer class="nav-drawer">
+    <v-navigation-drawer width="38rem" class="nav-drawer">
         <div class="nav-drawer__logo"><Logo /></div>
         <NavDrawerLinks :links="links" />
         <div class="nav-drawer__logout-btn">

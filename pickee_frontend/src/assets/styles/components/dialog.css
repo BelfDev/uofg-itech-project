@@ -4,5 +4,33 @@
 
 .dialog-actions {
     display: block;
-    padding: 2.4rem 6.6rem 0;
+    padding: 0;
+}
+
+.dialog-actions__button {
+    font-size: var(--font-size-body-2);
+    font-weight: 600;
+    line-height: var(--font-line-height-body-2);
+    text-transform: uppercase;
+}
+
+.v-dialog .v-card__text {
+    font-size: var(--font-size-body-2);
+    font-weight: var(--font-weight-body-2);
+    line-height: var(--font-line-height-body-2);
+}
+
+.v-dialog .v-avatar {
+    border-color: var(--v-grey200-base);
+}
+
+.phone .v-dialog .v-card__text {
+    font-size: var(--font-size-phone-body-3);
+    font-weight: var(--font-weight-phone-body-3);
+    line-height: var(--font-line-height-phone-body-3);
+}
+
+.phone .dialog-actions__button {
+    font-size: var(--font-size-phone-body-2);
+    line-height: var(--font-line-height-phone-body-2);
 }

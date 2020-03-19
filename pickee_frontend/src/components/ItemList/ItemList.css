@@ -20,7 +20,8 @@
     border-radius: 0 0 0.8rem 0.8rem;
 }
 
-.item-list__element-icon.theme--dark.v-icon {
+.item-list__element-icon.theme--dark.v-icon,
+.item-list__element-icon.theme--light.v-icon {
     color: var(--v-secondary-base);
     margin-left: auto;
     
@@ -34,4 +35,24 @@
     font-size: var(--font-size-body-2);
     line-height: var(--font-line-height-body-2);
     font-weight: 400;
+}
+
+.phone .item-list__element-text {
+    font-size: var(--font-size-phone-body-3);
+    line-height: var(--font-line-height-phone-body-3);
+    font-weight: 400;
+}
+
+.phone .item-list__element-avatar {
+    margin-right: 2rem;
+}
+
+.phone .item-list__element-avatar {
+    width: 5rem !important;
+    min-width: 5rem !important;
+    height: 5rem !important;
+}
+
+.phone .item-list__element {
+    padding: 1rem 1.6rem;
 }

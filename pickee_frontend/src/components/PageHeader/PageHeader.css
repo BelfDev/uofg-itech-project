@@ -7,6 +7,14 @@
     margin-left: 8rem;
 }
 
+.phone .page-header .header-auth {
+    margin-left: 2rem;
+}
+
 .page-header .header-nav {
     margin-left: auto;
+}
+
+.phone .page-header .header-nav .link {
+    font-size: var(--font-size-phone-body-3);
 }

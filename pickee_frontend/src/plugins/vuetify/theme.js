@@ -11,6 +11,7 @@ export default {
     grey950: "#282828",
     grey960: "#262626",
     grey970: "#242424",
+    grey985: "#2b2b2b",
     grey980: "#191919",
     grey990: "#151515",
     bodyText: "#fbfbfb",

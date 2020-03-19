@@ -7,7 +7,7 @@ import Responsive from "@/plugins/responsive";
 new Responsive();
 
 import "@/assets/styles/app.css";
-// import "@/assets/styles/pages/home.css";
+import "@/assets/styles/pages/home.css";
 
 Vue.config.productionTip = false;
 

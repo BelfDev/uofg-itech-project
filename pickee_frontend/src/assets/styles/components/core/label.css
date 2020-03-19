@@ -8,6 +8,12 @@
     line-height: var(--font-line-height-body-1);
 }
 
+.phone .label-accented {
+    font-size: var(--font-size-phone-body-1);
+    font-weight: var(--font-weight-phone-body-1);
+    line-height: var(--font-line-height-phone-body-1);
+}
+
 .label-accented::before {
     content: "";
     display: block;
@@ -21,6 +27,7 @@
 }
 
 .label {
+    display: block;
     font-size: var(--font-size-body-1);
     line-height: var(--font-line-height-body-1);
     font-weight: 400;

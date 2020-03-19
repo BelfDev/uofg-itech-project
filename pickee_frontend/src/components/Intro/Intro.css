@@ -1,0 +1,21 @@
+.intro {
+    padding: 6.4rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.phone .intro {
+    padding: 2rem;
+}
+
+.intro__heading {
+    margin-bottom: 4rem;
+}
+
+.intro__button {
+    margin-top: 5rem;
+}
+
+.intro__button .v-btn {
+    box-shadow: 0px 2px 12px var(--v-secondary-base);
+}

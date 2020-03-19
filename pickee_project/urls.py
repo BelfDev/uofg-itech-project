@@ -7,7 +7,7 @@ from django.conf import settings
 from pickee_api import views
 
 page_urls = [
-    path("", TemplateView.as_view(template_name="index.html"), name="index"),
+    path("", TemplateView.as_view(template_name="home.html"), name="index"),
     path("login/", views.user_login, name='login'),
     path("signup/", views.user_signup, name='signup'),
     path('logout/', views.user_logout, name='logout'),
