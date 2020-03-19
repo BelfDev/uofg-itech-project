@@ -16,7 +16,9 @@
 }
 
 .header-auth .v-avatar {
+    background: white;
     border-color: var(--v-grey200-base);
+    position: relative;
 }
 
 .phone .header-auth .v-avatar {
@@ -27,5 +29,6 @@
 
 .phone .header-auth .v-overlay--absolute {
     left: auto;
-    right: -3rem;
+    top: 9rem;
+    right: 0;
 }
