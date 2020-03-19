@@ -9,3 +9,13 @@
     box-shadow: 0 .3rem .6rem #00000029;
     border: .4rem solid var(--v-grey200-base);
 }
+
+.phone .action-button {
+    width: 7rem;
+    height: 7rem;
+}
+
+.phone .action-button .v-icon {
+    width: 4rem !important;
+    height: 4rem !important;
+}

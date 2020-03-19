@@ -12,3 +12,9 @@
     line-height: var(--font-line-height-body-3);
     letter-spacing: 0;
 }
+
+.phone .theme--dark.v-card .v-card__text {
+    font-size: var(--font-size-phone-body-3);
+    font-weight: var(--font-weight-phone-body-3);
+    line-height: var(--font-line-height-phone-body-3);
+}
