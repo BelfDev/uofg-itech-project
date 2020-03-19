@@ -6,6 +6,12 @@ from django.shortcuts import render, redirect
 # Temporary renders login.html
 from pickee_api.forms import PickeeUserCreationForm
 
+def recommendation(request):
+    data = json.dumps({
+        "user": get_user_data(request)
+    })
+    context = {'data': data}
+    return render(request, 'recommendation.html', context=context)
 
 def user_login(request):
     if request.method == 'POST':
@@ -59,3 +65,16 @@ def user_signup(request):
 def user_logout(request):
     logout(request)
     return redirect('index')
+
+def get_user_data(request):
+    if not request.user.is_authenticated:
+        return {}
+
+    return {
+        "id": request.user.id,
+        "name": request.user.first_name,
+        "email": request.user.email,
+        "picture": request.user.picture.url
+    }
+
+    
