@@ -4,6 +4,10 @@
     margin-bottom: auto;
 }
 
+.phone .intro {
+    padding: 2rem;
+}
+
 .intro__heading {
     margin-bottom: 4rem;
 }

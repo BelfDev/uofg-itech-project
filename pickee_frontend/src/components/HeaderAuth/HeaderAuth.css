@@ -18,3 +18,14 @@
 .header-auth .v-avatar {
     border-color: var(--v-grey200-base);
 }
+
+.phone .header-auth .v-avatar {
+    width: 10rem !important;
+    min-width: 10rem !important;
+    height: 10rem !important;
+}
+
+.phone .header-auth .v-overlay--absolute {
+    left: auto;
+    right: -3rem;
+}

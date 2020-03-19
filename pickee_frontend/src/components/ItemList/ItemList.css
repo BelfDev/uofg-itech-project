@@ -60,3 +60,23 @@
     text-transform: uppercase;
     margin-left: auto;
 }
+
+.phone .item-list__element-text {
+    font-size: var(--font-size-phone-body-3);
+    line-height: var(--font-line-height-phone-body-3);
+    font-weight: 400;
+}
+
+.phone .item-list__element-avatar {
+    margin-right: 2rem;
+}
+
+.phone .item-list__element-avatar {
+    width: 5rem !important;
+    min-width: 5rem !important;
+    height: 5rem !important;
+}
+
+.phone .item-list__element {
+    padding: 1rem 1.6rem;
+}

@@ -48,6 +48,20 @@
     padding: 0 5.6rem;
 }
 
+.phone .v-btn:not(.v-btn--round).v-size--x-large {
+    height: 7rem;
+    padding: 0 3rem;
+}
+
+.phone .v-btn > .v-btn__content .v-icon {
+    max-height: 3.5rem;
+    max-width: 3.5rem;
+}
+
 .v-btn.v-size--x-large {
     font-size: var(--font-size-body-1);
+}
+
+.phone .v-btn.v-size--x-large {
+    font-size: var(--font-size-body-4);
 }

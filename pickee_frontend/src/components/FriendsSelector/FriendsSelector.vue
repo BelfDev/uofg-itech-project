@@ -17,7 +17,7 @@
             </template>
 
             <v-card light v-if="user">
-                <div class="px-8 py-6">
+                <div class="px-8 py-6 px-p-4 py-p-3">
                     <v-icon
                         class="dialog-close"
                         large
@@ -47,7 +47,7 @@
             </v-card>
 
             <v-card light v-else>
-                <div class="px-8 py-6">
+                <div class="px-8 py-6 px-p-4 py-p-3">
                     <v-icon
                         class="dialog-close"
                         large
@@ -62,7 +62,7 @@
                             <p><strong>Uh-oh!</strong> Looks like you are logged out.</p>
                         </div>
                         <p class="mb-12">Please log in to invite friends to your movie session.</p>
-                        <div class="pl-12 pr-12 ml-12 mr-12">
+                        <div class="pl-12 pr-12 ml-12 mr-12 pl-p-0 pr-p-0 ml-p-0 mr-p-0">
                             <v-btn
                                 block
                                 class="mb-4 pl-6 pr-6"

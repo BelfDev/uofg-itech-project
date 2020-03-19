@@ -17,6 +17,10 @@
     border-radius: .8rem;
 }
 
+.phone .time-slider__input {
+    padding: 2.4rem;
+}
+
 .time-slider__input .v-input__slot {
     margin-bottom: 0;
 }

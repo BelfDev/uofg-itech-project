@@ -1,6 +1,6 @@
 <template>
-    <form action="recommendation/">
-        <div class="casual-prefences-selection">
+    <form  class="casual-prefences-selection" action="recommendation/">
+        <div class="casual-prefences-selection__wrapper">
             <div class="casual-prefences-selection__form">
                 <div class="mb-12 pt-6">
                     <label class="label-accented mb-8">How much time you got?</label>
