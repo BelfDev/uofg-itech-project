@@ -1,11 +1,12 @@
 import json
 
+import requests
 from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 # Temporary renders login.html
 from pickee_api.forms import PickeeUserCreationForm
-
 
 def user_login(request):
     if request.method == 'POST':

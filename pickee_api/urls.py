@@ -2,7 +2,7 @@ from django.urls import include, path
 from rest_framework import routers
 from rest_framework_extensions.routers import NestedRouterMixin
 
-from pickee_api import api
+from pickee_api import api, gateway
 
 app_name = 'pickee_api'
 
@@ -42,5 +42,6 @@ userRouter.register(r'favorite-genres',
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(rootRouter.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('example/', gateway.example_endpoint, name="example"),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
