@@ -8,7 +8,7 @@ from pickee_api import views
 
 page_urls = [
     path("", TemplateView.as_view(template_name="home.html"), name="index"),
-    path("recommendation/", TemplateView.as_view(template_name="recommendation.html"), name="recommendation"),
+    path("recommendation/", views.recommendation, name="recommendation"),
     path("about/", TemplateView.as_view(template_name="about.html"), name="about"),
     path("login/", views.user_login, name='login'),
     path("signup/", views.user_signup, name='signup'),
