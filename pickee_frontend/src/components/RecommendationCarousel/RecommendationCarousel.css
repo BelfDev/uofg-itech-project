@@ -91,3 +91,32 @@
     width: 8rem;
     height: 8rem;
 }
+.tablet .recommendation-carousel {
+    padding: 10rem 0 5rem;
+}
+
+.tablet .recommendation-carousel__swiper {
+    right: 0;
+    padding-left: 4rem;
+}
+
+.tablet .recommendation-carousel__swiper-slide,
+.tablet .recommendation-carousel__swiper-slide img {
+    width: 26rem;
+    height: 38rem;
+}
+
+.phone .recommendation-carousel__swiper {
+    right: 0;
+    padding-left: 0;
+}
+
+.phone .recommendation-carousel {
+    padding: 4rem 0 2rem;
+}
+
+.phone .recommendation-carousel__swiper-slide,
+.phone .recommendation-carousel__swiper-slide img {
+    width: 18rem;
+    height: 28rem;
+}

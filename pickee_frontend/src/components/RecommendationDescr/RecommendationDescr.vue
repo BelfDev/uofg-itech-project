@@ -43,14 +43,14 @@
                 </template>
 
                 <v-card light>
-                    <div class="px-8 py-6">
+                    <div class="px-8 py-6 py-p-3 px-p-4">
                         <v-icon
                             class="dialog-close"
                             large
                             color="black"
                             @click="dialog = false"
                             >{{ iconClose }}</v-icon>
-                        <v-card-text class="px-12 pb-4">
+                        <v-card-text class="px-12 pb-4 px-p-0">
                             <p class="recommendation-descr__popup-text"><strong>Yessssss!</strong> Habemus movie. Now go ahead and watch it.</p>
                             <ItemList :items="items" :button-action="openProvider" />
                         </v-card-text>

@@ -27,3 +27,7 @@ body {
     display: flex;
     align-items: center;
 }
+
+.phone .page-wrapper {
+    padding: 3rem 2rem;
+}

@@ -79,3 +79,15 @@
 .recommendation-descr__popup-text {
     padding: 2rem 12rem 6rem;
 }
+
+.tablet .recommendation-descr__actions {
+    margin-top: 6rem;
+}
+
+.phone .recommendation-descr {
+    padding-left: 0;
+}
+
+.phone .recommendation-descr__popup-text {
+    padding: 6rem 2rem 2rem;
+}
