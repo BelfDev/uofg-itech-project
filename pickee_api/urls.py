@@ -42,6 +42,7 @@ userRouter.register(r'favorite-genres',
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(rootRouter.urls)),
-    path('example/', gateway.example_endpoint, name="example"),
+    path('tmdb-example/', gateway.tmdb_example_endpoint, name="tmdb-example"),
+    path('utelly-example/', gateway.utelly_example_endpoint, name="utelly-example"),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
