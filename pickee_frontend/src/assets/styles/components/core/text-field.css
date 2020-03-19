@@ -8,15 +8,22 @@
     background-color: var(--v-grey700-base);
 }
 
-.v-text-field.v-text-field--enclosed:not(.v-text-field--rounded)
-    > .v-input__control
-    > .v-input__slot,
+.v-text-field.v-text-field--enclosed:not(.v-text-field--rounded) > .v-input__control > .v-input__slot,
 .v-text-field.v-text-field--enclosed .v-text-field__details {
     padding: 0 2.4rem 0 3.1rem;
 }
 
+.phone .v-text-field.v-text-field--enclosed:not(.v-text-field--rounded) > .v-input__control > .v-input__slot,
+.phone .v-text-field.v-text-field--enclosed .v-text-field__details {
+    padding: 0 1.2rem 0 1.6rem;
+}
+
 .v-text-field.v-text-field--solo .v-input__control {
     min-height: 10rem;
+}
+
+.phone .v-text-field.v-text-field--solo .v-input__control {
+    min-height: 8rem;
 }
 
 .v-text-field fieldset,

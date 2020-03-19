@@ -6,10 +6,15 @@ export default {
     name: 'HomeIntroAndForm',
     methods: {
         showFormScreen: function() {
-            this.isFormActive = !this.isFormActive;
+            this.isFormHidden = false;
+
+            setTimeout(() => {
+                this.isFormActive = !this.isFormActive;
+            }, 300);
         }
     },
     data: () => ({
+        isFormHidden: true,
         isFormActive: false
     }),
     components: {

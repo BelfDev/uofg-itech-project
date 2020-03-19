@@ -11,6 +11,13 @@
     --font-line-height-heading1-accent: 15.9rem;
     --font-weight-heading1-accent: 600;
 
+    --font-size-phone-heading1: 6rem;
+    --font-line-height-phone-heading1: 5rem;
+    --font-weight-phone-heading1: 300;
+    --font-size-phone-heading1-accent: 7rem;
+    --font-line-height-phone-heading1-accent: 8.9rem;
+    --font-weight-phone-heading1-accent: 600;
+
     --font-size-heading2: 6.4rem;
     --font-line-height-heading2: 7.8rem;
     --font-weight-heading2: 600;
@@ -26,17 +33,33 @@
     --font-line-height-body-1: 3.9rem;
     --font-weight-body-1: 400;
 
+    --font-size-phone-body-1: 2rem;
+    --font-line-height-phone-body-1: 2.5rem;
+    --font-weight-phone-body-1: 400;
+
     --font-size-body-2: 2.8rem;
     --font-line-height-body-2: 3.4rem;
     --font-weight-body-2: 400;
+
+    --font-size-phone-body-2: 1.8rem;
+    --font-line-height-phone-body-2: 2.4rem;
+    --font-weight-phone-body-2: 400;
 
     --font-size-body-3: 2.4rem;
     --font-line-height-body-3: 2.9rem;
     --font-weight-body-3: 300;
 
+    --font-size-phone-body-3: 1.6rem;
+    --font-line-height-phone-body-3: 2.1rem;
+    --font-weight-phone-body-3: 300;
+
     --font-size-body-4: 1.8rem;
     --font-line-height-body-4: 2.2rem;
     --font-weight-body-4: 600;
+
+    --font-size-phone-body-4: 1.2rem;
+    --font-line-height-phone-body-4: 1.6rem;
+    --font-weight-phone-body-4: 600;
 }
 
 .v-application .body-1 {
@@ -47,12 +70,24 @@
     line-height: var(--font-line-height-body-1) !important;
 }
 
+.phone .v-application .body-1 {
+    font-size: var(--font-size-phone-body-1) !important;
+    font-weight: var(--font-weight-phone-body-1);
+    line-height: var(--font-line-height-phone-body-1) !important;
+}
+
 .v-application .body-2 {
     letter-spacing: 0 !important;
     font-family: var(--font-family) !important;
     font-size: var(--font-size-body-2) !important;
     font-weight: var(--font-weight-body-2);
     line-height: var(--font-line-height-body-2) !important;
+}
+
+.phone .v-application .body-2 {
+    font-size: var(--font-size-phone-body-2) !important;
+    font-weight: var(--font-weight-phone-body-2);
+    line-height: var(--font-line-height-phone-body-2) !important;
 }
 
 .v-application .body-3 {
@@ -63,12 +98,24 @@
     line-height: var(--font-line-height-body-3) !important;
 }
 
+.phone .v-application .body-3 {
+    font-size: var(--font-size-phone-body-3) !important;
+    font-weight: var(--font-weight-phone-body-3);
+    line-height: var(--font-line-height-phone-body-3) !important;
+}
+
 .v-application .body-4 {
     letter-spacing: 0 !important;
     font-family: var(--font-family) !important;
     font-size: var(--font-size-body-4) !important;
     font-weight: var(--font-weight-body-4);
     line-height: var(--font-line-height-body-4) !important;
+}
+
+.phone .v-application .body-4 {
+    font-size: var(--font-size-phone-body-4) !important;
+    font-weight: var(--font-weight-phone-body-4);
+    line-height: var(--font-line-height-phone-body-4) !important;
 }
 
 h1,
@@ -78,10 +125,23 @@ h1,
     line-height: var(--font-line-height-heading1);
 }
 
+.phone h1,
+.phone .heading1 {
+    font-size: var(--font-size-phone-heading1);
+    font-weight: var(--font-weight-phone-heading1);
+    line-height: var(--font-line-height-phone-heading1);
+}
+
 .heading1-accent {
     font-size: var(--font-size-heading1-accent);
     font-weight: var(--font-weight-heading1-accent);
     line-height: var(--font-line-height-heading1-accent);
+}
+
+.phone .heading1-accent {
+    font-size: var(--font-size-phone-heading1-accent);
+    font-weight: var(--font-weight-phone-heading1-accent);
+    line-height: var(--font-line-height-phone-heading1-accent);
 }
 
 h2,

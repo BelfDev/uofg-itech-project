@@ -6,8 +6,8 @@
 
 .page-home .page-header {
     position: absolute;
-    top: 50px;
-    right: 40px;
+    top: 5rem;
+    right: 4rem;
 }
 
 .page-home-content-bg {
@@ -20,6 +20,10 @@
     right: 0;
     top: 0;
     bottom: 0;
+}
+
+.phone .page-home-content-bg {
+    left: 0;
 }
 
 .page-home-content {
@@ -54,6 +58,10 @@
     background-color: var(--v-bodyBg-base);
     transform: translateX(100%);
     transition: transform .3s ease-in-out;
+}
+
+.page-home-screen--2.page-home-screen--hidden {
+    display: none;
 }
 
 .page-home-screen--2.page-home-screen--active {

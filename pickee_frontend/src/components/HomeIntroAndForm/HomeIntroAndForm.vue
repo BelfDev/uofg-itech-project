@@ -10,7 +10,7 @@
             <div class="stripe stripe--lighter"></div>
             <div class="stripe stripe--dark"></div>
         </div>
-        <div class="page-home-screen page-home-screen--2" :class="{ 'page-home-screen--active': isFormActive }">
+        <div class="page-home-screen page-home-screen--2" :class="{ 'page-home-screen--active': isFormActive, 'page-home-screen--hidden': isFormHidden }">
             <div class="page-home-content">
                 <PageHeader />
                 <CasualPreferencesSelection />

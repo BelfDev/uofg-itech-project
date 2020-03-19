@@ -26,7 +26,7 @@
                         </v-avatar>
                         <h3>Nathan</h3>
                         <p class="body-3 mt-2 mb-8">nathan.nerdy@gmail.com</p>
-                        <div class="pl-12 pr-12 ml-12 mr-12">
+                        <div class="pl-12 pr-12 ml-12 mr-12 pl-p-0 pr-p-0 ml-p-0 mr-p-0">
                             <v-btn
                                 block
                                 class="mb-4 pl-6 pr-6"
