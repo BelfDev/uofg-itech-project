@@ -1,7 +1,6 @@
 <template>
 
     <div class="header-auth">
-
         <v-btn text rounded class="header-auth">
             <v-avatar size="10rem" @click="overlay = !overlay">
                 <img :src="user.picture" :alt="user.name" v-if="user.id" />

@@ -6,6 +6,13 @@ from django.shortcuts import render, redirect
 # Temporary renders login.html
 from pickee_api.forms import PickeeUserCreationForm
 
+def home(request):
+    data = json.dumps({
+        "user": get_user_data(request),
+    });
+    context = {'data': data}
+    return render(request, 'home.html', context=context)
+
 def recommendation(request):
     data = json.dumps({
         "user": get_user_data(request),
