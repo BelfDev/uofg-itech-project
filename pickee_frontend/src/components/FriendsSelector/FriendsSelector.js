@@ -6,11 +6,15 @@ export default {
     components: {
         ItemList
     },
+    methods: {
+        removeFriend: function(name) {
+            console.log('removeFriend', name)
+        }
+    },
     data: () => ({
         // TODO: get from API
-        // user: {
-        //     id: 1
-        // },
+        // user: false,
+        user: { id: 1 },
         items: [
             {
                 image: "https://cdn.vuetifyjs.com/images/john.jpg",

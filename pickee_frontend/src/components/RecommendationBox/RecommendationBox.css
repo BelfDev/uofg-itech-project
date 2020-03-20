@@ -1,0 +1,11 @@
+.recommendation-box {
+    display: flex;
+    align-items: center;
+    min-height: 100%;
+}
+
+.phone .recommendation-box,
+.tablet .recommendation-box {
+    flex-flow: column;
+    overflow: hidden;
+}
