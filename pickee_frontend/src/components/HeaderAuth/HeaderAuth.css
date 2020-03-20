@@ -1,0 +1,34 @@
+.header-auth {
+    position: relative;
+}
+
+.header-auth .v-overlay--absolute {
+    top: 12rem;
+    right: 0;
+    left: auto;
+    bottom: auto;
+}
+
+.header-auth .v-card__text {
+    font-size: var(--font-size-body-2);
+    font-weight: var(--font-weight-body-2);
+    line-height: var(--font-line-height-body-2);
+}
+
+.header-auth .v-avatar {
+    background: white;
+    border-color: var(--v-grey200-base);
+    position: relative;
+}
+
+.phone .header-auth .v-avatar {
+    width: 7rem !important;
+    min-width: 7rem !important;
+    height: 7rem !important;
+}
+
+.phone .header-auth .v-overlay--absolute {
+    left: auto;
+    top: 9rem;
+    right: 0;
+}

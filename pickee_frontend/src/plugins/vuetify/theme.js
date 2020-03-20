@@ -1,6 +1,8 @@
 export default {
     primary: "#ffbf69",
     secondary: "#2d3142",
+    red: "#FF6969",
+    green: "#69FF80",
     grey100: "#fbfbfb",
     grey200: "#eaeaea",
     grey300: "#d3d0c5",
@@ -11,6 +13,7 @@ export default {
     grey950: "#282828",
     grey960: "#262626",
     grey970: "#242424",
+    grey985: "#2b2b2b",
     grey980: "#191919",
     grey990: "#151515",
     bodyText: "#fbfbfb",

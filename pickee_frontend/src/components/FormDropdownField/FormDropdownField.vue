@@ -4,7 +4,7 @@
         <v-select
             :items="items"
             filled
-            single-line="false"
+            :single-line="false"
             :label="title">
         </v-select>
     </div>

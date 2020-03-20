@@ -6,7 +6,12 @@ export default {
     components: {
         ItemList
     },
-
+    methods: {
+        removeFriend: function(name) {
+            console.log('removeFriend', name)
+        }
+    },
+    // TODO: get from API
     data: () => ({
         items: [
             {

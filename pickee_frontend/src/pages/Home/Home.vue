@@ -1,18 +1,22 @@
 <template>
-    <div id="home">
-        <v-app>
+    <v-app>
+        <div class="page-home">
             <v-content>
-                <p>Home</p>
+                <HomeIntroAndForm />
             </v-content>
-        </v-app>
-    </div>
+        </div>
+    </v-app>
 </template>
 
 <script>
+    import HomeIntroAndForm from '@/components/HomeIntroAndForm/HomeIntroAndForm.vue';
+
     export default {
         name: "Home",
         data: () => ({}),
         methods: {},
-        components: {}
+        components: {
+            HomeIntroAndForm
+        }
     };
 </script>

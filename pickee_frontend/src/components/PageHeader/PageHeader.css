@@ -7,8 +7,22 @@
 
 .page-header .header-auth {
     margin-left: 8rem;
+    padding: 0 !important;
+    height: 10rem !important;
+}
+
+.phone .page-header .header-auth {
+    margin-left: 1rem;
 }
 
 .page-header .header-nav {
     margin-left: auto;
+}
+
+.phone .page-header .header-nav .link {
+    font-size: var(--font-size-phone-body-3);
+}
+
+.phone .page-header .header-auth {
+    height: 7rem !important;
 }

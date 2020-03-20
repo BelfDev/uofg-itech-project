@@ -1,0 +1,70 @@
+.friends-selector {
+    padding-left: 5.5rem;
+}
+
+.friends-selector__selected-item,
+.friends-selector__selector {
+    margin-left: -5.5rem;
+}
+
+.friends-selector__selector.v-avatar {
+    background-color: white;
+    border-color: var(--v-secondary-base);
+}
+
+.friends-selector__selector-icon.theme--dark.v-icon {
+    color: var(--v-secondary-base);
+}
+
+.friends-selector__popup-header {
+    display: flex;
+    align-items: center;
+}
+
+.v-application .friends-selector__popup-header p {
+    margin: 0 0 0 2rem;
+}
+
+.friends-selector__popup-content {
+    padding: 6rem 16rem 0;
+}
+
+.friends-selector__popup-content--unauthorized {
+    padding: 4rem 6rem;
+}
+
+.phone .friends-selector__popup-header .v-avatar {
+    width: 8rem !important;
+    min-width: 8rem !important;
+    height: 8rem !important;
+}
+
+.phone .friends-selector__popup-header .v-avatar .v-icon {
+    width: 4rem !important;
+    height: 4rem !important;
+}
+
+.phone .friends-selector__popup-content {
+    padding: 5rem 1rem 0;
+}
+
+.phone .friends-selector__popup-content--unauthorized {
+    padding: 5rem 1rem 3rem;
+}
+
+.phone .friends-selector {
+    padding-left: 3.5rem;
+}
+
+.phone .friends-selector__selected-item,
+.phone .friends-selector__selector {
+    height: 8rem !important;
+    width: 8rem !important;
+    min-width: 8rem !important;
+    margin-left: -3.5rem;
+}
+
+.phone .friends-selector__selector-icon.v-icon {
+    height: 4rem !important;
+    width: 4rem !important;
+}
