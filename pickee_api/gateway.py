@@ -70,3 +70,28 @@ def get_cast(request):
             movie_cast = MovieCast.objects.get_or_create(movie=movie,actor=actor)
 
         return JsonResponse(data)
+
+def get_recommendation(request):
+    if request.method == 'GET':
+        genres = '12,16'
+        actors = '31|6193|74568|4491'
+        runtime = '100'
+        #keywords
+        #certification
+        url ='''https://api.themoviedb.org/3/discover/movie?language=en-UK&sort_by=popularity.desc&page=1
+                &with_genres='''+genres+'&with_actors='+actors+'&with_runtime.lte='+runtime
+
+        response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
+        data = response.json()
+        recommendation = data['results'][0]
+        recommendation_dict = {
+            'id': recommendation['id'],
+            'name': recommendation['title'],
+            'image_url': recommendation['poster_path'],
+            'rating': recommendation['vote_average'],
+            'release_date': recommendation['release_date'],
+            'description': recommendation['overview'],
+            'cast': []
+        }
+
+        return JsonResponse(recommendation_dict)
