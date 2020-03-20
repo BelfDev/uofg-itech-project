@@ -20,6 +20,14 @@
     border-radius: 0 0 0.8rem 0.8rem;
 }
 
+.selector:nth-child(even) {
+    background: var(---v-grey200-base)
+}
+
+.selector:nth-child(odd) {
+    background:var(---v-grey500-base)
+}
+
 .item-list__element-icon.theme--dark.v-icon {
     color: var(--v-secondary-base);
     margin-left: auto;
