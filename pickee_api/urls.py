@@ -46,5 +46,6 @@ urlpatterns = [
     path('utelly-example/', gateway.utelly_example_endpoint, name="utelly-example"),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('search-actors/', gateway.search_actors, name="search-actors"),
-    path('search-movies/', gateway.search_movies, name="search-movies")
+    path('search-movies/', gateway.search_movies, name="search-movies"),
+    path('get-cast/', gateway.get_cast, name="get-cast")
 ]

@@ -2,7 +2,7 @@ import requests
 from django.http import JsonResponse
 
 from pickee_api.utils import BearerAuth
-from pickee_api.models import Actor
+from pickee_api.models import Actor,Movie,MovieCast
 
 # The token was kept here to simplify the marking process
 # In a real-world scenario we would never commit this token
@@ -50,5 +50,23 @@ def search_movies(request):
         data = response.json()
 
         #TODO: create movie object in database depending on user selection
+
+        return JsonResponse(data)
+
+def get_cast(request):
+    if request.method == 'GET':
+        movie_id = '301528'
+        url ='https://api.themoviedb.org/3/movie/'+movie_id+'/credits?'
+
+        response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
+        data = response.json()
+        cast = data['cast']
+
+        movie = Movie.objects.get(id=movie_id) #assumes movie is already in database
+        for index in range(4):
+            actor_data = cast[index]
+            Actor.objects.get_or_create(id=actor_data['id'],name=actor_data['name'])
+            actor = Actor.objects.get(id=actor_data['id'])
+            movie_cast = MovieCast.objects.get_or_create(movie=movie,actor=actor)
 
         return JsonResponse(data)
