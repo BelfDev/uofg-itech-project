@@ -3,6 +3,7 @@ import { mdiThumbDown, mdiThumbUp, mdiBookmark, mdiClose } from '@mdi/js';
 
 export default {
     name: "RecommendationDescr",
+    props: ['recommendation', 'rejectEvent'],
     components: {
         ItemList
     },
@@ -10,6 +11,15 @@ export default {
         openProvider: function(link) {
             window.open(link);
             this.dialog = false;
+        },
+    },
+    computed: {
+        recMovieReleaseDate: function() {
+            const date = new Date(this.recommendation.release_date);
+            const day = date.getDate();
+            const month = date.getMonth();
+            const year = date.getFullYear();
+            return `${day}.${month}.${year}`;
         }
     },
     data: () => ({

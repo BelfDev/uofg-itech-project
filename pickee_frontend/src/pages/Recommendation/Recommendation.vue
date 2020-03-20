@@ -3,7 +3,7 @@
         <div class="page-wrapper page-recommendation">
             <PageHeader :user="data.user" logo />
             <v-content>
-                <RecommendationBox />
+                <RecommendationBox :recommendation="data.recommendation" />
             </v-content>
         </div>
     </v-app>

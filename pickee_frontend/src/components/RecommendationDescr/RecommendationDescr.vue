@@ -5,31 +5,34 @@
                 <div class="recommendation-descr__top">
                     <v-progress-circular
                         class="recommendation-descr__rating"
-                        :value="ratingValue"
+                        :value="10 * recommendation.rating"
                         rotate="270"
                         width="2.5"
                         color="primary"
-                    >{{ ratingValue }}</v-progress-circular>
+                    >{{ recommendation.rating }}</v-progress-circular>
                     <div class="recommendation-descr__heading">
-                        <h2 class="recommendation-descr__title">Title</h2>
-                        <p class="recommendation-descr__date">Release date</p>
+                        <h2 class="recommendation-descr__title">{{ recommendation.name }}</h2>
+                        <p class="recommendation-descr__date">{{ recMovieReleaseDate }}</p>
                     </div>
                 </div>
                 <div class="recommendation-descr__text">
                     <h3 class="recommendation-descr__text-heading">Overview</h3>
-                    <p>At the height of the First World War, two young British soldiers must cross enemy territory and deliver a message that will stop a deadly attack on hundreds of soldiers.</p>
+                    <p>{{ recommendation.description }}</p>
                 </div>
                 <div class="recommendation-descr__text">
                     <h3 class="recommendation-descr__text-heading">Featured Crew</h3>
                     <p>
-                        <span class="recommendation-descr__text-item">Barry Jenkins</span>
-                        <span class="recommendation-descr__text-item">Tarell Alvin McCraney</span>
+                        <span 
+                            class="recommendation-descr__text-item" 
+                            v-for="actor in recommendation.cast"
+                            v-bind:key="actor.id"
+                        >{{ actor.name }}</span>
                     </p>
                 </div>
             </v-card-text>
         </v-card>
         <div class="recommendation-descr__actions">
-            <button class="action-button">
+            <button class="action-button" @click="rejectEvent">
                 <v-icon color="red" size="7.5rem">{{ iconThumbDown }}</v-icon>
             </button>
             <button class="action-button">

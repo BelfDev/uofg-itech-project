@@ -4,9 +4,22 @@ import { mdiChevronLeft, mdiChevronRight, mdiThumbDown, mdiThumbUp, mdiBookmark 
 
 export default {
     name: "RecommendationCarousel",
+    props: ['recommendation'],
     components: {
         swiper,
         swiperSlide,
+    },
+    methods: {
+        setNewRecommendation: function(data) {
+            this.swiperSlides.push({
+                image_url: data.recommendation.image_url,
+                name: data.recommendation.name
+            });
+
+            setTimeout(() => {
+                this.$refs.mySwiper.swiper.slideNext()
+            }, 100);
+        }
     },
     data() {
         return {
@@ -15,10 +28,14 @@ export default {
             iconFavorites: mdiBookmark,
             iconThumbDown: mdiThumbDown,
             iconThumbUp: mdiThumbUp,
+            swiperSlides: [{
+                image_url: this.recommendation.image_url,
+                name: this.recommendation.name
+            }],
             swiperOption: {
                 effect: "coverflow",
                 centeredSlides: true,
-                initialSlide: 4,
+                initialSlide: 1,
                 slidesPerView: "auto",
                 spaceBetween: 0,
                 grabCursor: false,
