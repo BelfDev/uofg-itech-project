@@ -1,27 +1,18 @@
 <template>
     <div class="recommendation-carousel">
         <swiper :options="swiperOption" ref="mySwiper" class="recommendation-carousel__swiper">
-            <!-- slides -->
-            <swiper-slide class="recommendation-carousel__swiper-slide">
-                <img src="https://image.tmdb.org/t/p/w500/xBHvZcjRiWyobQ9kxBhO6B2dtRI.jpg" alt="Ad Astra" />
-            </swiper-slide>
-            <swiper-slide class="recommendation-carousel__swiper-slide">
-                <img src="https://image.tmdb.org/t/p/w500/eFCzU9Jqp2Ea17ysDkG8PB0NLiR.jpg" alt="A Rainy Day in New York" />
-            </swiper-slide>
-            <swiper-slide class="recommendation-carousel__swiper-slide">
-                <div class="recommendation-carousel__action-button action-button">
-                    <v-icon color="primary" size="4.5rem">{{ iconFavorites }}</v-icon>
-                </div>
-                <img src="https://image.tmdb.org/t/p/w500/aQvJ5WPzZgYVDrxLX4R6cLJCEaQ.jpg" alt="Sonic the Hedgehog" />
-            </swiper-slide>
-            <swiper-slide class="recommendation-carousel__swiper-slide">
-                <div class="recommendation-carousel__action-button action-button">
+            <swiper-slide
+                class="recommendation-carousel__swiper-slide"
+                v-for="slide in swiperSlides"
+                :key="slide.name"
+            >
+                <div class="action-button" v-if="slide.user_choice === 'REJECTED'">
                     <v-icon color="red" size="4.5rem">{{ iconThumbDown }}</v-icon>
                 </div>
-                <img src="https://image.tmdb.org/t/p/w500/db32LaOibwEliAmSL2jjDF6oDdj.jpg" alt="Star Wars: The Rise of Skywalker" />
-            </swiper-slide>
-            <swiper-slide class="recommendation-carousel__swiper-slide">
-                <img src="https://image.tmdb.org/t/p/w500/iZf0KyrE25z1sage4SYFLCCrMi9.jpg" alt="1917" />
+                <div class="action-button" v-else-if="slide.user_choice === 'BOOKMARKED'">
+                    <v-icon color="primary" size="4.5rem">{{ iconFavorites }}</v-icon>
+                </div>
+                <img :src="`https://image.tmdb.org/t/p/w500/${slide.image_url}`" :alt="slide.name" />
             </swiper-slide>
         </swiper>
         <button class="recommendation-carousel__swiper-button-prev" slot="button-prev">

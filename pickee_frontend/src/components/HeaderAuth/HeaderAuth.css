@@ -16,16 +16,19 @@
 }
 
 .header-auth .v-avatar {
+    background: white;
     border-color: var(--v-grey200-base);
+    position: relative;
 }
 
 .phone .header-auth .v-avatar {
-    width: 10rem !important;
-    min-width: 10rem !important;
-    height: 10rem !important;
+    width: 7rem !important;
+    min-width: 7rem !important;
+    height: 7rem !important;
 }
 
 .phone .header-auth .v-overlay--absolute {
     left: auto;
-    right: -3rem;
+    top: 9rem;
+    right: 0;
 }

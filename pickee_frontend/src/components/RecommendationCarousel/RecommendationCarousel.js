@@ -1,24 +1,46 @@
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
-import { mdiChevronLeft, mdiChevronRight, mdiThumbDown, mdiThumbUp, mdiBookmark } from '@mdi/js';
+import { mdiChevronLeft, mdiChevronRight, mdiThumbDown, mdiBookmark } from '@mdi/js';
 
 export default {
     name: "RecommendationCarousel",
+    props: ['recommendation'],
     components: {
         swiper,
         swiperSlide,
     },
+    methods: {
+        setNewRecommendation: function(data, prevChoice) {
+            this.swiperSlides.push({
+                image_url: data.recommendation.image_url,
+                name: data.recommendation.name,
+                user_choice: null
+            });
+
+            this.swiperSlides[this.lastSlideIndex].user_choice = prevChoice;
+            this.lastSlideIndex++;
+
+            setTimeout(() => {
+                this.$refs.mySwiper.swiper.slideNext()
+            }, 100);
+        }
+    },
     data() {
         return {
+            lastSlideIndex: 0,
             iconArrowLeft: mdiChevronLeft,
             iconArrowRight: mdiChevronRight,
             iconFavorites: mdiBookmark,
             iconThumbDown: mdiThumbDown,
-            iconThumbUp: mdiThumbUp,
+            swiperSlides: [{
+                image_url: this.recommendation.image_url,
+                name: this.recommendation.name,
+                user_choice: null 
+            }],
             swiperOption: {
                 effect: "coverflow",
                 centeredSlides: true,
-                initialSlide: 4,
+                initialSlide: 1,
                 slidesPerView: "auto",
                 spaceBetween: 0,
                 grabCursor: false,

@@ -5,7 +5,8 @@ import Logo from "@/components/Logo/Logo.vue";
 export default {
     name: "PageHeader",
     props: {
-        logo: Boolean
+        logo: Boolean,
+        user: Object
     },
     components: {
         Navigation, 

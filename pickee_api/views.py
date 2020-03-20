@@ -6,6 +6,31 @@ from django.shortcuts import render, redirect
 # Temporary renders login.html
 from pickee_api.forms import PickeeUserCreationForm
 
+def recommendation(request):
+    data = json.dumps({
+        "user": get_user_data(request),
+        # TODO: pass real data
+        "recommendation": {
+            "id": 1,
+            "name": "The Green Mile",
+            "image_url": "/sOHqdY1RnSn6kcfAHKu28jvTebE.jpg",
+            "rating": "8.5",
+            "release_date": "1999-12-10",
+            "description": "A supernatural tale set on death row in a Southern prison, where gentle giant John Coffey possesses the mysterious power to heal people's ailments. When the cell block's head guard, Paul Edgecomb, recognizes Coffey's miraculous gift, he tries desperately to help stave off the condemned man's execution.",
+            "cast": [
+                {
+                    "id": 31,
+                    "name": "Tom Hanks",
+                },
+                {
+                    "cast_id": 5,
+                    "name": "Michael Clarke Duncan",
+                }
+            ]
+        }
+    })
+    context = {'data': data}
+    return render(request, 'recommendation.html', context=context)
 
 def user_login(request):
     if request.method == 'POST':
@@ -59,3 +84,16 @@ def user_signup(request):
 def user_logout(request):
     logout(request)
     return redirect('index')
+
+def get_user_data(request):
+    if not request.user.is_authenticated:
+        return {}
+
+    return {
+        "id": request.user.id,
+        "name": request.user.first_name,
+        "email": request.user.email,
+        "picture": request.user.picture.url
+    }
+
+    

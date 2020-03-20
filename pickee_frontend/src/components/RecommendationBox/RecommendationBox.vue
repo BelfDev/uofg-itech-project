@@ -1,7 +1,7 @@
 <template>
     <div class="recommendation-box">
-        <RecommendationCarousel />
-        <RecommendationDescr />
+        <RecommendationCarousel ref="recCarousel" :recommendation="recData" />
+        <RecommendationDescr :recommendation="recData" :newRecEvent="getNewRecommendation" />
     </div>
 </template>
 

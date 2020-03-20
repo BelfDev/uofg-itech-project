@@ -1,9 +1,9 @@
 <template>
     <v-app>
         <div class="page-wrapper page-recommendation">
-            <PageHeader logo />
+            <PageHeader :user="data.user" logo />
             <v-content>
-                <RecommendationBox />
+                <RecommendationBox :recommendation="data.recommendation" />
             </v-content>
         </div>
     </v-app>
@@ -15,11 +15,20 @@
     
     export default {
         name: "Recommendation",
-        data: () => ({}),
+        data: () => ({
+            data: {},
+        }),
         methods: {},
         components: {
             PageHeader,
             RecommendationBox
+        },
+        beforeMount() {
+            const appElement = document.getElementsByTagName('app')[0];
+            const data = appElement.getAttribute('data');
+            if (data) {
+                this.data = JSON.parse(data);
+            }
         }
     };
 </script>
