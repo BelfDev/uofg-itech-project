@@ -8,6 +8,7 @@
                     <div class="profile-page-blocks">
                         <ImageGrid />
                         <ImageGrid />
+                        <ChipBox />
                     </div>
                 </v-content>
             </main>
@@ -19,13 +20,14 @@
     import PageHeader from "@/components/PageHeader/PageHeader.vue";
     import ProfileNavDrawer from "@/components/ProfileNavDrawer/ProfileNavDrawer.vue";
     import ImageGrid from "@/components/ImageGrid/ImageGrid.vue";
+    import ChipBox from "@/components/ChipBox/ChipBox.vue";
 
     export default {
         name: "ProfilePreferences",
         data: function() {
             return {};
         },
-        components: { PageHeader, ProfileNavDrawer, ImageGrid }
+        components: { PageHeader, ProfileNavDrawer, ImageGrid , ChipBox }
     };
 </script>
 
