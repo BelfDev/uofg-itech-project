@@ -9,6 +9,13 @@ export default {
         items: ["Action", "Drama", "Fantasy", "Sci-Fi"],
         iconPlay: mdiPlayCircleOutline
     }),
+    // mounted: function() {
+    //     const response = this.$http.get(
+    //         '/api/genres/'
+    //     );
+
+    //     console.log(response);
+    // },
     components: {
         TimeSlider,
         FriendsSelector

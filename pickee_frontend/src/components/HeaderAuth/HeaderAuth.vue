@@ -3,7 +3,7 @@
     <div class="header-auth">
         <v-btn text rounded class="header-auth">
             <v-avatar size="10rem" @click="overlay = !overlay">
-                <img :src="user.picture" :alt="user.name" v-if="user.id" />
+                <img :src="user.picture" :alt="user.name" v-if="user" />
                 <div class="header-auth__anonymous" v-else>
                     <v-icon size="6rem" color="secondary">{{ iconUser }}</v-icon>
                 </div>
@@ -11,9 +11,10 @@
         </v-btn>
 
         <v-overlay
-          :absolute="true"
-          color=""
-          :value="overlay"
+            :absolute="true"
+            color=""
+            :value="overlay"
+            v-if="user"
         >
             <v-card light>
                 <div class="pa-6">
