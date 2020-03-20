@@ -32,15 +32,15 @@
             </v-card-text>
         </v-card>
         <div class="recommendation-descr__actions">
-            <button class="action-button" @click="rejectEvent">
+            <button class="action-button" @click="newRecEvent('REJECTED')">
                 <v-icon color="red" size="7.5rem">{{ iconThumbDown }}</v-icon>
             </button>
-            <button class="action-button">
+            <button class="action-button" @click="newRecEvent('BOOKMARKED')">
                 <v-icon color="primary" size="7.5rem">{{ iconFavorites }}</v-icon>
             </button>
             <v-dialog v-model="dialog" width="84rem">
                 <template v-slot:activator="{ on }">
-                    <button class="action-button" v-on="on">
+                    <button class="action-button" v-on="on" @click="getProviderList">
                         <v-icon color="green" size="7.5rem">{{ iconThumbUp }}</v-icon>
                     </button>
                 </template>
@@ -54,8 +54,11 @@
                             @click="dialog = false"
                             >{{ iconClose }}</v-icon>
                         <v-card-text class="px-12 pb-4 px-p-0">
-                            <p class="recommendation-descr__popup-text"><strong>Yessssss!</strong> Habemus movie. Now go ahead and watch it.</p>
-                            <ItemList :items="items" :button-action="openProvider" />
+                            <template v-if="providerList.length > 0">
+                                <p class="recommendation-descr__popup-text"><strong>Yessssss!</strong> Habemus movie. Now go ahead and watch it.</p>
+                                <ItemList :items="providerList" :button-action="openProvider" />
+                            </template>
+                            <p class="recommendation-descr__popup-text pb-0" v-else>Sorry, but we don't know any available providers for this movie/show :(</p>
                         </v-card-text>
                     </div>
                 </v-card>

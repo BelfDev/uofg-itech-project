@@ -5,10 +5,17 @@ export default {
     name: "RecommendationBox",
     props: ['recommendation', 'setNewRecommendation'],
     data: () => ({
-        data: {}
+        data: {},
+        recData: {}
     }),
+    created: function() {
+        this.recData = this.recommendation
+    },
     methods: {
-        getNewRecommendation: function() {
+        getNewRecommendation: function(userChoice) {
+            // SEND RECOMMENDATION USER CHOICE REQUEST HERE
+
+            // RECEIVE NEW ONE
             const data = {
                 "recommendation": {
                     "id": 122,
@@ -16,7 +23,7 @@ export default {
                     "image_url": "/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
                     "rating": "8.4",
                     "release_date": "2003-12-01",
-                    "description": "A supernatural tale set on death row in a Southern prison, where gentle giant John Coffey possesses the mysterious power to heal people's ailments. When the cell block's head guard, Paul Edgecomb, recognizes Coffey's miraculous gift, he tries desperately to help stave off the condemned man's execution.",
+                    "description": "Aragorn is revealed as the heir to the ancient kings as he, Gandalf and the other members of the broken fellowship struggle to save Gondor from Sauron's forces. Meanwhile, Frodo and Sam take the ring closer to the heart of Mordor, the dark lord's realm.",
                     "cast": [
                         {
                             "id": 109,
@@ -30,7 +37,9 @@ export default {
                 }
             };
 
-            this.$refs.recCarousel.setNewRecommendation(data);
+            this.recData = data.recommendation;
+
+            this.$refs.recCarousel.setNewRecommendation(data, userChoice);
         }
     },
     components: {

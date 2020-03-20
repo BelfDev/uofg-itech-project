@@ -6,6 +6,12 @@
                 v-for="slide in swiperSlides"
                 :key="slide.name"
             >
+                <div class="action-button" v-if="slide.user_choice === 'REJECTED'">
+                    <v-icon color="red" size="4.5rem">{{ iconThumbDown }}</v-icon>
+                </div>
+                <div class="action-button" v-else-if="slide.user_choice === 'BOOKMARKED'">
+                    <v-icon color="primary" size="4.5rem">{{ iconFavorites }}</v-icon>
+                </div>
                 <img :src="`https://image.tmdb.org/t/p/w500/${slide.image_url}`" :alt="slide.name" />
             </swiper-slide>
         </swiper>
