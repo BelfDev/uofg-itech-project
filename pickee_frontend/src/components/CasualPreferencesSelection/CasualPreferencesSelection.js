@@ -10,6 +10,7 @@ export default {
         items: ["Action", "Drama", "Fantasy", "Sci-Fi"],
         iconPlay: mdiPlayCircleOutline
     }),
+    props: ['user'],
     created: async function() {
         const response = await http.getGenres();
         this.items = response.data.map(item => ({

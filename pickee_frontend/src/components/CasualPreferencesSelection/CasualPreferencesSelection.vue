@@ -33,7 +33,7 @@
                 </div>
                 <div>
                     <label class="label-accented mb-8">Got yourself a company?</label>
-                    <FriendsSelector />
+                    <FriendsSelector :user="user" />
                 </div>
             </div>
             <div class="casual-prefences-selection__action-block">

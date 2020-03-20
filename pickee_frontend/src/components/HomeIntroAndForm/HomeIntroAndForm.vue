@@ -12,8 +12,8 @@
         </div>
         <div class="page-home-screen page-home-screen--2" :class="{ 'page-home-screen--active': isFormActive, 'page-home-screen--hidden': isFormHidden }">
             <div class="page-home-content">
-                <PageHeader />
-                <CasualPreferencesSelection />
+                <PageHeader :user="data.user" />
+                <CasualPreferencesSelection :user="data.user" />
             </div>
             <div class="stripe stripe--alt stripe--light"></div>
             <div class="stripe stripe--alt stripe--lighter"></div>
