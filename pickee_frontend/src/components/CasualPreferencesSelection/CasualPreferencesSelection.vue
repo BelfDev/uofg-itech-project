@@ -11,7 +11,7 @@
                     <v-combobox
                         v-model="select"
                         :items="items"
-                        label="Select genres from this list"
+                        label="Select genres"
                         item-color="white"
                         solo
                         multiple
@@ -26,7 +26,7 @@
                                 :disabled="data.disabled"
                                 @click:close="data.parent.selectItem(data.item)"
                             >
-                                {{ data.item }}
+                                {{ data.item.text }}
                             </v-chip>
                         </template>
                     </v-combobox>

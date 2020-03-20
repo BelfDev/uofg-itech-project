@@ -26,7 +26,6 @@
             if (data) {
                 this.data = JSON.parse(data);
             }
-            console.log(data);
         }
     };
 </script>
