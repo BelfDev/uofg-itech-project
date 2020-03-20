@@ -11,6 +11,17 @@ class PickeeUserViewSet(viewsets.ModelViewSet):
     serializer_class = PickeeUserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+    def get_queryset(self):
+        """
+        Optionally restricts the returned users to a given user,
+        by filtering against a `email` query parameter in the URL.
+        """
+        queryset = PickeeUser.objects.all()
+        email = self.request.query_params.get('email', None)
+        if email is not None:
+            queryset = queryset.filter(email=email)
+        return queryset
+
 
 class FavoriteActorViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
     queryset = models.FavoriteActor.objects.all()
@@ -63,3 +74,20 @@ class SessionViewSet(viewsets.ModelViewSet):
     queryset = models.Session.objects.all()
     serializer_class = serializers.SessionSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+class PreviousRecommendationViewSet(viewsets.ModelViewSet):
+    sessionset = models.Session.objects.all()
+    queryset = models.Recommendation.objects.all()
+    serializer_class = serializers.RecommendationSerializer
+    permission_class = [permissions.IsAuthenticated]
+    
+    def get_queryset(self):
+        sessionset = models.Session.objects.all()
+        queryset = models.Recommendation.objects.all()
+        email = self.request.query_params.get('email', None)
+        if email is not None:
+            sessionset = sessionset.filter(email=email)
+            queryset = queryset.filter(session__in=sessionset)
+        return queryset
+        
+    
