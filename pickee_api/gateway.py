@@ -2,6 +2,7 @@ import requests
 from django.http import JsonResponse
 
 from pickee_api.utils import BearerAuth
+from pickee_api.models import Actor
 
 # The token was kept here to simplify the marking process
 # In a real-world scenario we would never commit this token
@@ -25,3 +26,16 @@ def utelly_example_endpoint(request):
         response = requests.get(url, headers=headers, params=params)
         data = response.json()
         return JsonResponse(data)
+
+def search_actors(request):
+    if request.method == 'GET':
+        actor_name = 'James Corden'
+        actor_name.replace(" ","+")
+        url = 'https://api.themoviedb.org/3/search/person?query='+actor_name
+
+        response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
+        data = response.json()
+        top_result = data['results'][0]
+        actor = Actor.objects.get_or_create(id=top_result['id'],name=top_result['name'])
+        
+        return JsonResponse(top_result)
