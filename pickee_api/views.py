@@ -39,6 +39,7 @@ def recommendation(request):
         }
     })
     context = {'data': data}
+
     return render(request, 'recommendation.html', context=context)
 
 def user_login(request):

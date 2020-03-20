@@ -1,5 +1,6 @@
 <template>
     <div class="friends-selector">
+        <input type="hidden" name="selectedFriends" :value="inputValue" />
         <div class="friends-selector__selected">
             <v-avatar 
                 class="friends-selector__selected-item" 

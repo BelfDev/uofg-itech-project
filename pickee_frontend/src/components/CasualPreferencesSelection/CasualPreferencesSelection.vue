@@ -1,18 +1,22 @@
 <template>
-    <form  class="casual-prefences-selection" action="recommendation/">
+    <form class="casual-prefences-selection" action="recommendation/" method="POST">
+        <input type="hidden" name="csrfmiddlewaretoken" :value="token">
         <div class="casual-prefences-selection__wrapper">
             <div class="casual-prefences-selection__form">
                 <div class="mb-12 pt-6">
                     <label class="label-accented mb-8">How much time you got?</label>
-                    <TimeSlider />
+                    <TimeSlider name="selectedTime" />
                 </div>
                 <div class="mb-10 pt-6">
                     <label class="label-accented mb-8">Any genres in mind?</label>
                     <v-combobox
-                        v-model="select"
+                        v-model="selectedGenres"
+                        name="selectedGenres"
                         :items="items"
                         label="Select genres"
                         item-color="white"
+                        item-value="text"
+                        :return-object="false"
                         solo
                         multiple
                         chips
@@ -22,11 +26,9 @@
                                 color="primary"
                                 :key="JSON.stringify(data.item)"
                                 v-bind="data.attrs"
-                                :input-value="data.selected"
                                 :disabled="data.disabled"
-                                @click:close="data.parent.selectItem(data.item)"
                             >
-                                {{ data.item.text }}
+                                {{ data.item }}
                             </v-chip>
                         </template>
                     </v-combobox>

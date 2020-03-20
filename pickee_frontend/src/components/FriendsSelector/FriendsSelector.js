@@ -22,8 +22,11 @@ export default {
                 text: `${friendData.first_name} ${friendData.last_name} (${friendData.id})`,
                 icon: mdiMinusCircle
             });
-
-            console.log(this.selectedFriends);
+        }
+    },
+    computed: {
+        inputValue: function() {
+            return this.selectedFriends.map(friend => friend.id).join(',');
         }
     },
     props: ['user'],

@@ -4,6 +4,7 @@
         <div class="time-slider__input">
             <v-slider
                 v-model="minutes"
+                :name="name"
                 color="white"
                 thumb-color="primary"
                 step="30"

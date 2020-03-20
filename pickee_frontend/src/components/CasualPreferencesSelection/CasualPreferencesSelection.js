@@ -5,11 +5,14 @@ import { mdiPlayCircleOutline } from "@mdi/js";
 
 export default {
     name: 'CasualPreferencesSelection',
-    data: () => ({
-        select: [],
-        items: ["Action", "Drama", "Fantasy", "Sci-Fi"],
-        iconPlay: mdiPlayCircleOutline
-    }),
+    data: function() {
+        return {
+            selectedGenres: [],
+            items: [],
+            iconPlay: mdiPlayCircleOutline,
+            token: this.$cookies.get("csrftoken")
+        }
+    },
     props: ['user'],
     created: async function() {
         const response = await http.getGenres();
