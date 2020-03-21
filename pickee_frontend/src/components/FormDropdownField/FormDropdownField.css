@@ -7,6 +7,10 @@
     display: flex;
 }
 
+.form-dropdown-field .v-label.v-label--active {
+    display: none;
+}
+
 .form-dropdown-field .label {
     margin-top: 1.4rem;
     flex-basis: 35rem;

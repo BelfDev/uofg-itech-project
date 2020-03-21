@@ -4,6 +4,7 @@ import requests
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
+from pickee_api.models import PickeeUser
 
 # Temporary renders login.html
 from pickee_api.forms import PickeeUserCreationForm
@@ -96,8 +97,9 @@ def user_logout(request):
     return redirect('index')
 
 def profile_main(request):
+    user_profile_data = { "age": request.user.age, "gender": request.user.gender }
     data = json.dumps({
-        "user": get_user_data(request),
+        "user": {**get_user_data(request), **user_profile_data}
     });
     context = {'data': data}
     return render(request, 'profile_main.html', context=context)
