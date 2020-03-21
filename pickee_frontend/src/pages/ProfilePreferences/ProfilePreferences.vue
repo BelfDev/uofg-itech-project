@@ -7,8 +7,8 @@
                 <v-content class="profile-page-content">
                     <div class="profile-page-blocks">
                         <ActorGrid :items="actorItems" />
-                        <MovieGrid :items="movieItems" />
-                        <ChipBox />
+                        <MovieGrid class="mt-12" :items="movieItems" />
+                        <GenrePreferences />
                     </div>
                 </v-content>
             </main>
@@ -21,7 +21,7 @@
     import ProfileNavDrawer from "@/components/ProfileNavDrawer/ProfileNavDrawer.vue";
     import ActorGrid from "@/components/ActorGrid/ActorGrid.vue";
     import MovieGrid from "@/components/MovieGrid/MovieGrid.vue";
-    import ChipBox from "@/components/ChipBox/ChipBox.vue";
+    import GenrePreferences from "@/components/GenrePreferences/GenrePreferences.vue";
     import { mdiMinusCircle } from '@mdi/js';
 
     export default {
@@ -68,7 +68,7 @@
                 ]
             };
         },
-        components: { PageHeader, ProfileNavDrawer, ActorGrid, MovieGrid, ChipBox }
+        components: { PageHeader, ProfileNavDrawer, ActorGrid, MovieGrid, GenrePreferences }
     };
 </script>
 
