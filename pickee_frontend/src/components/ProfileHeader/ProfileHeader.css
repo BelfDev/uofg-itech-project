@@ -1,5 +1,6 @@
 .profile-header {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -15,4 +16,25 @@
     margin-bottom: 0;
     font-size: var(--font-size-heading3);
     line-height: var( --font-line-height-heading3);
+}
+
+.tablet .profile-header__name {
+    font-size: 4rem;
+    line-height: 5rem;
+}
+
+.tablet .v-application .profile-header__time-saved {
+    font-size: 3rem;
+    line-height: 3.8rem;
+}
+
+.tablet .profile-header__avatar {
+    width: 10rem !important;
+    min-width: 10rem !important;
+    height: 10rem !important;
+}
+
+.tablet .profile-header,
+.phone .profile-header {
+    justify-content: start;
 }
