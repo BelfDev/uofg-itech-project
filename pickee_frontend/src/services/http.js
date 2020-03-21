@@ -147,5 +147,49 @@ export default {
                 user_choice: "APPROVED"
             }
         ]
+    },
+
+    async getRecommendation() {
+        return await {
+            "id": 122,
+            "name": "The Lord of the Rings: The Return of the King",
+            "image_url": "/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
+            "rating": "8.4",
+            "release_date": "2003-12-01",
+            "description": "Aragorn is revealed as the heir to the ancient kings as he, Gandalf and the other members of the broken fellowship struggle to save Gondor from Sauron's forces. Meanwhile, Frodo and Sam take the ring closer to the heart of Mordor, the dark lord's realm.",
+            "cast": [
+                {
+                    "id": 109,
+                    "name": "Elijah Wood",
+                },
+                {
+                    "cast_id": 13,
+                    "name": "Ian McKellen",
+                }
+            ]
+        }
+    },
+
+    async getProviderList() {
+        return await [
+            {
+                logo: "https://utellyassets7.imgix.net/locations_icons/utelly/black_new/iTunesIVAGB.png?w=100&auto=compress",
+                text: "ITunes",
+                type: "Rent/Buy",
+                link: "https://itunes.apple.com/za/movie/the-dark-knight/id606743816"
+            },
+            {
+                logo: "https://utellyassets7.imgix.net/locations_icons/utelly/black_new/GooglePlayIVAGB.png?w=100&auto=compress",
+                text: "Google Play",
+                type: "Rent/Buy",
+                link: "https://play.google.com/store/movies/details/The_Dark_Knight?gl=GB&hl=en&id=TQfcgaNdBCA"
+            },
+            {
+                logo: "https://utellyassets7.imgix.net/locations_icons/utelly/black_new/AmazonInstantVideoIVAGB.png?w=100&auto=compress",
+                text: "Amazon Prime",
+                type: "Rent/Buy",
+                link: "https://www.amazon.co.uk/gp/product/B00I9LY2N8?creativeASIN=B00I9LY2N8&ie=UTF8&linkCode=xm2&tag=utellycom00-21"
+            },
+        ]
     }
 };

@@ -1,5 +1,6 @@
 import RecommendationCarousel from "@/components/RecommendationCarousel/RecommendationCarousel.vue";
 import RecommendationDescr from "@/components/RecommendationDescr/RecommendationDescr.vue";
+import http from "@/services/http";
 
 export default {
     name: "RecommendationBox",
@@ -12,34 +13,15 @@ export default {
         this.recData = this.recommendation
     },
     methods: {
-        getNewRecommendation: function(userChoice) {
+        getNewRecommendation: async function(userChoice) {
             // SEND RECOMMENDATION USER CHOICE REQUEST HERE
 
             // RECEIVE NEW ONE
-            const data = {
-                "recommendation": {
-                    "id": 122,
-                    "name": "The Lord of the Rings: The Return of the King",
-                    "image_url": "/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
-                    "rating": "8.4",
-                    "release_date": "2003-12-01",
-                    "description": "Aragorn is revealed as the heir to the ancient kings as he, Gandalf and the other members of the broken fellowship struggle to save Gondor from Sauron's forces. Meanwhile, Frodo and Sam take the ring closer to the heart of Mordor, the dark lord's realm.",
-                    "cast": [
-                        {
-                            "id": 109,
-                            "name": "Elijah Wood",
-                        },
-                        {
-                            "cast_id": 13,
-                            "name": "Ian McKellen",
-                        }
-                    ]
-                }
-            };
+            const response = await http.getRecommendation(userChoice);
+            
+            this.recData = response;
 
-            this.recData = data.recommendation;
-
-            this.$refs.recCarousel.setNewRecommendation(data, userChoice);
+            this.$refs.recCarousel.setNewRecommendation(response, userChoice);
         }
     },
     components: {
