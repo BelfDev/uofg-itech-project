@@ -9,7 +9,8 @@
             solo
             multiple
             chips
-            >
+            @change="changeEvent"
+        >
             <template v-slot:selection="data">
                 <v-chip
                     color="primary"

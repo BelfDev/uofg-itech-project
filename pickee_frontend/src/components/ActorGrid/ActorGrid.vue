@@ -31,13 +31,14 @@
                                 <div class="image-grid__search-box">
                                     <v-text-field
                                         dark
+                                        v-model="searchText"
                                         class="image-grid__search-input"
                                         :prepend-icon="iconSearch"
                                         solo
                                     ></v-text-field>
-                                    <v-btn color="primary" large class="image-grid__search-btn">Search</v-btn>
+                                    <v-btn color="primary" large class="image-grid__search-btn" @click="addMethod(searchText)">Search</v-btn>
                                 </div>
-                                <ItemList :items="items" :button-action="removeItem" />
+                                <ItemList :items="items" :button-action="removeMethod" />
                             </v-card-text>
                         </div>
                     </v-card>

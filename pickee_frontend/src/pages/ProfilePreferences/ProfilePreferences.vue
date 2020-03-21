@@ -6,9 +6,9 @@
                 <PageHeader />
                 <v-content class="profile-page-content">
                     <div class="profile-page-blocks">
-                        <ActorGrid :items="actorItems" />
-                        <MovieGrid class="mt-12" :items="movieItems" />
-                        <GenrePreferences />
+                        <ActorGrid :addMethod="addActor" :removeMethod="removeActor" :items="actorItems" />
+                        <MovieGrid :addMethod="addMovie" :removeMethod="removeMovie" class="mt-12" :items="movieItems" />
+                        <GenrePreferences :changeEvent="updateGenres" />
                     </div>
                 </v-content>
             </main>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+    import http from "@/services/http";
     import PageHeader from "@/components/PageHeader/PageHeader.vue";
     import ProfileNavDrawer from "@/components/ProfileNavDrawer/ProfileNavDrawer.vue";
     import ActorGrid from "@/components/ActorGrid/ActorGrid.vue";
@@ -28,44 +29,8 @@
         name: "ProfilePreferences",
         data: function() {
             return {
-                actorItems: [
-                    {
-                        text: "Johny Depp",
-                        image: "https://cdn.vuetifyjs.com/images/john.jpg",
-                        icon: mdiMinusCircle
-                    }, {
-                        text: "Brad Pitt",
-                        image: "https://cdn.vuetifyjs.com/images/john.jpg",
-                        icon: mdiMinusCircle
-                    }, {
-                        text: "Leonardo Di Caprio",
-                        image: "https://cdn.vuetifyjs.com/images/john.jpg",
-                        icon: mdiMinusCircle
-                    }, {
-                        text: "Nicholas Cage",
-                        image: "https://cdn.vuetifyjs.com/images/john.jpg",
-                        icon: mdiMinusCircle
-                    }, {
-                        text: "Sylvester Stallone",
-                        image: "https://cdn.vuetifyjs.com/images/john.jpg",
-                        icon: mdiMinusCircle
-                    }
-                ],
-                movieItems: [
-                    {
-                        text: "It's a Wonderful Life",
-                        picture: "https://image.tmdb.org/t/p/w500/bSqt9rhDZx1Q7UZ86dBPKdNomp2.jpg",
-                        icon: mdiMinusCircle
-                    }, {
-                        text: "Coco",
-                        picture: "https://image.tmdb.org/t/p/w500/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg",
-                        icon: mdiMinusCircle
-                    }, {
-                        text: "Harry Potter and the Deathly Hallows: Part 2",
-                        picture: "https://image.tmdb.org/t/p/w500/fTplI1NCSuEDP4ITLcTps739fcC.jpg",
-                        icon: mdiMinusCircle
-                    }
-                ]
+                actorItems: [],
+                movieItems: []
             };
         },
         components: { 
@@ -74,6 +39,60 @@
             ActorGrid, 
             MovieGrid, 
             GenrePreferences 
+        },
+        methods: {
+            addActor: async function (name) {
+                if (name != null) {
+                    const response = await http.addFavoriteActor(name);
+                    this.actorItems.push({ "text": response.text, "image": response.image, "icon": mdiMinusCircle });
+                }
+            },
+            removeActor: async function (targetItem) {
+                console.log('removeActor');
+                const response = http.removeFavoriteActor(name);
+                console.log(response);
+
+                // if(response.status === 200) {
+                    const targetItemIndex = this.actorItems.findIndex(sourceItem => sourceItem.text === targetItem.text);
+                    this.actorItems.splice(targetItemIndex, 1);
+                // }
+            },
+            addMovie: async function (name) {
+                if (name != null) {
+                    const response = await http.addFavoriteMovie(name);
+                    this.movieItems.push({ "text": response.text, "picture": response.picture, "icon": mdiMinusCircle });
+                }
+            },
+            removeMovie: async function (targetItem) {
+                console.log('removeMovie');
+                const response = http.removeFavoriteMovie(name);
+                console.log(response);
+
+                // if(response.status === 200) {
+                    const targetItemIndex = this.movieItems.findIndex(sourceItem => sourceItem.text === targetItem.text);
+                    this.movieItems.splice(targetItemIndex, 1);
+                // }
+            },
+            updateGenres: async function(data) {
+                console.log('updateGenres')
+                const response = http.updateFavoriteGenres(data);
+                console.log(response);
+            }
+        },
+        mounted: async function() {
+            const actorsResponse = await http.getFavoriteActors();
+            this.actorItems = actorsResponse.map(item => ({
+                image: item.image,
+                text: item.text,
+                icon: mdiMinusCircle
+            }));
+
+            const moviesResponse = await http.getFavoriteMovies();
+            this.movieItems = moviesResponse.map(item => ({
+                picture: item.picture,
+                text: item.text,
+                icon: mdiMinusCircle
+            }));
         },
         beforeMount() {
             const appElement = document.getElementsByTagName('app')[0];
