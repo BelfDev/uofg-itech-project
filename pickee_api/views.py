@@ -54,7 +54,7 @@ def user_login(request):
             if user.is_active:
                 # If valid, log in the user
                 login(request, user)
-                return redirect('index')
+                return redirect('home')
         else:
             # If there are any authentication errors, send error feedback
             loginFeedback = json.dumps({
@@ -77,7 +77,7 @@ def user_signup(request):
             password2 = form.cleaned_data['password2']
             user = authenticate(email=email, password1=password1, password2=password2)
             login(request, user)
-            return redirect('index')
+            return redirect('home')
         else:
             errorMsgs = {}
             for field in form:
@@ -93,7 +93,7 @@ def user_signup(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('index')
+    return redirect('home')
 
 def get_user_data(request):
     if not request.user.is_authenticated:
