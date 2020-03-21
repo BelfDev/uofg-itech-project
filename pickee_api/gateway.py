@@ -2,7 +2,7 @@ import requests
 from django.http import JsonResponse
 
 from pickee_api.utils import BearerAuth
-from pickee_api.models import Actor,Movie,MovieCast,FavoriteGenre
+from pickee_api.models import Actor,Movie,MovieCast,FavoriteGenre,FavoriteActor
 
 # The token was kept here to simplify the marking process
 # In a real-world scenario we would never commit this token
@@ -74,14 +74,19 @@ def get_cast(request):
 
 def get_recommendation(request):
     if request.method == 'POST':
-        genres = request.POST['casual_genres']
-        runtime = request.POST['runtime']
         users = request.POST['users']
-        actors = '31|6193|74568|4491'
+        runtime = request.POST['runtime']
+
+        casual_genres = request.POST['casual_genres']
+        common_favorite_genres = get_common_favorites(users, FavoriteGenre)
+        combined_genres = list(set(casual_genres)|set(common_favorite_genres))
+
+        common_favorite_actors = get_common_favorites(users, FavoriteActor)
+
         #keywords
         #certification
         url ='''https://api.themoviedb.org/3/discover/movie?language=en-UK&sort_by=popularity.desc&page=1
-                &with_genres='''+genres+'&with_actors='+actors+'&with_runtime.lte='+runtime
+                &with_genres='''+combined_genres+'&with_actors='+actors+'&with_runtime.lte='+runtime
 
         response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
         data = response.json()
@@ -98,24 +103,16 @@ def get_recommendation(request):
 
         return JsonResponse(recommendation_dict)
 
-def get_common_favorite_genres(users):
-    all_favorite_genres = []
-    common_favorite_genres = []
+def get_common_favorites(users, model):
+    all_favorites = []
+    common_favorites = []
 
     for user in users:
-        favorite_genres = get_favorite_genres(user)
-        for genre in favorite_genres:
-            if genre in all_favorite_genres:
-                common_favorite_genres.append(genre)
+        favorites = model.objects.filter(user=user)
+        for genre in favorites:
+            if genre in all_favorites:
+                common_favorites.append(genre)
             else:
-                all_favorite_genres.append(genre)    
+                all_favorites.append(genre)    
     
-    return common_favorite_genres
-
-def get_favorite_genres(user):
-    favorite_genres = FavoriteGenre.objects.get(user=user)
-    genres = []
-    for genre in favorite_genres:
-        genres.append(genre)
-    
-    return genres
+    return common_favorites
