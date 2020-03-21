@@ -1,6 +1,5 @@
 <template>
     <div class="friends-selector">
-        <input type="hidden" name="users" :value="inputValue" />
         <div class="friends-selector__selected">
             <v-avatar 
                 class="friends-selector__selected-item" 
@@ -8,6 +7,7 @@
                 v-for="friend in selectedFriends"
                 v-bind:key="friend.id"
             >
+                <input type="hidden" name="users[]" :value="friend.id" />
                 <img :src="friend.image" :alt="friend.name" />
             </v-avatar>
         </div>

@@ -9,7 +9,6 @@
                     <img class="item-list__element-picture" :src="item.picture" :alt="item.text" v-else-if="item.picture" />
                     <div class="item-list__element-logo" v-if="item.logo"><img :src="item.logo" :alt="item.text" /></div>
                     <span class="item-list__element-text">{{ item.text }}</span>
-                    <span class="item-list__element-type" v-if="item.type">{{ item.type }}</span>
                     <v-icon class="item-list__element-icon" v-if="item.icon">{{ item.icon }}</v-icon>
                 </button>
             </li>
