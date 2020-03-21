@@ -1,0 +1,22 @@
+.profile-page {
+    min-height: 100%;
+    display: flex;
+}
+
+.profile-page .page-header {
+    position: absolute;
+    top: 50px;
+    right: 40px;
+}
+
+.profile-page-main {
+    flex: 1 1 auto;
+}
+
+.profile-page-content .v-content__wrap {
+    padding: 19.2rem 31.6rem;
+}
+
+.profile-page-blocks {
+    margin: 0 10rem;
+}

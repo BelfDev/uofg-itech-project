@@ -12,3 +12,9 @@
 .v-application a.nav-drawer-links__item--active {
     font-weight: 600;
 }
+
+
+.phone .v-application a.nav-drawer-links__item {
+    font-size: var(--font-size-phone-body-2);
+    line-height: var(--font-line-height-phone-body-2);
+}

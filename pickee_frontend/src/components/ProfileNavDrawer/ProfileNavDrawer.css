@@ -13,6 +13,40 @@
 .nav-drawer__logout-btn {
     position: absolute;
     bottom: 5.6rem;
-    left: 6.8rem;
-    right: 6.8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22rem;
+}
+
+.nav-drawer-activator {
+    display: none;
+}
+
+.phone .nav-drawer-activator,
+.tablet .nav-drawer-activator {
+    display: block;
+    top: 4rem;
+    left: 4rem;
+    position: absolute;
+    z-index: 2;
+}
+
+.tablet .nav-drawer,
+.phone .nav-drawer {
+    z-index: 5;
+}
+
+.phone .nav-drawer {
+    width: 24rem !important
+}
+
+.phone .nav-drawer__logout-btn {
+    width: 18rem;
+}
+
+.phone .nav-drawer__logout-btn .v-btn.theme--dark {
+    height: 4rem;
+    padding: 0 4rem;
+    font-size: var(--font-size-phone-body-3);
+    line-height: var(--font-line-height-phone-body-3);
 }
