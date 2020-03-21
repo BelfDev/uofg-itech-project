@@ -26,7 +26,6 @@ export default {
     },
     props: ['user'],
     data: () => ({
-        // TODO: get from API
         selectedFriends: [],
         iconUser: mdiAccount,
         iconPlusCircle: mdiPlusCircle,

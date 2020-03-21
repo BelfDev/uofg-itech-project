@@ -13,7 +13,7 @@ export default {
     },
     props: ['user', 'updatePersonalDetails'],
     data: () => ({
-        genderDropdownItems: ['MALE', 'FEMALE', 'OTHER', 'UNSPECIFIED'] // TODO: get from API
+        genderDropdownItems: ['MALE', 'FEMALE', 'OTHER', 'UNSPECIFIED']
     }),
     components: {
         FormDropdownField
