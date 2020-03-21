@@ -4,7 +4,6 @@ import requests
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from pickee_api.models import PickeeUser
 
 # Temporary renders login.html
 from pickee_api.forms import PickeeUserCreationForm
