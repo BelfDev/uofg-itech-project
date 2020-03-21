@@ -26,7 +26,7 @@ export default {
     },
     computed: {
         inputValue: function() {
-            return this.selectedFriends.map(friend => friend.id).join(',');
+            return `[${this.selectedFriends.map(friend => friend.id).join(',')}]`;
         }
     },
     props: ['user'],
