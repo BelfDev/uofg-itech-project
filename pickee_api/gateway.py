@@ -2,7 +2,7 @@ import requests
 from django.http import JsonResponse
 
 from pickee_api.utils import BearerAuth
-from pickee_api.models import Actor,Movie,MovieCast
+from pickee_api.models import Actor,Movie,MovieCast,FavoriteGenre
 
 # The token was kept here to simplify the marking process
 # In a real-world scenario we would never commit this token
@@ -97,3 +97,25 @@ def get_recommendation(request):
         }
 
         return JsonResponse(recommendation_dict)
+
+def get_common_favorite_genres(users):
+    all_favorite_genres = []
+    common_favorite_genres = []
+
+    for user in users:
+        favorite_genres = get_favorite_genres(user)
+        for genre in favorite_genres:
+            if genre in all_favorite_genres:
+                common_favorite_genres.append(genre)
+            else:
+                all_favorite_genres.append(genre)    
+    
+    return common_favorite_genres
+
+def get_favorite_genres(user):
+    favorite_genres = FavoriteGenre.objects.get(user=user)
+    genres = []
+    for genre in favorite_genres:
+        genres.append(genre)
+    
+    return genres
