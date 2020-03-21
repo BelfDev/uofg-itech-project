@@ -5,7 +5,7 @@
             <main class="profile-page-main">
                 <PageHeader />
                 <v-content class="profile-page-content">
-                    <ProfileHeader />
+                    <ProfileHeader :user="data.user" />
                     <div class="profile-page-blocks">
                         <ProfilePersonalDetails :updatePersonalDetails="updatePersonalDetails" :user="data.user" class="mt-12" />
                         <ProfileFriends :removeFriend="removeFriend" :items="friendsItems" class="mt-12" />
