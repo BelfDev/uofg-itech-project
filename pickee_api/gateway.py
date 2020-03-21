@@ -80,13 +80,15 @@ def get_recommendation(request):
         casual_genres = request.POST['casual_genres']
         common_favorite_genres = get_common_favorites(users, FavoriteGenre)
         combined_genres = list(set(casual_genres)|set(common_favorite_genres))
+        genre_string = ','.join(combined_genres)
 
         common_favorite_actors = get_common_favorites(users, FavoriteActor)
+        actor_string = '|'.joint(common_favorite_actors)
 
         #keywords
         #certification
         url ='''https://api.themoviedb.org/3/discover/movie?language=en-UK&sort_by=popularity.desc&page=1
-                &with_genres='''+combined_genres+'&with_actors='+actors+'&with_runtime.lte='+runtime
+                &with_genres='''+genre_string+'&with_actors='+actor_string+'&with_runtime.lte='+runtime
 
         response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
         data = response.json()
