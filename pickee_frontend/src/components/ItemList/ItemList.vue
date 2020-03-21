@@ -1,8 +1,8 @@
 <template>
     <ul class="item-list">
         <template v-for="item in items">
-            <li class="item-list__element" v-bind:key="item.text">
-                <button @click="buttonAction(item.link || item.text)" class="item-list__element-button">
+            <li class="item-list__element" v-bind:key="item.id">
+                <button @click="buttonAction(item)" class="item-list__element-button">
                     <v-avatar class="item-list__element-avatar" size="6.8rem" v-if="item.image">
                         <img :src="item.image" :alt="item.text" />
                     </v-avatar>

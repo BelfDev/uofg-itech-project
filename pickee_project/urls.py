@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 from pickee_api import views
 
 page_urls = [
-    path("", TemplateView.as_view(template_name="home.html"), name="index"),
+    path("", views.home, name="home"),
     path("recommendation/", views.recommendation, name="recommendation"),
     path("about/", TemplateView.as_view(template_name="about.html"), name="about"),
     path("login/", views.user_login, name='login'),
