@@ -26,7 +26,7 @@
     import { mdiMinusCircle } from '@mdi/js';
 
     export default {
-        name: "ProfilePreferences",
+        name: "Preferences",
         data: function() {
             return {
                 actorItems: [],

@@ -26,7 +26,7 @@
     import { mdiMinusCircle } from "@mdi/js";
 
     export default {
-        name: "ProfileMain",
+        name: "Profile",
         data: function() {
             return {
                 friendsItems: []

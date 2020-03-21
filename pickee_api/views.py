@@ -2,6 +2,7 @@ import json
 
 import requests
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
@@ -95,14 +96,22 @@ def user_logout(request):
     logout(request)
     return redirect('home')
 
-def profile_main(request):
+@login_required
+def profile(request):
     user_profile_data = { "age": request.user.age, "gender": request.user.gender }
     data = json.dumps({
         "user": {**get_user_data(request), **user_profile_data}
     });
     context = {'data': data}
-    return render(request, 'profile_main.html', context=context)
+    return render(request, 'profile.html', context=context)
 
+@login_required
+def history(request):
+    return render(request, 'history.html')
+
+@login_required
+def preferences(request):
+    return render(request, 'preferences.html')
 
 # Helper methods
 

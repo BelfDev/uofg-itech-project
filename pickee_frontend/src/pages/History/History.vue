@@ -37,7 +37,7 @@
     }
 
     export default {
-        name: "ProfileHistory",
+        name: "History",
         data: function() {
             return {
                 historyItems: []

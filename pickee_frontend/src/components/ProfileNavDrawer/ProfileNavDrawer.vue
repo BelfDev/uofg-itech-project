@@ -13,7 +13,7 @@
             <div class="nav-drawer__logo"><Logo /></div>
             <NavDrawerLinks :links="links" />
             <div class="nav-drawer__logout-btn">
-                <v-btn block>Logout</v-btn>
+                <v-btn block href="/logout/">Logout</v-btn>
             </div>
             
         </v-navigation-drawer>

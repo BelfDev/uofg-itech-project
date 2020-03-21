@@ -17,7 +17,6 @@
                         item-color="white"
                         item-value="text"
                         :return-object="false"
-                        @change="updateInputValue"
                         solo
                         multiple
                         chips
