@@ -95,6 +95,30 @@ def user_logout(request):
     logout(request)
     return redirect('index')
 
+def profile_main(request):
+    data = json.dumps({
+        "user": get_user_data(request),
+    });
+    context = {'data': data}
+    return render(request, 'profile_main.html', context=context)
+
+def profile_preferences(request):
+    data = json.dumps({
+        "user": get_user_data(request),
+    });
+    context = {'data': data}
+    return render(request, 'profile_preferences.html', context=context)
+
+def profile_history(request):
+    data = json.dumps({
+        "user": get_user_data(request),
+    });
+    context = {'data': data}
+    return render(request, 'profile_history.html', context=context)
+
+
+# Helper methods
+
 def get_user_data(request):
     if not request.user.is_authenticated:
         return {}
@@ -103,7 +127,7 @@ def get_user_data(request):
         "id": request.user.id,
         "name": request.user.first_name,
         "email": request.user.email,
-        "picture": request.user.picture.url
+        "picture": request.user.picture.url if request.user.picture else None
     }
 
     

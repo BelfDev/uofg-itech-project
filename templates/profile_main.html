@@ -5,10 +5,8 @@
 {% block content %}
 
     <div id="profile-main">
-        <app />
+        <app data="{{ data }}"></app>
     </div>
-
-    
 
     {% render_bundle 'chunk-vendors' %}
     {% render_bundle 'ProfileMain' %}

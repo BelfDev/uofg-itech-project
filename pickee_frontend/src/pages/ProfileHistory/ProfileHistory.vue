@@ -23,7 +23,14 @@
         data: function() {
             return {};
         },
-        components: { PageHeader, ProfileNavDrawer, ProfileHistoryList }
+        components: { PageHeader, ProfileNavDrawer, ProfileHistoryList },
+        beforeMount() {
+            const appElement = document.getElementsByTagName('app')[0];
+            const data = appElement.getAttribute('data');
+            if (data) {
+                this.data = JSON.parse(data);
+            }
+        }
     };
 </script>
 

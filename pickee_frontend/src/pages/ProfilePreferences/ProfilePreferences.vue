@@ -68,7 +68,20 @@
                 ]
             };
         },
-        components: { PageHeader, ProfileNavDrawer, ActorGrid, MovieGrid, GenrePreferences }
+        components: { 
+            PageHeader, 
+            ProfileNavDrawer, 
+            ActorGrid, 
+            MovieGrid, 
+            GenrePreferences 
+        },
+        beforeMount() {
+            const appElement = document.getElementsByTagName('app')[0];
+            const data = appElement.getAttribute('data');
+            if (data) {
+                this.data = JSON.parse(data);
+            }
+        }
     };
 </script>
 

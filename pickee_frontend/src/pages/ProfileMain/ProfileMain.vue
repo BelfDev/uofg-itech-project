@@ -34,6 +34,13 @@
             ProfileHeader, 
             ProfilePersonalDetails, 
             ProfileFriends
+        },
+        beforeMount() {
+            const appElement = document.getElementsByTagName('app')[0];
+            const data = appElement.getAttribute('data');
+            if (data) {
+                this.data = JSON.parse(data);
+            }
         }
     };
 </script>

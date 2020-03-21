@@ -4,10 +4,9 @@
 
 {% block content %}
 
-<div id="profile-history">
-    <app />
-</div>
-
+    <div id="profile-history">
+        <app data="{{ data }}"></app>
+    </div>
 
     {% render_bundle 'chunk-vendors' %}
     {% render_bundle 'ProfileHistory' %}
