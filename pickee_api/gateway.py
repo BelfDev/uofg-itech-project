@@ -27,6 +27,17 @@ def utelly_example_endpoint(request):
         data = response.json()
         return JsonResponse(data)
 
+
+def get_streaming_service(request):
+    if request.method == 'POST':
+        url = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup'
+        headers = {"x-rapidapi-key": UTELLY_API_KEY}
+        params = {"term": request.POST['movie_name'], "country": "uk"}
+        response = requests.get(url, headers=headers, params=params)
+        data = response.json()
+        return JsonResponse(data)
+
+
 def search_actors(request):
     if request.method == 'POST':
         actor_name = request.POST['actor_name']
@@ -41,6 +52,7 @@ def search_actors(request):
 
         return JsonResponse(actor_options)
 
+
 def search_movies(request):
     if request.method == 'POST':
         movie_name = request.POST['movie_name']
@@ -53,6 +65,7 @@ def search_movies(request):
         #TODO: create movie object in database depending on user selection
 
         return JsonResponse(data)
+
 
 def get_cast(request):
     if request.method == 'POST':
@@ -71,6 +84,7 @@ def get_cast(request):
             movie_cast = MovieCast.objects.get_or_create(movie=movie,actor=actor)
 
         return JsonResponse(data)
+
 
 def get_recommendation(request):
     if request.method == 'POST':
@@ -109,6 +123,7 @@ def get_recommendation(request):
 
         return JsonResponse(recommendation_dict)
 
+
 def get_common_favorites(users, model):
     all_favorites = []
     common_favorites = []
@@ -122,6 +137,7 @@ def get_common_favorites(users, model):
                 all_favorites.append(favorite)    
     
     return common_favorites
+    
 
 def get_movie_keywords(movies):
     keywords = {}
