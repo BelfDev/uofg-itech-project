@@ -28,21 +28,22 @@ def utelly_example_endpoint(request):
         return JsonResponse(data)
 
 def search_actors(request):
-    if request.method == 'GET':
-        actor_name = 'James Corden'
+    if request.method == 'POST':
+        actor_name = request.POST['actor_name']
         actor_name.replace(' ','+')
         url = 'https://api.themoviedb.org/3/search/person?query='+actor_name
 
         response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
         data = response.json()
-        # top_result = data['results'][0]
-        # actor = Actor.objects.get_or_create(id=top_result['id'],name=top_result['name'])
+        actor_options = data['results']
 
-        return JsonResponse(data)
+        #TODO: create actor object in database depending on user selection
+
+        return JsonResponse(actor_options)
 
 def search_movies(request):
-    if request.method == 'GET':
-        movie_name = 'Trolls'
+    if request.method == 'POST':
+        movie_name = request.POST['movie_name']
         movie_name.replace(' ','+')
         url = 'https://api.themoviedb.org/3/search/movie?query='+movie_name
 
@@ -54,8 +55,8 @@ def search_movies(request):
         return JsonResponse(data)
 
 def get_cast(request):
-    if request.method == 'GET':
-        movie_id = '301528'
+    if request.method == 'POST':
+        movie_id = request.POST['movie_id']
         url ='https://api.themoviedb.org/3/movie/'+movie_id+'/credits?'
 
         response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
@@ -72,10 +73,11 @@ def get_cast(request):
         return JsonResponse(data)
 
 def get_recommendation(request):
-    if request.method == 'GET':
-        genres = '12,16'
+    if request.method == 'POST':
+        genres = request.POST['casual_genres']
+        runtime = request.POST['runtime']
+        users = request.POST['users']
         actors = '31|6193|74568|4491'
-        runtime = '100'
         #keywords
         #certification
         url ='''https://api.themoviedb.org/3/discover/movie?language=en-UK&sort_by=popularity.desc&page=1
