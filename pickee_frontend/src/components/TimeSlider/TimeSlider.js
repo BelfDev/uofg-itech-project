@@ -1,4 +1,5 @@
 export default {
+    props: ['name'],
     computed: {
         timePretty: function() {
             let text;

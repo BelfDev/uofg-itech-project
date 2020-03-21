@@ -3,6 +3,9 @@ import Home from "./Home.vue";
 
 import vuetify from "@/plugins/vuetify/vuetify";
 import Responsive from "@/plugins/responsive";
+import VueCookies from 'vue-cookies'
+
+Vue.use(VueCookies);
 
 new Responsive();
 

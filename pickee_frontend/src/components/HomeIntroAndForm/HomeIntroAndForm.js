@@ -13,6 +13,7 @@ export default {
             }, 300);
         }
     },
+    props: ['data'],
     data: () => ({
         isFormHidden: true,
         isFormActive: false
