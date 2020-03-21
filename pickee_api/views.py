@@ -2,6 +2,7 @@ import json
 
 import requests
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
@@ -95,6 +96,25 @@ def user_logout(request):
     logout(request)
     return redirect('home')
 
+@login_required
+def profile(request):
+    user_profile_data = { "age": request.user.age, "gender": request.user.gender }
+    data = json.dumps({
+        "user": {**get_user_data(request), **user_profile_data}
+    });
+    context = {'data': data}
+    return render(request, 'profile.html', context=context)
+
+@login_required
+def history(request):
+    return render(request, 'history.html')
+
+@login_required
+def preferences(request):
+    return render(request, 'preferences.html')
+
+# Helper methods
+
 def get_user_data(request):
     if not request.user.is_authenticated:
         return {}
@@ -103,7 +123,7 @@ def get_user_data(request):
         "id": request.user.id,
         "name": request.user.first_name,
         "email": request.user.email,
-        "picture": request.user.picture.url
+        "picture": request.user.picture.url if request.user.picture else None
     }
 
     

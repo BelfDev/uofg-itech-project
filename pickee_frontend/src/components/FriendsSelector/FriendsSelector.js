@@ -24,14 +24,8 @@ export default {
             });
         }
     },
-    computed: {
-        inputValue: function() {
-            return this.selectedFriends.map(friend => friend.id).join(',');
-        }
-    },
     props: ['user'],
     data: () => ({
-        // TODO: get from API
         selectedFriends: [],
         iconUser: mdiAccount,
         iconPlusCircle: mdiPlusCircle,

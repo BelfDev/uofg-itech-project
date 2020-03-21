@@ -1,5 +1,5 @@
 import Vue from "vue";
-import ProfilePreferences from "./ProfilePreferences.vue";
+import History from "./History.vue";
 
 import vuetify from "@/plugins/vuetify/vuetify";
 import Responsive from "@/plugins/responsive";
@@ -13,5 +13,5 @@ Vue.config.productionTip = false;
 
 new Vue({
     vuetify,
-    render: h => h(ProfilePreferences)
-}).$mount("#profile-preferences");
+    render: h => h(History)
+}).$mount("#history");

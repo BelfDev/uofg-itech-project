@@ -11,8 +11,9 @@ export default {
             return ageArray;
         }
     },
+    props: ['user', 'updatePersonalDetails'],
     data: () => ({
-        genderDropdownItems: [] // TODO: get from API
+        genderDropdownItems: ['MALE', 'FEMALE', 'OTHER', 'UNSPECIFIED']
     }),
     components: {
         FormDropdownField

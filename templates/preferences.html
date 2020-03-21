@@ -4,12 +4,11 @@
 
 {% block content %}
 
-<div id="profile-history">
-    <app />
-</div>
-
+    <div id="preferences">
+        <app></app>
+    </div>
 
     {% render_bundle 'chunk-vendors' %}
-    {% render_bundle 'ProfileHistory' %}
+    {% render_bundle 'Preferences' %}
 
 {% endblock %}

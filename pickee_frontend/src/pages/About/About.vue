@@ -3,7 +3,7 @@
         <div class="page-wrapper about-page">
             <PageHeader />
             <v-content class="page-content">
-                <h1>We are<br /> <span class="heading1-accent">Pickee.</span></h1>
+                <h1>We are<br /> <a href="/" class="about-page__logo-link heading1-accent">Pickee.</a></h1>
                 <div class="about-page__content">
                     <PersonList :developers="developers"/>
                     <div class="about-page__text">

@@ -3,17 +3,13 @@ import { mdiMagnify, mdiClose } from '@mdi/js';
 
 export default {
     name: "ActorGrid",
-    props: ['items'],
+    props: ['items', 'addMethod', 'removeMethod'],
     data: () => ({
         dialog: false,
         iconSearch: mdiMagnify,
         iconClose: mdiClose,
+        searchText: ''
     }),
-    methods: {
-        removeItem: function(name) {
-            console.log('removeItem', name)
-        }
-    },
     components: {
         ItemList
     }
