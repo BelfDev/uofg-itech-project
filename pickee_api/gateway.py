@@ -2,7 +2,7 @@ import requests
 from django.http import JsonResponse
 
 from pickee_api.utils import BearerAuth
-from pickee_api.models import Actor,Movie,MovieCast,FavoriteGenre,FavoriteActor
+from pickee_api.models import Actor,Movie,MovieCast,FavoriteGenre,FavoriteActor,FavoriteMovie,MovieKeyword
 
 # The token was kept here to simplify the marking process
 # In a real-world scenario we would never commit this token
@@ -79,16 +79,20 @@ def get_recommendation(request):
 
         casual_genres = request.POST['casual_genres']
         common_favorite_genres = get_common_favorites(users, FavoriteGenre)
-        combined_genres = list(set(casual_genres)|set(common_favorite_genres))
+        combined_genres = list(set(casual_genres.genre.id)|set(common_favorite_genres.genre.id))
         genre_string = ','.join(combined_genres)
 
         common_favorite_actors = get_common_favorites(users, FavoriteActor)
-        actor_string = '|'.joint(common_favorite_actors)
+        actor_string = '|'.join(common_favorite_actors.actor.id)
 
-        #keywords
+        common_favorite_movies = get_common_favorites(users, FavoriteMovie)
+        keywords = get_movie_keywords(common_favorite_movies)
+        keyword_string = '|'.join(keywords)
+
         #certification
         url ='''https://api.themoviedb.org/3/discover/movie?language=en-UK&sort_by=popularity.desc&page=1
-                &with_genres='''+genre_string+'&with_actors='+actor_string+'&with_runtime.lte='+runtime
+                &with_genres='''+genre_string+'&with_actors='+actor_string+'''&with_runtime.lte=
+                '''+runtime+'&with_keywords='+keyword_string
 
         response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
         data = response.json()
@@ -111,10 +115,18 @@ def get_common_favorites(users, model):
 
     for user in users:
         favorites = model.objects.filter(user=user)
-        for genre in favorites:
-            if genre in all_favorites:
-                common_favorites.append(genre)
+        for favorite in favorites:
+            if favorite in all_favorites:
+                common_favorites.append(favorite)
             else:
-                all_favorites.append(genre)    
+                all_favorites.append(favorite)    
     
     return common_favorites
+
+def get_movie_keywords(movies):
+    keywords = {}
+    for movie in movies:
+        movie_keywords = MovieKeyword.objects.filter(movie=movie)
+        for keyword in movie_keywords:
+            keywords.add(keyword.id)
+    return keywords

@@ -95,6 +95,19 @@ class MovieCast(models.Model):
     def __str__(self):
         return self.actor.name
 
+class Keyword(models.Model):
+    id = models.IntegerField(primary_key=True)
+    keyword = models.CharField(max_length=128)
+
+    def __str__(self):
+        return self.keyword
+
+class MovieKeyword(models.Model):
+    movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
+    keyword = models.ForeignKey('Keyword', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.movie.name + ': ' + self.keyword.keyword
 
 class FavoriteGenre(models.Model):
     user = models.ForeignKey('PickeeUser', on_delete=models.CASCADE, default=None)
