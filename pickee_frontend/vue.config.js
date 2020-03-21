@@ -7,9 +7,9 @@ const pagesList = [
     "Login",
     "SignUp",
     "About",
-    "ProfileMain",
-    "ProfileHistory",
-    "ProfilePreferences",
+    "Profile",
+    "History",
+    "Preferences",
     "Recommendation"
 ];
 

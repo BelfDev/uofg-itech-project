@@ -5,7 +5,10 @@
             :items="items"
             filled
             :single-line="false"
-            :label="title">
+            :value="value"
+            :label="title"
+            @change="changeEvent"
+        >
         </v-select>
     </div>
 </template>

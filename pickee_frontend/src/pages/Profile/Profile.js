@@ -1,5 +1,5 @@
 import Vue from "vue";
-import ProfileMain from "./ProfileMain.vue";
+import Profile from "./Profile.vue";
 
 import vuetify from "@/plugins/vuetify/vuetify";
 import Responsive from "@/plugins/responsive";
@@ -13,5 +13,5 @@ Vue.config.productionTip = false;
 
 new Vue({
     vuetify,
-    render: h => h(ProfileMain)
-}).$mount("#profile-main");
+    render: h => h(Profile)
+}).$mount("#profile");

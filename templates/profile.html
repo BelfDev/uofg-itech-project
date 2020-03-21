@@ -4,13 +4,11 @@
 
 {% block content %}
 
-    <div id="profile-main">
-        <app />
+    <div id="profile">
+        <app data="{{ data }}"></app>
     </div>
 
-    
-
     {% render_bundle 'chunk-vendors' %}
-    {% render_bundle 'ProfileMain' %}
+    {% render_bundle 'Profile' %}
 
 {% endblock %}

@@ -10,19 +10,19 @@ export default {
         links: [
             {
                 name: "Profile",
-                url: "/profile/", // TODO: get from Django
+                url: "/profile/",
                 icon: mdiAccountBox
             },
 
             {
                 name: "Preferences",
-                url: "/preferences/", // TODO: get from Django
+                url: "/preferences/",
                 icon: mdiCog
             },
 
             {
                 name: "History",
-                url: "/history/", // TODO: get from Django
+                url: "/history/",
                 icon: mdiFilmstrip
             },
         ]

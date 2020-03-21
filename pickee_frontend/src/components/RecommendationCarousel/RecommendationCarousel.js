@@ -10,10 +10,10 @@ export default {
         swiperSlide,
     },
     methods: {
-        setNewRecommendation: function(data, prevChoice) {
+        setNewRecommendation: function(recommendation, prevChoice) {
             this.swiperSlides.push({
-                image_url: data.recommendation.image_url,
-                name: data.recommendation.name,
+                image_url: recommendation.image_url,
+                name: recommendation.name,
                 user_choice: null
             });
 

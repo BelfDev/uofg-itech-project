@@ -3,7 +3,7 @@
     <div class="header-auth">
         <v-btn text rounded class="header-auth">
             <v-avatar size="10rem" @click="overlay = !overlay">
-                <img :src="user.picture" :alt="user.name" v-if="user" />
+                <img :src="user.picture" :alt="user.name" v-if="user.picture" />
                 <div class="header-auth__anonymous" v-else>
                     <v-icon size="6rem" color="secondary">{{ iconUser }}</v-icon>
                 </div>

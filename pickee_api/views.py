@@ -2,6 +2,7 @@ import json
 
 import requests
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
@@ -54,7 +55,7 @@ def user_login(request):
             if user.is_active:
                 # If valid, log in the user
                 login(request, user)
-                return redirect('index')
+                return redirect('home')
         else:
             # If there are any authentication errors, send error feedback
             loginFeedback = json.dumps({
@@ -77,7 +78,7 @@ def user_signup(request):
             password2 = form.cleaned_data['password2']
             user = authenticate(email=email, password1=password1, password2=password2)
             login(request, user)
-            return redirect('index')
+            return redirect('home')
         else:
             errorMsgs = {}
             for field in form:
@@ -93,7 +94,26 @@ def user_signup(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('index')
+    return redirect('home')
+
+@login_required
+def profile(request):
+    user_profile_data = { "age": request.user.age, "gender": request.user.gender }
+    data = json.dumps({
+        "user": {**get_user_data(request), **user_profile_data}
+    });
+    context = {'data': data}
+    return render(request, 'profile.html', context=context)
+
+@login_required
+def history(request):
+    return render(request, 'history.html')
+
+@login_required
+def preferences(request):
+    return render(request, 'preferences.html')
+
+# Helper methods
 
 def get_user_data(request):
     if not request.user.is_authenticated:
@@ -103,7 +123,7 @@ def get_user_data(request):
         "id": request.user.id,
         "name": request.user.first_name,
         "email": request.user.email,
-        "picture": request.user.picture.url
+        "picture": request.user.picture.url if request.user.picture else None
     }
 
     
