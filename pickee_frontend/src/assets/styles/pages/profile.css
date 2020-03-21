@@ -8,11 +8,11 @@
     position: absolute;
     top: 5rem;
     right: 4rem;
+    z-index: 3;
 }
 
 .profile-page-main {
     flex: 1 1 auto;
-    margin-left: -20rem;
 }
 
 .profile-page-content .v-content__wrap {
@@ -21,4 +21,22 @@
 
 .profile-page-blocks {
     margin: 0 10rem;
+}
+
+.tablet .profile-page-content .v-content__wrap {
+    padding: 15rem 5rem 3rem;
+}
+
+.phone .profile-page-content .v-content__wrap {
+    padding: 15rem 2rem 3rem;
+}
+
+.tablet .profile-page-blocks,
+.phone .profile-page-blocks {
+    margin: 0;
+}
+
+.tablet .profile-page,
+.phone .profile-page {
+    display: block;
 }

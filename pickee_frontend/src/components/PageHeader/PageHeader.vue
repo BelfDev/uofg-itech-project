@@ -2,7 +2,7 @@
     <header class="page-header">
         <Logo v-if="logo"/>
         <Navigation />
-        <HeaderAuth :user="user" />
+        <HeaderAuth v-if="user" :user="user" />
     </header>
 </template>
 

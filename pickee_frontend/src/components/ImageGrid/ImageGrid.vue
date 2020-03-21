@@ -5,21 +5,42 @@
             <v-card-text>
                 <div class="image-grid-content">
                     <div class="image-grid-content__block">
-                        <v-avatar class="header-auth" size="100">
+                        <v-avatar class="image-grid-content__picture" size="13.4rem">
                             <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John"/>
                         </v-avatar>
                         <p class="image-grid-content__label">Johnny Depp</p>
                     </div>
 
                     <div class="image-grid-content__block">
-                        <v-avatar class="header-auth" size="100">
+                        <v-avatar class="image-grid-content__picture" size="13.4rem">
                             <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John"/>
                         </v-avatar>
                         <p class="image-grid-content__label">Johnny Depp</p>
                     </div>
 
                     <div class="image-grid-content__block">
-                        <v-avatar class="header-auth" size="100">
+                        <v-avatar class="image-grid-content__picture" size="13.4rem">
+                            <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John"/>
+                        </v-avatar>
+                        <p class="image-grid-content__label">Johnny Depp</p>
+                    </div>
+
+                    <div class="image-grid-content__block">
+                        <v-avatar class="image-grid-content__picture" size="13.4rem">
+                            <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John"/>
+                        </v-avatar>
+                        <p class="image-grid-content__label">Johnny Depp</p>
+                    </div>
+
+                    <div class="image-grid-content__block">
+                        <v-avatar class="image-grid-content__picture" size="13.4rem">
+                            <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John"/>
+                        </v-avatar>
+                        <p class="image-grid-content__label">Johnny Depp</p>
+                    </div>
+
+                    <div class="image-grid-content__block">
+                        <v-avatar class="image-grid-content__picture" size="13.4rem">
                             <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John"/>
                         </v-avatar>
                         <p class="image-grid-content__label">Johnny Depp</p>

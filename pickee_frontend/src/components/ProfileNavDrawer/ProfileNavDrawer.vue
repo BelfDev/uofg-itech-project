@@ -1,12 +1,17 @@
 <template>
-    <v-navigation-drawer width="38rem" class="nav-drawer">
-        <div class="nav-drawer__logo"><Logo /></div>
-        <NavDrawerLinks :links="links" />
-        <div class="nav-drawer__logout-btn">
-            <v-btn block>Logout</v-btn>
-        </div>
-        
-    </v-navigation-drawer>
+    <div>
+        <v-btn class="nav-drawer-activator" icon color="white" v-if="!drawer" @click="drawer = true">
+            <v-icon size="5rem">{{ iconMenu }}</v-icon>
+        </v-btn>
+        <v-navigation-drawer width="38rem" class="nav-drawer" :fixed="!drawer" v-model="drawer">
+            <div class="nav-drawer__logo"><Logo /></div>
+            <NavDrawerLinks :links="links" />
+            <div class="nav-drawer__logout-btn">
+                <v-btn block>Logout</v-btn>
+            </div>
+            
+        </v-navigation-drawer>
+    </div>
 </template>
 
 <script src="./ProfileNavDrawer.js" />

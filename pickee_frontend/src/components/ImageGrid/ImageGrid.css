@@ -2,7 +2,6 @@
     margin-top:5rem;
 }
 
-
 .image-grid-header {
     font-size: var(--font-size-body-1);
     line-height: var(--font-line-height-body-1);
@@ -13,15 +12,20 @@
 
 .image-grid-content {
     display: flex;
+    flex-flow: wrap;
 }
 
-.image-grid-card {
-    width: 75rem;
-    height: 35rem;
+.image-grid-card .v-card__text {
+    display: flex;
+    flex-flow: column;
+    /* width: 75rem; */
+    /* height: 35rem; */
 }
 
 .image-grid-content__block {
     margin-right: 2.6rem;
+    margin-bottom: 2.6rem;
+    text-align: center;
 }
 
 .image-grid-content__label {
@@ -35,8 +39,33 @@
 .image-grid-content__btn { 
     display: block;
     margin-left: auto;
-    margin-top: 3.4rem;
-    margin-bottom: 0.8rem;
-    width: 35%;
+    margin-top: .8rem;
+    /* width: 35%; */
 }
 
+.phone .image-grid-content__picture {
+    width: 8rem !important;
+    min-width: 8rem !important;
+    height: 8rem !important;
+}
+
+.phone .image-grid-content__label {
+    font-size: var(--font-size-phone-body-4);
+    line-height: var(--font-line-height-phone-body-4);
+}
+
+.phone .image-grid-content__btn .v-btn.theme--dark {
+    height: 4rem;
+    padding: 0 4rem;
+    font-size: var(--font-size-phone-body-3);
+    line-height: var(--font-line-height-phone-body-3);
+}
+
+.phone .image-grid-content__block {
+    margin-right: 1.4rem;
+    margin-bottom: 1.4rem;
+}
+
+.phone .image-grid-content__block:nth-child(3n) {
+    margin-right: 0;
+}
