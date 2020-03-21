@@ -14,8 +14,8 @@ page_urls = [
     path("signup/", views.user_signup, name='signup'),
     path('logout/', views.user_logout, name='logout'),
     path("profile/", views.profile_main, name="profile_main"),
-    path("preferences/", views.profile_preferences, name="profile_preferences"),
-    path("history/", views.profile_history, name="profile_history"),
+    path("preferences/", TemplateView.as_view(template_name="profile_preferences.html"), name="profile_preferences"),
+    path("history/", TemplateView.as_view(template_name="profile_history.html"), name="profile_history"),
 ]
 
 urlpatterns = [

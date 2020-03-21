@@ -103,20 +103,6 @@ def profile_main(request):
     context = {'data': data}
     return render(request, 'profile_main.html', context=context)
 
-def profile_preferences(request):
-    data = json.dumps({
-        "user": get_user_data(request),
-    });
-    context = {'data': data}
-    return render(request, 'profile_preferences.html', context=context)
-
-def profile_history(request):
-    data = json.dumps({
-        "user": get_user_data(request),
-    });
-    context = {'data': data}
-    return render(request, 'profile_history.html', context=context)
-
 
 # Helper methods
 
