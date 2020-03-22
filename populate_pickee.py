@@ -127,7 +127,54 @@ movies = [
     {'id':393624,'name':'Official Secrets','image_url':'/lyCGqSkT3PqLYQXiWs4FCVJBAYW.jpg','rating':7.3,'release_date':datetime.date(2019,8,30),
         'description':'''The true story of British intelligence whistleblower Katharine Gun who—prior to the 2003 
         Iraq invasion—leaked a top-secret NSA memo exposing a joint US-UK illegal spying operation against members 
-        of the UN Security Council. The memo proposed blackmailing member states into voting for war.'''}
+        of the UN Security Council. The memo proposed blackmailing member states into voting for war.'''},
+    {'id':181812,'name':'Star Wars: The Rise of Skywalker','image_url':'/db32LaOibwEliAmSL2jjDF6oDdj.jpg','rating':6.5,'release_date':datetime.date(2019,12,18),
+        'description':'''The surviving Resistance faces the First Order once again as the journey of Rey, Finn and 
+        Poe Dameron continues. With the power and knowledge of generations behind them, the final battle begins.'''},
+    {'id':11,'name':'Star Wars','image_url':'/btTdmkgIvOi0FFip1sPuZI2oQG6.jpg','rating':8.2,'release_date':datetime.date(1977,5,25),
+        'description':'''Princess Leia is captured and held hostage by the evil Imperial forces in their effort to 
+        take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the 
+        loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.'''},
+    {'id':475557,'name':'Joker','image_url':'/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg','rating':8.2,'release_date':datetime.date(2019,10,2),
+        'description':'''During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime 
+        and chaos in Gotham City while becoming an infamous psychopathic crime figure.'''},
+    {'id':22,'name':'Pirates of the Caribbean: The Curse of the Black Pearl','image_url':'/tkt9xR1kNX5R9rCebASKck44si2.jpg','rating':7.7,'release_date':datetime.date(2003,7,9),
+        'description':'''Jack Sparrow, a freewheeling 18th-century pirate, quarrels with a rival pirate bent on pillaging 
+        Port Royal. When the governor's daughter is kidnapped, Sparrow decides to help the girl's love save her.'''},
+    {'id':392044,'name':'Murder on the Orient Express','image_url':'/iBlfxlw8qwtUS0R8YjIU7JtM6LM.jpg','rating':6.7,'release_date':datetime.date(2017,11,3),
+        'description':'''Genius Belgian detective Hercule Poirot investigates the murder of an American tycoon aboard the Orient Express train.'''},
+    {'id':398978,'name':'The Irishman','image_url':'/mbm8k3GFhXS0ROd9AD1gqYbIFbM.jpg','rating':7.8,'release_date':datetime.date(2019,11,1),
+        'description':'''Pennsylvania, 1956. Frank Sheeran, a war veteran of Irish origin who works as a truck driver, 
+        accidentally meets mobster Russell Bufalino. Once Frank becomes his trusted man, Bufalino sends him to Chicago 
+        with the task of helping Jimmy Hoffa, a powerful union leader related to organized crime, with whom Frank will 
+        maintain a close friendship for nearly twenty years.'''},
+    {'id':597,'name':'Titanic','image_url':'/kHXEpyfl6zqn8a6YuozZUujufXf.jpg','rating':7.8,'release_date':datetime.date(1997,11,18),
+        'description':'''101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic, 84 years later. 
+        A young Rose boards the ship with her mother and fiancé. Meanwhile, Jack Dawson and Fabrizio De Rossi win third-class 
+        tickets aboard the ship. Rose tells the whole story from Titanic's departure through to its death—on its first and 
+        last voyage—on April 15, 1912.'''},
+    {'id':550,'name':'Fight Club','image_url':'/4GpwvwDjgwiShr1UBJIn5fk1gwT.jpg','rating':8.4,'release_date':datetime.date(1999,10,15),
+        'description':'''A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a 
+        shocking new form of therapy. Their concept catches on, with underground \"fight clubs\" forming in every town, 
+        until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.'''},
+    {'id':259316,'name':'Fantastic Beasts and Where to Find Them','image_url':'/1M91Bt3oGspda75H9eLqYZkJzgO.jpg','rating':7.4,'release_date':datetime.date(2016,11,16),
+        'description':'''In 1926, Newt Scamander arrives at the Magical Congress of the United States of America with a 
+        magically expanded briefcase, which houses a number of dangerous creatures and their habitats. When the creatures 
+        escape from the briefcase, it sends the American wizarding authorities after Newt, and threatens to strain even 
+        further the state of magical and non-magical relations.'''},
+    {'id':954,'name':'Mission: Impossible','image_url':'/1PVKS17pIBFsIhgFws2uagPDNLW.jpg','rating':6.9,'release_date':datetime.date(1996,5,22),
+        'description':'''When Ethan Hunt, the leader of a crack espionage team whose perilous operation has gone awry with 
+        no explanation, discovers that a mole has penetrated the CIA, he's surprised to learn that he's the No. 1 suspect. 
+        To clear his name, Hunt now must ferret out the real double agent and, in the process, even the score.'''},
+    {'id':769,'name':'GoodFellas','image_url':'/pwpGfTImTGifEGgLb3s6LRPd4I6.jpg','rating':8.4,'release_date':datetime.date(1990,9,12),
+        'description':'''The true story of Henry Hill, a half-Irish, half-Sicilian Brooklyn kid who is adopted by neighbourhood 
+        gangsters at an early age and climbs the ranks of a Mafia family under the guidance of Jimmy Conway.'''},
+    {'id':299536,'name':'Avengers: Infinity War','image_url':'/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg','rating':8.3,'release_date':datetime.date(2018,4,25),
+        'description':'''As the Avengers and their allies have continued to protect the world from threats too large for any 
+        one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his 
+        goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will 
+        on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence 
+        itself has never been more uncertain.'''}
 ]
 
 movie_casts = [
