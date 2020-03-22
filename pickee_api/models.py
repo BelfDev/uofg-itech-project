@@ -9,6 +9,7 @@ from pickee_api.managers import PickeeUserManager
 
 
 class PickeeUser(AbstractBaseUser, PermissionsMixin):
+    # id = models.AutoField(primary_key=True)
     # Required field
     email = models.EmailField(_('email address'), unique=True)
 
@@ -81,7 +82,7 @@ class Movie(models.Model):
     image_url = models.URLField(blank=True, null=True)
     rating = models.DecimalField(max_digits=2, decimal_places=1,
                                  validators=[MaxValueValidator(10.0), MinValueValidator(0)])
-    release_date = models.DateField(auto_now=False)
+    release_date = models.DateField(auto_now=False, null=True)
     description = models.TextField()
 
     def __str__(self):

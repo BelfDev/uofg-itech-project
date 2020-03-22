@@ -1,14 +1,17 @@
 import requests
 from django.http import JsonResponse
-
-from pickee_api.models import Actor, Movie, MovieCast, FavoriteGenre, FavoriteActor, FavoriteMovie, MovieKeyword
-from pickee_api.utils import BearerAuth, FavoriteFilter
 from django.views.decorators.csrf import csrf_exempt
+
+from pickee_api.models import Actor, Movie, MovieCast, FavoriteGenre, FavoriteActor, FavoriteMovie, MovieKeyword, \
+    PickeeUser, Recommendation
+from pickee_api.utils import BearerAuth, FavoriteFilter
 
 # The token was kept here to simplify the marking process
 # In a real-world scenario we would never commit this token
 TMDB_ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NjZjYTNlNDMxOWE4MzVjYWVlODI2MmE3YTgzZjNiNCIsInN1YiI6IjVlNjUwMDM3MTUxYzVjMDAxNWZmYWYyMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iLqC8qnysp7u5Ha5ChC1Ag8iiLQP9zyWikURmHH7L48"
 UTELLY_API_KEY = "ed03a46877msh52c7837560678fep10a146jsnaac521c60402"
+
+TMDB_ITEMS_PER_PAGE = 20
 
 
 def tmdb_example_endpoint(request):
@@ -133,12 +136,13 @@ def get_cast(request):
 # REQUEST
 # {
 #     "runtime": 30,
-#     "genres": "Horror, Comedy",
-#     "users": [82, 59]
+#     "genre_ids": "1,2",
+#     "user_ids": [82, 59],
+#     "session_id" 12,
+#     "offset": 0,
 # }
-
 # /api/recommendation
-@csrf_exempt
+# @csrf_exempt
 def get_recommendation(request):
     """
             Performs the Pickee recommendation algorithm with the given input
@@ -149,34 +153,47 @@ def get_recommendation(request):
     if request.method == 'POST':
         # Takes into consideration the casual preferences of the movie session
         # RUNTIME | GENRES | ASSOCIATED USERS
-        runtime = request.POST['runtime']
-        casual_genres = request.POST['genres']
-        users = request.POST.getlist('users')
-        users.append(request.user.id)
+        runtime = request.POST.get('runtime')
+        casual_genre_ids = request.POST.get('genre_ids')
+        user_ids = request.POST.getlist('user_ids')
+        session_id = request.POST.get('session_id')
+        offset = int(request.POST['offset'])
+
+        # If authenticated, add the user id to users
+        if request.user.is_authenticated:
+            user_ids.append(request.user.id)
+
+        # Converts the user ids to a list of PickeeUser
+        users = PickeeUser.objects.filter(id__in=user_ids)
 
         # Retrieves the favorite genres shared between all users of the session
         common_favorite_genres = FavoriteFilter(model=FavoriteGenre).get_common(users=users)
+
         # Combines the genres selected as casual preferences with the ones marked as "favorites"
-        combined_genres = list(set(casual_genres.genre.id) | set(common_favorite_genres.genre.id))
+        combined_genre_ids = __get_combined_genre_ids(casual_genre_ids, common_favorite_genres)
         # Joins the combined genres separating the values with a comma
-        genre_string = ','.join(combined_genres)
+        genre_string = ','.join(combined_genre_ids)
 
         # Retrieves the favorite actors shared between all users of the session
         common_favorite_actors = FavoriteFilter(model=FavoriteActor).get_common(users=users)
         # Joins the common actors with a pipe character to indicate "OR" logic
-        actor_string = '|'.join(common_favorite_actors.actor.id)
+        actor_string = '|'.join(list(map(str, common_favorite_actors)))
 
         # Retrieves the favorite movies shared between all users of the session
         common_favorite_movies = FavoriteFilter(model=FavoriteMovie).get_common(users=users)
 
         # Retrieves the keywords associated with the common movies
         keywords = get_movie_keywords(common_favorite_movies)
-        keyword_string = '|'.join(keywords)
+        keyword_string = '|'.join(list(map(str, keywords)))
+
+        # Infers the TMDB page based on the offset
+        page = (offset // TMDB_ITEMS_PER_PAGE) + 1
 
         # Builds the request URL
         query_params = {
             'language': 'en-UK',
             'sort_by': 'popularity.desc',
+            'page': page,
             'with_genres': genre_string,
             'with_actors': actor_string,
             'with_runtime.lte': runtime,
@@ -186,30 +203,55 @@ def get_recommendation(request):
         url = 'https://api.themoviedb.org/3/discover/movie'
 
         # Executes the GET request in The Movie Database API service (/discover/movie)
-        response = requests.get(url, params=query_params, auth=BearerAuth(TMDB_ACCESS_TOKEN))
-        data = response.json()
-        recommendation = data['results'][0]
+        discoverResponse = requests.get(url, params=query_params, auth=BearerAuth(TMDB_ACCESS_TOKEN))
+        discoverData = discoverResponse.json()
 
-        # Retrieves the cast data
-        # TODO: Finish cast endpoint
+        # Evaluates which index should be accessed in the results array
+        index = offset if offset < TMDB_ITEMS_PER_PAGE else TMDB_ITEMS_PER_PAGE - offset
 
-        recommendation_dict = {
-            'id': recommendation['id'],
-            'name': recommendation['title'],
-            'image_url': recommendation['poster_path'],
-            'rating': recommendation['vote_average'],
-            'release_date': recommendation['release_date'],
-            'description': recommendation['overview'],
-            'cast': []
-        }
+        # Prepares response payload
+        response = {}
+        if discoverData['results']:
+            recommendation = discoverData['results'][index]
+            response = {
+                'id': recommendation.get('id'),
+                'name': recommendation.get('title'),
+                'rating': recommendation.get('vote_average'),
+                'release_date': recommendation.get('release_date'),
+                'description': recommendation.get('overview'),
+                'cast': [],
+                'last_offset': offset
+            }
 
-        return JsonResponse(recommendation_dict)
+            image_path = recommendation.get('poster_path')
+            response['image_url'] = None if not image_path else 'https://image.tmdb.org/t/p/w500' +  image_path
+
+            # Retrieves the cast data
+            castUrl = 'https://api.themoviedb.org/3/movie/' + str(recommendation.get('id')) + '/credits'
+            castResponse = requests.get(castUrl, params=query_params, auth=BearerAuth(TMDB_ACCESS_TOKEN))
+            castData = castResponse.json()
+            response['cast'] = castData.get('cast')[:5]
+
+            # Adds the movie and recommendation to the database
+            movie = Movie.objects.get_or_create(id=response['id'],
+                                                name=response['name'],
+                                                image_url=response['image_url'],
+                                                rating=response['rating'],
+                                                release_date=response['release_date'],
+                                                description=response['description'])
+            rec = Recommendation(movie=movie[0], session_id=session_id)
+            rec.save()
+
+        return JsonResponse(response)
 
 
 def get_movie_keywords(movies):
-    keywords = set()
-    for movie in movies:
-        movie_keywords = MovieKeyword.objects.filter(movie=movie)
-        for keyword in movie_keywords:
-            keywords.add(keyword)
-    return keywords
+    return MovieKeyword.objects.filter(movie__in=movies).values_list('keyword', flat=True)
+
+
+def __get_combined_genre_ids(casual_genres_string, favorite_genres):
+    # Converts the casual genres string into an array of genre ids
+    casual_genre_ids = [s.strip() for s in casual_genres_string.split(',')]
+    # Creates a set of combined genres (excluding duplicates)
+    combined_genres = set(casual_genre_ids + list(map(str, favorite_genres)))
+    return combined_genres
