@@ -14,6 +14,14 @@ export default {
         }
     },
     props: ['user'],
+    methods: {
+        updateGenreValue: function(values) {
+            this.genreValue = values.map(v => {
+                const matchIndex = this.items.findIndex(k => k.text === v);
+                return this.items[matchIndex].value;
+            }).join(',');
+        }
+    },
     created: async function() {
         const response = await http.getGenres();
         this.items = response.data.map(item => ({
