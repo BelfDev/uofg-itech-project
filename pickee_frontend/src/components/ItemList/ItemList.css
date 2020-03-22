@@ -25,6 +25,10 @@
     border-radius: 0 0 0.8rem 0.8rem;
 }
 
+.item-list__element:only-child {
+    border-radius: .8rem;
+}
+
 .selector:nth-child(even) {
     background: var(---v-grey200-base)
 }

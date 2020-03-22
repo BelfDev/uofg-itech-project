@@ -9,6 +9,7 @@ export default {
         return {
             selectedGenres: [],
             items: [],
+            genreValue: '',
             iconPlay: mdiPlayCircleOutline,
             token: this.$cookies.get("csrftoken")
         }
