@@ -1,6 +1,5 @@
 import requests
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 
 from pickee_api.models import Movie, FavoriteGenre, FavoriteActor, FavoriteMovie, MovieKeyword, \
     PickeeUser, Recommendation
@@ -105,17 +104,48 @@ def search_actors(request):
 
 
 def search_movies(request):
-    if request.method == 'POST':
-        movie_name = request.POST['movie_name']
-        movie_name.replace(' ', '+')
-        url = 'https://api.themoviedb.org/3/search/movie?query=' + movie_name
+    if request.method == 'GET':
+        # Retrieve movie name query param
+        movie_name = request.GET.get('name')
+        # Build query params to hit TMDB API
+        query_parms = {
+            'query': movie_name
+        }
+        # Set the TMDB endpoint
+        url = 'https://api.themoviedb.org/3/search/movie'
+        # Perform the GET request
+        movieResponse = requests.get(url, params=query_parms, auth=BearerAuth(TMDB_ACCESS_TOKEN))
+        movieData = movieResponse.json()
 
-        response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
-        data = response.json()
+        # Prepare response payload
+        response = {}
+        if movieData.get('results'):
+            results = movieData['results']
+            movies = []
+            # Formats the results payload
+            for result in results:
+                movie = {
+                    'id': result.get('id'),
+                    'name': result.get('title'),
+                    'rating': result.get('vote_average'),
+                    'release_date': result.get('release_date'),
+                    'description': result.get('overview')
+                }
+                # Adds the image_url
+                poster_path = result['poster_path']
+                movie['image_url'] = None if not poster_path else 'https://image.tmdb.org/t/p/w500' + poster_path
+                # Adds the movie cast
+                movie['cast'] = __get_movie_cast(movie['id'])
 
-        # TODO: create movie object in database depending on user selection
+                movies.append(movie)
 
-        return JsonResponse(data)
+            response['results'] = movies
+
+        elif movieResponse.text:
+            # Forwards TMDB API error
+            response = movieData
+
+        return JsonResponse(response)
 
 
 # Create a recommendation
