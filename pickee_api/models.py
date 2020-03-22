@@ -9,7 +9,6 @@ from pickee_api.managers import PickeeUserManager
 
 
 class PickeeUser(AbstractBaseUser, PermissionsMixin):
-    # id = models.AutoField(primary_key=True)
     # Required field
     email = models.EmailField(_('email address'), unique=True)
 
