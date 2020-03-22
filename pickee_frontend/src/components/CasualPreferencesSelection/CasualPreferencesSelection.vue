@@ -9,14 +9,15 @@
                 </div>
                 <div class="mb-10 pt-6">
                     <label class="label-accented mb-8">Any genres in mind?</label>
+                    <input type="hidden" name="genres" v-model="genreValue" />
                     <v-combobox
                         v-model="selectedGenres"
                         :items="items"
-                        name="genres"
                         label="Select genres"
                         item-color="white"
                         item-value="text"
                         :return-object="false"
+                        @change="updateGenreValue"
                         solo
                         multiple
                         chips
