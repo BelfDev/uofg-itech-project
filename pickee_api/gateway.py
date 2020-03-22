@@ -1,10 +1,10 @@
 import requests
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 
-from pickee_api.models import Actor, Movie, MovieCast, FavoriteGenre, FavoriteActor, FavoriteMovie, MovieKeyword, \
+from pickee_api.models import Movie, FavoriteGenre, FavoriteActor, FavoriteMovie, MovieKeyword, \
     PickeeUser, Recommendation
 from pickee_api.utils import BearerAuth, FavoriteFilter
+from django.views.decorators.csrf import csrf_exempt
 
 # The token was kept here to simplify the marking process
 # In a real-world scenario we would never commit this token
@@ -94,46 +94,8 @@ def search_movies(request):
         return JsonResponse(data)
 
 
-# def get_cast(request):
-#     if request.method == 'POST':
-#         movie_id = request.POST['movie_id']
-#         url = 'https://api.themoviedb.org/3/movie/' + movie_id + '/credits?'
-#
-#         response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
-#         data = response.json()
-#         cast = data['cast']
-#
-#         movie = Movie.objects.get(id=movie_id)  # assumes movie is already in database
-#         for index in range(4):
-#             actor_data = cast[index]
-#             Actor.objects.get_or_create(id=actor_data['id'], name=actor_data['name'])
-#             actor = Actor.objects.get(id=actor_data['id'])
-#             movie_cast = MovieCast.objects.get_or_create(movie=movie, actor=actor)
-#
-#         return JsonResponse(data)
-
-def get_cast(request):
-    if request.method == 'POST':
-        movie_id = request.POST['movie_id']
-        url = 'https://api.themoviedb.org/3/movie/' + movie_id + '/credits?'
-
-        response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
-        data = response.json()
-        cast = data['cast']
-
-        movie = Movie.objects.get(id=movie_id)  # assumes movie is already in database
-        for index in range(4):
-            actor_data = cast[index]
-            Actor.objects.get_or_create(id=actor_data['id'], name=actor_data['name'])
-            actor = Actor.objects.get(id=actor_data['id'])
-            movie_cast = MovieCast.objects.get_or_create(movie=movie, actor=actor)
-
-        return JsonResponse(data)
-
-
 # Create a recommendation
-# Payload example
-# REQUEST
+# REQUEST BODY
 # {
 #     "runtime": 30,
 #     "genre_ids": "1,2",
@@ -142,8 +104,8 @@ def get_cast(request):
 #     "offset": 0,
 # }
 # /api/recommendation
-# @csrf_exempt
-def get_recommendation(request):
+@csrf_exempt
+def generate_recommendation(request):
     """
             Performs the Pickee recommendation algorithm with the given input
              then creates and returns a recommendation.
@@ -183,7 +145,7 @@ def get_recommendation(request):
         common_favorite_movies = FavoriteFilter(model=FavoriteMovie).get_common(users=users)
 
         # Retrieves the keywords associated with the common movies
-        keywords = get_movie_keywords(common_favorite_movies)
+        keywords = __get_movie_keywords(common_favorite_movies)
         keyword_string = '|'.join(list(map(str, keywords)))
 
         # Infers the TMDB page based on the offset
@@ -212,40 +174,35 @@ def get_recommendation(request):
         # Prepares response payload
         response = {}
         if discoverData['results']:
-            recommendation = discoverData['results'][index]
-            response = {
-                'id': recommendation.get('id'),
-                'name': recommendation.get('title'),
-                'rating': recommendation.get('vote_average'),
-                'release_date': recommendation.get('release_date'),
-                'description': recommendation.get('overview'),
-                'cast': [],
-                'last_offset': offset
-            }
-
-            image_path = recommendation.get('poster_path')
-            response['image_url'] = None if not image_path else 'https://image.tmdb.org/t/p/w500' +  image_path
+            response = __get_response_payload(discoverData, index, offset)
 
             # Retrieves the cast data
-            castUrl = 'https://api.themoviedb.org/3/movie/' + str(recommendation.get('id')) + '/credits'
-            castResponse = requests.get(castUrl, params=query_params, auth=BearerAuth(TMDB_ACCESS_TOKEN))
-            castData = castResponse.json()
-            response['cast'] = castData.get('cast')[:5]
+            response['cast'] = __get_movie_cast(response.get('id'))
 
             # Adds the movie and recommendation to the database
-            movie = Movie.objects.get_or_create(id=response['id'],
-                                                name=response['name'],
-                                                image_url=response['image_url'],
-                                                rating=response['rating'],
-                                                release_date=response['release_date'],
-                                                description=response['description'])
-            rec = Recommendation(movie=movie[0], session_id=session_id)
-            rec.save()
+            __create_objects(response, session_id)
 
         return JsonResponse(response)
 
 
-def get_movie_keywords(movies):
+def __get_response_payload(discover_data, index, offset):
+    recommendation = discover_data['results'][index]
+    response = {
+        'id': recommendation.get('id'),
+        'name': recommendation.get('title'),
+        'rating': recommendation.get('vote_average'),
+        'release_date': recommendation.get('release_date'),
+        'description': recommendation.get('overview'),
+        'cast': [],
+        'last_offset': offset
+    }
+
+    image_path = recommendation.get('poster_path')
+    response['image_url'] = None if not image_path else 'https://image.tmdb.org/t/p/w500' + image_path
+    return response
+
+
+def __get_movie_keywords(movies):
     return MovieKeyword.objects.filter(movie__in=movies).values_list('keyword', flat=True)
 
 
@@ -255,3 +212,21 @@ def __get_combined_genre_ids(casual_genres_string, favorite_genres):
     # Creates a set of combined genres (excluding duplicates)
     combined_genres = set(casual_genre_ids + list(map(str, favorite_genres)))
     return combined_genres
+
+
+def __get_movie_cast(movie_id):
+    castUrl = 'https://api.themoviedb.org/3/movie/' + str(movie_id) + '/credits'
+    castResponse = requests.get(castUrl, auth=BearerAuth(TMDB_ACCESS_TOKEN))
+    castData = castResponse.json()
+    return castData.get('cast')[:5]
+
+
+def __create_objects(response, session_id):
+    movie = Movie.objects.get_or_create(id=response['id'],
+                                        name=response['name'],
+                                        image_url=response['image_url'],
+                                        rating=response['rating'],
+                                        release_date=response['release_date'],
+                                        description=response['description'])
+    rec = Recommendation(movie=movie[0], session_id=session_id)
+    rec.save()
