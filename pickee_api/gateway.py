@@ -57,31 +57,21 @@ def get_streaming_service(request):
         return JsonResponse(data)
 
 
-# GET REQUEST
-# RESPONSE
-# {
-#     "id": 287,
-#     "name": "Brad Pitt",
-#     "picture": "https://image.tmdb.org/t/p/w500/pCUdYAaarKqY2AAUtV6xXYO8UGY.jpg"
-# }
 def search_actors(request):
+    """
+          Searches for actors via The Movie DB /search/movie resource
+    """
     if request.method == 'GET':
         # Retrieve actor name query param
         actor_name = request.GET.get('name')
-        # Build query params to hit TMDB API
-        query_parms = {
-            'query': actor_name
-        }
         # Set the TMDB endpoint
         url = 'https://api.themoviedb.org/3/search/person'
-        # Perform the GET request
-        personResponse = requests.get(url, params=query_parms, auth=BearerAuth(TMDB_ACCESS_TOKEN))
-        # Parse the request payload into JSON
-        personData = personResponse.json()
+        # Search for actors with the given name with TMDB API
+        searchData = __search_by_name(url, actor_name)
         # Prepare response payload
         response = {}
-        if personData.get('results'):
-            results = personData['results']
+        if searchData.get('results'):
+            results = searchData['results']
             actors = []
             # Formats the results payload
             for result in results:
@@ -96,31 +86,28 @@ def search_actors(request):
 
             response['results'] = actors
 
-        elif personResponse.text:
+        elif searchData.get('errors'):
             # Forwards TMDB API error
-            response = personData
+            response = searchData
 
         return JsonResponse(response)
 
 
 def search_movies(request):
+    """
+        Searches for movies via The Movie DB /search/movie resource
+    """
     if request.method == 'GET':
         # Retrieve movie name query param
         movie_name = request.GET.get('name')
-        # Build query params to hit TMDB API
-        query_parms = {
-            'query': movie_name
-        }
         # Set the TMDB endpoint
         url = 'https://api.themoviedb.org/3/search/movie'
         # Perform the GET request
-        movieResponse = requests.get(url, params=query_parms, auth=BearerAuth(TMDB_ACCESS_TOKEN))
-        movieData = movieResponse.json()
-
+        searchData = __search_by_name(url, movie_name)
         # Prepare response payload
         response = {}
-        if movieData.get('results'):
-            results = movieData['results']
+        if searchData.get('results'):
+            results = searchData['results']
             movies = []
             # Formats the results payload
             for result in results:
@@ -141,23 +128,13 @@ def search_movies(request):
 
             response['results'] = movies
 
-        elif movieResponse.text:
+        elif searchData.get('errors'):
             # Forwards TMDB API error
-            response = movieData
+            response = searchData
 
         return JsonResponse(response)
 
 
-# Create a recommendation
-# REQUEST BODY
-# {
-#     "runtime": 30,
-#     "genre_ids": "1,2",
-#     "user_ids": [82, 59],
-#     "session_id" 12,
-#     "offset": 0,
-# }
-# /api/recommendation
 def generate_recommendation(request):
     """
             Performs the Pickee recommendation algorithm with the given input
@@ -227,13 +204,13 @@ def generate_recommendation(request):
         # Prepares response payload
         response = {}
         if discoverData.get('results'):
-            response = __get_response_payload(discoverData, index, offset)
+            response = __get_recommendation_response_payload(discoverData, index, offset)
 
             # Retrieves the cast data
             response['cast'] = __get_movie_cast(response.get('id'))
 
             # Adds the movie and recommendation to the database
-            __create_objects(response, session_id)
+            __create_recommendation_objects(response, session_id)
         elif discoverResponse.text:
             # Forwards TMDB API error
             response = discoverData
@@ -241,7 +218,18 @@ def generate_recommendation(request):
         return JsonResponse(response)
 
 
-def __get_response_payload(discover_data, index, offset):
+def __search_by_name(url, name):
+    # Build query params to hit TMDB API
+    query_parms = {
+        'query': name
+    }
+    # Perform the GET request
+    response = requests.get(url, params=query_parms, auth=BearerAuth(TMDB_ACCESS_TOKEN))
+    # Parse the request payload into JSON
+    return response.json()
+
+
+def __get_recommendation_response_payload(discover_data, index, offset):
     recommendation = discover_data['results'][index]
     response = {
         'id': recommendation.get('id'),
@@ -277,7 +265,7 @@ def __get_movie_cast(movie_id):
     return castData.get('cast')[:5]
 
 
-def __create_objects(response, session_id):
+def __create_recommendation_objects(response, session_id):
     movie = Movie.objects.get_or_create(id=response['id'],
                                         name=response['name'],
                                         image_url=response['image_url'],
