@@ -102,6 +102,8 @@ ADMIN_REORDER = (
         'pickee_api.Genre',
         'pickee_api.Recommendation',
         'pickee_api.Session',
+        'pickee_api.Keyword',
+        'pickee_api.MovieKeyword'
     )},
 )
 

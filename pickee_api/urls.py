@@ -45,8 +45,8 @@ urlpatterns = [
     path('tmdb-example/', gateway.tmdb_example_endpoint, name="tmdb-example"),
     path('utelly-example/', gateway.utelly_example_endpoint, name="utelly-example"),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('search-actors/', gateway.search_actors, name="search-actors"),
-    path('search-movies/', gateway.search_movies, name="search-movies"),
-    path('get-cast/', gateway.get_cast, name="get-cast"),
-    path('recommendation/', gateway.get_recommendation, name="recommendation")
+    path('search/actors/', gateway.search_actors, name="search-actors"),
+    path('search/movies/', gateway.search_movies, name="search-movies"),
+    path('recommendations/generate', gateway.generate_recommendation, name="generate-recommendation"),
+    path('streaming-services/', gateway.get_streaming_service, name="streaming-services")
 ]
