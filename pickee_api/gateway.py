@@ -1,10 +1,10 @@
 import requests
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from pickee_api.models import Movie, FavoriteGenre, FavoriteActor, FavoriteMovie, MovieKeyword, \
     PickeeUser, Recommendation
 from pickee_api.utils import BearerAuth, FavoriteFilter
-from django.views.decorators.csrf import csrf_exempt
 
 # The token was kept here to simplify the marking process
 # In a real-world scenario we would never commit this token
@@ -66,18 +66,42 @@ def get_streaming_service(request):
 #     "picture": "https://image.tmdb.org/t/p/w500/pCUdYAaarKqY2AAUtV6xXYO8UGY.jpg"
 # }
 def search_actors(request):
-    if request.method == 'POST':
-        actor_name = request.POST['actor_name']
-        actor_name.replace(' ', '+')
-        url = 'https://api.themoviedb.org/3/search/person?query=' + actor_name
+    if request.method == 'GET':
+        # Retrieve actor name query param
+        actor_name = request.GET.get('name')
+        # Build query params to hit TMDB API
+        query_parms = {
+            'query': actor_name
+        }
+        # Set the TMDB endpoint
+        url = 'https://api.themoviedb.org/3/search/person'
+        # Perform the GET request
+        personResponse = requests.get(url, params=query_parms, auth=BearerAuth(TMDB_ACCESS_TOKEN))
+        # Parse the request payload into JSON
+        personData = personResponse.json()
+        # Prepare response payload
+        response = {}
+        if personData.get('results'):
+            results = personData['results']
+            actors = []
+            # Formats the results payload
+            for result in results:
+                actor = {
+                    'id': result['id'],
+                    'name': result['name']
+                }
 
-        response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
-        data = response.json()
-        actor_options = data['results']
+                profile_path = result['profile_path']
+                actor['image_url'] = None if not profile_path else 'https://image.tmdb.org/t/p/w500' + profile_path
+                actors.append(actor)
 
-        # TODO: create actor object in database depending on user selection
+            response['results'] = actors
 
-        return JsonResponse(actor_options)
+        elif personResponse.text:
+            # Forwards TMDB API error
+            response = personData
+
+        return JsonResponse(response)
 
 
 def search_movies(request):
@@ -104,7 +128,6 @@ def search_movies(request):
 #     "offset": 0,
 # }
 # /api/recommendation
-@csrf_exempt
 def generate_recommendation(request):
     """
             Performs the Pickee recommendation algorithm with the given input
@@ -173,7 +196,7 @@ def generate_recommendation(request):
 
         # Prepares response payload
         response = {}
-        if discoverData['results']:
+        if discoverData.get('results'):
             response = __get_response_payload(discoverData, index, offset)
 
             # Retrieves the cast data
@@ -181,6 +204,9 @@ def generate_recommendation(request):
 
             # Adds the movie and recommendation to the database
             __create_objects(response, session_id)
+        elif discoverResponse.text:
+            # Forwards TMDB API error
+            response = discoverData
 
         return JsonResponse(response)
 
