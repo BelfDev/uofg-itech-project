@@ -48,5 +48,5 @@ urlpatterns = [
     path('search/actors/', gateway.search_actors, name="search-actors"),
     path('search/movies/', gateway.search_movies, name="search-movies"),
     path('recommendations/generate', gateway.generate_recommendation, name="generate-recommendation"),
-    path('streaming-services/', gateway.get_streaming_service, name="streaming-services")
+    path('providers/', gateway.get_available_providers, name="providers")
 ]
