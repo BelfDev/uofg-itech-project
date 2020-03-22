@@ -8,18 +8,19 @@
                 v-bind:key="friend.id"
             >
                 <input type="hidden" name="users" :value="friend.id" />
-                <img :src="friend.image" :alt="friend.name" />
+                <img :src="friend.image" :alt="friend.name" v-if="friend.picture" />
+                <v-icon size="8rem" color="white" :title="friend.name" v-else>{{ iconUser }}</v-icon>
             </v-avatar>
         </div>
         
-        <v-dialog v-model="dialog" :width="user ? '100rem' : '64rem'">
+        <v-dialog v-model="dialog" :width="user.id ? '100rem' : '64rem'">
             <template v-slot:activator="{ on }">
                 <v-avatar class="friends-selector__selector" size="16rem" v-on="on">
                     <v-icon class="friends-selector__selector-icon" size="8rem">{{ iconPlus }}</v-icon>
                 </v-avatar>
             </template>
 
-            <v-card light v-if="user">
+            <v-card light v-if="user.id">
                 <div class="px-8 py-6 px-p-4 py-p-3">
                     <v-icon
                         class="dialog-close"
@@ -72,9 +73,10 @@
                                 block
                                 class="mb-4 pl-6 pr-6"
                                 color="primary"
+                                href="/login/"
                                 >Login
                             </v-btn>
-                            <v-btn class="mb-4 pl-6 pr-6" block outlined>Create account </v-btn>
+                            <v-btn class="mb-4 pl-6 pr-6" href="/signup/" block outlined>Create account </v-btn>
                         </div>
                     </v-card-text>
                 </div>

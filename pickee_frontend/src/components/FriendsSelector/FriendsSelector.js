@@ -16,12 +16,16 @@ export default {
             if (this.friendEmail == null) return false;
 
             const friendData = await http.getFriend(this.friendEmail);
-            this.selectedFriends.push({
-                id: friendData.id,
-                image: friendData.picture,
-                text: `${friendData.first_name} ${friendData.last_name} (${friendData.id})`,
-                icon: mdiMinusCircle
-            });
+
+            if (friendData.data.length > 0) {
+                const data = friendData.data[0];
+                this.selectedFriends.push({
+                    id: data.id,
+                    image: data.picture,
+                    text: `${data.first_name} ${data.last_name}`,
+                    icon: mdiMinusCircle
+                });
+            }
         }
     },
     props: ['user'],
