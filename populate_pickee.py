@@ -32,13 +32,35 @@ favorite_actors = [
 ]
 
 actors = [
+    {'id':2,'name':'Mark Hamill','image_url':'/fk8OfdReNltKZqOk2TZgkofCUFq.jpg'},
+    {'id':3,'name':'Harrison Ford','image_url':'/5M7oN3sznp99hWYQ9sX0xheswWX.jpg'},
+    {'id':4,'name':'Carrie Fisher','image_url':'/rfJtncHewKVnHjqpIZvjn24ESeC.jpg'},
     {'id':31,'name':'Tom Hanks','image_url':'/2gY92j2lkNHL2cThBhPmgXLd5PL.jpg'},
-    {'id':6193,'name':'Leonardo DiCaprio','image_url':'/wo2hJpn04vbtmh0B9utCFdsQhxM.jpg'},
-    {'id':74568,'name':'Chris Hemsworth','image_url':'/tlkDiLn2G75Xr7m1ybK8QFzZBso.jpg'},
+    {'id':85,'name':'Johnny Depp','image_url':'/kbWValANhZI8rbWZXximXuMN4UN.jpg'},
+    {'id':204,'name':'Kate Winslet','image_url':'/e3tdop3WhseRnn8KwMVLAV25Ybv.jpg'},
+    {'id':287,'name':'Brad Pitt','image_url':'/kU3B75TyRiCgE270EyZnHjfivoq.jpg'},
+    {'id':380,'name':'Robert De Niro','image_url':'/lvTSwUcvJRLAJ2FB5qFaukel516.jpg'},
+    {'id':500,'name':'Tom Cruise','image_url':'/2Dkx4uuGoWFrPSitxdikv9z5azR.jpg'},
+    {'id':192,'name':'Morgan Freeman','image_url':'/oIciQWr8VwKoR8TmAw1owaiZFyb.jpg'},
+    {'id':934,'name':'Russell Crowe','image_url':'/tZCbQwF5btUvutbc3AjJKPzrJV7.jpg'},
+    {'id':1204,'name':'Julia Roberts','image_url':'/h13yvG0tRNMTAwciQXxYmQWdYW8.jpg'},
+    {'id':1245,'name':'Scarlett Johansson','image_url':'/6NsMbJXRlDZuDzatN2akFdGuTvx.jpg'},
+    {'id':1461,'name':'George Clooney','image_url':'/kHiVY6r1k6juXrNetAYk2jILqn9.jpg'},
+    {'id':1892,'name':'Matt Damon','image_url':'/elSlNgV8xVifsbHpFsqrPGxJToZ.jpg'},
+    {'id':2157,'name':'Robin Williams','image_url':'/3vypmub75rLItlC51uJUurNYkW0.jpg'},
+    {'id':2227,'name':'Nicole Kidman','image_url':'/t1HaRL7lRJemWySXcXxOT8fAGhj.jpg'},
+    {'id':2231,'name':'Samuel L. Jackson','image_url':'/qjYcO8jKNlb7lnJ05vh2U7lNt8r.jpg'},
+    {'id':2888,'name':'Will Smith','image_url':'/eze9FO9VuryXLP0aF2cRqPCcibN.jpg'},
+    {'id':3896,'name':'Liam Neeson','image_url':'/r1DRqmZhLrzhTTwg9PtuMMQTvuB.jpg'},
     {'id':4491,'name':'Jennifer Aniston','image_url':'/uH9FwXtRpiboKeqHUk0RuJRAm6I.jpg'},
+    {'id':5064,'name':'Meryl Streep','image_url':'/xqL5IJxV0fDeD3OfkS3eWqwJoGV.jpg'},
+    {'id':5309,'name':'Judi Dench','image_url':'/cpna5VGvAxuKuC31xJPBKy9zbnv.jpg'},
+    {'id':6193,'name':'Leonardo DiCaprio','image_url':'/wo2hJpn04vbtmh0B9utCFdsQhxM.jpg'},
     {'id':11701,'name':'Angelina Jolie','image_url':'/gD8jlGkQC8GBajulNlIzBK1YEO1.jpg'},
-    {'id':84223,'name':'Anna Kendrick','image_url':'/5ZYBQefB30uWObRzin8R0PYqenh.jpg'},
-    {'id':192,'name':'Morgan Freeman','image_url':'/oIciQWr8VwKoR8TmAw1owaiZFyb.jpg'}
+    {'id':15735,'name':'Helen Mirren','image_url':'/1reKRrsdsHXJaRVHVyOEg4oPTcZ.jpg'},
+    {'id':72129,'name':'Jennifer Lawrence','image_url':'/q0tf3XEo7wa8XglIznTC7WzZ9W3.jpg'},
+    {'id':74568,'name':'Chris Hemsworth','image_url':'/tlkDiLn2G75Xr7m1ybK8QFzZBso.jpg'},
+    {'id':84223,'name':'Anna Kendrick','image_url':'/5ZYBQefB30uWObRzin8R0PYqenh.jpg'}
 ]
 
 favorite_movies = [
