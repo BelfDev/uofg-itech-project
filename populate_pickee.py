@@ -32,13 +32,13 @@ favorite_actors = [
 ]
 
 actors = [
-    {'id':31,'name':'Tom Hanks','image_url':'/2gY92j2lkNHL2cThBhPmgXLd5PL.jpg'},
-    {'id':6193,'name':'Leonardo DiCaprio','image_url':'/wo2hJpn04vbtmh0B9utCFdsQhxM.jpg'},
-    {'id':74568,'name':'Chris Hemsworth','image_url':'/tlkDiLn2G75Xr7m1ybK8QFzZBso.jpg'},
-    {'id':4491,'name':'Jennifer Aniston','image_url':'/uH9FwXtRpiboKeqHUk0RuJRAm6I.jpg'},
-    {'id':11701,'name':'Angelina Jolie','image_url':'/gD8jlGkQC8GBajulNlIzBK1YEO1.jpg'},
-    {'id':84223,'name':'Anna Kendrick','image_url':'/5ZYBQefB30uWObRzin8R0PYqenh.jpg'},
-    {'id':192,'name':'Morgan Freeman','image_url':'/oIciQWr8VwKoR8TmAw1owaiZFyb.jpg'}
+    {'id':31,'name':'Tom Hanks','image_url':'https://image.tmdb.org/t/p/w500/2gY92j2lkNHL2cThBhPmgXLd5PL.jpg'},
+    {'id':6193,'name':'Leonardo DiCaprio','image_url':'https://image.tmdb.org/t/p/w500/wo2hJpn04vbtmh0B9utCFdsQhxM.jpg'},
+    {'id':74568,'name':'Chris Hemsworth','image_url':'https://image.tmdb.org/t/p/w500/tlkDiLn2G75Xr7m1ybK8QFzZBso.jpg'},
+    {'id':4491,'name':'Jennifer Aniston','image_url':'https://image.tmdb.org/t/p/w500/uH9FwXtRpiboKeqHUk0RuJRAm6I.jpg'},
+    {'id':11701,'name':'Angelina Jolie','image_url':'https://image.tmdb.org/t/p/w500/gD8jlGkQC8GBajulNlIzBK1YEO1.jpg'},
+    {'id':84223,'name':'Anna Kendrick','image_url':'https://image.tmdb.org/t/p/w500/5ZYBQefB30uWObRzin8R0PYqenh.jpg'},
+    {'id':192,'name':'Morgan Freeman','image_url':'https://image.tmdb.org/t/p/w500/oIciQWr8VwKoR8TmAw1owaiZFyb.jpg'}
 ]
 
 favorite_movies = [
@@ -52,16 +52,16 @@ favorite_movies = [
 ]
 
 movies = [
-    {'id':301528,'name':'Toy Story 4','image_url':'/w9kR8qbmQ01HwnvK4alvnQ2ca0L.jpg','rating':7.5,'release_date':datetime.date(2019,6,19),
+    {'id':301528,'name':'Toy Story 4','image_url':'https://image.tmdb.org/t/p/w500/w9kR8qbmQ01HwnvK4alvnQ2ca0L.jpg','rating':7.5,'release_date':datetime.date(2019,6,19),
         'description':'''Woody has always been confident about his place in the world and that his priority is taking 
         care of his kid, whether that's Andy or Bonnie. But when Bonnie adds a reluctant new toy called \"Forky\" 
         to her room, a road trip adventure alongside old and new friends will show Woody how big the world can be 
         for a toy.'''},
-    {'id':27205,'name':'Inception','image_url':'/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg','rating':8.3,'release_date':datetime.date(2010,7,15),
+    {'id':27205,'name':'Inception','image_url':'https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg','rating':8.3,'release_date':datetime.date(2010,7,15),
         'description':'''Cobb, a skilled thief who commits corporate espionage by infiltrating the subconscious of 
         his targets is offered a chance to regain his old life as payment for a task considered to be impossible: 
         \"inception\", the implantation of another person's idea into a target's subconscious.'''},
-    {'id':284053,'name':'Thor:Ragnarok','image_url':'/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg','rating':7.5,'release_date':datetime.date(2017,10,25),
+    {'id':284053,'name':'Thor:Ragnarok','image_url':'https://image.tmdb.org/t/p/w500/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg','rating':7.5,'release_date':datetime.date(2017,10,25),
         'description':'''Thor is imprisoned on the other side of the universe and finds himself in a race against 
         time to get back to Asgard to stop Ragnarok, the destruction of his home-world and the end of Asgardian 
         civilization, at the hands of an all-powerful new threat, the ruthless Hela.'''},
@@ -69,7 +69,7 @@ movies = [
         'description':'''Remember that really cute girl/guy who said they'd call – and didn't? Maybe they lost your 
         number. Maybe they're in the hospital. Maybe they're awed by your looks, brains or success. Or maybe... 
         They're just not that into you.'''},
-    {'id':102651,'name':'Maleficent','image_url':'/zsGiTcMZ9yp2as3FmPMgZyil5mc.jpg','rating':7.1,'release_date':datetime.date(2014,5,28),
+    {'id':102651,'name':'Maleficent','image_url':'https://image.tmdb.org/t/p/w500/1cFVCUYKSBuEUDoVftKvqcfuIgc.jpg','rating':7.1,'release_date':datetime.date(2014,5,28),
         'description':'''A beautiful, pure-hearted young woman, Maleficent has an idyllic life growing up in a 
         peaceable forest kingdom, until one day when an invading army threatens the harmony of the land.  Maleficent 
         rises to be the land's fiercest protector, but she ultimately suffers a ruthless betrayal – an act that 
@@ -77,18 +77,18 @@ movies = [
         King's successor and, as a result, places a curse upon his newborn infant Aurora. As the child grows, 
         Maleficent realizes that Aurora holds the key to peace in the kingdom – and to Maleficent's true happiness 
         as well.'''},
-    {'id':114150,'name':'Pitch Perfect','image_url':'/qSjruLiFB4uqRtz2xheQPxG8uaB.jpg','rating':7.3,'release_date':datetime.date(2012,9,28),
+    {'id':114150,'name':'Pitch Perfect','image_url':'https://image.tmdb.org/t/p/w500/qSjruLiFB4uqRtz2xheQPxG8uaB.jpg','rating':7.3,'release_date':datetime.date(2012,9,28),
         'description':'''College student Beca knows she does not want to be part of a clique, but that's exactly 
         where she finds herself after arriving at her new school. Thrust in among mean gals, nice gals and just 
         plain weird gals, Beca finds that the only thing they have in common is how well they sing together. She 
         takes the women of the group out of their comfort zone of traditional arrangements and into a world of 
         amazing harmonic combinations in a fight to the top of college music competitions.'''},
-    {'id':278,'name':'The Shawshank Redemption','image_url':'/9O7gLzmreU0nGkIB6K3BsJbzvNv.jpg','rating':8.7,'release_date':datetime.date(1994,9,23),
+    {'id':278,'name':'The Shawshank Redemption','image_url':'https://image.tmdb.org/t/p/w500/9O7gLzmreU0nGkIB6K3BsJbzvNv.jpg','rating':8.7,'release_date':datetime.date(1994,9,23),
         'description':'''Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy 
         Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an 
         amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- 
         including an older prisoner named Red -- for his integrity and unquenchable sense of hope.'''},
-    {'id':5255,'name':'The Polar Express','image_url':'/2NETsNUxcfBdKtq3W5YbT9O03Ak.jpg','rating':6.6,'release_date':datetime.date(2004,11,10),
+    {'id':5255,'name':'The Polar Express','image_url':'https://image.tmdb.org/t/p/w500/2NETsNUxcfBdKtq3W5YbT9O03Ak.jpg','rating':6.6,'release_date':datetime.date(2004,11,10),
         'description':'''When a doubting young boy takes an extraordinary train ride to the North Pole, he embarks on 
         a journey of self-discovery that shows him that the wonder of life never fades for those who believe.'''},
     {'id':32407,'name':'Malice In Wonderland','image_url':None,'rating':5.7,'release_date':datetime.date(2009,1,1),
@@ -99,7 +99,7 @@ movies = [
         out who she is, where she's from and use what wits she has left to get back home in one piece. As her journey 
         progresses she discovers nothing is what it seems, realizes that fate and life are terminally entwined, and 
         finds true love lurking in the unlikeliest place.'''},
-    {'id':8999,'name':'Derailed','rating':6.2,'image_url':'/inBGQGHUUFAmt9nINRAdTUBkmQN.jpg','release_date':datetime.date(2005,11,11),
+    {'id':8999,'name':'Derailed','rating':6.2,'image_url':'https://image.tmdb.org/t/p/w500/inBGQGHUUFAmt9nINRAdTUBkmQN.jpg','release_date':datetime.date(2005,11,11),
         'description':'''When two married business executives having an affair are blackmailed by a violent criminal, 
         they are forced to turn the tables on him to save their families.'''},
     {'id':393624,'name':'Official Secrets','image_url':'/lyCGqSkT3PqLYQXiWs4FCVJBAYW.jpg','rating':7.3,'release_date':datetime.date(2019,8,30),
