@@ -7,7 +7,7 @@
                 v-for="friend in selectedFriends"
                 v-bind:key="friend.id"
             >
-                <input type="hidden" name="users[]" :value="friend.id" />
+                <input type="hidden" name="users" :value="friend.id" />
                 <img :src="friend.image" :alt="friend.name" />
             </v-avatar>
         </div>
