@@ -47,19 +47,49 @@ def utelly_example_endpoint(request):
 #         }
 #     ]
 # }
-def get_streaming_service(request):
-    if request.method == 'POST':
+
+def get_available_providers(request):
+    """
+        Searches for available content providers via Utelly API service
+    """
+    if request.method == 'GET':
+        # Retrieves the movie_name query parameter
+        movie_name = request.GET.get('movie_name')
+        # Sets utelly endpoint
         url = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup'
+        # Sets the necessary headers
         headers = {"x-rapidapi-key": UTELLY_API_KEY}
-        params = {"term": request.POST['movie_name'], "country": "uk"}
-        response = requests.get(url, headers=headers, params=params)
-        data = response.json()
-        return JsonResponse(data)
+        # Sets the query parameters
+        query_params = {"term": movie_name,
+                        "country": "uk"}
+        # Hits utelly API and gets the available streaming providers
+        utellyResponse = requests.get(url, headers=headers, params=query_params)
+        # Parses the response into JSON
+        data = utellyResponse.json()
+
+        response = {}
+        if data.get('results'):
+            relevant_result = data.get('results')[0]
+            locations = relevant_result.get('locations')
+            providers = []
+            if locations:
+                for location in locations:
+                    provider = {
+                        'logo': location.get('icon'),
+                        'name': location.get('display_name'),
+                        'url': location.get('url')
+                    }
+                    providers.append(provider)
+            response['results'] = providers
+            response['movie_name'] = relevant_result.get('name')
+            response['term'] = data.get('term')
+
+        return JsonResponse(response)
 
 
 def search_actors(request):
     """
-          Searches for actors via The Movie DB /search/movie resource
+        Searches for actors via The Movie DB /search/movie resource
     """
     if request.method == 'GET':
         # Retrieve actor name query param
@@ -137,8 +167,8 @@ def search_movies(request):
 
 def generate_recommendation(request):
     """
-            Performs the Pickee recommendation algorithm with the given input
-             then creates and returns a recommendation.
+        Performs the Pickee recommendation algorithm with the given input
+        then creates and returns a recommendation.
     """
     print(request.POST)
     # print(request.user.is_authenticated)
