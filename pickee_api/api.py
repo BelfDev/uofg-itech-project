@@ -75,19 +75,18 @@ class SessionViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.SessionSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+
 class PreviousRecommendationViewSet(viewsets.ModelViewSet):
-    sessionset = models.Session.objects.all()
+    session_set = models.Session.objects.all()
     queryset = models.Recommendation.objects.all()
     serializer_class = serializers.RecommendationSerializer
     permission_class = [permissions.IsAuthenticated]
-    
+
     def get_queryset(self):
-        sessionset = models.Session.objects.all()
+        session_set = models.Session.objects.all()
         queryset = models.Recommendation.objects.all()
         email = self.request.query_params.get('email', None)
         if email is not None:
-            sessionset = sessionset.filter(email=email)
-            queryset = queryset.filter(session__in=sessionset)
+            session_set = session_set.filter(email=email)
+            queryset = queryset.filter(session__in=session_set)
         return queryset
-        
-    
