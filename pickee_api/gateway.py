@@ -157,7 +157,7 @@ def generate_recommendation(request):
             'sort_by': 'popularity.desc',
             'page': page,
             'with_genres': genre_string,
-            'with_actors': actor_string,
+            'with_cast': actor_string,
             'with_runtime.lte': runtime,
             'with_keywords': keyword_string,
         }
