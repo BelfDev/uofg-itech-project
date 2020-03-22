@@ -174,7 +174,120 @@ movies = [
         one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his 
         goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will 
         on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence 
-        itself has never been more uncertain.'''}
+        itself has never been more uncertain.'''},
+    {'id':299537,'name':'Captain Marvel','image_url':'/AtsgWhDnHTq68L0lLsUrCnM7TjG.jpg','rating':7.0,'release_date':datetime.date(2019,3,6),
+        'description':'''The story follows Carol Danvers as she becomes one of the universe’s most powerful heroes when Earth 
+        is caught in the middle of a galactic war between two alien races. Set in the 1990s, Captain Marvel is an all-new 
+        adventure from a previously unseen period in the history of the Marvel Cinematic Universe.'''},
+    {'id':157336,'name':'Interstellar','image_url':'/nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg','rating':8.3,'release_date':datetime.date(2014,11,5),
+        'description':'''Interstellar chronicles the adventures of a group of explorers who make use of a newly discovered 
+        wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar 
+        voyage.'''},
+    {'id':286217,'name':'The Martian','image_url':'/5aGhaIHYuQbqlHWvWYqMCnj40y2.jpg','rating':7.7,'release_date':datetime.date(2015,9,30),
+        'description':'''During a manned mission to Mars, Astronaut Mark Watney is presumed dead after a fierce storm and 
+        left behind by his crew. But Watney has survived and finds himself stranded and alone on the hostile planet. With 
+        only meager supplies, he must draw upon his ingenuity, wit and spirit to subsist and find a way to signal to Earth 
+        that he is alive.'''},
+    {'id':857,'name':'Saving Private Ryan','image_url':'/gc7IN6bWNaWXv4vI6cxSmeB7PeO.jpg','rating':8.1,'release_date':datetime.date(1998,7,24),
+        'description':'''As U.S. troops storm the beaches of Normandy, three brothers lie dead on the battlefield, with a 
+        fourth trapped behind enemy lines. Ranger captain John Miller and seven men are tasked with penetrating German-held 
+        territory and bringing the boy home.'''},
+    {'id':158852,'name':'Tomorrowland','image_url':'/69Cz9VNQZy39fUE2g0Ggth6SBTM.jpg','rating':6.2,'release_date':datetime.date(2015,5,19),
+        'description':'''Bound by a shared destiny, a bright, optimistic teen bursting with scientific curiosity and a former 
+        boy-genius inventor jaded by disillusionment embark on a danger-filled mission to unearth the secrets of an enigmatic 
+        place somewhere in time and space that exists in their collective memory as "Tomorrowland."'''},
+    {'id':98,'name':'Gladiator','image_url':'/6WBIzCgmDCYrqh64yDREGeDk9d3.jpg','rating':8.1,'release_date':datetime.date(2000,5,1),
+        'description':'''In the year 180, the death of emperor Marcus Aurelius throws the Roman Empire into chaos.  Maximus is 
+        one of the Roman army's most capable and trusted generals and a key advisor to the emperor.  As Marcus' devious son 
+        Commodus ascends to the throne, Maximus is set to be executed.  He escapes, but is captured by slave traders.  Renamed 
+        Spaniard and forced to become a gladiator, Maximus must battle to the death with other men for the amusement of paying 
+        audiences.'''},
+    {'id':161,'name':'Ocean\'s Eleven','image_url':'/o0h76DVXvk5OKjmNez5YY0GODC2.jpg','rating':7.4,'release_date':datetime.date(2001,12,7),
+        'description':'''Less than 24 hours into his parole, charismatic thief Danny Ocean is already rolling out his next plan: 
+        In one night, Danny's hand-picked crew of specialists will attempt to steal more than $150 million from three Las Vegas 
+        casinos. But to score the cash, Danny risks his chances of reconciling with ex-wife, Tess.'''},
+    {'id':7451,'name':'xXx','image_url':'/86BnliVDBo2TjKmrgQTJIPHxAKd.jpg','rating':5.9,'release_date':datetime.date(2002,8,9),
+        'description':'''Xander Cage is your standard adrenaline junkie with no fear and a lousy attitude. When the US Government 
+        \"recruits\" him to go on a mission, he's not exactly thrilled. His mission: to gather information on an organization that 
+        may just be planning the destruction of the world, led by the nihilistic Yorgi.'''},
+    {'id':420817,'name':'Aladdin','image_url':'/3iYQTLGoy7QnjcUYRJy4YrAgGvp.jpg','rating':7.0,'release_date':datetime.date(2019,5,22),
+        'description':'''A kindhearted street urchin named Aladdin embarks on a magical adventure after finding a lamp that releases 
+        a wisecracking genie while a power-hungry Grand Vizier vies for the same lamp that has the power to make their deepest wishes 
+        come true.'''},
+    {'id':812,'name':'Aladdin','image_url':'/mjKozYRuHc9j7SmiXmbVmCiAM0A.jpg','rating':7.6,'release_date':datetime.date(1992,11,25),
+        'description':'''Princess Jasmine grows tired of being forced to remain in the palace, so she sneaks out into the marketplace, 
+        in disguise, where she meets street-urchin Aladdin.  The couple falls in love, although Jasmine may only marry a prince.  After 
+        being thrown in jail, Aladdin becomes embroiled in a plot to find a mysterious lamp, with which the evil Jafar hopes to rule the 
+        land.'''},
+    {'id':680,'name':'Pulp Fiction','image_url':'/d5iIlFn5s0ImszYzBPb8JPIfbXD.jpg','rating':8.5,'release_date':datetime.date(1994,9,10),
+        'description':'''A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge 
+        in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time.'''},
+    {'id':68718,'name':'Django Unchained','image_url':'/eCt596Z4zkqxW5AHz1HEhGm1eif.jpg','rating':8.1,'release_date':datetime.date(2012,12,25),
+        'description':'''With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi 
+        plantation owner.'''},
+    {'id':6479,'name':'I Am Legend','image_url':'/9skUuHTFtsJznuFPwmB17ZZvq09.jpg','rating':7.1,'release_date':datetime.date(2007,12,14),
+        'description':'''Robert Neville is a scientist who was unable to stop the spread of the terrible virus that was incurable and 
+        man-made. Immune, Neville is now the last human survivor in what is left of New York City and perhaps the world. For three years, 
+        Neville has faithfully sent out daily radio messages, desperate to find any other survivors who might be out there. But he is not 
+        alone.'''},
+    {'id':331482,'name':'Little Women','image_url':'/mSmiB8XjUnR1GSIljuCPGsk0cwX.jpg','rating':8.0,'release_date':datetime.date(2019,12,25),
+        'description':'''Four sisters come of age in America in the aftermath of the Civil War.'''},
+    {'id':536869,'name':'Cats','image_url':'/aCNch5FmzT2WaUcY44925owIZXY.jpg','rating':4.4,'release_date':datetime.date(2019,12,19),
+        'description':'''A tribe of cats called the Jellicles must decide yearly which one will ascend to the Heaviside Layer and come 
+        back to a new Jellicle life.'''},
+    {'id':272,'name':'Batman Begins','image_url':'/dr6x4GyyegBWtinPBzipY02J2lV.jpg','rating':7.6,'release_date':datetime.date(2005,6,10),
+        'description':'''Driven by tragedy, billionaire Bruce Wayne dedicates his life to uncovering and defeating the corruption that 
+        plagues his home, Gotham City.  Unable to work within the system, he instead creates a new identity, a symbol of fear for the 
+        criminal underworld - The Batman.'''},
+    {'id':36557,'name':'Casino Royale','image_url':'/zlWBxz2pTA9p45kUTrI8AQiKrHm.jpg','rating':7.4,'release_date':datetime.date(2006,11,14),
+        'description':'''Le Chiffre, a banker to the world's terrorists, is scheduled to participate in a high-stakes poker game in 
+        Montenegro, where he intends to use his winnings to establish his financial grip on the terrorist market. M sends Bond—on his 
+        maiden mission as a 00 Agent—to attend this game and prevent Le Chiffre from winning. With the help of Vesper Lynd and Felix 
+        Leiter, Bond enters the most important poker game in his already dangerous career.'''},
+    {'id':479455,'name':'Men in Black: International','image_url':'/dPrUPFcgLfNbmDL8V69vcrTyEfb.jpg','rating':5.9,'release_date':datetime.date(2019,6,12),
+        'description':'''The Men in Black have always protected the Earth from the scum of the universe. In this new adventure, they 
+        tackle their biggest, most global threat to date: a mole in the Men in Black organization.'''},
+    {'id':424,'name':'Schindler\'s List','image_url':'/yPisjyLweCl1tbgwgtzBCNCBle.jpg','rating':8.6,'release_date':datetime.date(1993,11,30),
+        'description':'''The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while 
+        they worked as slaves in his factory during World War II.'''},
+    {'id':37724,'name':'Skyfall','image_url':'/lQCkPLDxFONmgzrWLvq085v1g2d.jpg','rating':7.1,'release_date':datetime.date(2012,10,25),
+        'description':'''When Bond's latest assignment goes gravely wrong and agents around the world are exposed, MI6 is attacked 
+        forcing M to relocate the agency. These events cause her authority and position to be challenged by Gareth Mallory, the new 
+        Chairman of the Intelligence and Security Committee. With MI6 now compromised from both inside and out, M is left with one 
+        ally she can trust: Bond. 007 takes to the shadows - aided only by field agent, Eve - following a trail to the mysterious 
+        Silva, whose lethal and hidden motives have yet to reveal themselves.'''},
+    {'id':283366,'name':'Miss Peregrine\'s Home for Peculiar Children','image_url':'/AvekzUdI8HZnImdQulmTTmAZXrC.jpg','rating':6.7,'release_date':datetime.date(2016,9,28),
+        'description':'''A teenager finds himself transported to an island where he must help protect a group of orphans with special 
+        powers from creatures intent on destroying them.'''},
+    {'id':281957,'name':'The Revenant','image_url':'/oXUWEc5i3wYyFnL1Ycu8ppxxPvs.jpg','rating':7.5,'release_date':datetime.date(2015,12,25),
+        'description':'''In the 1820s, a frontiersman, Hugh Glass, sets out on a path of vengeance against those who left him for 
+        dead after a bear mauling.'''},
+    {'id':8966,'name':'Twilight','image_url':'/lcMp3AONdNhjYE9MmTtMMTOiRDP.jpg','rating':6.0,'release_date':datetime.date(2008,11,20),
+        'description':'''When Bella Swan moves to a small town in the Pacific Northwest to live with her father, she meets the 
+        reclusive Edward Cullen, a mysterious classmate who reveals himself to be a 108-year-old vampire. Despite Edward's repeated 
+        cautions, Bella can't help but fall in love with him, a fatal move that endangers her own life when a coven of bloodsuckers 
+        try to challenge the Cullen clan.'''},
+    {'id':70160,'name':'The Hunger Games','image_url':'/iLJdwmzrHFjFwI5lvYAT1gcpRuA.jpg','rating':7.1,'release_date':datetime.date(2012,3,12),
+        'description':'''Every year in the ruins of what was once North America, the nation of Panem forces each of its twelve districts 
+        to send a teenage boy and girl to compete in the Hunger Games.  Part twisted entertainment, part government intimidation tactic, 
+        the Hunger Games are a nationally televised event in which “Tributes” must fight with one another until one survivor remains.  
+        Pitted against highly-trained Tributes who have prepared for these Games their entire lives, Katniss is forced to rely upon her 
+        sharp instincts as well as the mentorship of drunken former victor Haymitch Abernathy.  If she’s ever to return home to District 
+        12, Katniss must make impossible choices in the arena that weigh survival against humanity and life against love. The world will 
+        be watching.'''},
+    {'id':127585,'name':'X-Men: Days of Future Past','image_url':'/pb1IURTkK5rImP9ZV83lxJO2us7.jpg','rating':7.5,'release_date':datetime.date(2014,5,15),
+        'description':'''The ultimate X-Men ensemble fights a war for the survival of the species across two time periods as they join 
+        forces with their younger selves in an epic battle that must change the past – to save our future.'''},
+    {'id':62211,'name':'Monsters University','image_url':'/a05xQU9huY3P5uurLcGGHmsf2Vh.jpg','rating':7.0,'release_date':datetime.date(2013,6,20),
+        'description':'''A look at the relationship between Mike and Sulley during their days at Monsters University — when they weren't 
+        necessarily the best of friends.'''},
+    {'id':9502,'name':'Kung Fu Panda','image_url':'/mk3UyyaLyXhgIhmLji25OUPXvGR.jpg','rating':7.1,'release_date':datetime.date(2008,6,4),
+        'description':'''When the Valley of Peace is threatened, lazy Po the panda discovers his destiny as the \"chosen one\" and trains 
+        to become a kung fu hero, but transforming the unsleek slacker into a brave warrior won't be easy. It's up to Master Shifu and the 
+        Furious Five -- Tigress, Crane, Mantis, Viper and Monkey -- to give it a try.'''},
+    {'id':168672,'name':'American Hustle','image_url':'/mhB7C62lSMpGO2HYNaW6d7W3TVH.jpg','rating':6.8,'release_date':datetime.date(2013,12,12),
+        'description':'''A conman and his seductive partner are forced to work for a wild FBI agent, who pushes them into a world of Jersey 
+        power-brokers and the Mafia.'''}
 ]
 
 movie_casts = [
