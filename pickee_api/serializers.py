@@ -12,7 +12,7 @@ class PickeeUserSerializer(serializers.ModelSerializer):
 class FavoriteActorSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.FavoriteActor
-        fields = ['user', 'actor']
+        fields = ['id', 'user', 'actor']
 
 
 class ActorSerializer(serializers.ModelSerializer):
@@ -26,7 +26,7 @@ class ActorSerializer(serializers.ModelSerializer):
 class FavoriteMovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.FavoriteMovie
-        fields = ['user', 'movie']
+        fields = ['id', 'user', 'movie']
 
 
 class MovieSerializer(serializers.ModelSerializer):
@@ -46,7 +46,7 @@ class MovieCastSerializer(serializers.ModelSerializer):
 class FavoriteGenreSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.FavoriteGenre
-        fields = ['user', 'genre']
+        fields = ['id', 'user', 'genre']
 
 
 class GenreSerializer(serializers.ModelSerializer):

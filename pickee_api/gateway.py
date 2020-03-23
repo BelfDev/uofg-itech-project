@@ -1,3 +1,5 @@
+import json
+
 import requests
 from django.http import JsonResponse
 
@@ -173,40 +175,52 @@ def generate_recommendation(request):
     print(request.POST)
     # print(request.user.is_authenticated)
     if request.method == 'POST':
+        # Parses AJAX POST body
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+
         # Takes into consideration the casual preferences of the movie session
         # RUNTIME | GENRES | ASSOCIATED USERS
-        runtime = request.POST.get('runtime')
-        casual_genre_ids = request.POST.get('genre_ids')
-        user_ids = request.POST.getlist('user_ids')
-        session_id = request.POST.get('session_id')
-        offset = int(request.POST['offset'])
+        runtime = body.get('runtime')
+        casual_genre_ids = body.get('genre_ids')
+        user_ids = body.get('user_ids')
+        session_id = body.get('session_id')
+        offset = int(body['offset'])
 
         # If authenticated, add the user id to users
         if request.user.is_authenticated:
             user_ids.append(request.user.id)
 
-        # Converts the user ids to a list of PickeeUser
-        users = PickeeUser.objects.filter(id__in=user_ids)
+        # Initializes genre_string
+        genre_string = casual_genre_ids
+        # Initializes actor_string
+        actor_string = None
+        # Initializes keyword_string
+        keyword_string = None
 
-        # Retrieves the favorite genres shared between all users of the session
-        common_favorite_genres = FavoriteFilter(model=FavoriteGenre).get_common(users=users)
+        if user_ids:
+            # Converts the user ids to a list of PickeeUser
+            users = PickeeUser.objects.filter(id__in=user_ids)
 
-        # Combines the genres selected as casual preferences with the ones marked as "favorites"
-        combined_genre_ids = __get_combined_genre_ids(casual_genre_ids, common_favorite_genres)
-        # Joins the combined genres separating the values with a comma
-        genre_string = ','.join(combined_genre_ids)
+            # Retrieves the favorite genres shared between all users of the session
+            common_favorite_genres = FavoriteFilter(model=FavoriteGenre).get_common(users=users)
 
-        # Retrieves the favorite actors shared between all users of the session
-        common_favorite_actors = FavoriteFilter(model=FavoriteActor).get_common(users=users)
-        # Joins the common actors with a pipe character to indicate "OR" logic
-        actor_string = '|'.join(list(map(str, common_favorite_actors)))
+            # Combines the genres selected as casual preferences with the ones marked as "favorites"
+            combined_genre_ids = __get_combined_genre_ids(casual_genre_ids, common_favorite_genres)
+            # Joins the combined genres separating the values with a comma
+            genre_string = ','.join(combined_genre_ids)
 
-        # Retrieves the favorite movies shared between all users of the session
-        common_favorite_movies = FavoriteFilter(model=FavoriteMovie).get_common(users=users)
+            # Retrieves the favorite actors shared between all users of the session
+            common_favorite_actors = FavoriteFilter(model=FavoriteActor).get_common(users=users)
+            # Joins the common actors with a pipe character to indicate "OR" logic
+            actor_string = '|'.join(list(map(str, common_favorite_actors)))
 
-        # Retrieves the keywords associated with the common movies
-        keywords = __get_movie_keywords(common_favorite_movies)
-        keyword_string = '|'.join(list(map(str, keywords)))
+            # Retrieves the favorite movies shared between all users of the session
+            common_favorite_movies = FavoriteFilter(model=FavoriteMovie).get_common(users=users)
+
+            # Retrieves the keywords associated with the common movies
+            keywords = __get_movie_keywords(common_favorite_movies)
+            keyword_string = '|'.join(list(map(str, keywords)))
 
         # Infers the TMDB page based on the offset
         page = (offset // TMDB_ITEMS_PER_PAGE) + 1
