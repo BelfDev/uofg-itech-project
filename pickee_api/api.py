@@ -1,4 +1,5 @@
 from rest_framework import viewsets, permissions
+from rest_framework_bulk import BulkModelViewSet
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
 from pickee_api import models, serializers
@@ -23,7 +24,7 @@ class PickeeUserViewSet(viewsets.ModelViewSet):
         return queryset
 
 
-class FavoriteActorViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
+class FavoriteActorViewSet(NestedViewSetMixin, BulkModelViewSet):
     queryset = models.FavoriteActor.objects.all()
     serializer_class = serializers.FavoriteActorSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -35,7 +36,7 @@ class ActorViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class FavoriteMovieViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
+class FavoriteMovieViewSet(NestedViewSetMixin, BulkModelViewSet):
     queryset = models.FavoriteMovie.objects.all()
     serializer_class = serializers.FavoriteMovieSerializer
     permission_classes = [permissions.IsAuthenticated]
@@ -53,7 +54,7 @@ class MovieCastViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class FavoriteGenreViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
+class FavoriteGenreViewSet(NestedViewSetMixin, BulkModelViewSet):
     queryset = models.FavoriteGenre.objects.all()
     serializer_class = serializers.FavoriteGenreSerializer
     permission_classes = [permissions.IsAuthenticated]

@@ -1,5 +1,5 @@
 from django.urls import include, path
-from rest_framework import routers
+from rest_framework_bulk.routes import BulkRouter
 from rest_framework_extensions.routers import NestedRouterMixin
 
 from pickee_api import api, gateway
@@ -7,7 +7,7 @@ from pickee_api import api, gateway
 app_name = 'pickee_api'
 
 
-class DefaultNestedRouter(NestedRouterMixin, routers.DefaultRouter):
+class DefaultNestedRouter(NestedRouterMixin, BulkRouter):
     pass
 
 
@@ -15,6 +15,7 @@ class DefaultNestedRouter(NestedRouterMixin, routers.DefaultRouter):
 # - Main Router ('api/$')
 rootRouter = DefaultNestedRouter()
 userRouter = rootRouter.register(r'users', api.PickeeUserViewSet)
+
 rootRouter.register(r'actors', api.ActorViewSet)
 rootRouter.register(r'movies', api.MovieViewSet)
 rootRouter.register(r'movie-cast', api.MovieCastViewSet)
