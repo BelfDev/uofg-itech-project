@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework_bulk import BulkListSerializer, BulkSerializerMixin
 
 from . import models
 
@@ -9,10 +10,11 @@ class PickeeUserSerializer(serializers.ModelSerializer):
         fields = ['id', 'email', 'first_name', 'last_name', 'picture', 'gender', 'age', 'associated_users']
 
 
-class FavoriteActorSerializer(serializers.ModelSerializer):
+class FavoriteActorSerializer(BulkSerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = models.FavoriteActor
-        fields = ['user', 'actor']
+        list_serializer_class = BulkListSerializer
+        fields = ['id', 'user', 'actor']
 
 
 class ActorSerializer(serializers.ModelSerializer):
@@ -23,10 +25,11 @@ class ActorSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'image_url']
 
 
-class FavoriteMovieSerializer(serializers.ModelSerializer):
+class FavoriteMovieSerializer(BulkSerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = models.FavoriteMovie
-        fields = ['user', 'movie']
+        list_serializer_class = BulkListSerializer
+        fields = ['id', 'user', 'movie']
 
 
 class MovieSerializer(serializers.ModelSerializer):
@@ -43,10 +46,11 @@ class MovieCastSerializer(serializers.ModelSerializer):
         fields = ['movie', 'actor']
 
 
-class FavoriteGenreSerializer(serializers.ModelSerializer):
+class FavoriteGenreSerializer(BulkSerializerMixin, serializers.ModelSerializer):
     class Meta:
         model = models.FavoriteGenre
-        fields = ['user', 'genre']
+        list_serializer_class = BulkListSerializer
+        fields = ['id', 'user', 'genre']
 
 
 class GenreSerializer(serializers.ModelSerializer):
@@ -66,4 +70,4 @@ class RecommendationSerializer(serializers.ModelSerializer):
 class SessionSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Session
-        fields = ['users']
+        fields = ['id', 'users']

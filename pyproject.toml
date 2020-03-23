@@ -13,6 +13,7 @@ Pillow = "^7.0.0"
 drf-extensions = "^0.6.0"
 django-modeladmin-reorder = "^0.3.1"
 requests = "^2.23.0"
+djangorestframework-bulk = "^0.2.1"
 
 [tool.poetry.dev-dependencies]
 
