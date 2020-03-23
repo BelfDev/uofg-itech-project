@@ -9,14 +9,14 @@ from pickee_api.forms import PickeeUserCreationForm
 
 def home(request):
     data = json.dumps({
-        "user": get_user_data(request),
+        "user": __get_user_data(request),
     })
     context = {'data': data}
     return render(request, 'home.html', context=context)
 
 
 def recommendation(request):
-    user = json.dumps(get_user_data(request))
+    user = json.dumps(__get_user_data(request))
     preferences = json.dumps(request.POST)
     context = { 'user': user, 'preferences': preferences}
 
@@ -81,7 +81,7 @@ def user_logout(request):
 def profile(request):
     user_profile_data = {"age": request.user.age, "gender": request.user.gender}
     data = json.dumps({
-        "user": {**get_user_data(request), **user_profile_data}
+        "user": {**__get_user_data(request), **user_profile_data}
     });
     context = {'data': data}
     return render(request, 'profile.html', context=context)
