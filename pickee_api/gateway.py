@@ -1,6 +1,7 @@
 import json
 
 import requests
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 
 from pickee_api.models import Movie, FavoriteGenre, FavoriteActor, FavoriteMovie, MovieKeyword, \
@@ -13,24 +14,6 @@ TMDB_ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NjZjYTNlNDMxOWE4MzVjYWVlOD
 UTELLY_API_KEY = "ed03a46877msh52c7837560678fep10a146jsnaac521c60402"
 
 TMDB_ITEMS_PER_PAGE = 20
-
-
-def tmdb_example_endpoint(request):
-    if request.method == 'GET':
-        url = 'https://api.themoviedb.org/3/movie/popular'
-        response = requests.get(url, auth=BearerAuth(TMDB_ACCESS_TOKEN))
-        data = response.json()
-        return JsonResponse(data)
-
-
-def utelly_example_endpoint(request):
-    if request.method == 'GET':
-        url = 'https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup'
-        headers = {"x-rapidapi-key": UTELLY_API_KEY}
-        params = {"term": "bojack", "country": "uk"}
-        response = requests.get(url, headers=headers, params=params)
-        data = response.json()
-        return JsonResponse(data)
 
 
 def get_available_providers(request):
@@ -71,7 +54,7 @@ def get_available_providers(request):
 
         return JsonResponse(response)
 
-
+@login_required
 def search_actors(request):
     """
         Searches for actors via The Movie DB /search/movie resource
@@ -108,6 +91,7 @@ def search_actors(request):
         return JsonResponse(response)
 
 
+@login_required
 def search_movies(request):
     """
         Searches for movies via The Movie DB /search/movie resource
