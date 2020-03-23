@@ -38,9 +38,9 @@
             <button class="action-button" @click="newRecEvent('BOOKMARKED')">
                 <v-icon color="primary" size="7.5rem">{{ iconFavorites }}</v-icon>
             </button>
-            <v-dialog v-model="dialog" width="84rem">
+            <v-dialog v-model="dialog" width="84rem" :persistent="true">
                 <template v-slot:activator="{ on }">
-                    <button class="action-button" v-on="on" @click="getProviderList">
+                    <button class="action-button" v-on="on" @click="acceptEvent('ACCEPTED')">
                         <v-icon color="green" size="7.5rem">{{ iconThumbUp }}</v-icon>
                     </button>
                 </template>

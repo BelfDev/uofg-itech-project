@@ -17,13 +17,22 @@ export default {
                 user_choice: null
             });
 
-            this.swiperSlides[this.lastSlideIndex].user_choice = prevChoice;
+            if (prevChoice) {
+                this.swiperSlides[this.lastSlideIndex].user_choice = prevChoice;
+            }
             this.lastSlideIndex++;
 
             setTimeout(() => {
                 this.$refs.mySwiper.swiper.slideNext()
             }, 100);
         }
+    },
+    mounted: function() {
+        this.swiperSlides.push({
+            image_url: this.recommendation.image_url,
+            name: this.recommendation.name,
+            user_choice: null 
+        })
     },
     data() {
         return {
@@ -32,11 +41,7 @@ export default {
             iconArrowRight: mdiChevronRight,
             iconFavorites: mdiBookmark,
             iconThumbDown: mdiThumbDown,
-            swiperSlides: [{
-                image_url: this.recommendation.image_url,
-                name: this.recommendation.name,
-                user_choice: null 
-            }],
+            swiperSlides: [],
             swiperOption: {
                 effect: "coverflow",
                 centeredSlides: true,

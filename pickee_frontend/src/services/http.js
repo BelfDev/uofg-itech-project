@@ -2,7 +2,31 @@ import axios from "axios";
 
 const APIBase = "/api";
 
+const jsonRequest = async function(url, params, token, method) {
+    const myHeaders = new Headers();
+    if (token) myHeaders.append("X-CSRFToken", token);
+    myHeaders.append('Content-Type', 'application/json');
+
+    const requestOptions = {
+        method: method || 'POST',
+        headers: myHeaders
+    };
+
+    if (params) requestOptions.body = JSON.stringify(params);
+
+    let response = await fetch(url, requestOptions);
+    
+    return await response.json();
+};
+
 export default {
+    async createSession(user_ids, token) {
+        const params = {
+            users: user_ids
+        }
+        return await jsonRequest(`${APIBase}/sessions/`, params, token);
+    },
+
     async getGenres() {
         const response = await axios.get(`${APIBase}/genres/`);
 
@@ -140,45 +164,30 @@ export default {
         ]
     },
 
-    async getRecommendation() {
-        return await {
-            "id": 122,
-            "name": "The Lord of the Rings: The Return of the King",
-            "image_url": "/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg",
-            "rating": "8.4",
-            "release_date": "2003-12-01",
-            "description": "Aragorn is revealed as the heir to the ancient kings as he, Gandalf and the other members of the broken fellowship struggle to save Gondor from Sauron's forces. Meanwhile, Frodo and Sam take the ring closer to the heart of Mordor, the dark lord's realm.",
-            "cast": [
-                {
-                    "id": 109,
-                    "name": "Elijah Wood",
-                },
-                {
-                    "cast_id": 13,
-                    "name": "Ian McKellen",
-                }
-            ]
-        }
+    async getRecommendation(token, preferences, session_id, offset) {
+        const params = {
+            "runtime": preferences.runtime,
+            "genre_ids": preferences.genre_ids,
+            "user_ids": preferences.user_ids,
+            "offset": offset
+        };
+
+        if (session_id) params.session_id = session_id;
+
+        return await jsonRequest(`${APIBase}/recommendations/generate`, params, token);
     },
 
-    async getProviderList() {
-        // name
-        return await [
-            {
-                logo: "https://utellyassets7.imgix.net/locations_icons/utelly/black_new/iTunesIVAGB.png?w=100&auto=compress",
-                text: "ITunes",
-                link: "https://itunes.apple.com/za/movie/the-dark-knight/id606743816"
-            },
-            {
-                logo: "https://utellyassets7.imgix.net/locations_icons/utelly/black_new/GooglePlayIVAGB.png?w=100&auto=compress",
-                text: "Google Play",
-                link: "https://play.google.com/store/movies/details/The_Dark_Knight?gl=GB&hl=en&id=TQfcgaNdBCA"
-            },
-            {
-                logo: "https://utellyassets7.imgix.net/locations_icons/utelly/black_new/AmazonInstantVideoIVAGB.png?w=100&auto=compress",
-                text: "Amazon Prime",
-                link: "https://www.amazon.co.uk/gp/product/B00I9LY2N8?creativeASIN=B00I9LY2N8&ie=UTF8&linkCode=xm2&tag=utellycom00-21"
-            },
-        ]
+    async setRecommendationUserChoice(token, recommendationID, sessionID, movieID, userChoice) {
+        const params = {
+            user_choice: userChoice,
+            movie: movieID,
+            session: sessionID
+        };
+
+        return await jsonRequest(`${APIBase}/recommendations/${recommendationID}/`, params, token, 'put');
+    },
+
+    async getProviderList(name) {
+        return await jsonRequest(`${APIBase}/providers/?movie_name=${name}`, null, null, 'get')
     }
 };
