@@ -399,12 +399,37 @@ movie_casts = [
 favorite_genres = [
     {'email':'rhys@email.com','genre_id':16},
     {'email':'rhys@email.com','genre_id':14},
+    {'email':'rhys@email.com','genre_id':10751},
     {'email':'pedro@email.com','genre_id':28},
     {'email':'pedro@email.com','genre_id':10402},
+    {'email':'pedro@email.com','genre_id':36},
     {'email':'nathan@email.com','genre_id':18},
     {'email':'nathan@email.com','genre_id':53},
+    {'email':'nathan@email.com','genre_id':878},
     {'email':'anton@email.com','genre_id':10749},
     {'email':'anton@email.com','genre_id':80},
+    {'email':'anton@email.com','genre_id':28},
+    {'email':'julia@email.com','genre_id':35},
+    {'email':'julia@email.com','genre_id':10749},
+    {'email':'julia@email.com','genre_id':16},
+    {'email':'kate@email.com','genre_id':28},
+    {'email':'kate@email.com','genre_id':12},
+    {'email':'kate@email.com','genre_id':80},
+    {'email':'meredith@email.com','genre_id':27},
+    {'email':'meredith@email.com','genre_id':99},
+    {'email':'meredith@email.com','genre_id':18},
+    {'email':'mark@email.com','genre_id':14},
+    {'email':'mark@email.com','genre_id':878},
+    {'email':'mark@email.com','genre_id':10752},
+    {'email':'hugh@email.com','genre_id':80},
+    {'email':'hugh@email.com','genre_id':36},
+    {'email':'hugh@email.com','genre_id':9648},
+    {'email':'gareth@email.com','genre_id':53},
+    {'email':'gareth@email.com','genre_id':37},
+    {'email':'gareth@email.com','genre_id':18},
+    {'email':'chris@email.com','genre_id':16},
+    {'email':'chris@email.com','genre_id':10749},
+    {'email':'chris@email.com','genre_id':53},
 ]
 
 genres = [
@@ -433,14 +458,23 @@ recommendations = [
     {'movie_id':5255,'session_id':1,'user_choice':'ACCEPTED'},
     {'movie_id':32407,'session_id':2,'user_choice':'ACCEPTED'},
     {'movie_id':8999,'session_id':3,'user_choice':'REJECTED'},
-    {'movie_id':393624,'session_id':4,'user_choice':'BOOKMARKED'}
+    {'movie_id':424,'session_id':3,'user_choice':'ACCEPTED'},
+    {'movie_id':393624,'session_id':4,'user_choice':'BOOKMARKED'},
+    {'movie_id':127585,'session_id':4,'user_choice':'ACCEPTED'},
+    {'movie_id':70160,'session_id':5,'user_choice':'ACCEPTED'},
+    {'movie_id':9502,'session_id':6,'user_choice':'REJECTED'},
+    {'movie_id':37724,'session_id':6,'user_choice':'REJECTED'},
+    {'movie_id':331482,'session_id':6,'user_choice':'BOOKMARKED'},
+    {'movie_id':857,'session_id':6,'user_choice':'ACCEPTED'}
 ]
 
 sessions = [
     {'users':{'rhys@email.com','pedro@email.com'}},
     {'users':{'rhys@email.com','pedro@email.com','nathan@email.com','anton@email.com'}},
     {'users':{'nathan@email.com'}},
-    {'users':{'nathan@email.com','anton@email.com'}}
+    {'users':{'nathan@email.com','anton@email.com'}},
+    {'users':{'julia@email.com','kate@email.com','meredith@email.com'}},
+    {'users':{'mark@email.com','gareth@email.com','hugh@email.com','chris@email.com'}}
 ]
 
 def populate():
