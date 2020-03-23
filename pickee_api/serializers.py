@@ -66,4 +66,4 @@ class RecommendationSerializer(serializers.ModelSerializer):
 class SessionSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Session
-        fields = ['users']
+        fields = ['id', 'users']
