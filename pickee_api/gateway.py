@@ -33,23 +33,6 @@ def utelly_example_endpoint(request):
         return JsonResponse(data)
 
 
-# GET request
-
-# {
-#     "results": [
-#         {
-#             "logo": "https://utellyassets7.imgix.net/locations_icons/utelly/black_new/NetflixIVAGB.png?w=92&auto=compress&app_version=a0041586-5e2a-4a1d-8e92-e9d1d3a9feaf_erss2020-01-13",
-#             "name": "Netflix",
-#             "url": "https://www.netflix.com/title/70298933"
-#         },
-#         {
-#             "logo": "https://utellyassets7.imgix.net/locations_icons/utelly/black_new/NetflixIVAGB.png?w=92&auto=compress&app_version=a0041586-5e2a-4a1d-8e92-e9d1d3a9feaf_erss2020-01-13",
-#             "name": "Netflix",
-#             "url": "https://www.netflix.com/title/70298933"
-#         }
-#     ]
-# }
-
 def get_available_providers(request):
     """
         Searches for available content providers via Utelly API service
@@ -254,7 +237,8 @@ def generate_recommendation(request):
             response['cast'] = __get_movie_cast(response.get('id'))
 
             # Adds the movie and recommendation to the database
-            __create_recommendation_objects(response, session_id)
+            recommendation = __create_recommendation_objects(response, session_id)
+            response['recommendation_id'] = recommendation.id
         elif discoverResponse.text:
             # Forwards TMDB API error
             response = discoverData
@@ -318,3 +302,4 @@ def __create_recommendation_objects(response, session_id):
                                         description=response['description'])
     rec = Recommendation(movie=movie[0], session_id=session_id)
     rec.save()
+    return rec
