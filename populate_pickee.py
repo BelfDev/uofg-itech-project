@@ -6,6 +6,7 @@ import datetime
 from django.contrib.auth.models import User
 from pickee_api.models import (PickeeUser,FavoriteActor,Actor,
                                 FavoriteMovie,Movie,MovieCast,
+                                Keyword, MovieKeyword,
                                 FavoriteGenre,Genre,Recommendation,
                                 Session)
 from pickee_api.managers import PickeeUserManager
@@ -168,7 +169,7 @@ movies = [
         'description':'''Thor is imprisoned on the other side of the universe and finds himself in a race against 
         time to get back to Asgard to stop Ragnarok, the destruction of his home-world and the end of Asgardian 
         civilization, at the hands of an all-powerful new threat, the ruthless Hela.'''},
-    {'id':10184,'name':'He\'s Just Not That Into You','rating':6.4,'image_url':'https://image.tmdb.org/t/p/w500/ruc33YnCrmCL8PHdPQVzfa4shWX.jpg','release_date':datetime.date(2009,2,6),
+    {'id':10184,'name':'He\'s Just Not That Into You','image_url':'https://image.tmdb.org/t/p/w500/ruc33YnCrmCL8PHdPQVzfa4shWX.jpg','rating':6.4,'release_date':datetime.date(2009,2,6),
         'description':'''Remember that really cute girl/guy who said they'd call – and didn't? Maybe they lost your 
         number. Maybe they're in the hospital. Maybe they're awed by your looks, brains or success. Or maybe... 
         They're just not that into you.'''},
@@ -393,7 +394,51 @@ movie_casts = [
     {'movie_id':114150,'actor_id':29221},
     {'movie_id':278,'actor_id':192},
     {'movie_id':278,'actor_id':504},
-    {'movie_id':278,'actor_id':4029}
+    {'movie_id':278,'actor_id':4029},
+]
+
+keywords = [
+    {'id':4290,'keyword':'toy'},
+    {'id':6054,'keyword':'friendship'},
+    {'id':155291,'keyword':'cowboy'},
+    {'id':470,'keyword':'spy'},
+    {'id':10364,'keyword':'mission'},
+    {'id':170344,'keyword':'imagination'},
+    {'id':9715,'keyword':'superhero'},
+    {'id':9717,'keyword':'based on comic'},
+    {'id':180547,'keyword':'marvel cinematic universe'},
+    {'id':14534,'keyword':'relationship'},
+    {'id':3205,'keyword':'fairy tale'},
+    {'id':177895,'keyword':'dark fantasy'},
+    {'id':186846,'keyword':'adaptation'},
+    {'id':3616,'keyword':'college'},
+    {'id':6027,'keyword':'music'},
+    {'id':186120,'keyword':'singing competition'},
+    {'id':378,'keyword':'prison'},
+    {'id':796,'keyword':'police brutality'},
+    {'id':9777,'keyword':'prison escape'}
+]
+
+movie_keywords = [
+    {'movie_id':301528,'keyword_id':4290},
+    {'movie_id':301528,'keyword_id':6054},
+    {'movie_id':301528,'keyword_id':155291},
+    {'movie_id':27205,'keyword_id':470},
+    {'movie_id':27205,'keyword_id':10364},
+    {'movie_id':27205,'keyword_id':170344},
+    {'movie_id':284053,'keyword_id':9715},
+    {'movie_id':284053,'keyword_id':9717},
+    {'movie_id':284053,'keyword_id':180547},
+    {'movie_id':10184,'keyword_id':14534},
+    {'movie_id':102651,'keyword_id':3205},
+    {'movie_id':102651,'keyword_id':177895},
+    {'movie_id':102651,'keyword_id':186846},
+    {'movie_id':114150,'keyword_id':3616},
+    {'movie_id':114150,'keyword_id':6027},
+    {'movie_id':114150,'keyword_id':186120},
+    {'movie_id':278,'keyword_id':378},
+    {'movie_id':278,'keyword_id':796},
+    {'movie_id':278,'keyword_id':9777}
 ]
 
 favorite_genres = [
@@ -489,6 +534,12 @@ def populate():
     
     for genre in genres:
         add_genre(genre['id'],genre['name'])
+
+    for keyword in keywords:
+        add_keyword(keyword['id'],keyword['keyword'])
+    
+    for keyword in movie_keywords:
+        add_movie_keyword(keyword['movie_id'],keyword['keyword_id'])
     
     for actor in favorite_actors:
         add_favorite_actor(actor['email'],actor['actor_id'])
@@ -541,6 +592,13 @@ def add_favorite_movie(email,movie_id):
 def add_movie_cast(movie_id,actor_id):
     movie_cast = MovieCast.objects.get_or_create(movie=Movie.objects.get(id=movie_id),
                                                 actor=Actor.objects.get(id=actor_id))
+                
+def add_keyword(id,keyword):
+    keyword = Keyword.objects.get_or_create(id=id,keyword=keyword)
+
+def add_movie_keyword(movie_id,keyword_id):
+    movie_cast = MovieKeyword.objects.get_or_create(movie=Movie.objects.get(id=movie_id),
+                                                    keyword=Keyword.objects.get(id=keyword_id))
 
 def add_favorite_genre(email,genre_id):
     favorite_genre = FavoriteGenre.objects.get_or_create(user=PickeeUser.objects.get(email=email),
@@ -559,3 +617,4 @@ def add_recommendation(movie_id,session_id,user_choice):
 if __name__=='__main__':
     print('Starting Pickee population script...')
     populate()
+    print('Pickee has been populated!')
