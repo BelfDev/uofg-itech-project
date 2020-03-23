@@ -99,7 +99,7 @@ def preferences(request):
 
 # Helper methods
 
-def get_user_data(request):
+def __get_user_data(request):
     if not request.user.is_authenticated:
         return {}
 
