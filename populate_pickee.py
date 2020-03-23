@@ -102,7 +102,7 @@ movies = [
     {'id':8999,'name':'Derailed','rating':6.2,'image_url':'https://image.tmdb.org/t/p/w500/inBGQGHUUFAmt9nINRAdTUBkmQN.jpg','release_date':datetime.date(2005,11,11),
         'description':'''When two married business executives having an affair are blackmailed by a violent criminal, 
         they are forced to turn the tables on him to save their families.'''},
-    {'id':393624,'name':'Official Secrets','image_url':'/lyCGqSkT3PqLYQXiWs4FCVJBAYW.jpg','rating':7.3,'release_date':datetime.date(2019,8,30),
+    {'id':393624,'name':'Official Secrets','image_url':'https://image.tmdb.org/t/p/w500/lyCGqSkT3PqLYQXiWs4FCVJBAYW.jpg','rating':7.3,'release_date':datetime.date(2019,8,30),
         'description':'''The true story of British intelligence whistleblower Katharine Gun who—prior to the 2003 
         Iraq invasion—leaked a top-secret NSA memo exposing a joint US-UK illegal spying operation against members 
         of the UN Security Council. The memo proposed blackmailing member states into voting for war.'''}
