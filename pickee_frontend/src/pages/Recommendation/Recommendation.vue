@@ -1,9 +1,9 @@
 <template>
     <v-app>
         <div class="page-wrapper page-recommendation">
-            <PageHeader :user="data.user" logo />
+            <PageHeader :user="user" logo />
             <v-content>
-                <RecommendationBox :recommendation="data.recommendation" />
+                <RecommendationBox :user="user" :preferences="preferences" />
             </v-content>
         </div>
     </v-app>
@@ -16,7 +16,8 @@
     export default {
         name: "Recommendation",
         data: () => ({
-            data: {},
+            user: {},
+            recommendation: {},
         }),
         methods: {},
         components: {
@@ -25,9 +26,11 @@
         },
         beforeMount() {
             const appElement = document.getElementsByTagName('app')[0];
-            const data = appElement.getAttribute('data');
-            if (data) {
-                this.data = JSON.parse(data);
+            const user = appElement.getAttribute('user');
+            const preferences = appElement.getAttribute('preferences');
+            if (user && preferences) {
+                this.user = JSON.parse(user);
+                this.preferences = JSON.parse(preferences);
             }
         }
     };
