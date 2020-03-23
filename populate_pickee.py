@@ -37,11 +37,14 @@ actors = [
     {'id':4,'name':'Carrie Fisher','image_url':'https://image.tmdb.org/t/p/w500/rfJtncHewKVnHjqpIZvjn24ESeC.jpg'},
     {'id':31,'name':'Tom Hanks','image_url':'https://image.tmdb.org/t/p/w500/2gY92j2lkNHL2cThBhPmgXLd5PL.jpg'},
     {'id':85,'name':'Johnny Depp','image_url':'https://image.tmdb.org/t/p/w500/kbWValANhZI8rbWZXximXuMN4UN.jpg'},
+    {'id':103,'name':'Mark Ruffalo','image_url':'https://image.tmdb.org/t/p/w500/z3dvKqMNDQWk3QLxzumloQVR0pv.jpg'},
+    {'id':192,'name':'Morgan Freeman','image_url':'https://image.tmdb.org/t/p/w500/oIciQWr8VwKoR8TmAw1owaiZFyb.jpg'},
     {'id':204,'name':'Kate Winslet','image_url':'https://image.tmdb.org/t/p/w500/e3tdop3WhseRnn8KwMVLAV25Ybv.jpg'},
     {'id':287,'name':'Brad Pitt','image_url':'https://image.tmdb.org/t/p/w500/kU3B75TyRiCgE270EyZnHjfivoq.jpg'},
     {'id':380,'name':'Robert De Niro','image_url':'https://image.tmdb.org/t/p/w500/lvTSwUcvJRLAJ2FB5qFaukel516.jpg'},
     {'id':500,'name':'Tom Cruise','image_url':'https://image.tmdb.org/t/p/w500/2Dkx4uuGoWFrPSitxdikv9z5azR.jpg'},
-    {'id':192,'name':'Morgan Freeman','image_url':'https://image.tmdb.org/t/p/w500/oIciQWr8VwKoR8TmAw1owaiZFyb.jpg'},
+    {'id':504,'name':'Tim Robbins','image_url':'https://image.tmdb.org/t/p/w500/9DujxnBMVkizaeIyM0eXPMfXxR.jpg'},
+    {'id':880,'name':'Ben Affleck','image_url':'https://image.tmdb.org/t/p/w500/7Zy12dUasr43oF8hyU5iBz5iOpO.jpg'},
     {'id':934,'name':'Russell Crowe','image_url':'https://image.tmdb.org/t/p/w500/tZCbQwF5btUvutbc3AjJKPzrJV7.jpg'},
     {'id':1204,'name':'Julia Roberts','image_url':'https://image.tmdb.org/t/p/w500/h13yvG0tRNMTAwciQXxYmQWdYW8.jpg'},
     {'id':1245,'name':'Scarlett Johansson','image_url':'https://image.tmdb.org/t/p/w500/6NsMbJXRlDZuDzatN2akFdGuTvx.jpg'},
@@ -52,15 +55,27 @@ actors = [
     {'id':2231,'name':'Samuel L. Jackson','image_url':'https://image.tmdb.org/t/p/w500/qjYcO8jKNlb7lnJ05vh2U7lNt8r.jpg'},
     {'id':2888,'name':'Will Smith','image_url':'https://image.tmdb.org/t/p/w500/eze9FO9VuryXLP0aF2cRqPCcibN.jpg'},
     {'id':3896,'name':'Liam Neeson','image_url':'https://image.tmdb.org/t/p/w500/r1DRqmZhLrzhTTwg9PtuMMQTvuB.jpg'},
+    {'id':4029,'name':'Bob Gunton','image_url':'https://image.tmdb.org/t/p/w500/b3NfI0IzPYI40eIEtO9O0XQiR8j.jpg'},
     {'id':4491,'name':'Jennifer Aniston','image_url':'https://image.tmdb.org/t/p/w500/uH9FwXtRpiboKeqHUk0RuJRAm6I.jpg'},
     {'id':5064,'name':'Meryl Streep','image_url':'https://image.tmdb.org/t/p/w500/xqL5IJxV0fDeD3OfkS3eWqwJoGV.jpg'},
     {'id':5309,'name':'Judi Dench','image_url':'https://image.tmdb.org/t/p/w500/cpna5VGvAxuKuC31xJPBKy9zbnv.jpg'},
     {'id':6193,'name':'Leonardo DiCaprio','image_url':'https://image.tmdb.org/t/p/w500/wo2hJpn04vbtmh0B9utCFdsQhxM.jpg'},
+    {'id':8873,'name':'Annie Potts','image_url':'https://image.tmdb.org/t/p/w500/hWIzkAH7jkSkxBfwdudxbSPxeno.jpg'},
     {'id':11701,'name':'Angelina Jolie','image_url':'https://image.tmdb.org/t/p/w500/gD8jlGkQC8GBajulNlIzBK1YEO1.jpg'},
+    {'id':12898,'name':'Tim Allen','image_url':'https://image.tmdb.org/t/p/w500/84VfGVV4A9C6Rb0pgsCvxSVqnX.jpg'},
     {'id':15735,'name':'Helen Mirren','image_url':'https://image.tmdb.org/t/p/w500/1reKRrsdsHXJaRVHVyOEg4oPTcZ.jpg'},
+    {'id':18050,'name':'Elle Fanning','image_url':'https://image.tmdb.org/t/p/w500/e8CUyxQSE99y5IOfzSLtHC0B0Ch.jpg'},
+    {'id':24045,'name':'Joseph Gordon-Levitt','image_url':'https://image.tmdb.org/t/p/w500/4U9G4YwTlIEbAymBaseltS38eH4.jpg'},
+    {'id':25147,'name':'Tony Hale','image_url':'https://image.tmdb.org/t/p/w500/ar4uapp4w5wMkThZcqWUNMSTO8z.jpg'},
+    {'id':27578,'name':'Ellen Page','image_url':'https://image.tmdb.org/t/p/w500/9klYBqJZIMNscul78QxPwzWrur9.jpg'},
+    {'id':29221,'name':'Brittany Snow','image_url':'https://image.tmdb.org/t/p/w500/oaxjCPRUzaQO9NSRhyfVaHmr05c.jpg'},
+    {'id':69597,'name':'Drew Barrymore','image_url':'https://image.tmdb.org/t/p/w500/5u7oETw3zXC2W4gvRqokPRSu6j.jpg'},
     {'id':72129,'name':'Jennifer Lawrence','image_url':'https://image.tmdb.org/t/p/w500/q0tf3XEo7wa8XglIznTC7WzZ9W3.jpg'},
+    {'id':73128,'name':'Skylar Astin','image_url':'https://image.tmdb.org/t/p/w500//wKrPo9KBH5Xc6Map2oouu0LRIM7.jpg'},
     {'id':74568,'name':'Chris Hemsworth','image_url':'https://image.tmdb.org/t/p/w500/tlkDiLn2G75Xr7m1ybK8QFzZBso.jpg'},
-    {'id':84223,'name':'Anna Kendrick','image_url':'https://image.tmdb.org/t/p/w500/5ZYBQefB30uWObRzin8R0PYqenh.jpg'}
+    {'id':82191,'name':'Sharlto Copley','image_url':'https://image.tmdb.org/t/p/w500/3ket3t8OFC3o1EYcpypMgJ41Q27.jpg'},
+    {'id':84223,'name':'Anna Kendrick','image_url':'https://image.tmdb.org/t/p/w500/5ZYBQefB30uWObRzin8R0PYqenh.jpg'},
+    {'id':91606,'name':'Tom Hiddleston','image_url':'https://image.tmdb.org/t/p/w500/ohi1hLiCnrA34Wv3TMNBPYHSWd4.jpg'}
 ]
 
 favorite_movies = [
@@ -292,12 +307,27 @@ movies = [
 
 movie_casts = [
     {'movie_id':301528,'actor_id':31},
+    {'movie_id':301528,'actor_id':12898},
+    {'movie_id':301528,'actor_id':8873},
+    {'movie_id':301528,'actor_id':25147},
     {'movie_id':27205,'actor_id':6193},
+    {'movie_id':27205,'actor_id':24045},
+    {'movie_id':27205,'actor_id':27578},
     {'movie_id':284053,'actor_id':74568},
+    {'movie_id':284053,'actor_id':103},
+    {'movie_id':284053,'actor_id':91606},
+    {'movie_id':10184,'actor_id':880},
     {'movie_id':10184,'actor_id':4491},
+    {'movie_id':10184,'actor_id':69597},
     {'movie_id':102651,'actor_id':11701},
+    {'movie_id':102651,'actor_id':18050},
+    {'movie_id':102651,'actor_id':82191},
     {'movie_id':114150,'actor_id':84223},
+    {'movie_id':114150,'actor_id':73128},
+    {'movie_id':114150,'actor_id':29221},
     {'movie_id':278,'actor_id':192},
+    {'movie_id':278,'actor_id':504},
+    {'movie_id':278,'actor_id':4029}
 ]
 
 favorite_genres = [
