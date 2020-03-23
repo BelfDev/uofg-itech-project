@@ -65,7 +65,7 @@ movies = [
         'description':'''Thor is imprisoned on the other side of the universe and finds himself in a race against 
         time to get back to Asgard to stop Ragnarok, the destruction of his home-world and the end of Asgardian 
         civilization, at the hands of an all-powerful new threat, the ruthless Hela.'''},
-    {'id':10184,'name':'He\'s Just Not That Into You','rating':6.4,'image_url':'/ruc33YnCrmCL8PHdPQVzfa4shWX.jpg','release_date':datetime.date(2009,2,6),
+    {'id':10184,'name':'He\'s Just Not That Into You','rating':6.4,'image_url':'https://image.tmdb.org/t/p/w500/ruc33YnCrmCL8PHdPQVzfa4shWX.jpg','release_date':datetime.date(2009,2,6),
         'description':'''Remember that really cute girl/guy who said they'd call – and didn't? Maybe they lost your 
         number. Maybe they're in the hospital. Maybe they're awed by your looks, brains or success. Or maybe... 
         They're just not that into you.'''},
