@@ -36,6 +36,17 @@ users = [
         'gender':'MALE','age':14}
 ]
 
+associated_users = [
+    {'user':'rhys@email.com','associated_users':{'pedro@email.com','nathan@email.com','anton@email.com'}},
+    {'user':'pedro@email.com','associated_users':{'nathan@email.com','anton@email.com'}},
+    {'user':'nathan@email.com','associated_users':{'anton@email.com'}},
+    {'user':'julia@email.com','associated_users':{'kate@email.com','meredith@email.com'}},
+    {'user':'kate@email.com','associated_users':{'meredith@email.com'}},
+    {'user':'mark@email.com','associated_users':{'hugh@email.com','gareth@email.com','chris@email.com'}},
+    {'user':'hugh@email.com','associated_users':{'gareth@email.com','chris@email.com'}},
+    {'user':'gareth@email.com','associated_users':{'chris@email.com'}}
+]
+
 favorite_actors = [
     {'email':'rhys@email.com','actor_id':3},
     {'email':'rhys@email.com','actor_id':74568},
@@ -526,6 +537,9 @@ def populate():
     for user in users:
         add_user(user['email'],user['password'],user['first_name'],user['last_name'],user['gender'],user['age'])
     
+    for user in associated_users:
+        add_associated_users(user['user'],user['associated_users'])
+    
     for actor in actors:
         add_actor(actor['id'],actor['name'],actor['image_url'])
     
@@ -566,6 +580,11 @@ def add_user(email,password,first_name,last_name,gender,age):
                                             last_name=last_name,
                                             gender=gender,
                                             age=age)
+
+def add_associated_users(user,associated_users):
+    user = PickeeUser.objects.get(email=user)
+    for associated_user in associated_users:
+        user.associated_users.add(PickeeUser.objects.get(email=associated_user))
 
 def add_actor(id, name, image_url):
     actor = Actor.objects.get_or_create(id=id, name=name, image_url=image_url)
