@@ -1,6 +1,7 @@
 <template>
     <form class="casual-prefences-selection" action="recommendation/" method="POST">
         <input type="hidden" name="csrfmiddlewaretoken" :value="token">
+
         <div class="casual-prefences-selection__wrapper">
             <div class="casual-prefences-selection__form">
                 <div class="mb-12 pt-6">
@@ -9,7 +10,7 @@
                 </div>
                 <div class="mb-10 pt-6">
                     <label class="label-accented mb-8">Any genres in mind?</label>
-                    <input type="hidden" name="genres" v-model="genreValue" />
+                    <input type="hidden" name="genre_ids" v-model="genreValue" />
                     <v-combobox
                         v-model="selectedGenres"
                         :items="items"
