@@ -12,7 +12,9 @@
                 <div class="action-button" v-else-if="slide.user_choice === 'BOOKMARKED'">
                     <v-icon color="primary" size="4.5rem">{{ iconFavorites }}</v-icon>
                 </div>
-                <img :src="`https://image.tmdb.org/t/p/w500/${slide.image_url}`" :alt="slide.name" />
+                <template v-if="slide.image_url">
+                    <img :src="slide.image_url" :alt="slide.name" />
+                </template>
             </swiper-slide>
         </swiper>
         <button class="recommendation-carousel__swiper-button-prev" slot="button-prev">

@@ -1,23 +1,15 @@
 import ItemList from "@/components/ItemList/ItemList.vue";
 import { mdiThumbDown, mdiThumbUp, mdiBookmark, mdiClose } from '@mdi/js';
-import http from "@/services/http";
 
 export default {
     name: "RecommendationDescr",
-    props: ['recommendation', 'newRecEvent'],
+    props: ['recommendation', 'newRecEvent', 'acceptEvent', 'providerList'],
     components: {
         ItemList
     },
     methods: {
-        openProvider: function(link) {
-            window.open(link);
-            this.dialog = false;
-        },
-        getProviderList: async function() {
-            console.log(http);
-            const response = await http.getProviderList();
-            console.log(response);
-            this.providerList = response;
+        openProvider: function(item) {
+            window.open(item.link);
         }
     },
     computed: {
@@ -36,6 +28,5 @@ export default {
         iconClose: mdiClose,
         ratingValue: 74,
         dialog: false,
-        providerList: [],
     })
 }

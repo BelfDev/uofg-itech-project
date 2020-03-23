@@ -25,6 +25,7 @@ export default {
                     text: `${data.first_name} ${data.last_name}`,
                     icon: mdiMinusCircle
                 });
+                this.userIDs = this.selectedFriends.map(item => item.id).join(',');
             }
         }
     },
@@ -36,6 +37,7 @@ export default {
         iconPlus: mdiPlus,
         iconClose: mdiClose,
         friendEmail: null,
-        dialog: false
+        dialog: false,
+        userIDs: ''
     })
 }

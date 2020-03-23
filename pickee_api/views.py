@@ -9,36 +9,16 @@ from pickee_api.forms import PickeeUserCreationForm
 
 def home(request):
     data = json.dumps({
-        "user": get_user_data(request),
+        "user": __get_user_data(request),
     })
     context = {'data': data}
     return render(request, 'home.html', context=context)
 
 
 def recommendation(request):
-    data = json.dumps({
-        "user": get_user_data(request),
-        # TODO: pass real data
-        "recommendation": {
-            "id": 1,
-            "name": "The Green Mile",
-            "image_url": "/sOHqdY1RnSn6kcfAHKu28jvTebE.jpg",
-            "rating": "8.5",
-            "release_date": "1999-12-10",
-            "description": "A supernatural tale set on death row in a Southern prison, where gentle giant John Coffey possesses the mysterious power to heal people's ailments. When the cell block's head guard, Paul Edgecomb, recognizes Coffey's miraculous gift, he tries desperately to help stave off the condemned man's execution.",
-            "cast": [
-                {
-                    "id": 31,
-                    "name": "Tom Hanks",
-                },
-                {
-                    "cast_id": 5,
-                    "name": "Michael Clarke Duncan",
-                }
-            ]
-        }
-    })
-    context = {'data': data}
+    user = json.dumps(__get_user_data(request))
+    preferences = json.dumps(request.POST)
+    context = { 'user': user, 'preferences': preferences}
 
     return render(request, 'recommendation.html', context=context)
 
@@ -101,7 +81,7 @@ def user_logout(request):
 def profile(request):
     user_profile_data = {"age": request.user.age, "gender": request.user.gender}
     data = json.dumps({
-        "user": {**get_user_data(request), **user_profile_data}
+        "user": {**__get_user_data(request), **user_profile_data}
     });
     context = {'data': data}
     return render(request, 'profile.html', context=context)
@@ -119,7 +99,7 @@ def preferences(request):
 
 # Helper methods
 
-def get_user_data(request):
+def __get_user_data(request):
     if not request.user.is_authenticated:
         return {}
 
