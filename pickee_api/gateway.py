@@ -237,7 +237,8 @@ def generate_recommendation(request):
             response['cast'] = __get_movie_cast(response.get('id'))
 
             # Adds the movie and recommendation to the database
-            __create_recommendation_objects(response, session_id)
+            recommendation = __create_recommendation_objects(response, session_id)
+            response['recommendation_id'] = recommendation.id
         elif discoverResponse.text:
             # Forwards TMDB API error
             response = discoverData
@@ -301,3 +302,4 @@ def __create_recommendation_objects(response, session_id):
                                         description=response['description'])
     rec = Recommendation(movie=movie[0], session_id=session_id)
     rec.save()
+    return rec
