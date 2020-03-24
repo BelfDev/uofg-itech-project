@@ -14,6 +14,7 @@
                     <v-combobox
                         v-model="selectedGenres"
                         :items="items"
+                        :menu-props="{ zIndex: 1000 }"
                         label="Select genres"
                         item-color="white"
                         item-value="text"
@@ -26,6 +27,7 @@
                         <template v-slot:selection="data">
                             <v-chip
                                 color="primary"
+                                text-color="secondary"
                                 :key="JSON.stringify(data.item)"
                                 v-bind="data.attrs"
                                 :disabled="data.disabled"

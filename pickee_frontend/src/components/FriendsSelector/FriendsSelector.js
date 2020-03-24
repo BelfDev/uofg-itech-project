@@ -1,6 +1,6 @@
 import ItemList from "@/components/ItemList/ItemList.vue";
 import { mdiPlusCircle, mdiPlus, mdiClose, mdiMinusCircle, mdiAccount } from '@mdi/js';
-import http from "@/services/http";
+import api from "@/services/api";
 
 export default {
     name: "FriendsSelector",
@@ -15,10 +15,10 @@ export default {
         addFriend: async function() {
             if (this.friendEmail == null) return false;
 
-            const friendData = await http.getFriend(this.friendEmail);
+            const friendData = await api.getFriend(this.friendEmail);
 
-            if (friendData.data.length > 0) {
-                const data = friendData.data[0];
+            if (friendData.length > 0) {
+                const data = friendData[0];
                 this.selectedFriends.push({
                     id: data.id,
                     image: data.picture,

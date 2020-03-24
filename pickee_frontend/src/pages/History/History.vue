@@ -19,7 +19,7 @@
     import ProfileNavDrawer from "@/components/ProfileNavDrawer/ProfileNavDrawer.vue";
     import ProfileHistoryList from "@/components/ProfileHistoryList/ProfileHistoryList.vue";
     import { mdiThumbDown, mdiThumbUp, mdiBookmark } from '@mdi/js';
-    import http from "@/services/http";
+    import api from "@/services/api";
 
     const choiceIconMap = {
         "REJECTED": {
@@ -45,7 +45,7 @@
         },
         components: { PageHeader, ProfileNavDrawer, ProfileHistoryList },
         created: async function() {
-            const historyResponse = await http.getRecommendationHistory();
+            const historyResponse = await api.getRecommendationHistory();
             this.historyItems = historyResponse.map(item => ({
                 image: item.image,
                 text: item.text,
