@@ -150,26 +150,6 @@ export default {
         return await patchJsonRequest(`/users/${userID}/`, params);
     },
 
-    async getRecommendationHistory() {
-        return await [
-            {
-                image: "https://movieposters2.com/images/709306-b.jpg",
-                text: "Contagion",
-                user_choice: "REJECTED"
-            },
-            {
-                image: "https://cdn10.bigcommerce.com/s-o6vy9cv/products/136032/images/132304/506991__02213.1519287955.500.500.jpg?c=2",
-                text: "World War Z",
-                user_choice: "BOOKMARKED"
-            },
-            {
-                image: "https://upload.wikimedia.org/wikipedia/en/e/e4/28_days_later.jpg",
-                text: "28 Days Later",
-                user_choice: "APPROVED"
-            }
-        ]
-    },
-
     async getRecommendation(preferences, sessionID, offset) {
         const params = {
             "runtime": preferences.runtime,
