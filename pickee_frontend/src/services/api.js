@@ -86,8 +86,20 @@ export default {
         return await getJsonRequest(`/users/${userID}/favorite-actors/`);
     },
 
-    async addFavoriteActor(userID, actors) {
-        return await postJsonRequest(`/users/${userID}/favorite-actors/`, actors);
+    async addFavoriteActors(userID, actors) {
+        const favActors = [];
+        for(let i = 0; i < actors.length; i++) {
+            const params = actors[i].actor;
+            const existingActorResponse = await getJsonRequest(`/actors/${params.id}`);
+            if(!existingActorResponse.id) {
+                const actorResponse = await postJsonRequest('/actors/', params);
+                favActors.push({ user: userID, actor: actorResponse.id });
+            } else {
+                favActors.push({ user: userID, actor: params.id });
+            }
+        }
+
+        return await postJsonRequest(`/users/${userID}/favorite-actors/`, favActors);
     },
 
     async getActor(actorID) {
@@ -98,7 +110,7 @@ export default {
         return await getJsonRequest(`/search/actors/?name=${name}`);
     },
 
-    async removeFavoriteActor(userID, actorID) {
+    async removeFavoriteActors(userID, actorID) {
         return await deleteJsonRequest(`/users/${userID}/favorite-actors/${actorID}/`);
     },
 
@@ -106,11 +118,18 @@ export default {
         return await getJsonRequest(`/users/${userID}/favorite-movies/`);
     },
 
-    async addFavoriteMovie(userID, movies) {
-        return await postJsonRequest(`/users/${userID}/favorite-movies/`, movies);
+    async addFavoriteMovies(userID, movies) {
+        const favMovies = [];
+        for(let i = 0; i < movies.length; i++) {
+            const params = movies[i].movie;
+            const movieResponse = await postJsonRequest('/movies/', params);
+            favMovies.push({ user: userID, movie: movieResponse.id });
+        }
+
+        return await postJsonRequest(`/users/${userID}/favorite-movies/`, favMovies);
     },
 
-    async removeFavoriteMovie(userID, movieID) {
+    async removeFavoriteMovies(userID, movieID) {
         return await deleteJsonRequest(`/users/${userID}/favorite-movies/${movieID}/`);
     },
 
