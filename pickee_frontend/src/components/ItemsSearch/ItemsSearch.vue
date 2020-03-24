@@ -11,4 +11,3 @@
 </template>
 
 <script src="./ItemsSearch.js" />
-<style src="./ItemsSearch.css" />
