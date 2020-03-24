@@ -94,7 +94,9 @@ def history(request):
 
 @login_required
 def preferences(request):
-    return render(request, 'preferences.html')
+    user = json.dumps(__get_user_data(request))
+    context = {'user': user}
+    return render(request, 'preferences.html', context=context)
 
 
 # Helper methods
