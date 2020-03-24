@@ -122,8 +122,13 @@ export default {
         const favMovies = [];
         for(let i = 0; i < movies.length; i++) {
             const params = movies[i].movie;
-            const movieResponse = await postJsonRequest('/movies/', params);
-            favMovies.push({ user: userID, movie: movieResponse.id });
+            const existingMovieResponse = await getJsonRequest(`/movies/${params.id}`);
+            if(!existingMovieResponse.id) {
+                const movieResponse = await postJsonRequest('/movies/', params);
+                favMovies.push({ user: userID, movie: movieResponse.id });
+            } else {
+                favMovies.push({ user: userID, movie: params.id });
+            }
         }
 
         return await postJsonRequest(`/users/${userID}/favorite-movies/`, favMovies);
