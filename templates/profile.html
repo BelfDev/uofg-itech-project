@@ -5,7 +5,8 @@
 {% block content %}
 
     <div id="profile">
-        <app data="{{ data }}"></app>
+        {% csrf_token %}
+        <app user="{{ user }}"></app>
     </div>
 
     {% render_bundle 'chunk-vendors' %}

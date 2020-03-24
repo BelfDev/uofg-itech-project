@@ -80,10 +80,8 @@ def user_logout(request):
 @login_required
 def profile(request):
     user_profile_data = {"age": request.user.age, "gender": request.user.gender}
-    data = json.dumps({
-        "user": {**__get_user_data(request), **user_profile_data}
-    });
-    context = {'data': data}
+    user = json.dumps({**__get_user_data(request), **user_profile_data});
+    context = {'user': user}
     return render(request, 'profile.html', context=context)
 
 
