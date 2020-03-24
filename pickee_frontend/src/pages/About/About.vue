@@ -36,25 +36,25 @@
                 {
                     name: "Anton S.",
                     role: "Software Engineer",
-                    avatar: "https://cdn.vuetifyjs.com/images/john.jpg" // TODO: update
+                    avatar: "/static/images/anton_avatar.png"
 
                 },
                 {
                     name: "Pedro B.",
                     role: "Software Engineer",
-                    avatar: "https://cdn.vuetifyjs.com/images/john.jpg" // TODO: update
+                    avatar: "/static/images/pedro_avatar.png"
 
                 },
                 {
                     name: "Rhys S.",
                     role: "Software Engineer",
-                    avatar: "https://cdn.vuetifyjs.com/images/john.jpg" // TODO: update
+                    avatar: "/static/images/rhys_avatar.png"
 
                 },
                 {
                     name: "Nathan S.",
                     role: "Software Engineer",
-                    avatar: "https://cdn.vuetifyjs.com/images/john.jpg" // TODO: update
+                    avatar: "/static/images/nathan_avatar.png"
 
                 }
 
