@@ -78,10 +78,10 @@
         },
         beforeMount() {
             const appElement = document.getElementsByTagName('app')[0];
-            let data = appElement.getAttribute('data');
-            if (data) {
-                this.data = JSON.parse(data);
-                this.userID = this.data.user.id;
+            let user = appElement.getAttribute('user');
+            if (user) {
+                user = JSON.parse(user);
+                this.userID = user.id;
             }
         }
     };
