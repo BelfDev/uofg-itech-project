@@ -27,7 +27,7 @@
                     </v-icon>
                     <v-card-text class="text-center pa-0">
                         <v-avatar class="mb-6" size="13rem">
-                            <img :src="user.picture" :alt="user.name" v-if="user.id" />
+                            <img :src="user.picture" :alt="user.name" v-if="user.picture" />
                             <div class="header-auth__anonymous" v-else>
                                 <v-icon size="10rem" color="secondary">{{ iconUser }}</v-icon>
                             </div>

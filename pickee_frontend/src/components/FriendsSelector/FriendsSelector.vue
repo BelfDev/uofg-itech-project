@@ -31,7 +31,8 @@
                     <v-card-text class="friends-selector__popup-content pb-4">
                         <div class="friends-selector__popup-header mb-8">
                             <v-avatar size="10rem">
-                                <img :src="user.picture" :alt="user.name" />
+                                <img :src="user.picture" :alt="user.name" v-if="user.picture" />
+                                <v-icon size="6rem" color="secondary" v-else>{{ iconUser }}</v-icon>
                             </v-avatar>
                             <p>Hey {{ user.name }}, <strong>add friends</strong> to your movie session by typing their user ids in the list below</p>
                         </div>
