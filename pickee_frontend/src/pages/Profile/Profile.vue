@@ -5,12 +5,12 @@
             <main class="profile-page-main">
                 <PageHeader />
                 <v-content class="profile-page-content">
-                    <ProfileHeader :user="data.user" />
+                    <ProfileHeader :user="user" />
                     <div class="profile-page-blocks">
                         <ProfilePersonalDetails 
                             class="mt-12"
                             :updatePersonalDetails="updatePersonalDetails" 
-                            :user="data.user" 
+                            :user="user" 
                         />
                         <ProfileFriends 
                             class="mt-12"
@@ -39,6 +39,7 @@
             return {
                 friendsItems: [],
                 friendsIDs: [],
+                user: null,
                 userID: null,
             };
         },
@@ -80,8 +81,8 @@
             const appElement = document.getElementsByTagName('app')[0];
             let user = appElement.getAttribute('user');
             if (user) {
-                user = JSON.parse(user);
-                this.userID = user.id;
+                this.user = JSON.parse(user);
+                this.userID = this.user.id;
             }
         }
     };
