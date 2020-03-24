@@ -51,8 +51,8 @@
                 this.historyItems = this.data.results.map(item => ({
                     image: item.movie.image_url,
                     text: item.movie.name,
-                    icon: choiceIconMap[item.user_choice].icon,
-                    color: choiceIconMap[item.user_choice].color
+                    icon: item.user_choice ? choiceIconMap[item.user_choice].icon : null,
+                    color: item.user_choice ? choiceIconMap[item.user_choice].color : null
                 }));
             }
         }

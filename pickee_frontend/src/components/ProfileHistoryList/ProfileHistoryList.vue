@@ -8,7 +8,7 @@
                         <img :src="item.image" :alt="item.text" />
                     </v-img>
                     <span class="history-list__element-text">{{ item.text }}</span>
-                    <div class="action-button history-list__element-icon">
+                    <div class="action-button history-list__element-icon" v-if="item.icon">
                         <v-icon :color="item.color" size="3.5rem">{{ item.icon }}</v-icon>
                     </div>
                 </li>
