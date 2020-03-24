@@ -243,18 +243,18 @@ def __search_by_name(url, name):
 
 
 def __get_recommendation_response_payload(discover_data, index, offset):
-    recommendation = discover_data['results'][index]
+    movie = discover_data['results'][index]
     response = {
-        'id': recommendation.get('id'),
-        'name': recommendation.get('title'),
-        'rating': recommendation.get('vote_average'),
-        'release_date': recommendation.get('release_date'),
-        'description': recommendation.get('overview'),
+        'id': movie.get('id'),
+        'name': movie.get('title'),
+        'rating': movie.get('vote_average'),
+        'release_date': movie.get('release_date'),
+        'description': movie.get('overview'),
         'cast': [],
         'last_offset': offset
     }
 
-    image_path = recommendation.get('poster_path')
+    image_path = movie.get('poster_path')
     response['image_url'] = None if not image_path else 'https://image.tmdb.org/t/p/w500' + image_path
     return response
 

@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from pickee_api.forms import PickeeUserCreationForm
+from pickee_api.models import Recommendation
 
 
 def home(request):
@@ -18,7 +19,7 @@ def home(request):
 def recommendation(request):
     user = json.dumps(__get_user_data(request))
     preferences = json.dumps(request.POST)
-    context = { 'user': user, 'preferences': preferences}
+    context = {'user': user, 'preferences': preferences}
 
     return render(request, 'recommendation.html', context=context)
 
@@ -87,7 +88,27 @@ def profile(request):
 
 @login_required
 def history(request):
-    return render(request, 'history.html')
+    recommendations = __get_recommendation_history(request)
+    results = []
+    for recommendation in recommendations:
+        movie = recommendation.movie
+        result = {
+            'id': recommendation.id,
+            'user_choice': recommendation.user_choice,
+            'session_id': recommendation.session_id,
+            'movie': {
+                'id': movie.id,
+                'name': movie.name,
+                'image_url': movie.image_url
+            },
+        }
+        results.append(result)
+
+    data = json.dumps({
+        "results": results
+    })
+    context = {'data': data}
+    return render(request, 'history.html', context=context)
 
 
 @login_required
@@ -109,3 +130,12 @@ def __get_user_data(request):
         "email": request.user.email,
         "picture": request.user.picture.url if request.user.picture else None
     }
+
+
+def __get_recommendation_history(request):
+    user = request.user
+    if user:
+        sessions = user.session_set.all()
+        recommendations = Recommendation.objects.filter(session__in=sessions)
+        if recommendations:
+            return recommendations
