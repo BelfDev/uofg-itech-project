@@ -48,6 +48,7 @@
     opacity: 0.2;
 }
 
-.v-autocomplete__content.v-menu__content.menuable__content__active {
-    z-index: 20 !important;
+.v-select--is-multi.v-text-field.v-text-field--enclosed:not(.v-text-field--rounded) > .v-input__control > .v-input__slot,
+.v-select--is-multi.v-text-field.v-text-field--enclosed .v-text-field__details {
+    padding: 1.5rem 2.4rem 1.5rem 3.1rem;
 }
