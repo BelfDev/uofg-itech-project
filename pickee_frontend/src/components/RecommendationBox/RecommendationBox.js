@@ -1,6 +1,6 @@
 import RecommendationCarousel from "@/components/RecommendationCarousel/RecommendationCarousel.vue";
 import RecommendationDescr from "@/components/RecommendationDescr/RecommendationDescr.vue";
-import http from "@/services/http";
+import api from "@/services/api";
 
 export default {
     name: "RecommendationBox",
@@ -16,25 +16,26 @@ export default {
         }
     },
     created: async function() {
-        const preferences = this.preferences;
-        if (preferences.user_ids) {
-            preferences.user_ids = [this.user.id+"", ...preferences.user_ids.split(',')];
-        }
-
         if (this.user.id) {
-            const session = await http.createSession(preferences.user_ids, this.token);
+            this.preferences.user_ids = [
+                    this.user.id+"", 
+                    ...this.preferences.user_ids.split(',')
+                        .filter(id => id != '')]
+            const session = await api.createSession(this.preferences.user_ids);
             this.sessionID = session.id;
         }
 
+        console.log(this.preferences);
 
-        const recommendation = await http.getRecommendation(this.token, this.preferences, this.sessionID, 0);
+
+        const recommendation = await api.getRecommendation(this.preferences, this.sessionID, 0);
         this.recData = recommendation;
     },
     methods: {
         getNewRecommendation: async function(userChoice) {
             this.updateRecommendationStatus(userChoice);
 
-            const response = await http.getRecommendation(this.token, this.preferences, this.sessionID, this.offset);
+            const response = await api.getRecommendation(this.preferences, this.sessionID, this.offset);
             this.offset++;
             
             this.recData = response;
@@ -42,7 +43,7 @@ export default {
         },
         getProviderList: async function(userChoice) {
             this.updateRecommendationStatus(userChoice);
-            const response = await http.getProviderList(this.recData.name);
+            const response = await api.getProviderList(this.recData.name);
             this.providerList = response.results.map(item => ({
                 logo: item.logo,
                 text: item.name,
@@ -50,7 +51,7 @@ export default {
             }));
         },
         updateRecommendationStatus: async function(userChoice) {
-            await http.setRecommendationUserChoice(this.token, this.recData.recommendation_id, this.sessionID, this.recData.id, userChoice);
+            await api.setRecommendationUserChoice(this.recData.recommendation_id, this.sessionID, this.recData.id, userChoice);
         }
     },
     components: {

@@ -48,6 +48,11 @@
     margin-right: 8.5rem;
 }
 
+.item-list__element-avatar img {
+    width: 100%;
+    height: auto;
+}
+
 .item-list__element-picture {
     max-width: 6rem;
     margin-right: 8.5rem;

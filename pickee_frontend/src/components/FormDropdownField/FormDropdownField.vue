@@ -4,10 +4,11 @@
         <v-select
             :items="items"
             filled
+            :name="name"
+            v-model="model"
             :single-line="false"
-            :value="value"
             :label="title"
-            @change="changeEvent"
+            @change="changeEvent(name, model)"
         >
         </v-select>
     </div>
