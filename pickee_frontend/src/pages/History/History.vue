@@ -19,14 +19,13 @@
     import ProfileNavDrawer from "@/components/ProfileNavDrawer/ProfileNavDrawer.vue";
     import ProfileHistoryList from "@/components/ProfileHistoryList/ProfileHistoryList.vue";
     import { mdiThumbDown, mdiThumbUp, mdiBookmark } from '@mdi/js';
-    import api from "@/services/api";
 
     const choiceIconMap = {
         "REJECTED": {
             icon: mdiThumbDown,
             color: 'red'
         },
-        "APPROVED": {
+        "ACCEPTED": {
             icon: mdiThumbUp,
             color: 'green'
         },
@@ -44,20 +43,19 @@
             };
         },
         components: { PageHeader, ProfileNavDrawer, ProfileHistoryList },
-        created: async function() {
-            const historyResponse = await api.getRecommendationHistory();
-            this.historyItems = historyResponse.map(item => ({
-                image: item.image,
-                text: item.text,
-                icon: choiceIconMap[item.user_choice].icon,
-                color: choiceIconMap[item.user_choice].color
-            }))
-        },
         beforeMount() {
             const appElement = document.getElementsByTagName('app')[0];
             const data = appElement.getAttribute('data');
             if (data) {
                 this.data = JSON.parse(data);
+                console.log(this.data.results);
+                this.historyItems = this.data.results.map(item => ({
+                    image: item.movie.image_url,
+                    text: item.movie.name,
+                    icon: choiceIconMap[item.user_choice].icon,
+                    color: choiceIconMap[item.user_choice].color
+                }));
+                console.log(this.historyItems)
             }
         }
     };

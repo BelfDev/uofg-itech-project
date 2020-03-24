@@ -4,7 +4,7 @@
         <ul class="history-list">
             <template v-for="item in historyItems">
                 <li class="history-list__element" v-bind:key="item.text">
-                    <v-img class="history-list__element-poster" :contain="false" max-width="5.4rem" max-height="6.8rem" >
+                    <v-img v-if="item.image" class="history-list__element-poster" :contain="false" max-width="10rem" >
                         <img :src="item.image" :alt="item.text" />
                     </v-img>
                     <span class="history-list__element-text">{{ item.text }}</span>
