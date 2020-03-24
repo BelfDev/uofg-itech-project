@@ -1,10 +1,11 @@
 import axios from "axios";
+import VueCookies from 'vue-cookies';
 
 const APIBase = "/api";
 
-const jsonRequest = async function(url, params, token, method) {
+const jsonRequest = async function(url, params, method) {
     const myHeaders = new Headers();
-    if (token) myHeaders.append("X-CSRFToken", token);
+    myHeaders.append("X-CSRFToken", VueCookies.get("csrftoken"));
     myHeaders.append('Content-Type', 'application/json');
 
     const requestOptions = {
@@ -15,16 +16,38 @@ const jsonRequest = async function(url, params, token, method) {
     if (params) requestOptions.body = JSON.stringify(params);
 
     let response = await fetch(url, requestOptions);
-    
-    return await response.json();
+
+    return await response.text().then(function(text) {
+        return text ? JSON.parse(text) : {}
+    })
+};
+
+const addFavoriteGenres = async function(userID, favGenres, genreIDs) {
+    genreIDs.forEach(async id => {
+        if(!favGenres.find(fg => fg.genre === id)) {
+            const params = {
+                user: userID,
+                genre: id
+            }
+            await jsonRequest(`${APIBase}/users/${userID}/favorite-genres/`, params)
+        }
+    });
+};
+
+const deleteFavoriteGenres = async function(userID, favGenres, genreIDs) {
+    favGenres.forEach(async el => {
+        if(genreIDs.indexOf(el.genre) === -1) {
+            await jsonRequest(`${APIBase}/users/${userID}/favorite-genres/${el.id}`, null, 'DELETE')
+        }
+    });
 };
 
 export default {
-    async createSession(user_ids, token) {
+    async createSession(userIDs) {
         const params = {
-            users: user_ids
+            users: userIDs
         }
-        return await jsonRequest(`${APIBase}/sessions/`, params, token);
+        return await jsonRequest(`${APIBase}/sessions/`, params);
     },
 
     async getGenres() {
@@ -33,11 +56,19 @@ export default {
         return response;
     },
 
-    async updateFavoriteGenres(genres) {
-        // send request
+    async getFavoriteGenres(userID) {
+        return await jsonRequest(`${APIBase}/users/${userID}/favorite-genres/`, null, 'GET')
+    },
 
-        console.log(genres);
-        return await Promise.resolve(1);
+    async updateFavoriteGenres(userID, genreIDs, isAdded) {
+        const favGenres = await jsonRequest(`${APIBase}/users/${userID}/favorite-genres/`, null, 'GET');
+        
+        if (isAdded) {
+            addFavoriteGenres(userID, favGenres, genreIDs);
+        }
+        else {
+            deleteFavoriteGenres(userID, favGenres, genreIDs)
+        }
     },
 
     async getFriend(email) {
@@ -46,102 +77,66 @@ export default {
         return response;
     },
 
-    async removeFriend() {
-        // send request
-
-        return await Promise.resolve(1);
-    },
-
-    async getFriends() {
-        return await [{
-            id: 1,
-            email: "anton@qwe.qwe",
-            first_name: "Anton",
-            last_name: "",
-            picture:
-                "http://127.0.0.1:8000/media/profile_images/abcasd_U6uAG94.png"
-        }, {
-            id: 2,
-            email: "pedro@qwe.qwe",
-            first_name: "Pedro",
-            last_name: "",
-            picture:
-                "http://127.0.0.1:8000/media/profile_images/abcasd_U6uAG94.png"
-        }, {
-            id: 3,
-            email: "Rhys@qwe.qwe",
-            first_name: "Rhys",
-            last_name: "",
-            picture:
-                "http://127.0.0.1:8000/media/profile_images/abcasd_U6uAG94.png"
-        }]
-    },
-
-    async getFavoriteActors() {
-        return await [
-            {
-                text: "Johny Depp",
-                image: "https://cdn.vuetifyjs.com/images/john.jpg",
-            }, {
-                text: "Brad Pitt",
-                image: "https://cdn.vuetifyjs.com/images/john.jpg",
-            }, {
-                text: "Leonardo Di Caprio",
-                image: "https://cdn.vuetifyjs.com/images/john.jpg",
-            }, {
-                text: "Nicholas Cage",
-                image: "https://cdn.vuetifyjs.com/images/john.jpg",
-            }
-        ]
-    },
-
-    async addFavoriteActor() {
-        return await {
-            text: "Sylvester Stallone",
-            image: "https://cdn.vuetifyjs.com/images/john.jpg",
+    async removeFriend(userID, friendsIDs) {
+        const params = {
+            associated_users: friendsIDs
         }
+        return await jsonRequest(`${APIBase}/users/${userID}/`, params, 'PATCH');
     },
 
-    async removeFavoriteActor() {
-        // send request
-
-        return await Promise.resolve(1);
-    },
-
-    async getFavoriteMovies() {
-        return await [
-            {
-                text: "It's a Wonderful Life",
-                picture: "https://image.tmdb.org/t/p/w500/bSqt9rhDZx1Q7UZ86dBPKdNomp2.jpg",
-            }, {
-                text: "Coco",
-                picture: "https://image.tmdb.org/t/p/w500/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg",
-            }, {
-                text: "Harry Potter and the Deathly Hallows: Part 2",
-                picture: "https://image.tmdb.org/t/p/w500/fTplI1NCSuEDP4ITLcTps739fcC.jpg"
-            }
-        ]
-    },
-
-    async addFavoriteMovie() {
-        return await {
-            text: "Gladiator",
-            picture: "https://image.tmdb.org/t/p/w500/bSqt9rhDZx1Q7UZ86dBPKdNomp2.jpg",
+    async getFriends(userID) {
+        const userResponse = await jsonRequest(`${APIBase}/users/${userID}/`, null, 'GET');
+        const usersData = [];
+        const assocUsers = userResponse.associated_users;
+        for (let i = 0; i < assocUsers.length; i++) {
+            const assocUserResponse = await jsonRequest(`${APIBase}/users/${assocUsers[i]}/`, null, 'GET');
+            usersData.push(assocUserResponse);
         }
+        return usersData;
     },
 
-    async removeFavoriteMovie() {
-        // send request
-
-        return await Promise.resolve(1);
+    async getFavoriteActors(userID) {
+        return await jsonRequest(`${APIBase}/users/${userID}/favorite-actors/`, null, 'GET');
     },
 
-    async updateUserProfile(data) {
-        console.log(data);
+    async addFavoriteActor(userID, actors) {
+        return await jsonRequest(`${APIBase}/users/${userID}/favorite-actors/`, actors);
+    },
 
-        // send request
+    async getActor(actorID) {
+        return await jsonRequest(`${APIBase}/actors/${actorID}`, null, 'GET');
+    },
 
-        return await Promise.resolve(1);
+    async searchActor(name) {
+        return await jsonRequest(`${APIBase}/search/actors/?name=${name}`, null, 'GET');
+    },
+
+    async removeFavoriteActor(userID, actorID) {
+        return await jsonRequest(`${APIBase}/users/${userID}/favorite-actors/${actorID}/`, null, 'DELETE');
+    },
+
+    async getFavoriteMovies(userID) {
+        return await jsonRequest(`${APIBase}/users/${userID}/favorite-movies/`, null, 'GET');
+    },
+
+    async addFavoriteMovie(userID, movies) {
+        return await jsonRequest(`${APIBase}/users/${userID}/favorite-movies/`, movies);
+    },
+
+    async removeFavoriteMovie(userID, movieID) {
+        return await jsonRequest(`${APIBase}/users/${userID}/favorite-movies/${movieID}/`, null, 'DELETE');
+    },
+
+    async searchMovie(name) {
+        return await jsonRequest(`${APIBase}/search/movies/?name=${name}`, null, 'GET');
+    },
+
+    async getMovie(movieID) {
+        return await jsonRequest(`${APIBase}/movies/${movieID}`, null, 'GET');
+    },
+
+    async updateUserProfile(userID, params) {
+        return await jsonRequest(`${APIBase}/users/${userID}/`, params, 'PATCH');
     },
 
     async getRecommendationHistory() {
@@ -164,7 +159,7 @@ export default {
         ]
     },
 
-    async getRecommendation(token, preferences, session_id, offset) {
+    async getRecommendation(preferences, sessionID, offset) {
         const params = {
             "runtime": preferences.runtime,
             "genre_ids": preferences.genre_ids,
@@ -172,22 +167,22 @@ export default {
             "offset": offset
         };
 
-        if (session_id) params.session_id = session_id;
+        if (sessionID) params.session_id = sessionID;
 
-        return await jsonRequest(`${APIBase}/recommendations/generate`, params, token);
+        return await jsonRequest(`${APIBase}/recommendations/generate`, params);
     },
 
-    async setRecommendationUserChoice(token, recommendationID, sessionID, movieID, userChoice) {
+    async setRecommendationUserChoice(recommendationID, sessionID, movieID, userChoice) {
         const params = {
             user_choice: userChoice,
             movie: movieID,
             session: sessionID
         };
 
-        return await jsonRequest(`${APIBase}/recommendations/${recommendationID}/`, params, token, 'put');
+        return await jsonRequest(`${APIBase}/recommendations/${recommendationID}/`, params, 'put');
     },
 
     async getProviderList(name) {
-        return await jsonRequest(`${APIBase}/providers/?movie_name=${name}`, null, null, 'get')
+        return await jsonRequest(`${APIBase}/providers/?movie_name=${name}`, null, 'get')
     }
 };
