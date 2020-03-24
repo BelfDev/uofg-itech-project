@@ -4,8 +4,10 @@
         <v-combobox
             v-model="select"
             :items="items"
-            label="Select genres from this list"
-            item-color="white"
+            label="Add your favorite genres from this list"
+            item-color="primary"
+            item-value="text"
+            :return-object="false"
             solo
             multiple
             chips
@@ -14,6 +16,7 @@
             <template v-slot:selection="data">
                 <v-chip
                     color="primary"
+                    text-color="secondary"
                     :key="JSON.stringify(data.item)"
                     v-bind="data.attrs"
                     :input-value="data.selected"
