@@ -5,6 +5,7 @@
                 <div class="recommendation-descr__top">
                     <v-progress-circular
                         class="recommendation-descr__rating"
+                        v-if="recommendation.rating > 0"
                         :value="10 * recommendation.rating"
                         rotate="270"
                         width="2.5"

@@ -7,12 +7,14 @@
 .recommendation-descr__rating {
     width: 6.4rem !important;
     height: 6.4rem !important;
+    margin-right: 1.6rem;
 }
 
 .recommendation-descr__rating .v-progress-circular__info {
     background: white;
     border-radius: 100%;
-    padding: 1rem;
+    width: 6.4rem;
+    height: 6.4rem;
     font-size: var(--font-size-body-2);
     line-height: var(--font-line-height-body-2);
     font-weight: var(--font-weight-body-2);
@@ -23,10 +25,6 @@
     display: flex;
     align-items: center;
     margin-bottom: 3rem;
-}
-
-.recommendation-descr__heading {
-    margin-left: 1.6rem;
 }
 
 .recommendation-descr__title {
