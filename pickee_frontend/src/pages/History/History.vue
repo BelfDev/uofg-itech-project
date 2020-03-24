@@ -48,14 +48,12 @@
             const data = appElement.getAttribute('data');
             if (data) {
                 this.data = JSON.parse(data);
-                console.log(this.data.results);
                 this.historyItems = this.data.results.map(item => ({
                     image: item.movie.image_url,
                     text: item.movie.name,
                     icon: choiceIconMap[item.user_choice].icon,
                     color: choiceIconMap[item.user_choice].color
                 }));
-                console.log(this.historyItems)
             }
         }
     };
