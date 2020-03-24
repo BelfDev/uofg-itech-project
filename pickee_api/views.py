@@ -135,9 +135,6 @@ def __get_user_data(request):
 def __get_recommendation_history(request):
     user = request.user
     if user:
-        # PickeeUser.objects.filter(session__id=1).values_list('id', flat=True)
-        # sessions = Session.objects.filter(users__in=user)
-        # sessions = PickeeUser.objects.get(id=user.id).session_set
         sessions = user.session_set.all()
         recommendations = Recommendation.objects.filter(session__in=sessions)
         if recommendations:
