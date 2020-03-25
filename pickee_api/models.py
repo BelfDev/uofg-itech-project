@@ -79,7 +79,7 @@ class Movie(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=128)
     image_url = models.URLField(blank=True, null=True)
-    rating = models.DecimalField(max_digits=2, decimal_places=1,
+    rating = models.DecimalField(max_digits=3, decimal_places=1,
                                  validators=[MaxValueValidator(10.0), MinValueValidator(0)])
     release_date = models.DateField(auto_now=False, null=True)
     description = models.TextField()
