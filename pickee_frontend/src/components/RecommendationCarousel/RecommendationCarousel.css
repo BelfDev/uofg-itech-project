@@ -25,6 +25,7 @@
 
 .recommendation-carousel__swiper-slide .action-button {
     position: absolute;
+    z-index: 1;
     top: 2rem;
     left: 2rem;
     width: 8rem;
@@ -58,6 +59,7 @@
 
 .recommendation-carousel__swiper-slide.swiper-slide:after {
     position: absolute;
+    z-index: 2;
     display: block;
     content: '';
     background: rgba(50, 50, 50, .6);
