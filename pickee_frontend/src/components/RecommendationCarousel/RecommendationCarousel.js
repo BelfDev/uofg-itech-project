@@ -24,9 +24,7 @@ export default {
             this.lastSlideIndex++;
 
             setTimeout(() => {
-                if (this.$refs.mySwiper) {
-                    this.$refs.mySwiper.swiper.slideNext()
-                }
+                this.$refs.mySwiper.swiper.slideNext()
             }, 100);
         }
     },
