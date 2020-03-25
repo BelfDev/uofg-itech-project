@@ -1,8 +1,8 @@
 <template>
-    <div class="recommendation-box" v-if="recData.id">
-        <div class="text-center flex">
+    <div class="recommendation-box">
+        <div class="mx-auto">
             <v-progress-circular
-                :size="70"
+                :size="140"
                 :width="7"
                 color="primary"
                 v-if="isLoading"
@@ -10,7 +10,7 @@
             ></v-progress-circular>
         </div>
         
-        <template v-if="!isLoading">
+        <template v-if="!isLoading && recData.id">
             <RecommendationCarousel ref="recCarousel" :recommendation="recData" />
             <RecommendationDescr 
                 :recommendation="recData" 

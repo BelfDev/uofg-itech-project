@@ -13,11 +13,10 @@ export default {
             sessionID: null,
             offset: 1,
             providerList: [],
-            isLoading: false
+            isLoading: true
         }
     },
     created: async function() {
-        this.isLoading = true;
         if (this.user.id) {
             this.preferences.user_ids = [
                     this.user.id+"", 
@@ -26,7 +25,6 @@ export default {
             const session = await api.createSession(this.preferences.user_ids);
             this.sessionID = session.id;
         }
-
 
         const recommendation = await api.getRecommendation(this.preferences, this.sessionID, 0);
         this.recData = recommendation;
