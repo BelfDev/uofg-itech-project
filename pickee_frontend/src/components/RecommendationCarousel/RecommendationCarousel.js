@@ -12,6 +12,7 @@ export default {
     methods: {
         setNewRecommendation: function(recommendation, prevChoice) {
             this.swiperSlides.push({
+                recommendationID: recommendation.recommendation_id,
                 image_url: recommendation.image_url,
                 name: recommendation.name,
                 user_choice: null
@@ -22,8 +23,13 @@ export default {
             }
             this.lastSlideIndex++;
 
+            console.log(recommendation);
+
             setTimeout(() => {
-                this.$refs.mySwiper.swiper.slideNext()
+                console.log(this.$refs.mySwiper);
+                if (this.$refs.mySwiper) {
+                    this.$refs.mySwiper.swiper.slideNext()
+                }
             }, 100);
         }
     },

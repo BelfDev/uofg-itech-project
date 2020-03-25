@@ -1,5 +1,5 @@
 <template>
-    <div class="recommendation-box" v-if="recData.image_url">
+    <div class="recommendation-box" v-if="recData.id">
         <RecommendationCarousel ref="recCarousel" :recommendation="recData" />
         <RecommendationDescr 
             :recommendation="recData" 
