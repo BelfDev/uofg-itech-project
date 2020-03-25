@@ -4,7 +4,7 @@ import { mdiChevronLeft, mdiChevronRight, mdiThumbDown, mdiBookmark } from '@mdi
 
 export default {
     name: "RecommendationCarousel",
-    props: ['recommendation'],
+    props: ['recommendation', 'isLoading'],
     components: {
         swiper,
         swiperSlide,

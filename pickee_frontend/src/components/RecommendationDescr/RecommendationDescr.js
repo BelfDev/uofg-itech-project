@@ -3,7 +3,7 @@ import { mdiThumbDown, mdiThumbUp, mdiBookmark, mdiClose } from '@mdi/js';
 
 export default {
     name: "RecommendationDescr",
-    props: ['recommendation', 'newRecEvent', 'acceptEvent', 'providerList'],
+    props: ['recommendation', 'newRecEvent', 'acceptEvent', 'providerList', 'isLoading'],
     components: {
         ItemList
     },

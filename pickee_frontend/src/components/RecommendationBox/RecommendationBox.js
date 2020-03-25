@@ -12,7 +12,9 @@ export default {
             token: this.$cookies.get("csrftoken"),
             sessionID: null,
             offset: 1,
-            providerList: []
+            providerList: [],
+            isInitialLoading: true,
+            isLoading: false
         }
     },
     created: async function() {
@@ -25,14 +27,13 @@ export default {
             this.sessionID = session.id;
         }
 
-        console.log(this.preferences);
-
-
         const recommendation = await api.getRecommendation(this.preferences, this.sessionID, 0);
         this.recData = recommendation;
+        this.isInitialLoading = false;
     },
     methods: {
         getNewRecommendation: async function(userChoice) {
+            this.isLoading = true;
             this.updateRecommendationStatus(userChoice);
 
             const response = await api.getRecommendation(this.preferences, this.sessionID, this.offset);
@@ -40,6 +41,7 @@ export default {
             
             this.recData = response;
             this.$refs.recCarousel.setNewRecommendation(response, userChoice);
+            this.isLoading = false;
         },
         getProviderList: async function(userChoice) {
             this.updateRecommendationStatus(userChoice);
