@@ -279,12 +279,15 @@ def __get_movie_cast(movie_id):
 
 
 def __create_recommendation_objects(response, session_id):
-    movie = Movie.objects.get_or_create(id=response['id'],
-                                        name=response['name'],
-                                        image_url=response['image_url'],
-                                        rating=response['rating'],
-                                        release_date=response['release_date'],
-                                        description=response['description'])
+    movie = Movie.objects.get_or_create(
+        id=response['id'],
+        defaults={
+            'name': response['name'],
+            'image_url': response['image_url'],
+            'rating': response['rating'],
+            'release_date': response['release_date'] or None,
+            'description': response['description']
+        })
     rec = Recommendation(movie=movie[0], session_id=session_id)
     rec.save()
     return rec
