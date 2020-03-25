@@ -23,10 +23,7 @@ export default {
             }
             this.lastSlideIndex++;
 
-            console.log(recommendation);
-
             setTimeout(() => {
-                console.log(this.$refs.mySwiper);
                 if (this.$refs.mySwiper) {
                     this.$refs.mySwiper.swiper.slideNext()
                 }
