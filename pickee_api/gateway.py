@@ -285,7 +285,7 @@ def __create_recommendation_objects(response, session_id):
             'name': response['name'],
             'image_url': response['image_url'],
             'rating': response['rating'],
-            'release_date': response['release_date'],
+            'release_date': response['release_date'] if response['release_date'] != '' else None,
             'description': response['description']
         })
     rec = Recommendation(movie=movie[0], session_id=session_id)
