@@ -4,7 +4,7 @@
             <swiper-slide
                 class="recommendation-carousel__swiper-slide"
                 v-for="slide in swiperSlides"
-                :key="slide.name"
+                :key="slide.recommendationID"
             >
                 <div class="action-button" v-if="slide.user_choice === 'REJECTED'">
                     <v-icon color="red" size="4.5rem">{{ iconThumbDown }}</v-icon>
@@ -12,9 +12,8 @@
                 <div class="action-button" v-else-if="slide.user_choice === 'BOOKMARKED'">
                     <v-icon color="primary" size="4.5rem">{{ iconFavorites }}</v-icon>
                 </div>
-                <template v-if="slide.image_url">
-                    <img :src="slide.image_url" :alt="slide.name" />
-                </template>
+                <img :src="slide.image_url" :alt="slide.name" v-if="slide.image_url" />
+                <div class="recommendation-carousel__empty-poster" v-else><span>Poster not yet available</span></div>
             </swiper-slide>
         </swiper>
         <button class="recommendation-carousel__swiper-button-prev" slot="button-prev">
