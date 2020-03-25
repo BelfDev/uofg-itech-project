@@ -380,7 +380,10 @@ movies = [
         Furious Five -- Tigress, Crane, Mantis, Viper and Monkey -- to give it a try.'''},
     {'id':168672,'name':'American Hustle','image_url':'https://image.tmdb.org/t/p/w500/mhB7C62lSMpGO2HYNaW6d7W3TVH.jpg','rating':6.8,'release_date':datetime.date(2013,12,12),
         'description':'''A conman and his seductive partner are forced to work for a wild FBI agent, who pushes them into a world of Jersey 
-        power-brokers and the Mafia.'''}
+        power-brokers and the Mafia.'''},
+    {'id':618352,'name':'DC Showcase: The Phantom Stranger','image_url':'https://image.tmdb.org/t/p/w500/tqcL1YEiGUKsW1Ofka59m4MIKr1.jpg','rating':10,'release_date':datetime.date(2020,2,25), 
+        'description':'''Set in the 1970s, the short follows young adult Jess as she joins her friends at a party in a dilapidated mansion hosted 
+        by the mysterious Seth. When odd things begin to happen to Jess and her friends, the Phantom Stranger intervenes to save her from a dreary fate.'''},
 ]
 
 movie_casts = [
@@ -513,6 +516,7 @@ genres = [
 recommendations = [
     {'movie_id':5255,'session_id':1,'user_choice':'ACCEPTED'},
     {'movie_id':32407,'session_id':2,'user_choice':'ACCEPTED'},
+    {'movie_id':618352,'session_id':2,'user_choice':'REJECTED'},
     {'movie_id':8999,'session_id':3,'user_choice':'REJECTED'},
     {'movie_id':424,'session_id':3,'user_choice':'ACCEPTED'},
     {'movie_id':393624,'session_id':4,'user_choice':'BOOKMARKED'},
@@ -521,7 +525,7 @@ recommendations = [
     {'movie_id':9502,'session_id':6,'user_choice':'REJECTED'},
     {'movie_id':37724,'session_id':6,'user_choice':'REJECTED'},
     {'movie_id':331482,'session_id':6,'user_choice':'BOOKMARKED'},
-    {'movie_id':857,'session_id':6,'user_choice':'ACCEPTED'}
+    {'movie_id':857,'session_id':6,'user_choice':'ACCEPTED'},
 ]
 
 sessions = [
