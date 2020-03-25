@@ -12,10 +12,12 @@ export default {
             token: this.$cookies.get("csrftoken"),
             sessionID: null,
             offset: 1,
-            providerList: []
+            providerList: [],
+            isLoading: false
         }
     },
     created: async function() {
+        this.isLoading = true;
         if (this.user.id) {
             this.preferences.user_ids = [
                     this.user.id+"", 
@@ -25,11 +27,10 @@ export default {
             this.sessionID = session.id;
         }
 
-        console.log(this.preferences);
-
 
         const recommendation = await api.getRecommendation(this.preferences, this.sessionID, 0);
         this.recData = recommendation;
+        this.isLoading = false;
     },
     methods: {
         getNewRecommendation: async function(userChoice) {
