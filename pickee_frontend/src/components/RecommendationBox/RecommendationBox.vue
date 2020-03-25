@@ -5,18 +5,19 @@
                 :size="140"
                 :width="7"
                 color="primary"
-                v-if="isLoading"
+                v-if="isInitialLoading"
                 indeterminate
             ></v-progress-circular>
         </div>
         
-        <template v-if="!isLoading && recData.id">
-            <RecommendationCarousel ref="recCarousel" :recommendation="recData" />
+        <template v-if="!isInitialLoading && recData.id">
+            <RecommendationCarousel ref="recCarousel" :recommendation="recData" :isLoading="isLoading" />
             <RecommendationDescr 
                 :recommendation="recData" 
                 :providerList="providerList"
                 :newRecEvent="getNewRecommendation" 
                 :acceptEvent="getProviderList" 
+                :isLoading="isLoading"
             />
         </template>
     </div>
