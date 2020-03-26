@@ -36,6 +36,26 @@ class FavoriteGenreAdmin(admin.ModelAdmin):
     list_display = ['user', 'genre']
 
 
+@admin.register(models.FavoriteActor)
+class FavoriteActorAdmin(admin.ModelAdmin):
+    list_display = ['user', 'actor']
+
+
+@admin.register(models.FavoriteMovie)
+class FavoriteMovieAdmin(admin.ModelAdmin):
+    list_display = ['user', 'movie']
+
+
+@admin.register(models.MovieCast)
+class MovieCastAdmin(admin.ModelAdmin):
+    list_display = ['movie', 'actor']
+
+
+@admin.register(models.MovieKeyword)
+class MovieKeywordAdmin(admin.ModelAdmin):
+    list_display = ['movie', 'keyword']
+
+
 @admin.register(models.Session)
 class SessionAdmin(admin.ModelAdmin):
     list_display = ['id']
@@ -47,11 +67,7 @@ class RecommendationAdmin(admin.ModelAdmin):
 
 
 # Registers Pickee API models in the admin site
-admin.site.register(models.FavoriteActor)
 admin.site.register(models.Actor)
-admin.site.register(models.FavoriteMovie)
 admin.site.register(models.Movie)
-admin.site.register(models.MovieCast)
 admin.site.register(models.Genre)
 admin.site.register(models.Keyword)
-admin.site.register(models.MovieKeyword)
