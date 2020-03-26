@@ -140,7 +140,6 @@ def generate_recommendation(request):
         Performs the Pickee recommendation algorithm with the given input
         then creates and returns a recommendation.
     """
-    print(request.POST)
     # print(request.user.is_authenticated)
     if request.method == 'POST':
         # Parses AJAX POST body
