@@ -1,5 +1,5 @@
 from django.test import TestCase
-from pickee_api.models import Movie, PickeeUser, Genre, FavoriteGenre
+from pickee_api.models import Movie,PickeeUser,Genre,FavoriteGenre,Actor,FavoriteActor
 from pickee_api.utils import FavoriteFilter
 import datetime
 
@@ -33,7 +33,31 @@ class RecommendationAlgorithmTest(TestCase):
 
         favorite_genre_filter = FavoriteFilter(FavoriteGenre)
         common_favorite_genre = favorite_genre_filter.get_common(users)
-        common_favorite_genre_object = Genre.objects.get(id=common_favorite_genre[0])
         
         self.assertEqual(len(common_favorite_genre),1)
-        self.assertEqual(common_favorite_genre_object.name,'action')
+        self.assertEqual(common_favorite_genre,[1])
+    
+    def test_retrieve_common_favorite_actors(self):
+        user1 = PickeeUser.objects.create_user('user1@email.com','user1password')
+        user2 = PickeeUser.objects.create_user('user2@email.com','user2password')
+        user3 = PickeeUser.objects.create_user('user3@email.com','user3password')
+        user4 = PickeeUser.objects.create_user('user4@email.com','user4password')
+        users = [user1,user2,user3,user4]
+
+        actor1 = Actor.objects.create(id=1,name='actor1')
+        actor2 = Actor.objects.create(id=2,name='actor2')
+        actor3 = Actor.objects.create(id=3,name='actor3')
+
+        FavoriteActor.objects.create(user=user1,actor=actor1)
+        FavoriteActor.objects.create(user=user1,actor=actor2)
+        FavoriteActor.objects.create(user=user2,actor=actor1)
+        FavoriteActor.objects.create(user=user2,actor=actor3)
+        FavoriteActor.objects.create(user=user3,actor=actor1)
+        FavoriteActor.objects.create(user=user3,actor=actor3)
+        FavoriteActor.objects.create(user=user4,actor=actor1)
+
+        favorite_actor_filter = FavoriteFilter(FavoriteActor)
+        common_favorite_actors = favorite_actor_filter.get_common(users)
+        
+        self.assertEqual(len(common_favorite_actors),2)
+        self.assertEqual(common_favorite_actors,[1,3])
