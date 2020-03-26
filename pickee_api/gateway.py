@@ -37,7 +37,11 @@ def get_available_providers(request):
 
         response = {}
         if data.get('results'):
-            relevant_result = data.get('results')[0]
+            result_index = 0
+            relevant_result = data.get('results')[result_index]
+            while relevant_result.get('name') != movie_name:
+                result_index+=1
+                relevant_result = data.get('results')[result_index]
             locations = relevant_result.get('locations')
             providers = []
             if locations:
