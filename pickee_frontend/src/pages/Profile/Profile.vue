@@ -12,10 +12,10 @@
                             :updatePersonalDetails="updatePersonalDetails" 
                             :user="user" 
                         />
-                        <ProfileFriends 
+                        <ProfileAssociatedUsers 
                             class="mt-12"
-                            :removeFriend="removeFriend" 
-                            :items="friendsItems" 
+                            :removeAscUser="removeAscUser" 
+                            :items="ascUsersItems" 
                         />
                     </div>
                 </v-content>
@@ -30,15 +30,15 @@
     import ProfileNavDrawer from "@/components/ProfileNavDrawer/ProfileNavDrawer.vue";
     import ProfileHeader from "@/components/ProfileHeader/ProfileHeader.vue";
     import ProfilePersonalDetails from "@/components/ProfilePersonalDetails/ProfilePersonalDetails.vue";
-    import ProfileFriends from "@/components/ProfileFriends/ProfileFriends.vue";
+    import ProfileAssociatedUsers from "@/components/ProfileAssociatedUsers/ProfileAssociatedUsers.vue";
     import { mdiMinusCircle } from "@mdi/js";
 
     export default {
         name: "Profile",
         data: function() {
             return {
-                friendsItems: [],
-                friendsIDs: [],
+                ascUsersItems: [],
+                ascUsersIDs: [],
                 user: null,
                 userID: null,
             };
@@ -48,15 +48,15 @@
             ProfileNavDrawer, 
             ProfileHeader, 
             ProfilePersonalDetails, 
-            ProfileFriends
+            ProfileAssociatedUsers
         },
         methods: {
-            removeFriend: async function(friend) {
-                const targetItemIndex = this.friendsItems.findIndex(sourceItem => sourceItem.text === friend.text);
-                this.friendsItems.splice(targetItemIndex, 1);
-                this.friendsIDs.splice(targetItemIndex, 1);
+            removeAscUser: async function(user) {
+                const targetItemIndex = this.ascUsersItems.findIndex(sourceItem => sourceItem.text === user.text);
+                this.ascUsersItems.splice(targetItemIndex, 1);
+                this.ascUsersIDs.splice(targetItemIndex, 1);
 
-                await api.removeFriend(this.userID, this.friendsIDs);
+                await api.removeAscUser(this.userID, this.ascUsersIDs);
             },
             updatePersonalDetails: async function(name, value) {
                 const params = {};
@@ -65,17 +65,16 @@
             }
         },
         mounted: async function() {
-            const friendsResponse = await api.getFriends(this.userID);
-            this.friendsItems = friendsResponse.map(friend => {
-                this.friendsIDs.push(friend.id);
+            const ascUsersResponse = await api.getAscUsers(this.userID);
+            this.ascUsersItems = ascUsersResponse.map(user => {
+                this.ascUsersIDs.push(user.id);
                 return {
-                    id: friend.id,
-                    image: friend.picture,
-                    text: `${friend.first_name} ${friend.last_name}`,
+                    id: user.id,
+                    image: user.picture,
+                    text: `${user.first_name} ${user.last_name}`,
                     icon: mdiMinusCircle
                 }
             });
-            console.log(this.friendsIDs);
         },
         beforeMount() {
             const appElement = document.getElementsByTagName('app')[0];

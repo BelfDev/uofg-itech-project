@@ -1,9 +1,9 @@
 import ItemList from "@/components/ItemList/ItemList.vue";
 
 export default {
-    name: "ProfileFriends",
+    name: "ProfileAssociatedUsers",
     components: {
         ItemList
     },
-    props: ['items', 'removeFriend'],
+    props: ['items', 'removeAscUser'],
 };

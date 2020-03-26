@@ -64,7 +64,7 @@ export default {
         return await getJsonRequest(`/users/?email=${email}`);
     },
 
-    async removeUser(userID, usersIDs) {
+    async removeAscUser(userID, usersIDs) {
         const params = {
             associated_users: usersIDs
         }
