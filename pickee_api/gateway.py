@@ -54,6 +54,7 @@ def get_available_providers(request):
 
         return JsonResponse(response)
 
+
 @login_required
 def search_actors(request):
     """
@@ -139,7 +140,6 @@ def generate_recommendation(request):
         Performs the Pickee recommendation algorithm with the given input
         then creates and returns a recommendation.
     """
-    print(request.POST)
     # print(request.user.is_authenticated)
     if request.method == 'POST':
         # Parses AJAX POST body
@@ -217,13 +217,15 @@ def generate_recommendation(request):
         if discoverData.get('results'):
             response = __get_recommendation_response_payload(discoverData, index, offset)
 
-            # Retrieves the cast data
-            response['cast'] = __get_movie_cast(response.get('id'))
+            if response:
+                # Retrieves the cast data
+                response['cast'] = __get_movie_cast(response.get('id'))
 
-            if session_id:
-                # Creates the recommendation object if TMDB returned results and if the user has passed a session id
-                recommendation = __create_recommendation_objects(response, session_id)
-                response['recommendation_id'] = recommendation.id
+                if session_id:
+                    # Creates the recommendation object if TMDB returned results and if the user has passed a session id
+                    recommendation = __create_recommendation_objects(response, session_id)
+                    response['recommendation_id'] = recommendation.id
+
         elif discoverResponse.text:
             # Forwards TMDB API error
             response = discoverData
@@ -243,20 +245,23 @@ def __search_by_name(url, name):
 
 
 def __get_recommendation_response_payload(discover_data, index, offset):
-    movie = discover_data['results'][index]
-    response = {
-        'id': movie.get('id'),
-        'name': movie.get('title'),
-        'rating': movie.get('vote_average'),
-        'release_date': movie.get('release_date'),
-        'description': movie.get('overview'),
-        'cast': [],
-        'last_offset': offset
-    }
+    try:
+        movie = discover_data['results'][index]
+        response = {
+            'id': movie.get('id'),
+            'name': movie.get('title'),
+            'rating': movie.get('vote_average'),
+            'release_date': movie.get('release_date'),
+            'description': movie.get('overview'),
+            'cast': [],
+            'last_offset': offset
+        }
 
-    image_path = movie.get('poster_path')
-    response['image_url'] = None if not image_path else 'https://image.tmdb.org/t/p/w500' + image_path
-    return response
+        image_path = movie.get('poster_path')
+        response['image_url'] = None if not image_path else 'https://image.tmdb.org/t/p/w500' + image_path
+        return response
+    except:
+        return {}
 
 
 def __get_movie_keywords(movies):
