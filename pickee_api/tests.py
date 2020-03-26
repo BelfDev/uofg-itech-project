@@ -22,6 +22,11 @@ class PickeeUserTest(TestCase):
     def test_ensure_age_is_less_than_one_hundred(self):
         user = PickeeUser.objects.create_user('user@email.com','userpassword',age=40)
         self.assertTrue(user.age <= 100)
+    
+    def test_ensure_gender_is_valid(self):
+        user = PickeeUser.objects.create_user('user@email.com','userpassword',gender='MALE')
+        gender_choices = ['MALE','FEMALE','OTHER','UNSPECIFIED']
+        self.assertIn(user.gender,gender_choices)
 
 class MovieModelTest(TestCase):
     def test_ensure_rating_is_positive(self):
