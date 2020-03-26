@@ -1,7 +1,27 @@
 from django.test import TestCase
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 from pickee_api.models import Movie,PickeeUser,Genre,FavoriteGenre,FavoriteMovie,Actor,FavoriteActor
 from pickee_api.utils import FavoriteFilter
 import datetime
+
+class PickeeUserTest(TestCase):
+    def test_ensure_email_format_correct(self):
+        user = PickeeUser.objects.create_user('user@email.com','userpassword')
+        try:
+            validate_email(user.email)
+            valid_email = True
+        except ValidationError:
+            valid_email = False
+        self.assertTrue(valid_email)
+    
+    def test_ensure_age_is_positive(self):
+        user = PickeeUser.objects.create_user('user@email.com','userpassword',age=20)
+        self.assertTrue(user.age >= 0)
+    
+    def test_ensure_age_is_less_than_one_hundred(self):
+        user = PickeeUser.objects.create_user('user@email.com','userpassword',age=40)
+        self.assertTrue(user.age <= 100)
 
 class MovieModelTest(TestCase):
     def test_ensure_rating_is_positive(self):
