@@ -1,22 +1,22 @@
 <template>
-    <div class="friends-selector">
+    <div class="session-user-selector">
         <input type="hidden" name="user_ids" :value="userIDs" />
-        <div class="friends-selector__selected">
+        <div class="session-user-selector__selected">
             <v-avatar 
-                class="friends-selector__selected-item" 
+                class="session-user-selector__selected-item" 
                 size="16rem"
-                v-for="friend in selectedFriends"
-                v-bind:key="friend.id"
+                v-for="user in selectedUsers"
+                v-bind:key="user.id"
             >
-                <img :src="friend.image" :alt="friend.name" v-if="friend.picture" />
-                <v-icon size="8rem" color="white" :title="friend.name" v-else>{{ iconUser }}</v-icon>
+                <img :src="user.image" :alt="user.name" v-if="user.picture" />
+                <v-icon size="8rem" color="white" :title="user.name" v-else>{{ iconUser }}</v-icon>
             </v-avatar>
         </div>
         
         <v-dialog v-model="dialog" :width="user.id ? '100rem' : '64rem'">
             <template v-slot:activator="{ on }">
-                <v-avatar class="friends-selector__selector" size="16rem" v-on="on">
-                    <v-icon class="friends-selector__selector-icon" size="8rem">{{ iconPlus }}</v-icon>
+                <v-avatar class="session-user-selector__selector" size="16rem" v-on="on">
+                    <v-icon class="session-user-selector__selector-icon" size="8rem">{{ iconPlus }}</v-icon>
                 </v-avatar>
             </template>
 
@@ -28,8 +28,8 @@
                         color="black"
                         @click="dialog = false"
                         >{{ iconClose }}</v-icon>
-                    <v-card-text class="friends-selector__popup-content pb-4">
-                        <div class="friends-selector__popup-header mb-8">
+                    <v-card-text class="session-user-selector__popup-content pb-4">
+                        <div class="session-user-selector__popup-header mb-8">
                             <v-avatar size="10rem">
                                 <img :src="user.picture" :alt="user.name" v-if="user.picture" />
                                 <v-icon size="6rem" color="secondary" v-else>{{ iconUser }}</v-icon>
@@ -38,22 +38,22 @@
                         </div>
                         <v-text-field
                             dark
-                            v-model="friendEmail"
+                            v-model="userEmail"
                             label="Enter your friend's email"
                             :append-icon="iconPlusCircle"
-                            :error="errorFriendLookup"
-                            :error-messages="errorFriendLookup"
-                            @click:append="addFriend"
-                            @keydown="addFriend"
+                            :error="errorUserLookup"
+                            :error-messages="errorUserLookup"
+                            @click:append="addSessionUser"
+                            @keydown="addSessionUser"
                             solo
                         ></v-text-field>
-                        <template v-if="selectedFriends.length > 0">
+                        <template v-if="selectedUsers.length > 0">
                             <p class="body-3">Selected users:</p>
-                            <ItemList class="mb-8" :items="selectedFriends" :button-action="removeFriend" />
+                            <ItemList class="mb-8" :items="selectedUsers" :button-action="removeSessionUser" />
                         </template>
-                        <template v-if="associatedFriends.length > 0">
+                        <template v-if="associatedUsers.length > 0">
                             <p class="body-3">You can select user from your friends:</p>
-                            <ItemList :items="displayedAssociatedFriends" :button-action="selectFriend" />
+                            <ItemList :items="displayedAssociatedUsers" :button-action="selectSessionUser" />
                         </template>
                     </v-card-text>
 
@@ -71,8 +71,8 @@
                         color="black"
                         @click="dialog = false"
                         >{{ iconClose }}</v-icon>
-                    <v-card-text class="friends-selector__popup-content friends-selector__popup-content--unauthorized pb-4">
-                        <div class="friends-selector__popup-header mb-10">
+                    <v-card-text class="session-user-selector__popup-content session-user-selector__popup-content--unauthorized pb-4">
+                        <div class="session-user-selector__popup-header mb-10">
                             <v-avatar size="10rem">
                                 <v-icon size="8rem" color="black">{{ iconUser }}</v-icon>
                             </v-avatar>
@@ -97,5 +97,5 @@
     </div>
 </template>
 
-<script src="./FriendsSelector.js" />
-<style src="./FriendsSelector.css" />
+<script src="./SessionUserSelector.js" />
+<style src="./SessionUserSelector.css" />

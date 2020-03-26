@@ -60,18 +60,18 @@ export default {
         }
     },
 
-    async getFriend(email) {
+    async getUser(email) {
         return await getJsonRequest(`/users/?email=${email}`);
     },
 
-    async removeFriend(userID, friendsIDs) {
+    async removeAscUser(userID, usersIDs) {
         const params = {
-            associated_users: friendsIDs
+            associated_users: usersIDs
         }
         return await patchJsonRequest(`/users/${userID}/`, params);
     },
 
-    async getFriends(userID) {
+    async getAscUsers(userID) {
         const userResponse = await getJsonRequest(`/users/${userID}/`);
         const usersData = [];
         const assocUsers = userResponse.associated_users;

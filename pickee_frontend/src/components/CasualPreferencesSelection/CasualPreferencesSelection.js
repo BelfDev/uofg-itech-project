@@ -1,5 +1,5 @@
 import TimeSlider from "@/components/TimeSlider/TimeSlider.vue";
-import FriendsSelector from "@/components/FriendsSelector/FriendsSelector.vue";
+import SessionUserSelector from "@/components/SessionUserSelector/SessionUserSelector.vue";
 import api from "@/services/api";
 import { mdiPlayCircleOutline } from "@mdi/js";
 
@@ -32,6 +32,6 @@ export default {
     },
     components: {
         TimeSlider,
-        FriendsSelector
+        SessionUserSelector
     }
 }

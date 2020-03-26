@@ -1,7 +1,7 @@
 import ItemList from "@/components/ItemList/ItemList.vue";
 
 export default {
-    name: "ProfileFriends",
+    name: "ProfileHistoryList",
     components: {
         ItemList
     },
