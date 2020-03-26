@@ -41,10 +41,20 @@
                             v-model="friendEmail"
                             label="Enter your friend's email"
                             :append-icon="iconPlusCircle"
+                            :error="errorFriendLookup"
+                            :error-messages="errorFriendLookup"
                             @click:append="addFriend"
+                            @keydown="addFriend"
                             solo
                         ></v-text-field>
-                        <ItemList :items="selectedFriends" :button-action="removeFriend" />
+                        <template v-if="selectedFriends.length > 0">
+                            <p class="body-3">Selected users:</p>
+                            <ItemList class="mb-8" :items="selectedFriends" :button-action="removeFriend" />
+                        </template>
+                        <template v-if="associatedFriends.length > 0">
+                            <p class="body-3">You can select user from your friends:</p>
+                            <ItemList :items="displayedAssociatedFriends" :button-action="selectFriend" />
+                        </template>
                     </v-card-text>
 
                     <v-card-actions class="dialog-actions text-right">
