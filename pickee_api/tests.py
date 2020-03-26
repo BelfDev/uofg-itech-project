@@ -1,5 +1,5 @@
 from django.test import TestCase
-from pickee_api.models import Movie,PickeeUser,Genre,FavoriteGenre,Actor,FavoriteActor
+from pickee_api.models import Movie,PickeeUser,Genre,FavoriteGenre,FavoriteMovie,Actor,FavoriteActor
 from pickee_api.utils import FavoriteFilter
 import datetime
 
@@ -32,10 +32,31 @@ class RecommendationAlgorithmTest(TestCase):
         FavoriteGenre.objects.create(user=user2,genre=animation)
 
         favorite_genre_filter = FavoriteFilter(FavoriteGenre)
-        common_favorite_genre = favorite_genre_filter.get_common(users)
+        common_favorite_genres = favorite_genre_filter.get_common(users)
         
-        self.assertEqual(len(common_favorite_genre),1)
-        self.assertEqual(common_favorite_genre,[1])
+        self.assertEqual(len(common_favorite_genres),1)
+        self.assertEqual(common_favorite_genres,[1])
+    
+    def test_retrieve_common_favorite_movies(self):
+        user1 = PickeeUser.objects.create_user('user1@email.com','user1password')
+        user2 = PickeeUser.objects.create_user('user2@email.com','user2password')
+        user3 = PickeeUser.objects.create_user('user3@email.com','user3password')
+        users = [user1,user2,user3]
+
+        movie1 = Movie.objects.create(id=1,name='movie1',rating=5)
+        movie2 = Movie.objects.create(id=2,name='movie2',rating=3)
+        movie3 = Movie.objects.create(id=3,name='movie3',rating=9)
+
+        FavoriteMovie.objects.create(user=user1,movie=movie3)
+        FavoriteMovie.objects.create(user=user2,movie=movie2)
+        FavoriteMovie.objects.create(user=user3,movie=movie1)
+        FavoriteMovie.objects.create(user=user3,movie=movie3)
+
+        favorite_movie_filter = FavoriteFilter(FavoriteMovie)
+        common_favorite_movies = favorite_movie_filter.get_common(users)
+        
+        self.assertEqual(len(common_favorite_movies),1)
+        self.assertEqual(common_favorite_movies,[3])
     
     def test_retrieve_common_favorite_actors(self):
         user1 = PickeeUser.objects.create_user('user1@email.com','user1password')
