@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
-from pickee_api.models import Movie,PickeeUser,Genre,FavoriteGenre,FavoriteMovie,Actor,FavoriteActor
+from pickee_api.models import Movie,PickeeUser,Genre,FavoriteGenre,FavoriteMovie, \
+                                Actor,FavoriteActor,Session,Recommendation
 from pickee_api.utils import FavoriteFilter
 import datetime
 
@@ -40,6 +41,21 @@ class MovieModelTest(TestCase):
     def test_release_date_in_past(self):
         movie = Movie.objects.create(id=3,name='Test Movie',rating=7,release_date=datetime.date(2019,11,12))
         self.assertTrue(movie.release_date < datetime.date.today())
+
+class RecommendationModelTest(TestCase):
+    def test_ensure_user_choice_is_valid(self):
+        user1 = PickeeUser.objects.create_user('user1@email.com','user1password')
+        user2 = PickeeUser.objects.create_user('user2@email.com','user2password')
+
+        session = Session.objects.create()
+        session.users.add(user1)
+        session.users.add(user2)
+
+        movie = Movie.objects.create(id=1,name='Test Movie',rating=5)
+        recommendation = Recommendation.objects.create(session=session,movie=movie,user_choice='ACCEPTED')
+        user_choices = ['ACCEPTED','REJECTED','BOOKMARKED']
+
+        self.assertIn(recommendation.user_choice,user_choices)
 
 class RecommendationAlgorithmTest(TestCase):
     def test_retrieve_common_favorite_genres(self):
