@@ -53,9 +53,6 @@ def user_signup(request):
     if request.method == 'POST':
         form = PickeeUserCreationForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data['email']
-            password1 = form.cleaned_data['password1']
-            password2 = form.cleaned_data['password2']
             user = form.save()
             login(request, user)
             return redirect('home')
