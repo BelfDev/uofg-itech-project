@@ -8,81 +8,82 @@ export default {
         ItemList
     },
     methods: {
-        removeFriend: function(friend) {
-            this.associatedFriends.find(ascFriend => friend.id === ascFriend.id).hidden = false;
-            const friendIndex = this.selectedFriends.findIndex(sourceItem => sourceItem.id === friend.id);
-            this.selectedFriends.splice(friendIndex, 1);
+        removeSessionUser: function(sessionUser) {
+            this.associatedUsers.find(ascUser => sessionUser.id === ascUser.id).hidden = false;
+            const userIndex = this.selectedUsers.findIndex(sourceItem => sourceItem.id === sessionUser.id);
+            this.selectedUsers.splice(userIndex, 1);
         },
-        selectFriend: function(friend) {
-            this.associatedFriends.find(ascFriend => friend.id === ascFriend.id).hidden = true;
-            this.selectedFriends.push({
-                id: friend.id,
-                image: friend.picture,
-                text: friend.text,
+        selectSessionUser: function(sessionUser) {
+            this.associatedUsers.find(ascUser => sessionUser.id === ascUser.id).hidden = true;
+            this.selectedUsers.push({
+                id: sessionUser.id,
+                image: sessionUser.picture,
+                text: sessionUser.text,
                 icon: mdiMinusCircle
             });
         },
-        addFriend: async function(e) {
-            if (this.friendEmail == null) return false;
+        addSessionUser: async function(e) {
+            if (this.userEmail == null) return false;
             if (e.type === "keydown" && e.key !== "Enter")
                 return false;
 
-            const friendData = await api.getFriend(this.friendEmail);
-            this.friendEmail = '';
+            const userData = await api.getUser(this.userEmail);
+            this.userEmail = '';
 
-            if (friendData.length > 0) {
-                this.errorFriendLookup = null;
-                const data = friendData[0];
+            if (userData.length > 0) {
+                this.errorUserLookup = null;
+                const data = userData[0];
                 
                 if (data.id === this.user.id) {
-                    this.errorFriendLookup = "Your preferences are already considered";
+                    this.errorUserLookup = "Your preferences are already considered";
                     return false;
                 }
                 
-                const ascFriend = this.associatedFriends.find(ascFriend => data.id === ascFriend.id);
-                if (ascFriend) ascFriend.hidden = true;
+                const ascUser = this.associatedUsers.find(user => data.id === user.id);
+                if (ascUser) ascUser.hidden = true;
 
                 const name = (data.first_name || data.last_name) ? `${data.first_name} ${data.last_name}` : data.email;
-                this.selectedFriends.push({
+                this.selectedUsers.push({
                     id: data.id,
                     image: data.picture,
                     text: name,
                     icon: mdiMinusCircle
                 });
-                this.userIDs = this.selectedFriends.map(item => item.id).join(',');
             } else {
-                this.errorFriendLookup = "Sorry, we couldn't find a user with this email"
+                this.errorUserLookup = "Sorry, we couldn't find a user with this email"
             }
         }
     },
     mounted: async function() {
-        const friendsResponse = await api.getFriends(this.user.id);
-        this.friendsItems = friendsResponse.map(friend => {
-            this.associatedFriends.push({
-                id: friend.id,
-                image: friend.picture,
-                text: `${friend.first_name} ${friend.last_name}`,
+        const ascUsersResponse = await api.getAscUsers(this.user.id);
+        ascUsersResponse.map(user => {
+            this.associatedUsers.push({
+                id: user.id,
+                image: user.picture,
+                text: `${user.first_name} ${user.last_name}`,
                 icon: mdiMinusCircle,
                 hidden: false
             });
         });
     },
     computed: {
-        displayedAssociatedFriends: function() {
-            return this.associatedFriends.filter(friend => friend.hidden === false)
+        displayedAssociatedUsers: function() {
+            return this.associatedUsers.filter(user => user.hidden === false)
+        },
+        userIDs: function() {
+            return this.selectedUsers.map(item => item.id).join(',');
         }
     },
     props: ['user'],
     data: () => ({
-        selectedFriends: [],
-        associatedFriends: [],
+        selectedUsers: [],
+        associatedUsers: [],
         iconUser: mdiAccount,
         iconPlusCircle: mdiPlusCircle,
         iconPlus: mdiPlus,
         iconClose: mdiClose,
-        errorFriendLookup: null,
-        friendEmail: null,
+        errorUserLookup: null,
+        userEmail: null,
         dialog: false,
-        userIDs: ''
     })
 }

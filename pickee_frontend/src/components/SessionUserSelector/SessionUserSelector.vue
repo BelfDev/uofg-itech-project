@@ -5,11 +5,11 @@
             <v-avatar 
                 class="session-user-selector__selected-item" 
                 size="16rem"
-                v-for="friend in selectedFriends"
-                v-bind:key="friend.id"
+                v-for="user in selectedUsers"
+                v-bind:key="user.id"
             >
-                <img :src="friend.image" :alt="friend.name" v-if="friend.picture" />
-                <v-icon size="8rem" color="white" :title="friend.name" v-else>{{ iconUser }}</v-icon>
+                <img :src="user.image" :alt="user.name" v-if="user.picture" />
+                <v-icon size="8rem" color="white" :title="user.name" v-else>{{ iconUser }}</v-icon>
             </v-avatar>
         </div>
         
@@ -38,22 +38,22 @@
                         </div>
                         <v-text-field
                             dark
-                            v-model="friendEmail"
+                            v-model="userEmail"
                             label="Enter your friend's email"
                             :append-icon="iconPlusCircle"
-                            :error="errorFriendLookup"
-                            :error-messages="errorFriendLookup"
-                            @click:append="addFriend"
-                            @keydown="addFriend"
+                            :error="errorUserLookup"
+                            :error-messages="errorUserLookup"
+                            @click:append="addSessionUser"
+                            @keydown="addSessionUser"
                             solo
                         ></v-text-field>
-                        <template v-if="selectedFriends.length > 0">
+                        <template v-if="selectedUsers.length > 0">
                             <p class="body-3">Selected users:</p>
-                            <ItemList class="mb-8" :items="selectedFriends" :button-action="removeFriend" />
+                            <ItemList class="mb-8" :items="selectedUsers" :button-action="removeSessionUser" />
                         </template>
-                        <template v-if="associatedFriends.length > 0">
+                        <template v-if="associatedUsers.length > 0">
                             <p class="body-3">You can select user from your friends:</p>
-                            <ItemList :items="displayedAssociatedFriends" :button-action="selectFriend" />
+                            <ItemList :items="displayedAssociatedUsers" :button-action="selectSessionUser" />
                         </template>
                     </v-card-text>
 
