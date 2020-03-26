@@ -3,7 +3,7 @@ import { mdiPlusCircle, mdiPlus, mdiClose, mdiMinusCircle, mdiAccount } from '@m
 import api from "@/services/api";
 
 export default {
-    name: "FriendsSelector",
+    name: "SessionUserSelector",
     components: {
         ItemList
     },
