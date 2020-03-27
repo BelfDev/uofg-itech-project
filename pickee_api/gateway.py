@@ -37,19 +37,21 @@ def get_available_providers(request):
 
         response = {}
         if data.get('results'):
-            relevant_result = data.get('results')[0]
-            locations = relevant_result.get('locations')
+            results = data.get('results')
+            relevant_results = __filter_utelly_results(results,movie_name)
             providers = []
-            if locations:
-                for location in locations:
-                    provider = {
-                        'logo': location.get('icon'),
-                        'name': location.get('display_name'),
-                        'url': location.get('url')
-                    }
-                    providers.append(provider)
+            for result in relevant_results:
+                locations = result.get('locations')
+                if locations:
+                    for location in locations:
+                        provider = {
+                            'logo': location.get('icon'),
+                            'name': location.get('display_name'),
+                            'url': location.get('url')
+                        }
+                        providers.append(provider)
             response['results'] = providers
-            response['movie_name'] = relevant_result.get('name')
+            response['movie_name'] = relevant_results[0].get('name')
             response['term'] = data.get('term')
 
         return JsonResponse(response)
@@ -281,6 +283,13 @@ def __get_movie_cast(movie_id):
     castResponse = requests.get(castUrl, auth=BearerAuth(TMDB_ACCESS_TOKEN))
     castData = castResponse.json()
     return castData.get('cast')[:5]
+
+def __filter_utelly_results(results, movie_name):
+    relevant_results = []
+    for result in results:
+        if result.get('name') == movie_name:
+            relevant_results.append(result)
+    return relevant_results
 
 
 def __create_recommendation_objects(response, session_id):
