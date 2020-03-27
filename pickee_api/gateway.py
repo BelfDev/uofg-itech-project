@@ -209,6 +209,31 @@ def generate_recommendation(request):
         discoverResponse = requests.get(url, params=query_params, auth=BearerAuth(TMDB_ACCESS_TOKEN))
         discoverData = discoverResponse.json()
 
+        # Removes actors from the query if there are no results
+        if len(discoverData.get('results')) == 0:
+            query_params = {
+                'language': 'en-UK',
+                'sort_by': 'popularity.desc',
+                'page': page,
+                'with_genres': genre_string,
+                'with_runtime.lte': runtime,
+                'with_keywords': keyword_string,
+            }
+            discoverResponse = requests.get(url, params=query_params, auth=BearerAuth(TMDB_ACCESS_TOKEN))
+            discoverData = discoverResponse.json()
+        
+        # Removes keywords from the query if there are still no results
+        if len(discoverData.get('results')) == 0:
+            query_params = {
+                'language': 'en-UK',
+                'sort_by': 'popularity.desc',
+                'page': page,
+                'with_genres': genre_string,
+                'with_runtime.lte': runtime,
+            }
+            discoverResponse = requests.get(url, params=query_params, auth=BearerAuth(TMDB_ACCESS_TOKEN))
+            discoverData = discoverResponse.json()
+
         # Evaluates which index should be accessed in the results array
         index = offset if offset < TMDB_ITEMS_PER_PAGE else TMDB_ITEMS_PER_PAGE - offset
 
