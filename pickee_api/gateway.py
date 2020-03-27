@@ -211,26 +211,13 @@ def generate_recommendation(request):
 
         # Removes actors from the query if there are no results
         if len(discoverData.get('results')) == 0:
-            query_params = {
-                'language': 'en-UK',
-                'sort_by': 'popularity.desc',
-                'page': page,
-                'with_genres': genre_string,
-                'with_runtime.lte': runtime,
-                'with_keywords': keyword_string,
-            }
+            del query_params['with_cast']
             discoverResponse = requests.get(url, params=query_params, auth=BearerAuth(TMDB_ACCESS_TOKEN))
             discoverData = discoverResponse.json()
         
         # Removes keywords from the query if there are still no results
         if len(discoverData.get('results')) == 0:
-            query_params = {
-                'language': 'en-UK',
-                'sort_by': 'popularity.desc',
-                'page': page,
-                'with_genres': genre_string,
-                'with_runtime.lte': runtime,
-            }
+            del query_params['with_keywords']
             discoverResponse = requests.get(url, params=query_params, auth=BearerAuth(TMDB_ACCESS_TOKEN))
             discoverData = discoverResponse.json()
 
