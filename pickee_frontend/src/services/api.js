@@ -3,7 +3,8 @@ import {
     putJsonRequest,
     patchJsonRequest,
     deleteJsonRequest,
-    getJsonRequest
+    getJsonRequest,
+    fileRequest
 } from "./http";
 
 /**
@@ -175,5 +176,9 @@ export default {
 
     async getProviderList(name) {
         return await getJsonRequest(`/providers/?movie_name=${name}`)
+    },
+
+    async updateAvatar(userID, file) {
+        return await fileRequest(`/users/${userID}/`, 'picture', file, 'PATCH')
     }
 };
