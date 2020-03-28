@@ -82,7 +82,7 @@ export default {
         iconPlusCircle: mdiPlusCircle,
         iconPlus: mdiPlus,
         iconClose: mdiClose,
-        errorUserLookup: null,
+        errorUserLookup: '',
         userEmail: null,
         dialog: false,
     })
