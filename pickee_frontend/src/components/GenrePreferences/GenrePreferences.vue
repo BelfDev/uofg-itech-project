@@ -1,7 +1,7 @@
 <template>
     <div class="genre-preferences mt-12">
         <h3 class="image-grid-header">Favorite genres</h3>
-        <v-combobox
+        <v-select
             v-model="select"
             :items="items"
             label="Add your favorite genres from this list"
@@ -23,10 +23,10 @@
                     :disabled="data.disabled"
                     @click:close="data.parent.selectItem(data.item)"
                 >
-                    {{ data.item }}
+                    {{ data.item.text }}
                 </v-chip>
             </template>
-        </v-combobox>
+        </v-select>
     </div>
 </template>
 
