@@ -64,13 +64,6 @@ export default {
         return await getJsonRequest(`/users/?email=${email}`);
     },
 
-    async removeAscUser(userID, usersIDs) {
-        const params = {
-            associated_users: usersIDs
-        }
-        return await patchJsonRequest(`/users/${userID}/`, params);
-    },
-
     async getAscUsers(userID) {
         const userResponse = await getJsonRequest(`/users/${userID}/`);
         const usersData = [];

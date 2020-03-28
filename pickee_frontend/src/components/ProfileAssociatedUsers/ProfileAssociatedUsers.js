@@ -41,8 +41,6 @@ export default {
             const targetItemIndex = this.ascUsersItems.findIndex(sourceItem => sourceItem.text === user.text);
             this.ascUsersItems.splice(targetItemIndex, 1);
             this.ascUsersIDs.splice(targetItemIndex, 1);
-
-            await api.removeAscUser(this.userID, this.ascUsersIDs);
         },
         saveAscUsers: async function() {
             if (this.ascUsersIDs.length > 0) {
