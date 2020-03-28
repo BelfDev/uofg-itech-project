@@ -122,7 +122,9 @@ def __get_user_data(request):
 
     return {
         "id": request.user.id,
-        "name": request.user.first_name,
+        "name": request.user.first_name + " " + request.user.last_name,
+        "first_name": request.user.first_name,
+        "last_name": request.user.last_name,
         "email": request.user.email,
         "picture": request.user.picture.url if request.user.picture else None
     }

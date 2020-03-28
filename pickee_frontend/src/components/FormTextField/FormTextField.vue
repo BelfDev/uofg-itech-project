@@ -1,7 +1,15 @@
 <template>
-    <div class="form-text-field">
+    <div class="form-text-field" :class="{ 'form-text-field--horizontal': horizontal }">
         <label class="label">{{ label }}</label>
-        <v-text-field :name="name" :type="type" solo dark></v-text-field>
+        <v-text-field 
+            v-model="model" 
+            :placeholder="placeholder" 
+            :name="name" 
+            :type="type" 
+            @change="changeEvent(name, model)"
+            solo 
+            dark
+        ></v-text-field>
     </div>
 </template>
 

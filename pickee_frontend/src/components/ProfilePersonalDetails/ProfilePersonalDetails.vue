@@ -3,6 +3,28 @@
         <h3 class="content-card-box__header">Personal details</h3>
         <v-card dark>
             <v-card-text>
+                <FormTextField 
+                    type="text" 
+                    label="First name" 
+                    name="first_name" 
+                    placeholder="Enter first name"
+                    :value="first_name"
+                    :changeEvent="updatePersonalDetails" 
+                    class="mb-4" 
+                    horizontal
+                />
+                
+                <FormTextField 
+                    type="text" 
+                    label="Last name" 
+                    name="last_name" 
+                    placeholder="Enter last name"
+                    :value="last_name"
+                    :changeEvent="updatePersonalDetails" 
+                    class="mb-4" 
+                    horizontal
+                />
+
                 <FormDropdownField 
                     :changeEvent="updatePersonalDetails" 
                     label="Age" 
@@ -12,6 +34,7 @@
                     :items="ageDropdownItems" 
                     class="mb-4" 
                 />
+
                 <FormDropdownField 
                     :changeEvent="updatePersonalDetails" 
                     label="Gender" 

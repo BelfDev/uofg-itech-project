@@ -1,4 +1,5 @@
 import FormDropdownField from "@/components/FormDropdownField/FormDropdownField.vue";
+import FormTextField from "@/components/FormTextField/FormTextField.vue";
 
 export default {
     name: "ProfilePersonalDetails",
@@ -12,10 +13,15 @@ export default {
         }
     },
     props: ['user', 'updatePersonalDetails'],
-    data: () => ({
-        genderDropdownItems: ['MALE', 'FEMALE', 'OTHER', 'UNSPECIFIED']
-    }),
+    data: function() {
+        return {
+            genderDropdownItems: ['MALE', 'FEMALE', 'OTHER', 'UNSPECIFIED'],
+            first_name: this.user.first_name,
+            last_name: this.user.last_name,
+        }
+    },
     components: {
-        FormDropdownField
+        FormDropdownField,
+        FormTextField
     }
 }
