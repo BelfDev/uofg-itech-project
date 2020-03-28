@@ -1,0 +1,35 @@
+.associated-user-selector__popup-header {
+    display: flex;
+    align-items: center;
+}
+
+.v-application .associated-user-selector__popup-header p {
+    margin: 0 0 0 2rem;
+}
+
+.associated-user-selector__popup-content {
+    padding: 6rem 16rem 0;
+}
+
+.associated-user-selector__popup-content--unauthorized {
+    padding: 4rem 6rem;
+}
+
+.phone .associated-user-selector__popup-header .v-avatar {
+    width: 8rem !important;
+    min-width: 8rem !important;
+    height: 8rem !important;
+}
+
+.phone .associated-user-selector__popup-header .v-avatar .v-icon {
+    width: 4rem !important;
+    height: 4rem !important;
+}
+
+.phone .associated-user-selector__popup-content {
+    padding: 5rem 1rem 0;
+}
+
+.phone .associated-user-selector__popup-content--unauthorized {
+    padding: 5rem 1rem 3rem;
+}
