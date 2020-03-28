@@ -82,6 +82,13 @@ export default {
         return usersData;
     },
 
+    async saveAscUsers(userID, ascUserIDs) {
+        const params = {
+            associated_users: ascUserIDs
+        }
+        return await patchJsonRequest(`/users/${userID}/`, params);
+    },
+
     async getFavoriteActors(userID) {
         return await getJsonRequest(`/users/${userID}/favorite-actors/`);
     },
