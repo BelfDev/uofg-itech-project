@@ -538,6 +538,8 @@ sessions = [
 ]
 
 def populate():
+    PickeeUser.objects.create_superuser('admin','admin321')
+    
     for user in users:
         add_user(user['email'],user['password'],user['first_name'],user['last_name'],user['gender'],user['age'])
     

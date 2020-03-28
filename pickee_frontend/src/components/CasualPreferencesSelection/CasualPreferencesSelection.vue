@@ -11,7 +11,7 @@
                 <div class="mb-10 pt-6">
                     <label class="label-accented mb-8">Any genres in mind?</label>
                     <input type="hidden" name="genre_ids" v-model="genreValue" />
-                    <v-combobox
+                    <v-select
                         v-model="selectedGenres"
                         :items="items"
                         :menu-props="{ zIndex: 1000 }"
@@ -32,10 +32,10 @@
                                 v-bind="data.attrs"
                                 :disabled="data.disabled"
                             >
-                                {{ data.item }}
+                                {{ data.item.text }}
                             </v-chip>
                         </template>
-                    </v-combobox>
+                    </v-select>
                 </div>
                 <div>
                     <label class="label-accented mb-8">Got yourself a company?</label>

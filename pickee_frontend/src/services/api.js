@@ -64,13 +64,6 @@ export default {
         return await getJsonRequest(`/users/?email=${email}`);
     },
 
-    async removeAscUser(userID, usersIDs) {
-        const params = {
-            associated_users: usersIDs
-        }
-        return await patchJsonRequest(`/users/${userID}/`, params);
-    },
-
     async getAscUsers(userID) {
         const userResponse = await getJsonRequest(`/users/${userID}/`);
         const usersData = [];
@@ -80,6 +73,13 @@ export default {
             usersData.push(assocUserResponse);
         }
         return usersData;
+    },
+
+    async saveAscUsers(userID, ascUserIDs) {
+        const params = {
+            associated_users: ascUserIDs
+        }
+        return await patchJsonRequest(`/users/${userID}/`, params);
     },
 
     async getFavoriteActors(userID) {

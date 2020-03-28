@@ -41,7 +41,7 @@
                             v-model="userEmail"
                             label="Enter your friend's email"
                             :append-icon="iconPlusCircle"
-                            :error="errorUserLookup"
+                            :error="errorUserLookup.length > 0"
                             :error-messages="errorUserLookup"
                             @click:append="addSessionUser"
                             @keydown="addSessionUser"
