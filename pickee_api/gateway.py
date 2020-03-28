@@ -51,7 +51,8 @@ def get_available_providers(request):
                         }
                         providers.append(provider)
             response['results'] = providers
-            response['movie_name'] = relevant_results[0].get('name')
+            if(len(relevant_results)>0):
+                response['movie_name'] = relevant_results[0].get('name')
             response['term'] = data.get('term')
 
         return JsonResponse(response)
