@@ -14,8 +14,7 @@
                         />
                         <ProfileAssociatedUsers 
                             class="mt-12"
-                            :removeAscUser="removeAscUser" 
-                            :items="ascUsersItems" 
+                            :user="user"
                         />
                     </div>
                 </v-content>
@@ -31,14 +30,11 @@
     import ProfileHeader from "@/components/ProfileHeader/ProfileHeader.vue";
     import ProfilePersonalDetails from "@/components/ProfilePersonalDetails/ProfilePersonalDetails.vue";
     import ProfileAssociatedUsers from "@/components/ProfileAssociatedUsers/ProfileAssociatedUsers.vue";
-    import { mdiMinusCircle } from "@mdi/js";
 
     export default {
         name: "Profile",
         data: function() {
             return {
-                ascUsersItems: [],
-                ascUsersIDs: [],
                 user: null,
                 userID: null,
             };
@@ -51,30 +47,11 @@
             ProfileAssociatedUsers
         },
         methods: {
-            removeAscUser: async function(user) {
-                const targetItemIndex = this.ascUsersItems.findIndex(sourceItem => sourceItem.text === user.text);
-                this.ascUsersItems.splice(targetItemIndex, 1);
-                this.ascUsersIDs.splice(targetItemIndex, 1);
-
-                await api.removeAscUser(this.userID, this.ascUsersIDs);
-            },
             updatePersonalDetails: async function(name, value) {
                 const params = {};
                 params[name] = value;
                 await api.updateUserProfile(this.userID, params);
             }
-        },
-        mounted: async function() {
-            const ascUsersResponse = await api.getAscUsers(this.userID);
-            this.ascUsersItems = ascUsersResponse.map(user => {
-                this.ascUsersIDs.push(user.id);
-                return {
-                    id: user.id,
-                    image: user.picture,
-                    text: `${user.first_name} ${user.last_name}`,
-                    icon: mdiMinusCircle
-                }
-            });
         },
         beforeMount() {
             const appElement = document.getElementsByTagName('app')[0];
