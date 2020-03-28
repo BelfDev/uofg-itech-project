@@ -55,11 +55,21 @@
                             @click="dialog = false"
                             >{{ iconClose }}</v-icon>
                         <v-card-text class="px-12 pb-4 px-p-0">
-                            <template v-if="providerList.length > 0">
-                                <p class="recommendation-descr__popup-text"><strong>Yessssss!</strong> Habemus movie. Now go ahead and watch it.</p>
-                                <ItemList :items="providerList" :button-action="openProvider" />
+                            <div class="pa-12 text-center" v-if="isLoading">
+                                <v-progress-circular
+                                    :size="70"
+                                    :width="5"
+                                    color="secondary"
+                                    indeterminate
+                                ></v-progress-circular>
+                            </div>
+                            <template v-else>
+                                <template v-if="providerList.length > 0">
+                                    <p class="recommendation-descr__popup-text"><strong>Yessssss!</strong> Habemus movie. Now go ahead and watch it.</p>
+                                    <ItemList :items="providerList" :button-action="openProvider" />
+                                </template>
+                                <p class="recommendation-descr__popup-text pb-0" v-else>Sorry, but we don't know any available providers for this movie/show :(</p>
                             </template>
-                            <p class="recommendation-descr__popup-text pb-0" v-else>Sorry, but we don't know any available providers for this movie/show :(</p>
                         </v-card-text>
                     </div>
                 </v-card>

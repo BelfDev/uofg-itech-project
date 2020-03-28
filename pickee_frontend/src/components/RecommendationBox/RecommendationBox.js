@@ -63,13 +63,17 @@ export default {
             this.$refs.recCarousel.setNewRecommendation(recommendation, userChoice);
         },
         getProviderList: async function(userChoice) {
+            this.isLoading = true;
             this.updateRecommendationStatus(userChoice);
             const response = await api.getProviderList(this.recData.name);
-            this.providerList = response.results.map(item => ({
-                logo: item.logo,
-                text: item.name,
-                link: item.url
-            }));
+            if (response && response != {} && Object.keys(response).length !== 0) {
+                this.providerList = response.results.map(item => ({
+                    logo: item.logo,
+                    text: item.name,
+                    link: item.url
+                }));
+            }
+            this.isLoading = false;
         },
         updateRecommendationStatus: async function(userChoice) {
             await api.setRecommendationUserChoice(this.recData.recommendation_id, this.sessionID, this.recData.id, userChoice);
