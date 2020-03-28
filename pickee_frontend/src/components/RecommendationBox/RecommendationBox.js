@@ -1,5 +1,6 @@
 import RecommendationCarousel from "@/components/RecommendationCarousel/RecommendationCarousel.vue";
 import RecommendationDescr from "@/components/RecommendationDescr/RecommendationDescr.vue";
+import { mdiClose } from '@mdi/js';
 import api from "@/services/api";
 
 export default {
@@ -14,7 +15,9 @@ export default {
             offset: 1,
             providerList: [],
             isInitialLoading: true,
-            isLoading: false
+            isLoading: false,
+            noResultsDialog: false,
+            iconClose: mdiClose
         }
     },
     created: async function() {
@@ -28,10 +31,19 @@ export default {
         }
 
         const recommendation = await api.getRecommendation(this.preferences, this.sessionID, 0);
-        this.recData = recommendation;
-        this.isInitialLoading = false;
+
+        if (recommendation.results && recommendation.total_results === 0) {
+            this.noResultsDialog = true;
+            this.recData = null;
+        } else {
+            this.recData = recommendation;
+            this.isInitialLoading = false;
+        }
     },
     methods: {
+        navigateBackToHome: function() {
+            window.location.replace('/?step=2');
+        },
         getNewRecommendation: async function(userChoice) {
             this.isLoading = true;
             this.updateRecommendationStatus(userChoice);
@@ -39,9 +51,16 @@ export default {
             const response = await api.getRecommendation(this.preferences, this.sessionID, this.offset);
             this.offset++;
             
-            this.recData = response;
-            this.$refs.recCarousel.setNewRecommendation(response, userChoice);
-            this.isLoading = false;
+            let recommendation = response;
+            if (!response || response == {} || Object.keys(response).length === 0) {
+                this.noResultsDialog = true;
+                recommendation = null;
+            } else {
+                this.recData = response;
+                this.isLoading = false;
+            }
+
+            this.$refs.recCarousel.setNewRecommendation(recommendation, userChoice);
         },
         getProviderList: async function(userChoice) {
             this.updateRecommendationStatus(userChoice);

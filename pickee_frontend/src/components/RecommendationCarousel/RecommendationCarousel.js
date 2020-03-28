@@ -11,12 +11,14 @@ export default {
     },
     methods: {
         setNewRecommendation: function(recommendation, prevChoice) {
-            this.swiperSlides.push({
-                recommendationID: recommendation.recommendation_id,
-                image_url: recommendation.image_url,
-                name: recommendation.name,
-                user_choice: null
-            });
+            if (recommendation) {
+                this.swiperSlides.push({
+                    recommendationID: recommendation.recommendation_id,
+                    image_url: recommendation.image_url,
+                    name: recommendation.name,
+                    user_choice: null
+                });
+            }
 
             if (prevChoice) {
                 this.swiperSlides[this.lastSlideIndex].user_choice = prevChoice;
