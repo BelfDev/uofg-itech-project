@@ -21,6 +21,26 @@ const jsonRequest = async function(url, params, method) {
     })
 };
 
+export const fileRequest = async function(url, fieldName, file, method) {
+    const formData  = new FormData();
+    formData.append(fieldName, file);
+
+    const myHeaders = new Headers();
+    myHeaders.append("X-CSRFToken", VueCookies.get("csrftoken"));
+
+    const requestOptions = {
+        method: method || 'POST',
+        headers: myHeaders,
+        body: formData
+    };
+
+    let response = await fetch(APIBase + url, requestOptions);
+
+    return await response.text().then(function(text) {
+        return text ? JSON.parse(text) : {}
+    })
+};
+
 export const deleteJsonRequest = async function(url) {
     return await jsonRequest(url, null, 'DELETE');
 };

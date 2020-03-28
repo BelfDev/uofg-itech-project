@@ -1,11 +1,64 @@
-.profile-header {
+.profile-header__top {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.profile-header__avatar {
+.profile-header__error {
+    padding: 4rem 10rem;
+    color: var(--v-red-base);
+    font-size: var(--font-size-body-4);
+    line-height: var(--font-line-height-body-4);
+}
+
+.profile-header__avatar-btn.v-btn:not(.v-btn--round).v-size--default {
     margin-right: 3.2rem;
+    height: auto;
+    padding: 0;
+}
+
+.profile-header__avatar {
+    position: relative;
+}
+
+.profile-header__avatar .v-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.profile-header__avatar img {
+    height: auto;
+}
+
+.profile-header__avatar .v-text-field > .v-input__control > .v-input__slot > .v-text-field__slot {
+    height: 100%;
+    width: 100%;
+}
+
+.profile-header__avatar .theme--dark.v-file-input .v-file-input__text {
+    display: none;
+}
+
+.profile-header__avatar .v-text-field.v-text-field--solo .v-input__append-inner, .v-text-field.v-text-field--solo .v-input__prepend-inner {
+    display: none;
+}
+
+.profile-header__avatar .theme--dark.v-text-field--solo > .v-input__control > .v-input__slot {
+    background-color: transparent;
+}
+
+.profile-header__avatar .v-text-field.v-text-field--solo .v-input__control,
+.profile-header__avatar .v-text-field.v-text-field--solo:not(.v-text-field--solo-flat):not(.v-select) > .v-input__control > .v-input__slot {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-header__avatar .v-text-field > .v-input__control > .v-input__slot {
+    cursor: pointer;
 }
 
 .profile-header__name {
