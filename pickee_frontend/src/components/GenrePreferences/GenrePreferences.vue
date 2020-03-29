@@ -1,6 +1,6 @@
 <template>
     <div class="genre-preferences mt-12">
-        <h3 class="image-grid-header">Favorite genres</h3>
+        <h3 class="genre-preferences__header">Favorite genres</h3>
         <v-select
             v-model="select"
             :items="items"

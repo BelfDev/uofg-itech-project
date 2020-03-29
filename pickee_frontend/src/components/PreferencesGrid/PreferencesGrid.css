@@ -92,3 +92,20 @@
 .phone .preferences-grid-content__block:nth-child(3n) {
     margin-right: 0;
 }
+
+.tablet .preferences-grid-content__block {
+    width: 12.5rem;
+    margin-right: 2.6rem;
+    margin-bottom: 2.6rem;
+}
+
+.tablet .preferences-grid-content__block .v-avatar {
+    width: 12.5rem !important;
+    min-width: 12.5rem !important;
+    height: 12.5rem !important;
+}
+
+.phone .preferences-grid-header {
+    font-size: var(--font-size-phone-body-1);
+    line-height: var(--font-line-height-phone-body-1);
+}

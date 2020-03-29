@@ -61,17 +61,67 @@
 
 .phone .search-suggestions__search-btn.v-btn:not(.v-btn--round).v-size--large {
     margin-left: auto;
-    height: 7rem;
+    height: 6rem;
     width: 100%;
-    margin-top: -1.5rem;
+    right: 0;
+    text-indent: -9999px;
+    width: 6rem;
+    min-width: 6rem;
+    padding: 0;
+    /* position: relative;
+    right: auto;
+    margin-top: .8rem; */
+}
+
+.phone .theme--dark.v-input.search-suggestions__search-input {
+    margin-right: 7rem;
+}
+
+.phone .search-suggestions__search-input.v-text-field > .v-input__control > .v-input__slot > .v-text-field__slot {
+    padding-left: 0;
+}
+
+.phone .search-suggestions__search-input.v-text-field.v-text-field--solo .v-input__prepend-outer, 
+.phone .search-suggestions__search-input.v-text-field.v-text-field--solo .v-input__append-outer {
+    left: auto;
+    right: -6.2rem;
 }
 
 .tablet .search-suggestions__search-input .v-input__prepend-outer {
-    top: 2.5rem;
+    top: 5rem;
 }
 
+.tablet .search-suggestions__search-box,
 .phone .search-suggestions__search-box {
     display: block;
     text-align: center;
     margin-bottom: 3rem;
+}
+
+.tablet .search-suggestions__search-box {
+    width: 45.5rem;
+}
+
+.tablet .add-item-dialog__popup-content .item-list {
+    width: 65.5rem;
+}
+
+.phone .search-suggestions__search-box {
+    width: auto;
+}
+
+.phone .add-item-dialog__popup-content .item-list {
+    width: auto;
+}
+
+.tablet .v-avatar.v-list-item__avatar {
+    width: 5rem !important;
+    min-width: 5rem !important;
+    height: 5rem !important;
+    justify-content: center;
+}
+
+.tablet .v-avatar.v-list-item__avatar .v-icon {
+    width: 3rem;
+    height: 3rem;
 }
