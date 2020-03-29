@@ -38,4 +38,6 @@
 .time-slider__input .v-slider__thumb:before {
     left: -.6rem;
     top: -.6rem;
+    width: 3.6rem;
+    height: 3.6rem;
 }
