@@ -4,6 +4,11 @@
     min-height: 100%;
 }
 
+.tablet .page-home,
+.phone .page-home {
+    overflow: hidden;
+}
+
 .page-home .page-header {
     position: absolute;
     top: 5rem;
@@ -28,12 +33,6 @@
     background-position: center top;
 }
 
-.page-home-content {
-    display: flex;
-    position: relative;
-    z-index: 5;
-}
-
 .tablet .page-home-content-bg:before,
 .phone .page-home-content-bg:before {
     display: block;
@@ -46,6 +45,12 @@
     background: black;
     opacity: .4;
     z-index: 4;
+}
+
+.page-home-content {
+    display: flex;
+    position: relative;
+    z-index: 5;
 }
 
 .page-home-screen {
@@ -62,6 +67,11 @@
 .page-home-screen--1 {
     opacity: 0;
     bottom: 0;
+}
+
+.tablet .page-home-screen--1,
+.phone .page-home-screen--1 {
+    opacity: 1;
 }
 
 .page-home-screen--1.page-home-screen--active {
@@ -83,4 +93,10 @@
 .page-home-screen--2.page-home-screen--active {
     transform: translateX(0);
     height: auto;
+}
+
+.tablet .page-home-screen--2.page-home-screen--active,
+.phone .page-home-screen--2.page-home-screen--active {
+    overflow: scroll;
+    bottom: 0;
 }
