@@ -6,6 +6,7 @@ export default {
     name: "PageHeader",
     props: {
         logo: Boolean,
+        isAboutPage: Boolean,
         user: Object
     },
     components: {

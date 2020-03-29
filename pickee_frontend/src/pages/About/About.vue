@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <div class="page-wrapper about-page">
-            <PageHeader />
+            <PageHeader isAboutPage />
             <v-content class="page-content">
                 <h1>We are<br /> <a href="/" class="about-page__logo-link heading1-accent">Pickee.</a></h1>
                 <div class="about-page__content">

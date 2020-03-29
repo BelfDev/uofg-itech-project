@@ -47,11 +47,12 @@
     display: block;
 }
 
-.tablet .about-page .page-header {
+.tablet .about-page .page-header,
+.phone .about-page .page-header {
     z-index: 5;
     top: 6rem;
 }
 
 .phone .about-page h1 {
-    padding-top: 10rem;
+    margin-top: 10rem;
 }
