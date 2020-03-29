@@ -1,6 +1,6 @@
 <template>
     <div class="recommendation-box">
-        <v-btn color="secondary" class="recommendation-box__goback" href="/?step=2">Back to the preferences</v-btn>
+        <v-btn color="secondary" class="recommendation-box__goback" href="/?step=2">Back to preferences</v-btn>
         <div class="mx-auto">
             <v-progress-circular
                 :size="140"
