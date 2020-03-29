@@ -1,7 +1,7 @@
 <template>
 
-    <div class="header-auth-wrapper">
-        <v-btn text rounded class="header-auth">
+    <div class="header-auth-wrapper" v-closable="{ exclude: ['button'], handler: 'onClose' }">
+        <v-btn ref="button" text rounded class="header-auth">
             <v-avatar size="10rem" @click="overlay = !overlay">
                 <img :src="user.picture" :alt="user.name" v-if="user.picture" />
                 <div class="header-auth__anonymous" v-else>
