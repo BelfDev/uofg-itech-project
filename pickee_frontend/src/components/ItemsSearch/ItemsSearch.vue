@@ -1,7 +1,8 @@
 <template>
     <div class="items-search">
         <SearchSuggestions 
-            :entries="entries" 
+            :entries="entries"
+            :items="items"
             :addMethod="addMethod" 
             :searchMethod="searchMethod" 
             :searchLoading="searchLoading" 
