@@ -1,8 +1,8 @@
-.header-auth {
+.header-auth-wrapper {
     position: relative;
 }
 
-.header-auth .v-overlay--absolute {
+.header-auth-wrapper .v-overlay--absolute {
     top: 12rem;
     right: 0;
     left: auto;

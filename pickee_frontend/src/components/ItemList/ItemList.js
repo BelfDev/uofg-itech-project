@@ -1,5 +1,8 @@
-
 export default {
     name: "ItemList",
-    props: ["items", "buttonAction"],
-}
+    props: {
+        items: Array,
+        buttonAction: Function,
+        accented: Boolean
+    }
+};

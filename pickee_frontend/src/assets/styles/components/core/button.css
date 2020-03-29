@@ -1,3 +1,8 @@
+a,
+button {
+    outline: 0;
+}
+
 .v-btn {
     font-weight: 600;
     letter-spacing: 0;
