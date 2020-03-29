@@ -31,3 +31,27 @@
     color: white;
     text-decoration: none;
 }
+
+.tablet .about-page__text h2 {
+    font-size: var(--font-size-heading3);
+    line-height: var(--font-line-height-heading3);
+}
+
+.phone .about-page__text,
+.tablet .about-page__text {
+    width: auto;
+}
+
+.tablet .about-page__content,
+.phone .about-page__content {
+    display: block;
+}
+
+.tablet .about-page .page-header {
+    z-index: 5;
+    top: 6rem;
+}
+
+.phone .about-page h1 {
+    padding-top: 10rem;
+}
