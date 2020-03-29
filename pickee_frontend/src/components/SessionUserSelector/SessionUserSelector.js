@@ -58,10 +58,11 @@ export default {
         if (this.user && this.user.id) {
             const ascUsersResponse = await api.getAscUsers(this.user.id);
             ascUsersResponse.map(user => {
+                const name = (user.first_name || user.last_name) ? `${user.first_name} ${user.last_name}` : user.email;
                 this.associatedUsers.push({
                     id: user.id,
                     image: user.picture,
-                    text: `${user.first_name} ${user.last_name}`,
+                    text: name,
                     icon: mdiPlusCircle,
                     hidden: false
                 });
