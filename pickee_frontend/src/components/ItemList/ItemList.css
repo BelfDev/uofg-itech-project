@@ -9,6 +9,10 @@
     margin-bottom: 1px;
 }
 
+.item-list--accented .item-list__element {
+    background-color: var(--v-grey300-base);
+}
+
 .item-list__element-button {
     display: flex;
     width: 100%;

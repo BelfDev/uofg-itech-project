@@ -1,5 +1,5 @@
 <template>
-    <ul class="item-list">
+    <ul class="item-list" :class="{ 'item-list--accented': accented }">
         <template v-for="item in items">
             <li class="item-list__element" v-bind:key="item.id">
                 <button @click="buttonAction(item)" class="item-list__element-button">
