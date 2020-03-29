@@ -6,7 +6,7 @@
         <v-navigation-drawer 
             width="38rem" 
             class="nav-drawer" 
-            :fixed="!drawer" 
+            fixed
             v-model="drawer" 
             :mobile-break-point="drawer ? 0 : 1024"
         >
