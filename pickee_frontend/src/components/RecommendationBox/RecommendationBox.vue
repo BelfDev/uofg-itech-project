@@ -1,12 +1,11 @@
 <template>
     <div class="recommendation-box">
         <v-btn color="secondary" class="recommendation-box__goback" href="/?step=2">Back to preferences</v-btn>
-        <div class="mx-auto">
+        <div class="mx-auto mt-p-12" v-if="isInitialLoading">
             <v-progress-circular
                 :size="140"
                 :width="7"
                 color="primary"
-                v-if="isInitialLoading"
                 indeterminate
             ></v-progress-circular>
         </div>

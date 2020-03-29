@@ -4,8 +4,9 @@
     left: 35rem;
 }
 
+.tablet .stripe,
 .phone .stripe {
-    left: 25rem;
+    display: none;
 }
 
 .stripe--dark {
@@ -19,11 +20,6 @@
     bottom: -20rem;
 }
 
-.phone .stripe--dark {
-    left: 70%;
-    width: 20rem;
-}
-
 .stripe--light {
     background-color: var(--v-grey960-base);
     /* background-color: red; */
@@ -35,10 +31,6 @@
     
 }
 
-.phone .stripe--light {
-    width: 6rem;
-}
-
 .stripe--lighter {
     background-color: var(--v-grey950-base);
     box-shadow: 0px 4px 16px #15151529;
@@ -48,11 +40,6 @@
     left: 47rem;
     top: -20rem;
     bottom: -20rem;
-}
-
-.phone .stripe--lighter {
-    width: 5rem;
-    left: 30rem;
 }
 
 .stripe--light.stripe--alt {

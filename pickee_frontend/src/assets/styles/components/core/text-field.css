@@ -23,7 +23,7 @@
 }
 
 .phone .v-text-field.v-text-field--solo .v-input__control {
-    min-height: 8rem;
+    min-height: 6rem;
 }
 
 .v-text-field fieldset,
@@ -36,4 +36,9 @@
     font-size: var(--font-size-body-2);
     font-weight: 400;
     line-height: var(--font-line-height-body-2);
+}
+
+.phone .v-text-field input {
+    font-size: var(--font-size-phone-body-2);
+    line-height: var(--font-line-height-phone-body-2);
 }

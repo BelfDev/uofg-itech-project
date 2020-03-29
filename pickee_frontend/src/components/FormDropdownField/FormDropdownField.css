@@ -59,3 +59,18 @@
 .form-dropdown-field .v-input__slot {
     margin-bottom: 0;
 }
+
+.phone .form-dropdown-field {
+    display: block;
+}
+
+.phone .form-dropdown-field .label {
+    margin-bottom: 1.6rem;
+}
+
+.phone .form-dropdown-field .v-text-field--filled .v-label, 
+.phone .form-dropdown-field .v-text-field--full-width .v-label,
+.phone .form-dropdown-field .theme--dark.v-select .v-select__selection--comma {
+    font-size: var(--font-size-phone-body-2);
+    line-height: var(--font-line-height-phone-body-2);
+}

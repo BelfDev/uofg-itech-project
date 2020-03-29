@@ -9,6 +9,14 @@
     bottom: auto;
 }
 
+.phone .header-auth-wrapper .v-overlay--absolute {
+    left: 50%;
+    position: fixed;
+    top: 14rem;
+    right: auto;
+    transform: translateX(-50%);
+}
+
 .header-auth .v-card__text {
     font-size: var(--font-size-body-2);
     font-weight: var(--font-weight-body-2);

@@ -104,8 +104,8 @@
 }
 
 .phone .item-list__element-text {
-    font-size: var(--font-size-phone-body-3);
-    line-height: var(--font-line-height-phone-body-3);
+    font-size: var(--font-size-phone-body-4);
+    line-height: var(--font-line-height-phone-body-4);
     font-weight: 400;
     margin-right: 1rem;
 }
@@ -146,6 +146,7 @@
     height: 4rem;
     padding: 0 1rem;
     margin-right: 2rem;
+    flex-shrink: 0;
 }
 
 .phone .item-list__element-logo img {

@@ -32,3 +32,11 @@
 .form-text-field--horizontal .v-input__slot {
     margin-bottom: 0;
 }
+
+.phone .form-text-field--horizontal {
+    display: block;
+}
+
+.phone .form-text-field--horizontal .label {
+    margin-bottom: 1.6rem;
+}

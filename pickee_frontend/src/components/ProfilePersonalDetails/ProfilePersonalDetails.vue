@@ -10,7 +10,7 @@
                     placeholder="Enter first name"
                     :value="first_name"
                     :changeEvent="updatePersonalDetails" 
-                    class="mb-4" 
+                    class="mb-4 mb-p-8" 
                     horizontal
                 />
                 
@@ -21,7 +21,7 @@
                     placeholder="Enter last name"
                     :value="last_name"
                     :changeEvent="updatePersonalDetails" 
-                    class="mb-4" 
+                    class="mb-4 mb-p-8" 
                     horizontal
                 />
 
@@ -32,7 +32,7 @@
                     :value="user.age" 
                     title="Select age" 
                     :items="ageDropdownItems" 
-                    class="mb-4" 
+                    class="mb-4 mb-p-8" 
                 />
 
                 <FormDropdownField 

@@ -91,3 +91,27 @@
 .phone .profile-header {
     justify-content: start;
 }
+
+.phone .profile-header__avatar {
+    margin: auto;
+    width: 10rem !important;
+    height: 10rem !important;
+    min-width: 10rem !important;
+}
+
+.phone .profile-header__top {
+    flex-flow: column;
+}
+
+.phone .profile-header__name {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 3.4rem;
+    line-height: 4rem;
+}
+
+.phone .v-application .profile-header__time-saved {
+    font-size: var(--font-size-phone-body-1);
+    line-height: var(--font-line-height-phone-body-1);
+    text-align: center;
+}

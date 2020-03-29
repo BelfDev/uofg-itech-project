@@ -18,3 +18,11 @@
     font-size: var(--font-size-phone-body-3);
     line-height: var(--font-line-height-phone-body-3);
 }
+
+.phone .add-item-dialog__popup-content {
+    padding: 6rem 0 2rem;
+}
+
+.tablet .add-item-dialog__popup-content {
+    padding: 6rem 0 2rem;
+}
