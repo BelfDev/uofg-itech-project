@@ -1,7 +1,7 @@
 .profile-page {
     min-height: 100%;
     display: flex;
-  
+    padding-left: 38rem;
 }
 
 .profile-page .page-header {
@@ -21,6 +21,11 @@
 
 .profile-page-blocks {
     margin: 0 10rem;
+}
+
+.tablet .profile-page,
+.phone .profile-page {
+    padding-left: 0;
 }
 
 .tablet .profile-page-content .v-content__wrap {
