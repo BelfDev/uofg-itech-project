@@ -9,17 +9,21 @@
                 <div class="action-button" v-if="slide.user_choice === 'REJECTED'">
                     <v-icon color="red" size="4.5rem">{{ iconThumbDown }}</v-icon>
                 </div>
-                <div class="action-button" v-else-if="slide.user_choice === 'BOOKMARKED'">
+                <div class="action-button" v-if="slide.user_choice === 'BOOKMARKED'">
                     <v-icon color="primary" size="4.5rem">{{ iconFavorites }}</v-icon>
                 </div>
+                <div class="action-button" v-if="slide.user_choice === 'ACCEPTED'">
+                    <v-icon color="green" size="4.5rem">{{ iconThumbUp }}</v-icon>
+                </div>
+
                 <img :src="slide.image_url" :alt="slide.name" v-if="slide.image_url" />
                 <div class="recommendation-carousel__empty-poster" v-else><span>Poster not yet available</span></div>
             </swiper-slide>
         </swiper>
-        <button class="recommendation-carousel__swiper-button-prev" slot="button-prev">
+        <button class="recommendation-carousel__swiper-button-prev" slot="button-prev" @click="showPrevRec">
             <v-icon size="6.5rem">{{ iconArrowLeft }}</v-icon>
         </button>
-        <button class="recommendation-carousel__swiper-button-next" slot="button-next">
+        <button class="recommendation-carousel__swiper-button-next" slot="button-next" @click="showNextRec">
             <v-icon size="6.5rem">{{ iconArrowRight }}</v-icon>
         </button>
     </div>

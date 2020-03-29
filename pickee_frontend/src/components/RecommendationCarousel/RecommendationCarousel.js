@@ -1,16 +1,21 @@
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
-import { mdiChevronLeft, mdiChevronRight, mdiThumbDown, mdiBookmark } from '@mdi/js';
+import { mdiChevronLeft, mdiChevronRight, mdiThumbDown, mdiThumbUp, mdiBookmark } from '@mdi/js';
 
 export default {
     name: "RecommendationCarousel",
-    props: ['recommendation', 'isLoading'],
+    props: ['recommendation', 'isLoading', 'showPrevRec', 'showNextRec', 'activeSlideIndex'],
     components: {
         swiper,
         swiperSlide,
     },
     methods: {
         setNewRecommendation: function(recommendation, prevChoice) {
+            this.swiperSlides[this.activeSlideIndex].user_choice = prevChoice;
+
+            if (prevChoice === 'ACCEPTED')
+                return false;
+
             if (recommendation) {
                 this.swiperSlides.push({
                     recommendationID: recommendation.recommendation_id,
@@ -18,16 +23,11 @@ export default {
                     name: recommendation.name,
                     user_choice: null
                 });
-            }
 
-            if (prevChoice) {
-                this.swiperSlides[this.lastSlideIndex].user_choice = prevChoice;
+                setTimeout(() => {
+                    this.$refs.mySwiper.swiper.slideTo(this.swiperSlides.length - 1)
+                }, 100);
             }
-            this.lastSlideIndex++;
-
-            setTimeout(() => {
-                this.$refs.mySwiper.swiper.slideNext()
-            }, 100);
         }
     },
     mounted: function() {
@@ -39,11 +39,11 @@ export default {
     },
     data() {
         return {
-            lastSlideIndex: 0,
             iconArrowLeft: mdiChevronLeft,
             iconArrowRight: mdiChevronRight,
             iconFavorites: mdiBookmark,
             iconThumbDown: mdiThumbDown,
+            iconThumbUp: mdiThumbUp,
             swiperSlides: [],
             swiperOption: {
                 effect: "coverflow",
