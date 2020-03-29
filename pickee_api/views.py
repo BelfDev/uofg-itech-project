@@ -40,7 +40,7 @@ def user_login(request):
         else:
             # If there are any authentication errors, send error feedback
             loginFeedback = json.dumps({
-                "error": "invalid credentials"
+                "error": "Invalid credentials"
             })
             context = {'loginFeedback': loginFeedback}
             return render(request, 'login.html', context=context)

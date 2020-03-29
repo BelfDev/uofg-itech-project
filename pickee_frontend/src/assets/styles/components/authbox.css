@@ -7,9 +7,23 @@
 }
 
 .auth-box__header {
+    margin-bottom: 4rem;
     font-weight: 600;
     color: var(--v-grey200-base);
     text-transform: uppercase;
+}
+
+.auth-box__errors {
+    background-color: var(--v-red-base);
+    color: white;
+    /* border: 1px solid red; */
+    border-radius: .8rem;
+    padding: 2rem;
+    margin-bottom: 4rem;
+}
+
+.auth-box__errors p:last-child {
+    margin-bottom: 0;
 }
 
 .auth-box__submit {
