@@ -34,7 +34,7 @@
                                 <img :src="user.picture" :alt="user.name" v-if="user.picture" />
                                 <v-icon size="6rem" color="secondary" v-else>{{ iconUser }}</v-icon>
                             </v-avatar>
-                            <p>Hey {{ user.name }}, <strong>add friends</strong> to your movie session by typing their user ids in the list below</p>
+                            <p>Hey {{ user.first_name }}, <strong>add friends</strong> to your movie session by typing their user ids in the list below</p>
                         </div>
                         <v-text-field
                             dark
