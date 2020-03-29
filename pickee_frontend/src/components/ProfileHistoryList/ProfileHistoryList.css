@@ -39,7 +39,8 @@
 }
 
 .history-list__element-poster,
-.history-list__element-text {
+.history-list__element-text,
+.history-list__empty-poster {
     margin-right: 6.5rem;
 }
 
@@ -65,9 +66,29 @@
 
 .history-list__element-poster img {
     max-width: 100%;
-    max-height: 100%;
     border-radius: 4px;
     opacity: 1;
+}
+
+.history-list__empty-poster {
+    width: 10rem;
+    height: 15rem;
+    background: var(--v-grey950-base);
+    border-radius: .8rem;
+    position: relative;
+}
+
+.history-list__empty-poster span {
+    color: var(--v-grey300-base);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .phone .history-list__header {
