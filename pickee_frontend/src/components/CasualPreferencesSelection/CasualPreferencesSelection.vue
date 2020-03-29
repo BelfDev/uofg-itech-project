@@ -38,7 +38,7 @@
                     </v-select>
                 </div>
                 <div>
-                    <label class="label-accented mb-8">Got any company?</label>
+                    <label class="label-accented mb-8">Got yourself company?</label>
                     <SessionUserSelector :user="user" />
                 </div>
             </div>
