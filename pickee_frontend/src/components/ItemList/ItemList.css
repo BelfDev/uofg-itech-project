@@ -6,7 +6,11 @@
 .item-list__element {
     background-color: var(--v-grey200-base);
     color: var(--v-secondary-base);
-    margin-bottom: 0.1rem;
+    margin-bottom: 1px;
+}
+
+.item-list--accented .item-list__element {
+    background-color: var(--v-grey300-base);
 }
 
 .item-list__element-button {

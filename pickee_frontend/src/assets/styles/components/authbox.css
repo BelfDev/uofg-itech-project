@@ -2,14 +2,28 @@
     padding: 2.2rem 5.7rem 4rem;
     box-shadow: 0 .3rem .6rem #00000029;
     width: 64rem;
-    margin: 0 auto 5rem;
+    margin: 10rem auto 5rem;
     position: relative;
 }
 
 .auth-box__header {
+    margin-bottom: 4rem;
     font-weight: 600;
     color: var(--v-grey200-base);
     text-transform: uppercase;
+}
+
+.auth-box__errors {
+    background-color: var(--v-red-base);
+    color: white;
+    /* border: 1px solid red; */
+    border-radius: .8rem;
+    padding: 2rem;
+    margin-bottom: 4rem;
+}
+
+.auth-box__errors p:last-child {
+    margin-bottom: 0;
 }
 
 .auth-box__submit {

@@ -1,11 +1,13 @@
 <template>
     <v-card class="auth-box" light>
         <h1 class="auth-box__header">Sign Up</h1>
-        <template v-for="(fieldErrors, fieldName) in data.errors">
-            <template v-for="error in fieldErrors">
-                <p v-bind:key="fieldName + error">{{ fieldName }}: {{ error }}</p>
+        <div class="auth-box__errors" v-if="data.errors">
+            <template v-for="(fieldErrors, fieldName) in data.errors">
+                <template v-for="error in fieldErrors">
+                    <p v-bind:key="fieldName + error">{{ fieldName }}: {{ error }}</p>
+                </template>
             </template>
-        </template>
+        </div>
         <form method="post" :action="actionUrl">
             <input type="hidden" name="csrfmiddlewaretoken" :value="token">
             <FormTextField type="text" label="Email" name="email" />

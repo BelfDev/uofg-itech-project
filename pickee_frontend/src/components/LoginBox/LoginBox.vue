@@ -1,7 +1,7 @@
 <template>
     <v-card class="auth-box" light>
         <h1 class="auth-box__header">Login</h1>
-        <template v-if="data.error">{{ data.error }}</template>
+        <div class="auth-box__errors" v-if="data.error">{{ data.error }}</div>
         <form id="login_form" method="post" :action="actionUrl">
             <input type="hidden" name="csrfmiddlewaretoken" :value="token">
             <FormTextField type="text" label="Email" name="email" />
