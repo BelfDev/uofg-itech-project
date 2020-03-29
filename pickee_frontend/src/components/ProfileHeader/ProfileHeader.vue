@@ -16,7 +16,6 @@
             </v-btn>
             <div class="profile-header__content">
                 <h2 class="profile-header__name">{{ user.name}}</h2>
-                <p class="profile-header__time-saved">200 minutes saved</p>
             </div>
         </div>
         <div class="profile-header__error" v-if="errorAvatarUpload.length > 0">{{errorAvatarUpload}}</div>
