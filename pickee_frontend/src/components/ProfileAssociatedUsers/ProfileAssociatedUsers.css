@@ -30,6 +30,10 @@
     padding: 5rem 1rem 0;
 }
 
+.tablet .associated-user-selector__popup-content {
+    padding: 8rem 1rem 0;
+}
+
 .phone .associated-user-selector__popup-content--unauthorized {
     padding: 5rem 1rem 3rem;
 }

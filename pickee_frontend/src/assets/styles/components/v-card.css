@@ -14,6 +14,7 @@
 }
 
 .phone .theme--dark.v-card .v-card__text {
+    padding: 1.8rem;
     font-size: var(--font-size-phone-body-3);
     font-weight: var(--font-weight-phone-body-3);
     line-height: var(--font-line-height-phone-body-3);
