@@ -47,9 +47,11 @@
     display: block;
 }
 
-.tablet .about-page .page-header,
-.phone .about-page .page-header {
+.about-page .page-header {
     z-index: 5;
+}
+
+.tablet .about-page .page-header {
     top: 6rem;
 }
 
