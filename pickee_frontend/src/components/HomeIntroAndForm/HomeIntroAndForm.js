@@ -13,6 +13,15 @@ export default {
             }, 300);
         }
     },
+    created: function() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const step = urlParams.get('step')
+        if (step && step == 2) {
+            this.isFormHidden = false;
+            this.isFormActive = true;
+        }
+    },
     props: ['data'],
     data: () => ({
         isFormHidden: true,

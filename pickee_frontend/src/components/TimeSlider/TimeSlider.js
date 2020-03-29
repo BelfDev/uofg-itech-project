@@ -16,6 +16,6 @@ export default {
         }
     },
     data: () => ({
-        minutes: 30
+        minutes: 120
     })
 };

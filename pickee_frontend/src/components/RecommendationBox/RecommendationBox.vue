@@ -1,5 +1,6 @@
 <template>
     <div class="recommendation-box">
+        <v-btn color="secondary" class="recommendation-box__goback" href="/?step=2">Back to preferences</v-btn>
         <div class="mx-auto mt-p-12" v-if="isInitialLoading">
             <v-progress-circular
                 :size="140"
@@ -8,9 +9,16 @@
                 indeterminate
             ></v-progress-circular>
         </div>
-        
+
         <template v-if="!isInitialLoading && recData.id">
-            <RecommendationCarousel ref="recCarousel" :recommendation="recData" :isLoading="isLoading" />
+            <RecommendationCarousel 
+                ref="recCarousel" 
+                :activeSlideIndex="activeRecIndex"
+                :recommendation="recData" 
+                :isLoading="isLoading" 
+                :showPrevRec="showPrevRec"
+                :showNextRec="showNextRec"
+            />
             <RecommendationDescr 
                 :recommendation="recData" 
                 :providerList="providerList"

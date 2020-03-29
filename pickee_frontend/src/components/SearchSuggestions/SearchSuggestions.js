@@ -2,7 +2,7 @@ import { mdiMagnify, mdiAccount } from "@mdi/js";
 
 export default {
     name: "SearchSuggestions",
-    props: ["entries", "searchMethod", "addMethod", "searchLoading"],
+    props: ["entries", "items", "searchMethod", "addMethod", "searchLoading"],
     data: function() {
         return {
             searchText: "",
@@ -21,6 +21,9 @@ export default {
         addEvent: function(item, index) {
             this.addMethod(item);
             this.entries.splice(index, 1);
+        },
+        isAlreadyAdded(item) {
+            return this.items.findIndex(i => i.id === item.id) !== -1;
         }
     },
     mounted: function() {

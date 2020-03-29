@@ -17,6 +17,9 @@ export default {
             isInitialLoading: true,
             isLoading: false,
             noResultsDialog: false,
+            recommendationList: [],
+            activeRecIndex: 0,
+            lastRecIndex: 0,
             iconClose: mdiClose
         }
     },
@@ -31,12 +34,13 @@ export default {
         }
 
         const recommendation = await api.getRecommendation(this.preferences, this.sessionID, 0);
+        this.recommendationList.push(recommendation);
 
         if (recommendation.results && recommendation.total_results === 0) {
             this.noResultsDialog = true;
             this.recData = null;
         } else {
-            this.recData = recommendation;
+            this.recData = this.recommendationList[this.lastRecIndex];
             this.isInitialLoading = false;
         }
     },
@@ -48,19 +52,25 @@ export default {
             this.isLoading = true;
             this.updateRecommendationStatus(userChoice);
 
-            const response = await api.getRecommendation(this.preferences, this.sessionID, this.offset);
+            const recommendation = await api.getRecommendation(this.preferences, this.sessionID, this.offset);
             this.offset++;
-            
-            let recommendation = response;
-            if (!response || response == {} || Object.keys(response).length === 0) {
+
+            if (!recommendation || recommendation == {} || Object.keys(recommendation).length === 0) {
                 this.noResultsDialog = true;
-                recommendation = null;
             } else {
-                this.recData = response;
+                this.recommendationList.push(recommendation);
                 this.isLoading = false;
             }
 
-            this.$refs.recCarousel.setNewRecommendation(recommendation, userChoice);
+            this.recData = this.recommendationList[++this.lastRecIndex];
+            this.activeRecIndex = this.lastRecIndex;
+            this.$refs.recCarousel.setNewRecommendation(this.recData, userChoice);
+        },
+        showPrevRec: async function() {
+            this.recData = this.recommendationList[--this.activeRecIndex];
+        },
+        showNextRec: async function() {
+            this.recData = this.recommendationList[++this.activeRecIndex];
         },
         getProviderList: async function(userChoice) {
             this.isLoading = true;
@@ -73,6 +83,7 @@ export default {
                     link: item.url
                 }));
             }
+            this.$refs.recCarousel.setNewRecommendation(this.recData, userChoice);
             this.isLoading = false;
         },
         updateRecommendationStatus: async function(userChoice) {

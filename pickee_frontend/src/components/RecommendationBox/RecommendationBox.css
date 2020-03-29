@@ -1,7 +1,15 @@
 .recommendation-box {
     display: flex;
+    position: relative;
     align-items: center;
     min-height: 100%;
+}
+
+.recommendation-box__goback {
+    position: absolute;
+    bottom: 8rem;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .phone .recommendation-box,

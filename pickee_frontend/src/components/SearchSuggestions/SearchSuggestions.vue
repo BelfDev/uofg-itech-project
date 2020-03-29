@@ -22,6 +22,7 @@
             <v-list v-if="entries && entries.length > 0">
                 <v-list-item
                     v-for="(item, index) in entries"
+                    :disabled="isAlreadyAdded(item)"
                     :key="index"
                     @click="addEvent(item, index)"
                 >
