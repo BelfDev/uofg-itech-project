@@ -51,6 +51,14 @@
     padding-left: 4rem;
 }
 
+.theme--dark.v-list-item--disabled {
+    background-color: var(--v-grey800-base);
+}
+
+.theme--dark.v-list-item--disabled .v-avatar {
+    opacity: .5;
+}
+
 .search-suggestions__search-btn.v-btn:not(.v-btn--round).v-size--large {
     position: absolute;
     top: 0;
