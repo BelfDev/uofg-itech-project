@@ -6,7 +6,7 @@
             :placeholder="placeholder" 
             :name="name" 
             :type="type" 
-            @change="changeEvent(name, model)"
+            @change="changeEvent && changeEvent(name, model)"
             solo 
             dark
         ></v-text-field>
