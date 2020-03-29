@@ -6,11 +6,21 @@
     position: relative;
 }
 
+.phone .auth-box {
+    padding: 2rem;
+    margin-bottom: 15rem;
+}
+
 .auth-box__header {
     margin-bottom: 4rem;
     font-weight: 600;
     color: var(--v-grey200-base);
     text-transform: uppercase;
+}
+
+.phone .auth-box__header {
+    font-size: var(--font-size-heading3);
+    line-height: var(--font-line-height-heading3);
 }
 
 .auth-box__errors {
@@ -33,6 +43,12 @@
     width: 24.8rem;
 }
 
+.phone .auth-box__submit {
+    width: 100%;
+    left: 0;
+    bottom: -8rem;
+}
+
 .v-application a.auth-box__signup-link{
     text-transform: uppercase;
     color: var(--v-grey400-base);
@@ -43,4 +59,16 @@
     bottom: -5rem;
     font-size: var(--font-size-body-2);
     line-height: var(--font-line-height-body-2);
+}
+
+.phone .v-application a.auth-box__signup-link {
+    bottom: -15rem;
+}
+
+.tablet .auth-box {
+    margin-top: 5rem;
+}
+
+.phone .auth-box {
+    margin-top: 2rem;
 }

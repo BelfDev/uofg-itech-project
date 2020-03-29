@@ -9,10 +9,6 @@
     height: 10rem !important;
 }
 
-.phone .page-header .header-auth {
-    margin-left: 1rem;
-}
-
 .page-header .header-nav {
     margin-left: auto;
 }
@@ -23,4 +19,5 @@
 
 .phone .page-header .header-auth {
     height: 7rem !important;
+    margin-left: 3rem;
 }

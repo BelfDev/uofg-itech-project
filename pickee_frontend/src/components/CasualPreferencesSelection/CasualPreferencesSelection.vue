@@ -4,11 +4,11 @@
 
         <div class="casual-prefences-selection__wrapper">
             <div class="casual-prefences-selection__form">
-                <div class="mb-12 pt-6">
+                <div class="mb-12 pt-6 pt-p-0">
                     <label class="label-accented mb-8">How much time you got?</label>
                     <TimeSlider name="runtime" />
                 </div>
-                <div class="mb-10 pt-6">
+                <div class="mb-10 pt-6 pt-p-0 mb-p-0">
                     <label class="label-accented mb-8">Any genres in mind?</label>
                     <input type="hidden" name="genre_ids" v-model="genreValue" />
                     <v-select

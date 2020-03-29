@@ -69,9 +69,12 @@
     height: 8rem !important;
     width: 8rem !important;
     min-width: 8rem !important;
+    margin-bottom: -2.5rem;
     margin-left: -3.5rem;
 }
 
+.phone .session-user-selector__selected-item .v-icon,
+.phone .session-user-selector__selector .v-icon,
 .phone .session-user-selector__selector-icon.v-icon {
     height: 4rem !important;
     width: 4rem !important;

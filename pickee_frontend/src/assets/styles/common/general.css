@@ -22,10 +22,22 @@ body {
     min-height: 100%;
 }
 
+.tablet .page-content,
+.home .page-content {
+    display: block;
+    height: auto;
+    min-height: 0;
+}
+
 .page-content--centered .v-content__wrap {
     min-height: 100%;
     display: flex;
     align-items: center;
+}
+
+.tablet .page-content--centered .v-content__wrap,
+.phone .page-content--centered .v-content__wrap {
+    display: block;
 }
 
 .phone .page-wrapper {
