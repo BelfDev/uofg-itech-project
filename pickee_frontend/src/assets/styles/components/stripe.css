@@ -1,7 +1,7 @@
 .stripe {
     position: absolute;
     transform: rotate(10deg);
-    left: 17rem;
+    left: 35rem;
 }
 
 .phone .stripe {
@@ -11,9 +11,9 @@
 .stripe--dark {
     background-color: var(--v-grey970-base);
     /* background-color: yellow; */
-    left: -30rem;
+    left: -20rem;
     box-shadow: 0px 3px 12px #15151529;
-    width: 48rem;
+    width: 58rem;
     z-index: 1;
     top: -20rem;
     bottom: -20rem;
@@ -28,7 +28,7 @@
     background-color: var(--v-grey960-base);
     /* background-color: red; */
     box-shadow: 0px 3px 12px #15151529;
-    width: 12rem;
+    width: 21.5rem;
     z-index: 3;
     top: -20rem;
     bottom: -20rem;
@@ -45,7 +45,7 @@
     /* background-color: green; */
     z-index: 4;
     width: 12rem;
-    left: 28.9rem;
+    left: 47rem;
     top: -20rem;
     bottom: -20rem;
 }
