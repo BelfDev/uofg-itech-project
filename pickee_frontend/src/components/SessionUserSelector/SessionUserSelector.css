@@ -11,6 +11,7 @@
 .session-user-selector__selector {
     margin-left: -5.5rem;
     margin-bottom: -5.5rem;
+    background-color: var(--v-grey950-base);
 }
 
 .session-user-selector__selector.v-avatar {

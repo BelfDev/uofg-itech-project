@@ -31,7 +31,7 @@ export default {
             this.userEmail = '';
 
             if (userData.length > 0) {
-                this.errorUserLookup = null;
+                this.errorUserLookup = '';
                 const data = userData[0];
                 
                 if (data.id === this.user.id) {
@@ -61,7 +61,7 @@ export default {
                 id: user.id,
                 image: user.picture,
                 text: `${user.first_name} ${user.last_name}`,
-                icon: mdiMinusCircle,
+                icon: mdiPlusCircle,
                 hidden: false
             });
         });

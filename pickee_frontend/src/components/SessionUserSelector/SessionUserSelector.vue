@@ -53,7 +53,7 @@
                         </template>
                         <template v-if="associatedUsers.length > 0">
                             <p class="body-3">You can select user from your friends:</p>
-                            <ItemList :items="displayedAssociatedUsers" :button-action="selectSessionUser" />
+                            <ItemList :items="displayedAssociatedUsers" :button-action="selectSessionUser" accented />
                         </template>
                     </v-card-text>
 
