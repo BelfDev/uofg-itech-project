@@ -32,6 +32,18 @@
     height: 8rem;
 }
 
+.phone .recommendation-carousel__swiper-slide .action-button {
+    height: 4rem;
+    width: 4rem;
+    top: auto;
+    bottom: 2rem
+}
+
+.phone .recommendation-carousel__swiper-slide .action-button .theme--dark.v-icon {
+    width: 3rem !important;
+    height: 3rem !important;
+}
+
 .recommendation-carousel__swiper-slide img {
     width: 46rem;
     height: 68rem;
@@ -120,6 +132,7 @@
     width: 8rem;
     height: 8rem;
 }
+
 .tablet .recommendation-carousel {
     padding: 10rem 0 5rem;
 }

@@ -1,11 +1,10 @@
 <template>
     <div class="recommendation-box">
-        <div class="mx-auto">
+        <div class="mx-auto mt-p-12" v-if="isInitialLoading">
             <v-progress-circular
                 :size="140"
                 :width="7"
                 color="primary"
-                v-if="isInitialLoading"
                 indeterminate
             ></v-progress-circular>
         </div>
