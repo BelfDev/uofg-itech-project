@@ -45,6 +45,7 @@ class PickeeUser(AbstractBaseUser, PermissionsMixin):
 
 
 class FavoriteActor(models.Model):
+    # Required fields
     user = models.ForeignKey('PickeeUser', on_delete=models.CASCADE)
     actor = models.ForeignKey('Actor', on_delete=models.CASCADE)
 
@@ -56,8 +57,11 @@ class FavoriteActor(models.Model):
 
 
 class Actor(models.Model):
+    # Required fields
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=128)
+
+    # Optional field
     image_url = models.URLField(blank=True, null=True)
 
     def __str__(self):
@@ -65,6 +69,7 @@ class Actor(models.Model):
 
 
 class FavoriteMovie(models.Model):
+    # Required fields
     user = models.ForeignKey('PickeeUser', on_delete=models.CASCADE)
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
 
@@ -76,11 +81,15 @@ class FavoriteMovie(models.Model):
 
 
 class Movie(models.Model):
+    # Required fields
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=128)
+
+    # Optional fields
     image_url = models.URLField(blank=True, null=True)
     rating = models.DecimalField(max_digits=3, decimal_places=1,
-                                 validators=[MaxValueValidator(10.0), MinValueValidator(0)])
+                                 validators=[MaxValueValidator(10.0), MinValueValidator(0)],
+                                 blank=True, null=True)
     release_date = models.DateField(auto_now=False, null=True)
     description = models.TextField()
 
@@ -89,6 +98,7 @@ class Movie(models.Model):
 
 
 class MovieCast(models.Model):
+    # Required fields
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
     actor = models.ForeignKey('Actor', on_delete=models.CASCADE)
 
@@ -97,6 +107,7 @@ class MovieCast(models.Model):
 
 
 class Keyword(models.Model):
+    # Required fields
     id = models.IntegerField(primary_key=True)
     keyword = models.CharField(max_length=128)
 
@@ -105,6 +116,7 @@ class Keyword(models.Model):
 
 
 class MovieKeyword(models.Model):
+    # Required fields
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
     keyword = models.ForeignKey('Keyword', on_delete=models.CASCADE)
 
@@ -113,6 +125,7 @@ class MovieKeyword(models.Model):
 
 
 class FavoriteGenre(models.Model):
+    # Required fields
     user = models.ForeignKey('PickeeUser', on_delete=models.CASCADE, default=None)
     genre = models.ForeignKey('Genre', on_delete=models.CASCADE)
 
@@ -124,6 +137,7 @@ class FavoriteGenre(models.Model):
 
 
 class Genre(models.Model):
+    # Required fields
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=128)
 
@@ -132,8 +146,11 @@ class Genre(models.Model):
 
 
 class Recommendation(models.Model):
+    # Required fields
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
     session = models.ForeignKey('Session', on_delete=models.CASCADE)
+
+    # Optional field
     USER_CHOICES = [
         ('ACCEPTED', 'Accepted'),
         ('REJECTED', 'Rejected'),
@@ -145,6 +162,7 @@ class Recommendation(models.Model):
 
 
 class Session(models.Model):
+    # Required field
     users = models.ManyToManyField(PickeeUser)
 
     def __str__(self):

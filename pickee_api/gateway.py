@@ -36,6 +36,7 @@ def get_available_providers(request):
         data = utellyResponse.json()
 
         response = {}
+        # Retrieves relevant results from the query
         if data.get('results'):
             results = data.get('results')
             relevant_results = __filter_utelly_results(results,movie_name)
@@ -297,6 +298,8 @@ def __get_movie_cast(movie_id):
     castData = castResponse.json()
     return castData.get('cast')[:5]
 
+
+# Filters results to return the correct movie
 def __filter_utelly_results(results, movie_name):
     relevant_results = []
     for result in results:

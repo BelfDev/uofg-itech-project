@@ -6,6 +6,7 @@ from pickee_api import models, serializers
 from pickee_api.models import PickeeUser
 from pickee_api.serializers import PickeeUserSerializer
 
+# Create internal application endpoints
 
 class PickeeUserViewSet(viewsets.ModelViewSet):
     queryset = PickeeUser.objects.all().order_by('-date_joined')
