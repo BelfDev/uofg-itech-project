@@ -59,12 +59,11 @@ export default {
                 this.noResultsDialog = true;
             } else {
                 this.recommendationList.push(recommendation);
+                this.recData = this.recommendationList[++this.lastRecIndex];
+                this.activeRecIndex = this.lastRecIndex;
+                this.$refs.recCarousel.setNewRecommendation(this.recData, userChoice);
                 this.isLoading = false;
             }
-
-            this.recData = this.recommendationList[++this.lastRecIndex];
-            this.activeRecIndex = this.lastRecIndex;
-            this.$refs.recCarousel.setNewRecommendation(this.recData, userChoice);
         },
         showPrevRec: async function() {
             this.recData = this.recommendationList[--this.activeRecIndex];
