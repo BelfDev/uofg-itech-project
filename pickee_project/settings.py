@@ -30,7 +30,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = 'g(c-@a@knp%bqc(g&kz8c1+%nupy549vfic&m0(=xgangbb2a%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['madstax.pythonanywhere.com', '127.0.0.1']
 
