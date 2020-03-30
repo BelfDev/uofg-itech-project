@@ -1,7 +1,7 @@
 <template>
-    <div class="recommendation-box">
+    <div class="recommendation-box" :class="{'recommendation-box--loading' : isLoading}">
         <v-btn color="secondary" class="recommendation-box__goback" href="/?step=2">Back to preferences</v-btn>
-        <div class="mx-auto mt-p-12" v-if="isInitialLoading">
+        <div class="mx-auto mt-p-12 recommendation-box__loader" v-if="isInitialLoading || isLoading">
             <v-progress-circular
                 :size="140"
                 :width="7"
