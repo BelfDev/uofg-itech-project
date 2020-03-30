@@ -6,6 +6,27 @@
     padding-bottom: 8rem;
 }
 
+.recommendation-box--loading:before {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    opacity: .5;
+    z-index: 10;
+}
+
+.recommendation-box--loading .recommendation-box__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+}
+
 .recommendation-box__goback {
     position: absolute;
     bottom: 4rem;

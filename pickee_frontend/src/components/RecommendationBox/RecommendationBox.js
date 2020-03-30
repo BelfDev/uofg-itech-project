@@ -57,13 +57,15 @@ export default {
 
             if (!recommendation || recommendation == {} || Object.keys(recommendation).length === 0) {
                 this.noResultsDialog = true;
+                this.$refs.recCarousel.setNewRecommendation(null, userChoice);
             } else {
                 this.recommendationList.push(recommendation);
                 this.recData = this.recommendationList[++this.lastRecIndex];
                 this.activeRecIndex = this.lastRecIndex;
                 this.$refs.recCarousel.setNewRecommendation(this.recData, userChoice);
-                this.isLoading = false;
             }
+
+            this.isLoading = false;
         },
         showPrevRec: async function() {
             this.recData = this.recommendationList[--this.activeRecIndex];

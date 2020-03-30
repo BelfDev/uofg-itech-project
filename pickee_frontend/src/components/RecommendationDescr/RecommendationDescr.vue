@@ -41,7 +41,7 @@
             </button>
             <v-dialog v-model="dialog" width="84rem" :persistent="true">
                 <template v-slot:activator="{ on }">
-                    <button class="action-button" :disabled="isLoading" v-on="on" @click="acceptEvent('ACCEPTED')">
+                    <button class="action-button" v-on="on" @click="acceptEvent('ACCEPTED')">
                         <v-icon color="green">{{ iconThumbUp }}</v-icon>
                     </button>
                 </template>
