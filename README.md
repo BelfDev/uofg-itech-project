@@ -12,7 +12,8 @@ The project takes advantage of [poetry](https://github.com/python-poetry/poetry)
 - [Vue.js 2.6.11](https://vuejs.org/v2/guide/installation.html)
 - [Vue CLI 4.2.2](https://cli.vuejs.org/guide/installation.html)
 
-**Automated setup**
+### Automated setup
+
 MadStax provides you with a beautiful automagical setup script!
 If you want us to lift up everything for you simply navigate to he project's root directory and run the following command:<br>
     ```python setup.py```<br><br>
