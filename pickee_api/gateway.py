@@ -11,7 +11,7 @@ from pickee_api.utils import BearerAuth, FavoriteFilter
 # The token was kept here to simplify the marking process
 # In a real-world scenario we would never commit this token
 TMDB_ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NjZjYTNlNDMxOWE4MzVjYWVlODI2MmE3YTgzZjNiNCIsInN1YiI6IjVlNjUwMDM3MTUxYzVjMDAxNWZmYWYyMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iLqC8qnysp7u5Ha5ChC1Ag8iiLQP9zyWikURmHH7L48"
-UTELLY_API_KEY = "ed03a46877msh52c7837560678fep10a146jsnaac521c60402"
+UTELLY_API_KEY = "86b61b2d3emsh12a93c365e85a47p1c7307jsn6eefb71bc2e5"
 TMDB_ITEMS_PER_PAGE = 20
 
 
