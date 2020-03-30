@@ -3,6 +3,7 @@ from rest_framework_bulk import BulkListSerializer, BulkSerializerMixin
 
 from . import models
 
+# Create serializers for models
 
 class PickeeUserSerializer(serializers.ModelSerializer):
     class Meta:
