@@ -36,14 +36,16 @@ export default class {
             device = 'tablet';
         } else if (this.md.mobile()) {
             device = 'phone';
+        } else if (this._is_touch_device() && this.md.mobile() == null && this.md.os() == null) {
+            device = 'tablet';
         }
 
-        setTimeout(() => {
-            console.log(this.md.os());
-            console.log(this.md.userAgent());
-            console.log(this._is_touch_device());
-            document.body.innerHTML = "OS: " + this.md.os() + "<br />" + "UserAgent: " + this.md.userAgent() + "<br />" + "Is touch: " +  + this._is_touch_device() + "<br />" + "Is mobile: " + this.md.mobile() + "<br />" + "Is tablet: " + this.md.tablet() + "<br />" + "Version: " + this.md.version() + "<br />" + "Is phone: " + this.md.phone();
-        }, 5000);
+        // setTimeout(() => {
+            // console.log(this.md.os());
+            // console.log(this.md.userAgent());
+            // console.log(this._is_touch_device());
+            // document.body.innerHTML = "OS: " + this.md.os() + "<br />" + "UserAgent: " + this.md.userAgent() + "<br />" + "Is touch: " +  + this._is_touch_device() + "<br />" + "Is mobile: " + this.md.mobile() + "<br />" + "Is tablet: " + this.md.tablet() + "<br />" + "Version: " + this.md.version() + "<br />" + "Is phone: " + this.md.phone();
+        // }, 5000);
 
         return device;
     }
