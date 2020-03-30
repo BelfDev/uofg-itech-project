@@ -12,7 +12,7 @@
 }
 
 .time-slider__input {
-    padding: 2.4rem;
+    padding: 4.1rem 2.4rem;
     background-color: var(--v-grey700-base);
     border-radius: .8rem;
 }
@@ -41,3 +41,5 @@
     width: 3.6rem;
     height: 3.6rem;
 }
+
+/*.time-slider__input .v-slid*/
