@@ -3,7 +3,7 @@ import sys
 from shutil import which
 from subprocess import call
 
-necessary_tools = ["python3", "poetry", "pip", "yarn", "npm", "conda"]
+necessary_tools = ["python", "poetry", "pip", "yarn", "npm", "conda"]
 uninstalled_tools = []
 original_dir = os.getcwd()
 
@@ -44,24 +44,24 @@ for tool in necessary_tools:
         uninstalled_tools.append(tool)
 
 if uninstalled_tools:
-    if "python3" in uninstalled_tools:
-        print("\nWe really need python3!")
+    if "python" in uninstalled_tools:
+        print("\nWe really need python!")
         print("https://www.python.org/downloads/release/python-373/")
         sys.exit()
     # Checks for frontend tools
     if "yarn" in uninstalled_tools and "npm" in uninstalled_tools:
         print("\nWe need at least one node package management tool to install frontend packages.")
-        print("😰 We recommend installing Yarn")
-        print("   https://classic.yarnpkg.com/en/docs/install")
+        print("We recommend installing Yarn")
+        print("https://classic.yarnpkg.com/en/docs/install")
         sys.exit()
     # Checks for backend tools
     if "poetry" in uninstalled_tools and "pip" in uninstalled_tools:
         print("\nWe need at least one python package management tool to install backend packages")
-        print("😰 We recommend installing Poetry")
-        print("   https://github.com/python-poetry/poetry")
+        print("We recommend installing Poetry")
+        print("https://github.com/python-poetry/poetry")
         sys.exit()
 
-print("\nAll good! 😁")
+print("\nAll good!")
 # Checks and activates the python virtual environment
 if "poetry" in uninstalled_tools:
     print("We see you are not using poetry.")
@@ -119,11 +119,11 @@ call('python manage.py migrate', shell=True)
 print("\n=============================")
 print("    Populating database...")
 print("=============================")
-call('python manage.py population_script.py', shell=True)
+call('python population_script.py', shell=True)
 
 print("\n=============================")
 print("And finally: running the app!")
 print("=============================")
 call('python manage.py runserver', shell=True)
 
-print("\nEnjoy Pickee! 😁")
+print("\nEnjoy Pickee!")
