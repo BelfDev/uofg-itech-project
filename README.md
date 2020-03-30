@@ -16,7 +16,7 @@ The project takes advantage of [poetry](https://github.com/python-poetry/poetry)
 
 MadStax provides you with a beautiful automagical setup script!
 If you want us to lift up everything for you, simply navigate to the project's root directory and run the following command:<br><br>
-    ```python setup.py```<br><br>
+    ```python3 setup.py```<br><br>
 
 **Make sure you use `yarn` instead of `npm` to install Vue.js and Vue CLI**
 
