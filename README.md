@@ -23,7 +23,7 @@ If you want us to lift up everything for you, simply navigate to the project's r
 ### Manual local setup (development)
 
 1. Select your preferred directory and clone this repo <br><br> 
-    ```git clone git@github.com:BelfDev/uofg-itech-project.git```<br><br>
+    ```git clone https://github.com/BelfDev/uofg-itech-project.git```<br><br>
 
 2. Enter the project directory<br><br>
     ```cd uofg-itech-project```<br><br>
