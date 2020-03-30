@@ -92,6 +92,11 @@
     text-transform: uppercase;
 }
 
+.action-button.history-list__element-icon svg {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+}
+
 .phone .history-list__header {
     font-size: var(--font-size-phone-body-1);
     line-height: var(--font-line-height-phone-body-1);

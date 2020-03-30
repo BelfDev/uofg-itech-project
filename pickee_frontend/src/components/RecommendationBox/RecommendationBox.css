@@ -3,11 +3,12 @@
     position: relative;
     align-items: center;
     min-height: 100%;
+    padding-bottom: 8rem;
 }
 
 .recommendation-box__goback {
     position: absolute;
-    bottom: 8rem;
+    bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
 }

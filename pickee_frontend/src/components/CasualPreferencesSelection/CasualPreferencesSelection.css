@@ -33,12 +33,19 @@
     color: var(--v-primary-base);
 }
 
+.casual-prefences-selection__action-icon.theme--dark.v-icon,
+.casual-prefences-selection__action-icon.theme--dark.v-icon svg {
+    width: 33rem !important;
+    height: 33rem !important;
+}
+
 .tablet .casual-prefences-selection__wrapper {
     flex-flow: column;
 }
 
 .tablet .casual-prefences-selection__form {
     padding-top: 20rem;
+    padding-bottom: 15rem;
 }
 
 .tablet .casual-prefences-selection__action-block {

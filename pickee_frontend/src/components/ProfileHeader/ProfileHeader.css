@@ -33,6 +33,11 @@
     height: auto;
 }
 
+.profile-header__avatar svg {
+    width: 10rem !important;
+    height: 10rem !important;
+}
+
 .profile-header__avatar .v-text-field > .v-input__control > .v-input__slot > .v-text-field__slot {
     height: 100%;
     width: 100%;

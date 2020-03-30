@@ -11,7 +11,7 @@
                         @change="uploadAvatar"
                     ></v-file-input>
                     <img :src="user.picture" :alt="user.name" v-if="user.picture" />
-                    <v-icon size="10rem" color="white" v-else>{{ iconUser }}</v-icon>
+                    <v-icon color="white" v-else>{{ iconUser }}</v-icon>
                 </v-avatar>
             </v-btn>
             <div class="profile-header__content">

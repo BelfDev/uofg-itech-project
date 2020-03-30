@@ -37,6 +37,7 @@
 .phone .recommendation-descr__top {
     flex-flow: column;
     align-items: flex-start;
+    padding-right: 5rem;
 }
 
 .recommendation-descr__title {
@@ -112,6 +113,12 @@
     justify-content: space-between;
 }
 
+.recommendation-descr__actions .action-button .v-icon,
+.recommendation-descr__actions .action-button svg {
+    width: 7.5rem !important;
+    height: 7.5rem !important;
+}
+
 .recommendation-descr__popup-text {
     padding: 2rem 12rem 6rem;
 }
@@ -120,8 +127,23 @@
     margin-top: 6rem;
 }
 
+
+.phone .recommendation-descr {
+    display: flex;
+    flex-flow: column;
+}
+
+.phone .recommendation-descr .theme--dark.v-card {
+    order: 2;
+}
+
 .phone .recommendation-descr {
     padding-left: 0;
+}
+
+.phone .recommendation-descr__actions {
+    order: 1;
+    margin-bottom: 3.2rem;
 }
 
 .phone .recommendation-descr__popup-text {

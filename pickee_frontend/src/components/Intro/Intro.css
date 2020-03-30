@@ -20,6 +20,11 @@
     box-shadow: 0px 2px 12px var(--v-secondary-base);
 }
 
+.intro__button .v-btn svg {
+    width: 5.6rem !important;
+    height: 5.6rem !important;
+}
+
 .phone .intro__button .v-btn__content {
     font-size: var(--font-size-phone-body-3);
     line-height: var(--font-line-height-phone-body-3);
