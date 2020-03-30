@@ -103,6 +103,7 @@
             },
             
             saveActors: async function() {
+                // Add new actors
                 if (this.newFavoriteActors.length > 0) {
                     const response = await api.addFavoriteActors(this.userID, this.newFavoriteActors);
                     response.forEach(res => {
@@ -112,6 +113,7 @@
                     this.newFavoriteActors = [];
                 }
 
+                // Remove selected actors
                 if (this.removedFavoriteActors.length > 0) {
                     for (let i = 0; i < this.removedFavoriteActors.length; i++) {
                         await api.removeFavoriteActors(this.userID, this.removedFavoriteActors[i]);
@@ -144,6 +146,7 @@
             },
             
             saveMovies: async function() {
+                // Add new movies
                 if (this.newFavoriteMovies.length > 0) {
                     const response = await api.addFavoriteMovies(this.userID, this.newFavoriteMovies);
                     response.forEach(res => {
@@ -153,6 +156,7 @@
                     this.newFavoriteMovies = [];
                 }
 
+                // Remove selected movies
                 if (this.removedFavoriteMovies.length > 0) {
                     for (let i = 0; i < this.removedFavoriteMovies.length; i++) {
                         await api.removeFavoriteMovies(this.userID, this.removedFavoriteMovies[i]);

@@ -3,6 +3,10 @@ import { mdiClose, mdiAccount } from "@mdi/js";
 
 let handleOutsideClick
 
+
+// Add vue directive for the closable functionality.
+// When it registers click outside of the element (except
+// excluded selectors) - it runs the handler method
 Vue.directive('closable', {
   bind (el, binding, vnode) {
     handleOutsideClick = (e) => {

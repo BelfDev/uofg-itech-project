@@ -32,7 +32,9 @@ const _deleteFavoriteGenres = async function(userID, favGenres, genreIDs) {
 };
 
 
-
+/**
+ * API METHODS TO FETCH OR UPDATE DATA
+ */
 
 export default {
     async createSession(userIDs) {

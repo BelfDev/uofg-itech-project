@@ -1,5 +1,11 @@
 'use strict';
 
+/**
+ * A class to detect device and adjust the root element's (html) font-size 
+ * according to the device width. All the measurements in REM will be
+ * based on this font-size
+ */
+
 import MobileDetect from 'mobile-detect';
 
 const BASE_WIDTH = {
@@ -36,16 +42,13 @@ export default class {
             device = 'tablet';
         } else if (this.md.mobile()) {
             device = 'phone';
-        } else if (this._is_touch_device() && this.md.mobile() == null && this.md.os() == null) {
+        } else if (this._isTouchDevice() && this.md.mobile() == null && this.md.os() == null) {
             device = 'tablet';
         }
 
         return device;
     }
 
-    /**
-     * Event binding
-     */
     bindEvents() {
         this.$window.addEventListener("resize", () => {
             this.switchBodyClasses();
@@ -53,17 +56,11 @@ export default class {
         });
     }
 
-    /**
-     * Resize screen
-     */
     runScreenResize() {
         this.switchBodyClasses();
         this.changeBaseFontSize();
     }
 
-    /**
-     * Gets new font size and sets it for root html element
-     */
     changeBaseFontSize() {
         const baseWidth = this.calcBaseWidth();
         const size = this.calculateFontSize(baseWidth);
@@ -76,7 +73,6 @@ export default class {
 
     /**
      * Gets target width and tweaks font size accordingly
-     * @returns {string} Font-size string in px
      */
     calculateFontSize(baseWidth) {
         let targetWidth = document.documentElement.clientWidth;
@@ -95,16 +91,11 @@ export default class {
     /**
      * Compares constants and current window width and
      * returns the lowest
-     * @returns {number}
      */
     getTargetWidth() {
         return Math.min(this.$window.innerWidth(), BASE_WIDTH)
     }
 
-    /**
-     * Sets font size for root html element
-     * @param size
-     */
     setPageFontSize(size) {
         this.$html.style.fontSize = size;
     }
@@ -117,7 +108,7 @@ export default class {
         body.classList.add(this.device);
     }
 
-    _is_touch_device() {
+    _isTouchDevice() {
         try {  
             document.createEvent("TouchEvent");  
             return true;  

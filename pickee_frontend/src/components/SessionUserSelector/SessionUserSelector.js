@@ -23,25 +23,34 @@ export default {
             });
         },
         addSessionUser: async function(e) {
+            // If there is no email - exit
             if (this.userEmail == null) return false;
+
+            // Allow only enter keyword
             if (e.type === "keydown" && e.key !== "Enter")
                 return false;
 
             const userData = await api.getUser(this.userEmail);
+
+            // Reset the input value
             this.userEmail = '';
 
             if (userData.length > 0) {
+                // Reset the error
                 this.errorUserLookup = '';
                 const data = userData[0];
                 
+                // Check if the user is trying to add himself/herself
                 if (data.id === this.user.id) {
                     this.errorUserLookup = "Your preferences are already considered";
                     return false;
                 }
                 
+                // Find if it's an associated user
                 const ascUser = this.associatedUsers.find(user => data.id === user.id);
                 if (ascUser) ascUser.hidden = true;
 
+                // Process the list data
                 const name = (data.first_name || data.last_name) ? `${data.first_name} ${data.last_name}` : data.email;
                 this.selectedUsers.push({
                     id: data.id,
@@ -50,11 +59,13 @@ export default {
                     icon: mdiMinusCircle
                 });
             } else {
+                // Show the error
                 this.errorUserLookup = "Sorry, we couldn't find a user with this email"
             }
         }
     },
     mounted: async function() {
+        // Populate the list of associated users
         if (this.user && this.user.id) {
             const ascUsersResponse = await api.getAscUsers(this.user.id);
             ascUsersResponse.map(user => {

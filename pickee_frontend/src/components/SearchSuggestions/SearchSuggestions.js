@@ -13,6 +13,7 @@ export default {
     },
     methods: {
         searchEvent: function(e) {
+            // Allow only "Enter" keydown
             if (e.type === "keydown" && e.key !== "Enter")
                 return false;
 

@@ -1,6 +1,12 @@
 import VueCookies from 'vue-cookies';
 
+// Base part of the API URL
 const APIBase = "/api";
+
+
+/**
+ * REQUEST HELPER FUNCTIONS
+ */
 
 const jsonRequest = async function(url, params, method) {
     const myHeaders = new Headers();

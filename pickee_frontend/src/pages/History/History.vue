@@ -20,6 +20,8 @@
     import ProfileHistoryList from "@/components/ProfileHistoryList/ProfileHistoryList.vue";
     import { mdiThumbDown, mdiThumbUp, mdiBookmark } from '@mdi/js';
 
+    // Every user choice has a corresponding
+    // icon and color
     const choiceIconMap = {
         "REJECTED": {
             icon: mdiThumbDown,
