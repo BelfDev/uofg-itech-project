@@ -17,6 +17,7 @@ export default {
                 return false;
 
             if (recommendation) {
+                // Add new slide
                 this.swiperSlides.push({
                     recommendationID: recommendation.recommendation_id,
                     image_url: recommendation.image_url,
@@ -24,6 +25,7 @@ export default {
                     user_choice: null
                 });
 
+                // Swipe to the last slide automatically
                 setTimeout(() => {
                     this.$refs.mySwiper.swiper.slideTo(this.swiperSlides.length - 1)
                 }, 100);

@@ -1,8 +1,11 @@
 const BundleTracker = require("webpack-bundle-tracker");
 const VuetifyLoaderPlugin = require("vuetify-loader/lib/plugin");
 
+/**
+ * Sets the list of pages and creates an entry point for each page
+ */
+
 const pagesList = [
-    "_Demo",
     "Home",
     "Login",
     "SignUp",
@@ -21,6 +24,10 @@ pagesList.forEach(pageName => {
         chunks: ["chunk-vendors"]
     };
 });
+
+/**
+ * Configuring webpack and its bundles
+ */
 
 module.exports = {
     pages: pages,

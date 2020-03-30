@@ -14,6 +14,8 @@ export default {
         }
     },
     created: function() {
+        // On the page load - check url parameters and
+        // change screen if it is ?step=2
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const step = urlParams.get('step')

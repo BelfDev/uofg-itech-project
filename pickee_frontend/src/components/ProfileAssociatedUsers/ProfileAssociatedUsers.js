@@ -9,22 +9,31 @@ export default {
     },
     methods: {
         addAscUser: async function(e) {
+            // If there is no email provided - exit
             if (this.userEmail == null) return false;
+
+            // Register only "Enter" keydown
             if (e.type === "keydown" && e.key !== "Enter")
                 return false;
 
+            // Get user data
             const userData = await api.getUser(this.userEmail);
+
+            // Reset the input string
             this.userEmail = '';
 
             if (userData.length > 0) {
+                // Reset the error string
                 this.errorUserLookup = '';
                 const data = userData[0];
                 
+                // Check if the user tries to add himself/herself
                 if (data.id === this.user.id) {
                     this.errorUserLookup = "You can't add yourself";
                     return false;
                 }
                 
+                // Process the list data
                 const name = (data.first_name || data.last_name) ? `${data.first_name} ${data.last_name}` : data.email;
                 this.ascUsersIDs.push(data.id);
                 this.ascUsersItems.push({
@@ -34,6 +43,7 @@ export default {
                     icon: mdiMinusCircle
                 });
             } else {
+                // Show the error
                 this.errorUserLookup = "Sorry, we couldn't find a user with this email"
             }
         },
