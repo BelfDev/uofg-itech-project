@@ -2,7 +2,7 @@
     <div class="person-list">
         <template v-for="developer in developers">
             <Person 
-                v-bind:key="developer"
+                v-bind:key="developer.name"
                 :name="developer.name" 
                 :role="developer.role" 
                 :avatar="developer.avatar" />
