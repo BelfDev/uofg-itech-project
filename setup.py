@@ -77,6 +77,7 @@ else:
     print("Activating the virtual environment via Poetry...")
     print("================================================")
     call('poetry shell', shell=True)
+    print("\nNow please run this script again! The virtual environment is activated.")
 
 print("\n==================================")
 print("Installing backend dependencies...")
