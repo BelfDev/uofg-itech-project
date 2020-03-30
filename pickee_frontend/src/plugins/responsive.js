@@ -36,6 +36,8 @@ export default class {
             device = 'tablet';
         } else if (this.md.mobile()) {
             device = 'phone';
+        } else if (this._is_touch_device() && this.md.mobile() == null && this.md.os() == null) {
+            device = 'tablet';
         }
 
         return device;
@@ -113,5 +115,14 @@ export default class {
 
         deviceClassNames.forEach(className => body.classList.remove(className));
         body.classList.add(this.device);
+    }
+
+    _is_touch_device() {
+        try {  
+            document.createEvent("TouchEvent");  
+            return true;  
+        } catch (e) {  
+            return false;  
+        }  
     }
 }
