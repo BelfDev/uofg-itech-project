@@ -39,7 +39,7 @@ def get_available_providers(request):
         # Retrieves relevant results from the query
         if data.get('results'):
             results = data.get('results')
-            relevant_results = __filter_utelly_results(results,movie_name)
+            relevant_results = __filter_utelly_results(results, movie_name)
             providers = []
             for result in relevant_results:
                 locations = result.get('locations')
@@ -52,7 +52,7 @@ def get_available_providers(request):
                         }
                         providers.append(provider)
             response['results'] = providers
-            if(len(relevant_results)>0):
+            if (len(relevant_results) > 0):
                 response['movie_name'] = relevant_results[0].get('name')
             response['term'] = data.get('term')
 
@@ -218,7 +218,7 @@ def generate_recommendation(request):
             del query_params['with_cast']
             discoverResponse = requests.get(url, params=query_params, auth=BearerAuth(TMDB_ACCESS_TOKEN))
             discoverData = discoverResponse.json()
-        
+
         # Removes keywords from the query if there are still no results
         if len(discoverData.get('results')) == 0:
             del query_params['with_keywords']
@@ -293,10 +293,13 @@ def __get_combined_genre_ids(casual_genres_string, favorite_genres):
 
 
 def __get_movie_cast(movie_id):
-    castUrl = 'https://api.themoviedb.org/3/movie/' + str(movie_id) + '/credits'
-    castResponse = requests.get(castUrl, auth=BearerAuth(TMDB_ACCESS_TOKEN))
-    castData = castResponse.json()
-    return castData.get('cast')[:5]
+    try:
+        castUrl = 'https://api.themoviedb.org/3/movie/' + str(movie_id) + '/credits'
+        castResponse = requests.get(castUrl, auth=BearerAuth(TMDB_ACCESS_TOKEN))
+        castData = castResponse.json()
+        return castData.get('cast')[:5]
+    except:
+        return []
 
 
 # Filters results to return the correct movie
