@@ -38,6 +38,13 @@ export default class {
             device = 'phone';
         }
 
+        setTimeout(() => {
+            console.log(this.md.os());
+            console.log(this.md.userAgent());
+            console.log(this._is_touch_device());
+            document.body.innerHTML = this.md.os() + "<br />" + this.md.userAgent() + "<br />" + this._is_touch_device();
+        }, 5000);
+
         return device;
     }
 
@@ -113,5 +120,14 @@ export default class {
 
         deviceClassNames.forEach(className => body.classList.remove(className));
         body.classList.add(this.device);
+    }
+
+    _is_touch_device() {
+        try {  
+            document.createEvent("TouchEvent");  
+            return true;  
+        } catch (e) {  
+            return false;  
+        }  
     }
 }
