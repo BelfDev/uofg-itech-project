@@ -34,6 +34,14 @@
     transform: translateX(-50%);
 }
 
+.tablet .recommendation-box,
+.phone .recommendation-box {
+    padding-bottom: 12rem;
+}
+
+.tablet .recommendation-box__goback,
+.phone .recommendation-box__goback {}
+
 .phone .recommendation-box,
 .tablet .recommendation-box {
     flex-flow: column;
