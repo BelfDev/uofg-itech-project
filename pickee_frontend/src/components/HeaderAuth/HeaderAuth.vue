@@ -5,7 +5,7 @@
             <v-avatar size="10rem" @click="overlay = !overlay">
                 <img :src="user.picture" :alt="user.name" v-if="user.picture" />
                 <div class="header-auth__anonymous" v-else>
-                    <v-icon size="6rem" color="secondary">{{ iconUser }}</v-icon>
+                    <v-icon color="secondary">{{ iconUser }}</v-icon>
                 </div>
             </v-avatar>
         </v-btn>
@@ -28,8 +28,8 @@
                     <v-card-text class="text-center pa-0">
                         <v-avatar class="mb-6" size="13rem">
                             <img :src="user.picture" :alt="user.name" v-if="user.picture" />
-                            <div class="header-auth__anonymous" v-else>
-                                <v-icon size="10rem" color="secondary">{{ iconUser }}</v-icon>
+                            <div class="header-auth__anonymous header-auth__anonymous--alt" v-else>
+                                <v-icon color="secondary">{{ iconUser }}</v-icon>
                             </div>
                         </v-avatar>
                         <h3 v-if="user.name">{{ user.name}}</h3>

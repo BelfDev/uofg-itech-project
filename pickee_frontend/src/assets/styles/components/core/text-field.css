@@ -36,6 +36,7 @@
     font-size: var(--font-size-body-2);
     font-weight: 400;
     line-height: var(--font-line-height-body-2);
+    box-sizing: content-box;
 }
 
 .phone .v-text-field input {

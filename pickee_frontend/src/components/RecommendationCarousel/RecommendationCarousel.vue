@@ -7,13 +7,13 @@
                 :key="slide.recommendationID"
             >
                 <div class="action-button" v-if="slide.user_choice === 'REJECTED'">
-                    <v-icon color="red" size="4.5rem">{{ iconThumbDown }}</v-icon>
+                    <v-icon color="red">{{ iconThumbDown }}</v-icon>
                 </div>
                 <div class="action-button" v-if="slide.user_choice === 'BOOKMARKED'">
-                    <v-icon color="primary" size="4.5rem">{{ iconFavorites }}</v-icon>
+                    <v-icon color="primary">{{ iconFavorites }}</v-icon>
                 </div>
                 <div class="action-button" v-if="slide.user_choice === 'ACCEPTED'">
-                    <v-icon color="green" size="4.5rem">{{ iconThumbUp }}</v-icon>
+                    <v-icon color="green">{{ iconThumbUp }}</v-icon>
                 </div>
 
                 <img :src="slide.image_url" :alt="slide.name" v-if="slide.image_url" />
@@ -21,10 +21,10 @@
             </swiper-slide>
         </swiper>
         <button class="recommendation-carousel__swiper-button-prev" slot="button-prev" @click="showPrevRec">
-            <v-icon size="6.5rem">{{ iconArrowLeft }}</v-icon>
+            <v-icon>{{ iconArrowLeft }}</v-icon>
         </button>
         <button class="recommendation-carousel__swiper-button-next" slot="button-next" @click="showNextRec">
-            <v-icon size="6.5rem">{{ iconArrowRight }}</v-icon>
+            <v-icon>{{ iconArrowRight }}</v-icon>
         </button>
     </div>
 </template>

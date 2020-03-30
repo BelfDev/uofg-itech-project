@@ -17,6 +17,16 @@
     transform: translateX(-50%);
 }
 
+.header-auth__anonymous svg {
+    width: 6rem !important;
+    height: 6rem !important;
+}
+
+.header-auth__anonymous--alt svg {
+    width: 10rem !important;
+    height: 10rem !important;
+}
+
 .header-auth .v-card__text {
     font-size: var(--font-size-body-2);
     font-weight: var(--font-weight-body-2);

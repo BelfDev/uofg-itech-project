@@ -3,6 +3,11 @@
     align-items: center;
 }
 
+.associated-user-selector__popup-header svg {
+    width: 6rem !important;
+    height: 6rem !important;
+}
+
 .v-application .associated-user-selector__popup-header p {
     margin: 0 0 0 2rem;
 }

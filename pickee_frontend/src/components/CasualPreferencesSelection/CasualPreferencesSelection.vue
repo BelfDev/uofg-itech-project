@@ -44,7 +44,7 @@
             </div>
             <div class="casual-prefences-selection__action-block">
                 <button type="submit" class="casual-prefences-selection__action-btn">
-                    <v-icon class="casual-prefences-selection__action-icon" size="33rem">{{iconPlay}}</v-icon>
+                    <v-icon class="casual-prefences-selection__action-icon">{{iconPlay}}</v-icon>
                 </button>
             </div>
         </div>

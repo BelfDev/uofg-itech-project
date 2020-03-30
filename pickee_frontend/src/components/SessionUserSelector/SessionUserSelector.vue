@@ -9,14 +9,14 @@
                 v-bind:key="user.id"
             >
                 <img :src="user.image" :alt="user.name" v-if="user.picture" />
-                <v-icon size="8rem" color="white" :title="user.name" v-else>{{ iconUser }}</v-icon>
+                <v-icon color="white" :title="user.name" v-else>{{ iconUser }}</v-icon>
             </v-avatar>
         </div>
         
         <v-dialog v-model="dialog" :width="user.id ? '100rem' : '64rem'">
             <template v-slot:activator="{ on }">
                 <v-avatar class="session-user-selector__selector" size="16rem" v-on="on">
-                    <v-icon class="session-user-selector__selector-icon" size="8rem">{{ iconPlus }}</v-icon>
+                    <v-icon class="session-user-selector__selector-icon">{{ iconPlus }}</v-icon>
                 </v-avatar>
             </template>
 
@@ -32,7 +32,7 @@
                         <div class="session-user-selector__popup-header mb-8">
                             <v-avatar size="10rem">
                                 <img :src="user.picture" :alt="user.name" v-if="user.picture" />
-                                <v-icon size="6rem" color="secondary" v-else>{{ iconUser }}</v-icon>
+                                <v-icon color="secondary" v-else>{{ iconUser }}</v-icon>
                             </v-avatar>
                             <p>Hey {{ user.first_name }}, <strong>add friends</strong> to your movie session by typing their user ids in the list below</p>
                         </div>
@@ -72,9 +72,9 @@
                         @click="dialog = false"
                         >{{ iconClose }}</v-icon>
                     <v-card-text class="session-user-selector__popup-content session-user-selector__popup-content--unauthorized pb-4">
-                        <div class="session-user-selector__popup-header mb-10">
+                        <div class="session-user-selector__popup-header session-user-selector__popup-header--alt mb-10">
                             <v-avatar size="10rem">
-                                <v-icon size="8rem" color="black">{{ iconUser }}</v-icon>
+                                <v-icon color="black">{{ iconUser }}</v-icon>
                             </v-avatar>
                             <p><strong>Uh-oh!</strong> Looks like you are logged out.</p>
                         </div>

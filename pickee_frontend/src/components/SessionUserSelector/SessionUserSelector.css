@@ -7,6 +7,11 @@
     display: inline-block;
 }
 
+.session-user-selector__selected svg {
+    width: 8rem !important;
+    height: 8rem !important;
+}
+
 .session-user-selector__selected-item,
 .session-user-selector__selector {
     margin-left: -5.5rem;
@@ -24,9 +29,24 @@
     color: var(--v-secondary-base);
 }
 
+.session-user-selector__selector-icon.theme--dark.v-icon svg {
+    width: 8rem !important;
+    height: 8rem !important;
+}
+
 .session-user-selector__popup-header {
     display: flex;
     align-items: center;
+}
+
+.session-user-selector__popup-header svg {
+    width: 6rem !important;
+    height: 6rem !important;
+}
+
+.session-user-selector__popup-header--alt svg {
+    width: 8rem !important;
+    height: 8rem !important;
 }
 
 .v-application .session-user-selector__popup-header p {

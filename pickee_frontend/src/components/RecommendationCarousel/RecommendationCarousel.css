@@ -32,6 +32,12 @@
     height: 8rem;
 }
 
+.recommendation-carousel__swiper-slide .action-button .v-icon,
+.recommendation-carousel__swiper-slide .action-button svg {
+    width: 4.5rem !important;
+    height: 4.5rem !important;
+}
+
 .phone .recommendation-carousel__swiper-slide .action-button {
     height: 4rem;
     width: 4rem;
@@ -99,6 +105,14 @@
     z-index: 10;
     outline: 0;
     cursor: pointer !important;
+}
+
+.recommendation-carousel__swiper-button-prev .v-icon,
+.recommendation-carousel__swiper-button-next .v-icon,
+.recommendation-carousel__swiper-button-prev svg,
+.recommendation-carousel__swiper-button-next svg {
+    width: 6.5rem !important;
+    height: 6.5rem !important;
 }
 
 .recommendation-carousel__swiper-button-prev .theme--dark.v-icon,

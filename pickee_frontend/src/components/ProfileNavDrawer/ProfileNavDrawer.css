@@ -22,6 +22,11 @@
     display: none;
 }
 
+.nav-drawer-activator svg {
+    width: 5rem !important;
+    height: 5rem !important;
+}
+
 .phone .nav-drawer-activator,
 .tablet .nav-drawer-activator {
     display: block;

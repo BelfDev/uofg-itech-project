@@ -34,15 +34,15 @@
         </v-card>
         <div class="recommendation-descr__actions">
             <button class="action-button" :disabled="isLoading" @click="newRecEvent('REJECTED')">
-                <v-icon color="red" size="7.5rem">{{ iconThumbDown }}</v-icon>
+                <v-icon color="red">{{ iconThumbDown }}</v-icon>
             </button>
             <button class="action-button" :disabled="isLoading" @click="newRecEvent('BOOKMARKED')">
-                <v-icon color="primary" size="7.5rem">{{ iconFavorites }}</v-icon>
+                <v-icon color="primary">{{ iconFavorites }}</v-icon>
             </button>
             <v-dialog v-model="dialog" width="84rem" :persistent="true">
                 <template v-slot:activator="{ on }">
                     <button class="action-button" :disabled="isLoading" v-on="on" @click="acceptEvent('ACCEPTED')">
-                        <v-icon color="green" size="7.5rem">{{ iconThumbUp }}</v-icon>
+                        <v-icon color="green">{{ iconThumbUp }}</v-icon>
                     </button>
                 </template>
 
