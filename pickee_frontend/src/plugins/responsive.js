@@ -42,7 +42,7 @@ export default class {
             console.log(this.md.os());
             console.log(this.md.userAgent());
             console.log(this._is_touch_device());
-            document.body.innerHTML = this.md.os() + "<br />" + this.md.userAgent() + "<br />" + this._is_touch_device();
+            document.body.innerHTML = "OS: " + this.md.os() + "<br />" + "UserAgent: " + this.md.userAgent() + "<br />" + "Is touch: " +  + this._is_touch_device() + "<br />" + "Is mobile: " + this.md.mobile() + "<br />" + "Is tablet: " + this.md.tablet() + "<br />" + "Version: " + this.md.version() + "<br />" + "Is phone: " + this.md.phone();
         }, 5000);
 
         return device;
