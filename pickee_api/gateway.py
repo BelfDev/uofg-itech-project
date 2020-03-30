@@ -12,13 +12,14 @@ from pickee_api.utils import BearerAuth, FavoriteFilter
 # In a real-world scenario we would never commit this token
 TMDB_ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NjZjYTNlNDMxOWE4MzVjYWVlODI2MmE3YTgzZjNiNCIsInN1YiI6IjVlNjUwMDM3MTUxYzVjMDAxNWZmYWYyMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iLqC8qnysp7u5Ha5ChC1Ag8iiLQP9zyWikURmHH7L48"
 UTELLY_API_KEY = "ed03a46877msh52c7837560678fep10a146jsnaac521c60402"
-
 TMDB_ITEMS_PER_PAGE = 20
 
 
+# This file contains all network operations that deal with external sources such as The Movie Database API and Utelly
+
 def get_available_providers(request):
     """
-        Searches for available content providers via Utelly API service
+            Searches for available content providers via Utelly API service
     """
     if request.method == 'GET':
         # Retrieves the movie_name query parameter
@@ -62,7 +63,7 @@ def get_available_providers(request):
 @login_required
 def search_actors(request):
     """
-        Searches for actors via The Movie DB /search/movie resource
+            Searches for actors via The Movie DB /search/movie resource
     """
     if request.method == 'GET':
         # Retrieve actor name query param
@@ -99,7 +100,7 @@ def search_actors(request):
 @login_required
 def search_movies(request):
     """
-        Searches for movies via The Movie DB /search/movie resource
+            Searches for movies via The Movie DB /search/movie resource
     """
     if request.method == 'GET':
         # Retrieve movie name query param
@@ -141,10 +142,9 @@ def search_movies(request):
 
 def generate_recommendation(request):
     """
-        Performs the Pickee recommendation algorithm with the given input
-        then creates and returns a recommendation.
+            Performs the Pickee recommendation algorithm with the given input;
+            then creates and returns a recommendation.
     """
-    # print(request.user.is_authenticated)
     if request.method == 'POST':
         # Parses AJAX POST body
         body_unicode = request.body.decode('utf-8')
@@ -248,6 +248,8 @@ def generate_recommendation(request):
 
         return JsonResponse(response)
 
+
+# Private convenience methods
 
 def __search_by_name(url, name):
     # Build query params to hit TMDB API

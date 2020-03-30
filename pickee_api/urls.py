@@ -8,6 +8,9 @@ app_name = 'pickee_api'
 
 
 class DefaultNestedRouter(NestedRouterMixin, BulkRouter):
+    """
+               Custom router to register nested API resources
+    """
     pass
 
 

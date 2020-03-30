@@ -4,13 +4,13 @@ from django.utils.translation import ugettext_lazy as _
 
 class PickeeUserManager(BaseUserManager):
     """
-    Custom user model manager where email is the unique identifier
-    for authentication instead of username.
+            Custom user model manager where email is the unique identifier
+            for authentication instead of username.
     """
 
     def create_user(self, email, password, **extra_fields):
         """
-        Create and save a User with the given email and password.
+                Create and save a User with the given email and password.
         """
         if not email:
             raise ValueError(_('The email must be set'))
@@ -22,7 +22,7 @@ class PickeeUserManager(BaseUserManager):
 
     def create_superuser(self, email, password, **extra_fields):
         """
-        Create and save a SuperUser with the given email and password.
+                Create and save a SuperUser with the given email and password.
         """
         extra_fields.setdefault('is_active', True)
         extra_fields.setdefault('is_staff', True)
