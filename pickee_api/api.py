@@ -6,17 +6,22 @@ from pickee_api import models, serializers
 from pickee_api.models import PickeeUser
 from pickee_api.serializers import PickeeUserSerializer
 
+
 # Create internal application endpoints
 
 class PickeeUserViewSet(viewsets.ModelViewSet):
+    """
+            A Django Rest Framework (DRF) ViewSet that reprents a PickeeUser.
+            This composition allows default REST operations to be set up automatically.
+    """
     queryset = PickeeUser.objects.all().order_by('-date_joined')
     serializer_class = PickeeUserSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         """
-        Optionally restricts the returned users to a given user,
-        by filtering against a `email` query parameter in the URL.
+                Optionally restricts the returned users to a given user,
+                by filtering against a `email` query parameter in the URL.
         """
         queryset = PickeeUser.objects.all()
         email = self.request.query_params.get('email', None)
@@ -85,6 +90,7 @@ class PreviousRecommendationViewSet(viewsets.ModelViewSet):
     permission_class = [permissions.IsAuthenticated]
 
     def get_queryset(self):
+        # Supports finding recommendations via email query parameter
         session_set = models.Session.objects.all()
         queryset = models.Recommendation.objects.all()
         email = self.request.query_params.get('email', None)

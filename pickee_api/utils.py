@@ -2,12 +2,13 @@ import collections
 from typing import TypeVar, Generic
 
 import requests
-from django.db.models import Count
 
 from pickee_api.models import FavoriteGenre, FavoriteActor, FavoriteMovie, PickeeUser
 
 FavoriteModel = TypeVar('FavoriteModel', FavoriteGenre, FavoriteActor, FavoriteMovie)
 
+
+# Helper classes
 
 class BearerAuth(requests.auth.AuthBase):
     def __init__(self, token):
@@ -29,9 +30,9 @@ class FavoriteFilter(Generic[FavoriteModel]):
 
     def get_common(self, users: [PickeeUser]):
         """
-        Returns the common favorite models shared by the given users.
+                Returns the common favorite models shared by the given users.
 
-        Example: if passed in the FavoriteGenre model it will return all the common favorite genres
+                Example: if passed in the FavoriteGenre model it will return all the common favorite genres
         """
         all_favorites = self.model.objects.filter(user__in=users).values_list(self.value, flat=True)
         common_favorites = [item for item, count in collections.Counter(all_favorites).items() if count > 1]

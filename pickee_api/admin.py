@@ -6,9 +6,13 @@ from pickee_api.forms import PickeeUserCreationForm, PickeeUserChangeForm
 from pickee_api.models import PickeeUser
 
 
-# Custom admin for the PickeeUser
+# This file contains all admin panel custom configurations
+
 @admin.register(models.PickeeUser)
 class CustomUserAdmin(UserAdmin):
+    """
+        A custom admin panel visualization for the PickeeUser model
+    """
     add_form = PickeeUserCreationForm
     form = PickeeUserChangeForm
     model = PickeeUser
@@ -33,40 +37,47 @@ class CustomUserAdmin(UserAdmin):
 
 @admin.register(models.FavoriteGenre)
 class FavoriteGenreAdmin(admin.ModelAdmin):
+    # Changes the displayed attributes on the admin list
     list_display = ['user', 'genre']
 
 
 @admin.register(models.FavoriteActor)
 class FavoriteActorAdmin(admin.ModelAdmin):
+    # Changes the displayed attributes on the admin list
     list_display = ['user', 'actor']
 
 
 @admin.register(models.FavoriteMovie)
 class FavoriteMovieAdmin(admin.ModelAdmin):
+    # Changes the displayed attributes on the admin list
     list_display = ['user', 'movie']
 
 
 @admin.register(models.MovieCast)
 class MovieCastAdmin(admin.ModelAdmin):
+    # Changes the displayed attributes on the admin list
     list_display = ['movie', 'actor']
 
 
 @admin.register(models.MovieKeyword)
 class MovieKeywordAdmin(admin.ModelAdmin):
+    # Changes the displayed attributes on the admin list
     list_display = ['movie', 'keyword']
 
 
 @admin.register(models.Session)
 class SessionAdmin(admin.ModelAdmin):
+    # Changes the displayed attributes on the admin list
     list_display = ['id']
 
 
 @admin.register(models.Recommendation)
 class RecommendationAdmin(admin.ModelAdmin):
+    # Changes the displayed attributes on the admin list
     list_display = ['id', 'movie', 'user_choice']
 
 
-# Registers Pickee API models in the admin site
+# Registers the remaining Pickee API models in the admin site
 admin.site.register(models.Actor)
 admin.site.register(models.Movie)
 admin.site.register(models.Genre)

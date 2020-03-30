@@ -8,6 +8,9 @@ from pickee_api.forms import PickeeUserCreationForm
 from pickee_api.models import Recommendation
 
 
+# This file contains views that result in HTML content
+
+
 def home(request):
     data = json.dumps({
         "user": __get_user_data(request),
@@ -48,7 +51,6 @@ def user_login(request):
         return render(request, 'login.html')
 
 
-# Temporary renders signup.html
 def user_signup(request):
     if request.method == 'POST':
         form = PickeeUserCreationForm(request.POST)
