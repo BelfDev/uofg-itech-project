@@ -1,0 +1,12 @@
+.v-application .logo {
+   display: block;
+   color: white;
+   text-decoration: none;
+   font-size: 6.4rem;
+   line-height: 7.8rem;
+   font-weight: 600;
+}
+
+.phone .logo {
+   font-size: 3rem;
+}

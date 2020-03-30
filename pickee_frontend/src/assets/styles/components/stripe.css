@@ -1,0 +1,59 @@
+.stripe {
+    position: absolute;
+    transform: rotate(10deg);
+    left: 35rem;
+}
+
+.tablet .stripe,
+.phone .stripe {
+    display: none;
+}
+
+.stripe--dark {
+    background-color: var(--v-grey970-base);
+    /* background-color: yellow; */
+    left: -20rem;
+    box-shadow: 0px 3px 12px #15151529;
+    width: 58rem;
+    z-index: 1;
+    top: -20rem;
+    bottom: -20rem;
+}
+
+.stripe--light {
+    background-color: var(--v-grey960-base);
+    /* background-color: red; */
+    box-shadow: 0px 3px 12px #15151529;
+    width: 21.5rem;
+    z-index: 3;
+    top: -20rem;
+    bottom: -20rem;
+    
+}
+
+.stripe--lighter {
+    background-color: var(--v-grey950-base);
+    box-shadow: 0px 4px 16px #15151529;
+    /* background-color: green; */
+    z-index: 4;
+    width: 12rem;
+    left: 47rem;
+    top: -20rem;
+    bottom: -20rem;
+}
+
+.stripe--light.stripe--alt {
+    left: auto;
+    right: -31rem;
+    width: 50rem;
+}
+
+.stripe--lighter.stripe--alt {
+    left: auto;
+    right: 14.9rem;
+    width: 16rem;
+}
+
+.stripe--alt {
+    transform: rotate(-10deg);
+}

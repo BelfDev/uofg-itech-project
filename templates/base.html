@@ -1,19 +1,18 @@
 <!doctype html>
 <html lang="">
+{% load static %}
 
 <head>
     <meta charset="utf-8">
-    <title>Django Vue MPA</title>
+    <title>{% block title %}Pickee{% endblock %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{%  static 'images/favicon.png' %}">
 </head>
 
-<body>
-  <h1>Django Vue MPA</h1>
-  <hr>
+<body class="desktop">
   {% block content %}
   {% endblock %}
-  <hr>
 </body>
 
 </html>

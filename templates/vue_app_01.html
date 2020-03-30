@@ -4,12 +4,20 @@
 
 {% block content %}
 
-    <h3>My first Vue app goes here</h3>
-
-    <div id="app">
+    <div id="demo">
         <app></app>
     </div>
+
+    <script>
+        {% if user.is_authenticated %}
+            window.user = {
+                id: {{ user.id }},
+                name: "{{ user.username }}"
+            }
+        {% endif %}
+    </script>
+
     {% render_bundle 'chunk-vendors' %}
-    {% render_bundle 'vue_app_01' %}
+    {% render_bundle '_Demo' %}
 
 {% endblock %}

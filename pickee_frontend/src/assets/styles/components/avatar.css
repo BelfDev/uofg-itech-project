@@ -1,0 +1,12 @@
+.v-avatar {
+    border: .4rem solid white;
+    box-shadow: 0 .3rem 1.2rem rgba(var(--v-grey990-base), 0.29);
+}
+
+.v-avatar img {
+    height: auto;
+}
+
+.v-avatar:hover {
+    cursor:pointer;
+}

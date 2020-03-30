@@ -12,12 +12,19 @@ The project takes advantage of [poetry](https://github.com/python-poetry/poetry)
 - [Vue.js 2.6.11](https://vuejs.org/v2/guide/installation.html)
 - [Vue CLI 4.2.2](https://cli.vuejs.org/guide/installation.html)
 
+### Automated setup
+
+MadStax provides you with a beautiful automagical setup script!
+If you want us to lift up everything for you, simply navigate to the project's root directory and run the following command:<br><br>
+    ```python3 setup.py```<br><br>
+**If you are not using Poetry, you will need to activate your virtual environment first. If using Poetry, you'll be guided to run the script twice.**<br><br>
+
 **Make sure you use `yarn` instead of `npm` to install Vue.js and Vue CLI**
 
-### Running the project (for the first time)
+### Manual local setup (development)
 
 1. Select your preferred directory and clone this repo <br><br> 
-    ```git clone git@github.com:BelfDev/uofg-itech-project.git```<br><br>
+    ```git clone https://github.com/BelfDev/uofg-itech-project.git```<br><br>
 
 2. Enter the project directory<br><br>
     ```cd uofg-itech-project```<br><br>
@@ -38,6 +45,7 @@ The project takes advantage of [poetry](https://github.com/python-poetry/poetry)
 
 7. Run the frontend application<br><br>
     ```yarn serve```<br><br>
+    **Note**: you can also chose to run `yarn build` instead of `serve`. In this case, new static files will be generated for you and you won't need to have a dedicated terminal serving frontend-related resources.<br><br>
 
 8. Run the backend application<br><br>
     ```cd ..```<br><br>
@@ -46,3 +54,6 @@ The project takes advantage of [poetry](https://github.com/python-poetry/poetry)
 9. Access the App's entry point at http://127.0.0.1:8000/<br><br>
 
 10. Enjoy!
+
+### Final notes
+The project can also be run by using your own `virtual environment tool` (such as Anaconda) or `pip`. In this case, you'll need to activate your virtual environment manually.

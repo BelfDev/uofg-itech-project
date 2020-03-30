@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load render_bundle from webpack_loader %}
+
+{% block title %}Pickee - Login{% endblock %}
+
+{% block content %}
+
+    <div id="login">
+        {% csrf_token %}
+        <app actionUrl="{% url 'login' %}" signupUrl="{% url 'signup' %}" data="{{ loginFeedback }}"></app>
+    </div>
+
+    {% render_bundle 'chunk-vendors' %}
+    {% render_bundle 'Login' %}
+
+{% endblock %}

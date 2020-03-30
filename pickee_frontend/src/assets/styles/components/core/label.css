@@ -1,0 +1,39 @@
+.label-accented {
+    display: inline-block;
+    position: relative;
+    padding: .6rem 0 .7rem 1.6rem;
+    margin-bottom: 2.6rem;
+    font-size: var(--font-size-body-1);
+    font-weight: var(--font-weight-body-1);
+    line-height: var(--font-line-height-body-1);
+}
+
+.phone .label-accented {
+    font-size: var(--font-size-phone-body-1);
+    font-weight: var(--font-weight-phone-body-1);
+    line-height: var(--font-line-height-phone-body-1);
+}
+
+.label-accented::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: .4rem;
+    background-color: var(--v-primary-base);
+    border-radius: 1rem;
+}
+
+.label {
+    display: block;
+    font-size: var(--font-size-body-1);
+    line-height: var(--font-line-height-body-1);
+    font-weight: 400;
+}
+
+.phone .label {
+    font-size: var(--font-size-phone-body-2);
+    line-height: var(--font-line-height-phone-body-2);
+}

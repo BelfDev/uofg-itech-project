@@ -1,26 +1,24 @@
-"""pickee_project URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.views.generic import TemplateView
 
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    path("", TemplateView.as_view(template_name="index.html"), name="index"),
-    path("vue_app_01/", TemplateView.as_view(template_name="vue_app_01.html"), name="vue_app_01"),
-    path("vue_app_02/", TemplateView.as_view(template_name="vue_app_02.html"), name="vue_app_02"),
+from pickee_api import views
+
+page_urls = [
+    path("", views.home, name="home"),
+    path("recommendation/", views.recommendation, name="recommendation"),
+    path("about/", TemplateView.as_view(template_name="about.html"), name="about"),
+    path("login/", views.user_login, name='login'),
+    path("signup/", views.user_signup, name='signup'),
+    path('logout/', views.user_logout, name='logout'),
+    path("profile/", views.profile, name="profile"),
+    path("preferences/", views.preferences, name="preferences"),
+    path("history/", views.history, name="history"),
 ]
+
+urlpatterns = [
+                  path('admin/', admin.site.urls),
+                  path('api/', include('pickee_api.urls')),
+              ] + page_urls + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

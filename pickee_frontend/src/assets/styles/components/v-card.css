@@ -1,0 +1,21 @@
+.theme--dark.v-card {
+    background-color: var(--v-grey960-base);
+    box-shadow: 0 0.3rem 0.6rem #00000029;
+}
+
+.theme--dark.v-card .v-card__text {
+    padding: 3.7rem 3.2rem;
+    color: var(--v-bodyText-base);
+    font-family: var(--font-family);
+    font-size: var(--font-size-body-3);
+    font-weight: var(--font-weight-body-3);
+    line-height: var(--font-line-height-body-3);
+    letter-spacing: 0;
+}
+
+.phone .theme--dark.v-card .v-card__text {
+    padding: 1.8rem;
+    font-size: var(--font-size-phone-body-3);
+    font-weight: var(--font-weight-phone-body-3);
+    line-height: var(--font-line-height-phone-body-3);
+}

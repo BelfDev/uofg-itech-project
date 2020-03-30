@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load render_bundle from webpack_loader %}
+
+{% block title %}Pickee - Your recommendation history{% endblock %}
+
+{% block content %}
+
+    <div id="history">
+        {% csrf_token %}
+        <app data="{{ data }}"></app>
+    </div>
+
+    {% render_bundle 'chunk-vendors' %}
+    {% render_bundle 'History' %}
+
+{% endblock %}

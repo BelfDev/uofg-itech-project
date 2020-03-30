@@ -1,0 +1,74 @@
+.auth-box {
+    padding: 2.2rem 5.7rem 4rem;
+    box-shadow: 0 .3rem .6rem #00000029;
+    width: 64rem;
+    margin: 10rem auto 5rem;
+    position: relative;
+}
+
+.phone .auth-box {
+    padding: 2rem;
+    margin-bottom: 15rem;
+}
+
+.auth-box__header {
+    margin-bottom: 4rem;
+    font-weight: 600;
+    color: var(--v-grey200-base);
+    text-transform: uppercase;
+}
+
+.phone .auth-box__header {
+    font-size: var(--font-size-heading3);
+    line-height: var(--font-line-height-heading3);
+}
+
+.auth-box__errors {
+    background-color: var(--v-red-base);
+    color: white;
+    /* border: 1px solid red; */
+    border-radius: .8rem;
+    padding: 2rem;
+    margin-bottom: 4rem;
+}
+
+.auth-box__errors p:last-child {
+    margin-bottom: 0;
+}
+
+.auth-box__submit {
+    position: absolute !important;
+    left: 5.4rem;
+    bottom: -2.7rem;
+    width: 24.8rem;
+}
+
+.phone .auth-box__submit {
+    width: 100%;
+    left: 0;
+    bottom: -8rem;
+}
+
+.v-application a.auth-box__signup-link{
+    text-transform: uppercase;
+    color: var(--v-grey400-base);
+    text-decoration: none;
+    font-weight: 600;
+    position: absolute;
+    right: 1rem;
+    bottom: -5rem;
+    font-size: var(--font-size-body-2);
+    line-height: var(--font-line-height-body-2);
+}
+
+.phone .v-application a.auth-box__signup-link {
+    bottom: -15rem;
+}
+
+.tablet .auth-box {
+    margin-top: 5rem;
+}
+
+.phone .auth-box {
+    margin-top: 2rem;
+}

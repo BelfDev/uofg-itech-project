@@ -1,0 +1,45 @@
+html,
+.theme--dark.v-application {
+    color: var(--v-bodyText-base);
+    background-color: var(--v-bodyBg-base);
+    font-family: var(--font-family);
+    font-size: var(--font-size-body-3);
+    font-weight: var(--font-weight-body-3);
+    line-height: var(--font-line-height-body-3);
+}
+
+body {
+    font-size: var(--font-size-body-3);
+    line-height: var(--font-line-height-body-3);
+}
+
+.page-wrapper {
+    padding: 5rem 4rem;
+    min-height: 100%;
+}
+
+.page-content {
+    min-height: 100%;
+}
+
+.tablet .page-content,
+.home .page-content {
+    display: block;
+    height: auto;
+    min-height: 0;
+}
+
+.page-content--centered .v-content__wrap {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.tablet .page-content--centered .v-content__wrap,
+.phone .page-content--centered .v-content__wrap {
+    display: block;
+}
+
+.phone .page-wrapper {
+    padding: 3rem 2rem;
+}

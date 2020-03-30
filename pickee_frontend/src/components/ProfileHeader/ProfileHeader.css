@@ -1,0 +1,123 @@
+.profile-header__top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-header__error {
+    padding: 4rem 10rem;
+    color: var(--v-red-base);
+    font-size: var(--font-size-body-4);
+    line-height: var(--font-line-height-body-4);
+}
+
+.profile-header__avatar-btn.v-btn:not(.v-btn--round).v-size--default {
+    margin-right: 3.2rem;
+    height: auto;
+    padding: 0;
+}
+
+.profile-header__avatar {
+    position: relative;
+}
+
+.profile-header__avatar .v-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.profile-header__avatar img {
+    height: auto;
+}
+
+.profile-header__avatar svg {
+    width: 10rem !important;
+    height: 10rem !important;
+}
+
+.profile-header__avatar .v-text-field > .v-input__control > .v-input__slot > .v-text-field__slot {
+    height: 100%;
+    width: 100%;
+}
+
+.profile-header__avatar .theme--dark.v-file-input .v-file-input__text {
+    display: none;
+}
+
+.profile-header__avatar .v-text-field.v-text-field--solo .v-input__append-inner, .v-text-field.v-text-field--solo .v-input__prepend-inner {
+    display: none;
+}
+
+.profile-header__avatar .theme--dark.v-text-field--solo > .v-input__control > .v-input__slot {
+    background-color: transparent;
+}
+
+.profile-header__avatar .v-text-field.v-text-field--solo .v-input__control,
+.profile-header__avatar .v-text-field.v-text-field--solo:not(.v-text-field--solo-flat):not(.v-select) > .v-input__control > .v-input__slot {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.profile-header__avatar .v-text-field > .v-input__control > .v-input__slot {
+    cursor: pointer;
+}
+
+.profile-header__name {
+    margin-bottom: 0.4rem;
+}
+
+.v-application .profile-header__time-saved {
+    margin-bottom: 0;
+    font-size: var(--font-size-heading3);
+    line-height: var( --font-line-height-heading3);
+}
+
+.tablet .profile-header__name {
+    font-size: 4rem;
+    line-height: 5rem;
+}
+
+.tablet .v-application .profile-header__time-saved {
+    font-size: 3rem;
+    line-height: 3.8rem;
+}
+
+.tablet .profile-header__avatar {
+    width: 10rem !important;
+    min-width: 10rem !important;
+    height: 10rem !important;
+}
+
+.tablet .profile-header,
+.phone .profile-header {
+    justify-content: start;
+}
+
+.phone .profile-header__avatar {
+    margin: auto;
+    width: 10rem !important;
+    height: 10rem !important;
+    min-width: 10rem !important;
+}
+
+.phone .profile-header__top {
+    flex-flow: column;
+}
+
+.phone .profile-header__name {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 3.4rem;
+    line-height: 4rem;
+}
+
+.phone .v-application .profile-header__time-saved {
+    font-size: var(--font-size-phone-body-1);
+    line-height: var(--font-line-height-phone-body-1);
+    text-align: center;
+}

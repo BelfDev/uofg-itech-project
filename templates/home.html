@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load render_bundle from webpack_loader %}
+
+
+{% block content %}
+
+    <div id="home">
+        {% csrf_token %}
+        <app data="{{ data }}"></app>
+    </div>
+
+    {% render_bundle 'chunk-vendors' %}
+    {% render_bundle 'Home' %}
+
+{% endblock %}

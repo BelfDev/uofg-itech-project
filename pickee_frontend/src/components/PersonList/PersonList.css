@@ -1,0 +1,26 @@
+.person-list .person {
+    margin-bottom: 4.6rem;
+}
+
+.person-list .person:last-child {
+    margin-bottom: 0;
+}
+
+.tablet .person-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+}
+
+.tablet .person-list .person {
+    flex-basis: 45%;
+}
+
+.tablet .person-list .person {
+    margin: 2rem 0;
+}
+
+.phone .person-list {
+    margin-bottom: 4rem;
+}

@@ -1,0 +1,151 @@
+.recommendation-descr {
+    /* flex-basis: 66rem; */
+    flex: 1;
+    padding-left: 3.2rem;
+}
+
+.recommendation-descr__rating {
+    width: 6.4rem !important;
+    height: 6.4rem !important;
+    margin-right: 1.6rem;
+}
+
+.phone .recommendation-descr__rating {
+    transform: scale(.6);
+    position: absolute;
+    top: 1rem;
+    right: -1rem;
+}
+
+.recommendation-descr__rating .v-progress-circular__info {
+    background: white;
+    border-radius: 100%;
+    width: 6.4rem;
+    height: 6.4rem;
+    font-size: var(--font-size-body-2);
+    line-height: var(--font-line-height-body-2);
+    font-weight: var(--font-weight-body-2);
+    color: var(--v-secondary-base);
+}
+
+.recommendation-descr__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.phone .recommendation-descr__top {
+    flex-flow: column;
+    align-items: flex-start;
+    padding-right: 5rem;
+}
+
+.recommendation-descr__title {
+    font-size: var(--font-size-body-1);
+    line-height: var(--font-line-height-body-1);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.phone .recommendation-descr__title {
+    font-size: var(--font-size-phone-body-1);
+    line-height: var(--font-line-height-phone-body-1);
+}
+
+.recommendation-descr__date {
+    font-size: var(--font-size-body-3);
+    line-height: var(--font-line-height-body-3);
+    font-weight: var(--font-weight-body-3);
+    margin: 0 !important;
+}
+
+.phone .recommendation-descr__date {
+    font-size: var(--font-size-phone-body-3);
+    line-height: var(--font-line-height-phone-body-3);
+    font-weight: var(--font-weight-phone-body-3);
+}
+
+.recommendation-descr__text {
+    margin-bottom: 3rem;
+}
+
+.phone .recommendation-descr__text {
+    font-size: var(--font-size-phone-body-4);
+    line-height: var(--font-line-height-phone-body-4);
+}
+
+.recommendation-descr__text:last-child,
+.recommendation-descr__text:last-child p {
+    margin-bottom: 0;
+}
+
+.recommendation-descr__text:last-child {
+    margin-bottom: -2.4rem;
+}
+
+.recommendation-descr__text-item {
+    display: inline-block;
+    margin-right: 2.4rem;
+    margin-bottom: 2.4rem;
+}
+
+.phone .recommendation-descr__text-item {
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+.recommendation-descr__text-heading {
+    margin-bottom: 1.6rem;
+    font-size: var(--font-size-body-3);
+    line-height: var(--font-line-height-body-3);
+    font-weight: 600;
+}
+
+.phone .recommendation-descr__text-heading {
+    font-size: var(--font-size-phone-body-3);
+    line-height: var(--font-line-height-phone-body-3);
+}
+
+.recommendation-descr__actions {
+    display: flex;
+    margin-top: 3.2rem;
+    padding: 0 1.6rem;
+    justify-content: space-between;
+}
+
+.recommendation-descr__actions .action-button .v-icon,
+.recommendation-descr__actions .action-button svg {
+    width: 7.5rem !important;
+    height: 7.5rem !important;
+}
+
+.recommendation-descr__popup-text {
+    padding: 2rem 12rem 6rem;
+}
+
+.tablet .recommendation-descr__actions {
+    margin-top: 6rem;
+}
+
+
+.phone .recommendation-descr {
+    display: flex;
+    flex-flow: column;
+}
+
+.phone .recommendation-descr .theme--dark.v-card {
+    order: 2;
+}
+
+.phone .recommendation-descr {
+    padding-left: 0;
+}
+
+.phone .recommendation-descr__actions {
+    order: 1;
+    margin-bottom: 3.2rem;
+}
+
+.phone .recommendation-descr__popup-text {
+    padding: 6rem 2rem 2rem;
+}

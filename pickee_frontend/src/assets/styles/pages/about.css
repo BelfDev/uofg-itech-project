@@ -1,0 +1,60 @@
+.about-page {
+    position: relative;
+}
+
+.about-page .page-header {
+    position: absolute;
+    top: 5rem;
+    right: 4rem;
+}
+
+.about-page__content {
+    display: flex;
+    margin-top: 3rem;
+}
+
+.about-page__text {
+    width: 63.8rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-page__text p {
+    color: var(--v-grey200-base)
+}
+
+.about-page__text h2 {
+   margin-bottom: 2.8rem;
+}
+
+.v-application .about-page__logo-link {
+    color: white;
+    text-decoration: none;
+}
+
+.tablet .about-page__text h2 {
+    font-size: var(--font-size-heading3);
+    line-height: var(--font-line-height-heading3);
+}
+
+.phone .about-page__text,
+.tablet .about-page__text {
+    width: auto;
+}
+
+.tablet .about-page__content,
+.phone .about-page__content {
+    display: block;
+}
+
+.about-page .page-header {
+    z-index: 5;
+}
+
+.tablet .about-page .page-header {
+    top: 6rem;
+}
+
+.phone .about-page h1 {
+    margin-top: 10rem;
+}

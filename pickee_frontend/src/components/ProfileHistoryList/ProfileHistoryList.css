@@ -1,0 +1,133 @@
+.v-application .history-list {
+    list-style-type: none;
+    padding: 0;
+    background-color: #262626;
+    box-shadow: 0 .3rem .6rem #00000029;
+    border-radius: .8rem;
+    opacity: 1;
+}
+
+.history-list__element {
+    color: var(--v-secondary-base);
+    display: flex;
+    align-items: center;
+    padding: 1.6rem 2.4rem;
+}
+
+.history-list__element:first-child {
+    border-radius: .8rem .8rem 0 0;
+}
+
+.history-list__element:last-child {
+    border-radius: 0 0 .8rem .8rem;
+}
+
+.history-list__element:nth-child(even) {
+    background-color: var(--v-grey800-base);
+}
+
+.history-list__element:nth-child(odd) {
+    background-color: #464646;
+}
+
+.history-list__element-icon.action-button {
+    color: var(--v-secondary-base);
+    margin-left: auto;
+    width: 6.4rem;
+    height: 6.4rem;
+    flex-shrink: 0;
+}
+
+.history-list__element-poster,
+.history-list__element-text,
+.history-list__empty-poster {
+    margin-right: 6.5rem;
+}
+
+.history-list__element-text {
+    font-size: var(--font-size-body-2);
+    line-height: var(--font-line-height-body-2);
+    font-weight: 400;
+    color: var(--v-grey200-base);
+}
+
+.history-list__header {
+    margin-bottom: 0.8rem;
+    color: var(--v-grey100-base);
+    font-size: var(--font-size-body-1);
+    line-height: var(--font-line-height-body-1);
+    font-weight: 400;
+}
+
+.history-list-wrapper {
+    margin-top: 6.1rem;
+}
+
+
+.history-list__element-poster img {
+    max-width: 100%;
+    border-radius: 4px;
+    opacity: 1;
+}
+
+.history-list__empty-poster {
+    width: 10rem;
+    height: 15rem;
+    background: var(--v-grey950-base);
+    border-radius: .8rem;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.history-list__empty-poster span {
+    color: var(--v-grey300-base);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.action-button.history-list__element-icon svg {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+}
+
+.phone .history-list__header {
+    font-size: var(--font-size-phone-body-1);
+    line-height: var(--font-line-height-phone-body-1);
+}
+
+.phone .history-list__element-text {
+    margin-right: 3rem;
+    font-size: var(--font-size-phone-body-2);
+    line-height: var(--font-line-height-phone-body-2);
+}
+
+.phone .history-list__empty-poster,
+.phone .history-list__element-poster {
+    margin-right: 1rem;
+}
+
+.phone .history-list__element-icon.action-button {
+    width: 4rem;
+    height: 4rem;
+}
+
+.phone .history-list__element-icon.action-button .v-icon  {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+}
+
+.phone .history-list__element {
+    padding: 1rem 1.4rem;
+}
+
+.tablet .history-list-wrapper,
+.phone .history-list-wrapper {
+    margin-top: 0;
+}

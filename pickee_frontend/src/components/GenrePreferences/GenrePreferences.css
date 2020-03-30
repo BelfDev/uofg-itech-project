@@ -1,0 +1,16 @@
+.genre-preferences .theme--dark.v-text-field--solo > .v-input__control > .v-input__slot {
+    background-color: var(--v-grey960-base);
+}
+
+.genre-preferences__header {
+    font-size: var(--font-size-body-1);
+    line-height: var(--font-line-height-body-1);
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+    margin-top: 1.1rem;
+}
+
+.phone .genre-preferences__header {
+    font-size: var(--font-size-phone-body-1);
+    line-height: var(--font-line-height-phone-body-1);
+}

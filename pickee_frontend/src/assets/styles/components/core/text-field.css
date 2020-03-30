@@ -1,0 +1,45 @@
+.v-text-field.v-text-field--solo:not(.v-text-field--solo-flat):not(.v-select)
+    > .v-input__control
+    > .v-input__slot {
+    box-shadow: none;
+}
+
+.theme--dark.v-text-field--solo > .v-input__control > .v-input__slot {
+    background-color: var(--v-grey700-base);
+}
+
+.v-text-field.v-text-field--enclosed:not(.v-text-field--rounded) > .v-input__control > .v-input__slot,
+.v-text-field.v-text-field--enclosed .v-text-field__details {
+    padding: 0 2.4rem 0 3.1rem;
+}
+
+.phone .v-text-field.v-text-field--enclosed:not(.v-text-field--rounded) > .v-input__control > .v-input__slot,
+.phone .v-text-field.v-text-field--enclosed .v-text-field__details {
+    padding: 0 1.2rem 0 1.6rem;
+}
+
+.v-text-field.v-text-field--solo .v-input__control {
+    min-height: 10rem;
+}
+
+.phone .v-text-field.v-text-field--solo .v-input__control {
+    min-height: 6rem;
+}
+
+.v-text-field fieldset,
+.v-text-field .v-input__control,
+.v-text-field .v-input__slot {
+    border-radius: .8rem;
+}
+
+.v-text-field input {
+    font-size: var(--font-size-body-2);
+    font-weight: 400;
+    line-height: var(--font-line-height-body-2);
+    box-sizing: content-box;
+}
+
+.phone .v-text-field input {
+    font-size: var(--font-size-phone-body-2);
+    line-height: var(--font-line-height-phone-body-2);
+}

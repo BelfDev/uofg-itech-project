@@ -1,0 +1,58 @@
+.nav-drawer {
+    padding: 1.7rem;
+    flex: 0 0 auto;
+}
+
+.nav-drawer__logo {
+    padding: 5rem 2.3rem;
+    border-bottom: 0.1rem solid var(--v-grey400-base);
+    margin-bottom: 2.5rem;
+}
+
+
+.nav-drawer__logout-btn {
+    position: absolute;
+    bottom: 5.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22rem;
+}
+
+.nav-drawer-activator {
+    display: none;
+}
+
+.nav-drawer-activator svg {
+    width: 5rem !important;
+    height: 5rem !important;
+}
+
+.phone .nav-drawer-activator,
+.tablet .nav-drawer-activator {
+    display: block;
+    top: 4rem;
+    left: 4rem;
+    position: absolute;
+    z-index: 2;
+}
+
+.tablet .nav-drawer,
+.phone .nav-drawer {
+    z-index: 5;
+    position: fixed;
+}
+
+.phone .nav-drawer {
+    width: 24rem !important
+}
+
+.phone .nav-drawer__logout-btn {
+    width: 18rem;
+}
+
+.phone .nav-drawer__logout-btn .v-btn.theme--dark {
+    height: 4rem;
+    padding: 0 4rem;
+    font-size: var(--font-size-phone-body-3);
+    line-height: var(--font-line-height-phone-body-3);
+}

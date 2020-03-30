@@ -1,0 +1,52 @@
+.header-auth-wrapper {
+    position: relative;
+}
+
+.header-auth-wrapper .v-overlay--absolute {
+    top: 12rem;
+    right: 0;
+    left: auto;
+    bottom: auto;
+}
+
+.phone .header-auth-wrapper .v-overlay--absolute {
+    left: 50%;
+    position: fixed;
+    top: 14rem;
+    right: auto;
+    transform: translateX(-50%);
+}
+
+.header-auth__anonymous svg {
+    width: 6rem !important;
+    height: 6rem !important;
+}
+
+.header-auth__anonymous--alt svg {
+    width: 10rem !important;
+    height: 10rem !important;
+}
+
+.header-auth .v-card__text {
+    font-size: var(--font-size-body-2);
+    font-weight: var(--font-weight-body-2);
+    line-height: var(--font-line-height-body-2);
+}
+
+.header-auth .v-avatar {
+    background: white;
+    border-color: var(--v-grey200-base);
+    position: relative;
+}
+
+.phone .header-auth .v-avatar {
+    width: 7rem !important;
+    min-width: 7rem !important;
+    height: 7rem !important;
+}
+
+.phone .header-auth .v-overlay--absolute {
+    left: auto;
+    top: 9rem;
+    right: 0;
+}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load render_bundle from webpack_loader %}
+
+{% block title %}Pickee - Your preferences{% endblock %}
+
+{% block content %}
+
+    <div id="preferences">
+        {% csrf_token %}
+        <app user="{{ user }}"></app>
+    </div>
+
+    {% render_bundle 'chunk-vendors' %}
+    {% render_bundle 'Preferences' %}
+
+{% endblock %}

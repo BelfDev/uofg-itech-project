@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load render_bundle from webpack_loader %}
+
+{% block title %}Pickee - About Us{% endblock %}
+
+{% block content %}
+
+    <div id="about">
+        <app></app>
+    </div>
+
+    {% render_bundle 'chunk-vendors' %}
+    {% render_bundle 'About' %}
+
+{% endblock %}

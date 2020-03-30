@@ -1,0 +1,10 @@
+.content-card-box__header {
+    color: var(--v-grey100-base);
+    font-weight: 400;
+    margin-bottom: 0.8rem;
+}
+
+.phone .content-card-box__header {
+    font-size: var(--font-size-phone-body-1);
+    line-height: var(--font-line-height-body-1);
+}
