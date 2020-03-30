@@ -20,13 +20,13 @@
                     <h3 class="recommendation-descr__text-heading">Overview</h3>
                     <p>{{ recommendation.description }}</p>
                 </div>
-                <div class="recommendation-descr__text">
+                <div class="recommendation-descr__text" v-if="recommendation.cast.length > 0">
                     <h3 class="recommendation-descr__text-heading">Featured Crew</h3>
                     <p>
                         <span 
                             class="recommendation-descr__text-item" 
-                            v-for="actor in recommendation.cast"
-                            v-bind:key="actor.id"
+                            v-for="(actor, index) in recommendation.cast"
+                            v-bind:key="index + actor.id"
                         >{{ actor.name }}</span>
                     </p>
                 </div>
