@@ -10,6 +10,7 @@
                 step="30"
                 min="30"
                 max="240"
+                height="16"
                 ticks
             ></v-slider>
         </div>
