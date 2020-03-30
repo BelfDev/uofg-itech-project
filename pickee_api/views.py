@@ -86,19 +86,20 @@ def profile(request):
 def history(request):
     recommendations = __get_recommendation_history(request)
     results = []
-    for recommendation in recommendations:
-        movie = recommendation.movie
-        result = {
-            'id': recommendation.id,
-            'user_choice': recommendation.user_choice,
-            'session_id': recommendation.session_id,
-            'movie': {
-                'id': movie.id,
-                'name': movie.name,
-                'image_url': movie.image_url
-            },
-        }
-        results.append(result)
+    if recommendations:
+        for recommendation in recommendations:
+            movie = recommendation.movie
+            result = {
+                'id': recommendation.id,
+                'user_choice': recommendation.user_choice,
+                'session_id': recommendation.session_id,
+                'movie': {
+                    'id': movie.id,
+                    'name': movie.name,
+                    'image_url': movie.image_url
+                },
+            }
+            results.append(result)
 
     data = json.dumps({
         "results": results
