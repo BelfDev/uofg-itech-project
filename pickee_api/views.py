@@ -14,16 +14,24 @@ from pickee_api.models import Recommendation
 
 def home(request):
     data = json.dumps({
-        "user": __get_user_data(request),
+        "user": __get_user_data(request)
     })
-    context = {'data': data}
+    urls = json.dumps(__get_urls());
+    context = {'data': data, 'urls': urls}
     return render(request, 'home.html', context=context)
 
 
+def about(request):
+    urls = json.dumps(__get_urls());
+    context = {'urls': urls}
+    return render(request, 'about.html', context=context)
+
+
 def recommendation(request):
+    urls = json.dumps(__get_urls());
     user = json.dumps(__get_user_data(request))
     preferences = json.dumps(request.POST)
-    context = {'user': user, 'preferences': preferences}
+    context = {'user': user, 'preferences': preferences, 'urls': urls}
 
     return render(request, 'recommendation.html', context=context)
 

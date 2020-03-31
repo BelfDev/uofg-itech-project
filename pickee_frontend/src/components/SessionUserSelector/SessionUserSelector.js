@@ -88,7 +88,7 @@ export default {
             return this.selectedUsers.map(item => item.id).join(',');
         }
     },
-    props: ['user'],
+    props: ['user', 'urls'],
     data: () => ({
         selectedUsers: [],
         associatedUsers: [],

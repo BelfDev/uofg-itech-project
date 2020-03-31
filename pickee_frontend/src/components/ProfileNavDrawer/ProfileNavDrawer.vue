@@ -10,7 +10,7 @@
             v-model="drawer" 
             :mobile-break-point="drawer ? 0 : 1024"
         >
-            <div class="nav-drawer__logo"><Logo /></div>
+            <div class="nav-drawer__logo"><Logo :urls="urls" /></div>
             <NavDrawerLinks :links="links" />
             <div class="nav-drawer__logout-btn">
                 <v-btn block :href="logoutUrl">Logout</v-btn>

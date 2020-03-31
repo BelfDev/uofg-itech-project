@@ -5,7 +5,7 @@ import api from "@/services/api";
 
 export default {
     name: "RecommendationBox",
-    props: ['preferences', 'user', 'setNewRecommendation'],
+    props: ['preferences', 'user', 'setNewRecommendation', 'urls'],
     data: function() {
         return {
             data: {},
@@ -51,7 +51,7 @@ export default {
     },
     methods: {
         navigateBackToHome: function() {
-            window.location.replace('/?step=2');
+            window.location.replace(`${this.urls.home}?step=2`);
         },
         getNewRecommendation: async function(userChoice) {
             this.isLoading = true;

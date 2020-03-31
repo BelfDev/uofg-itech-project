@@ -1,9 +1,9 @@
 <template>
     <v-app>
         <div class="page-wrapper about-page">
-            <PageHeader isAboutPage />
+            <PageHeader :urls="urls" isAboutPage />
             <v-content class="page-content">
-                <h1>We are<br /> <a href="/" class="about-page__logo-link heading1-accent">Pickee.</a></h1>
+                <h1>We are<br /> <a :href="urls.home" class="about-page__logo-link heading1-accent">Pickee.</a></h1>
                 <div class="about-page__content">
                     <PersonList :developers="developers"/>
                     <div class="about-page__text">
@@ -32,6 +32,7 @@
     export default {
         name: "About",
         data: () => ({
+            urls: {},
             developers: [
                 {
                     name: "Anton S.",
@@ -61,6 +62,13 @@
             ]
         }),
         methods: {},
-        components: { PageHeader, PersonList }
+        components: { PageHeader, PersonList },
+        beforeMount() {
+            const appElement = document.getElementsByTagName('app')[0];
+            const urls = appElement.getAttribute('urls');
+            if (urls) {
+                this.urls = JSON.parse(urls);
+            }
+        }
     };
 </script>

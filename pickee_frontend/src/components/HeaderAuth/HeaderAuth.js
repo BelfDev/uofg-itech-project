@@ -39,7 +39,7 @@ Vue.directive('closable', {
 
 export default {
     name: "HeaderAuth",
-    props: ['user'],
+    props: ['user', 'urls'],
     methods: {
         onClose () {
             this.overlay = false

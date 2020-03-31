@@ -3,7 +3,7 @@
         <div class="profile-page">
             <ProfileNavDrawer :urls="urls" />
             <main class="profile-page-main">
-                <PageHeader />
+                <PageHeader :urls="urls" />
                 <v-content class="profile-page-content">
                     <ProfileHeader :user="user" />
                     <div class="profile-page-blocks">

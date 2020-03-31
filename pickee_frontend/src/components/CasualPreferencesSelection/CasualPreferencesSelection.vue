@@ -1,5 +1,5 @@
 <template>
-    <form class="casual-prefences-selection" action="recommendation/" method="POST">
+    <form class="casual-prefences-selection" :action="urls.recommendation" method="POST">
         <input type="hidden" name="csrfmiddlewaretoken" :value="token">
 
         <div class="casual-prefences-selection__wrapper">
@@ -39,7 +39,7 @@
                 </div>
                 <div>
                     <label class="label-accented mb-8">Got yourself company?</label>
-                    <SessionUserSelector :user="user" />
+                    <SessionUserSelector :urls="urls" :user="user" />
                 </div>
             </div>
             <div class="casual-prefences-selection__action-block">

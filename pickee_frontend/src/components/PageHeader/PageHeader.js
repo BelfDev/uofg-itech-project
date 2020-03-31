@@ -7,7 +7,8 @@ export default {
     props: {
         logo: Boolean,
         isAboutPage: Boolean,
-        user: Object
+        user: Object,
+        urls: Object
     },
     components: {
         Navigation, 

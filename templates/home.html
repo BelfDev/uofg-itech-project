@@ -6,7 +6,7 @@
 
     <div id="home">
         {% csrf_token %}
-        <app data="{{ data }}"></app>
+        <app data="{{ data }}" urls="{{ urls }}"></app>
     </div>
 
     {% render_bundle 'chunk-vendors' %}

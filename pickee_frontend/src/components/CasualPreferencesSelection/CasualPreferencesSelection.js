@@ -14,7 +14,7 @@ export default {
             token: this.$cookies.get("csrftoken")
         }
     },
-    props: ['user'],
+    props: ['user', 'urls'],
     methods: {
         updateGenreValue: function(values) {
             this.genreValue = values.map(v => {

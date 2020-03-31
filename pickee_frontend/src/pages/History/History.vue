@@ -3,7 +3,7 @@
         <div class="profile-page">
             <ProfileNavDrawer :urls="data.urls" />
             <main class="profile-page-main">
-                <PageHeader />
+                <PageHeader :urls="data.urls" />
                 <v-content class="profile-page-content">
                     <div class="profile-page-blocks">
                         <ProfileHistoryList :historyItems="historyItems" />

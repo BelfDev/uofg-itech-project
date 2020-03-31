@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <div class="page-wrapper">
-            <PageHeader logo />
+            <PageHeader :urls="urls" logo />
             <v-content class="page-content">
                 <LoginBox :actionUrl="urls.login" :signupUrl="urls.signup" :data="data" />
             </v-content>
