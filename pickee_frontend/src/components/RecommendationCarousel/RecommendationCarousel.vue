@@ -1,6 +1,10 @@
 <template>
     <div class="recommendation-carousel">
-        <swiper :options="swiperOption" ref="mySwiper" class="recommendation-carousel__swiper">
+        <swiper 
+            :options="swiperOption" 
+            ref="mySwiper" 
+            class="recommendation-carousel__swiper"
+        >
             <swiper-slide
                 class="recommendation-carousel__swiper-slide"
                 v-for="slide in swiperSlides"
