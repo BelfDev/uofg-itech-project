@@ -20,6 +20,7 @@
                 :showNextRec="showNextRec"
             />
             <RecommendationDescr 
+                :user="user"
                 :recommendation="recData" 
                 :providerList="providerList"
                 :newRecEvent="getNewRecommendation" 
