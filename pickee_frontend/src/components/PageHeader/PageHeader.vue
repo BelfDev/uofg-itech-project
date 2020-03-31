@@ -1,8 +1,8 @@
 <template>
     <header class="page-header">
-        <Logo v-if="logo"/>
-        <Navigation :isAboutPage="isAboutPage" />
-        <HeaderAuth v-if="user" :user="user" />
+        <Logo :urls="urls" v-if="logo"/>
+        <Navigation :urls="urls" :isAboutPage="isAboutPage" />
+        <HeaderAuth :urls="urls" v-if="user" :user="user" />
     </header>
 </template>
 

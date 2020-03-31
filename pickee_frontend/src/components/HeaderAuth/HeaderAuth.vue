@@ -41,20 +41,20 @@
                                     block
                                     class="mb-4 pl-6 pr-6"
                                     color="primary"
-                                    href="/profile/"
+                                    :href="urls.profile"
                                     >Manage account
                                 </v-btn>
-                                <v-btn block outlined href="/logout/">Logout</v-btn>
+                                <v-btn block outlined :href="urls.logout">Logout</v-btn>
                             </template>
                             <template v-else>
                                 <v-btn
                                     block
                                     class="mb-4"
                                     color="primary"
-                                    href="/login/"
+                                    :href="urls.login"
                                     >Login
                                 </v-btn>
-                                <v-btn class="pl-6 pr-6" block outlined href="/signup/">Create account</v-btn>
+                                <v-btn class="pl-6 pr-6" block outlined :href="urls.signup">Create account</v-btn>
                             </template>
                         </div>
                     </v-card-text>

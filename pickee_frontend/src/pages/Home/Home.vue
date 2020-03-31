@@ -2,7 +2,7 @@
     <v-app>
         <div class="page-home">
             <v-content>
-                <HomeIntroAndForm :data="data" />
+                <HomeIntroAndForm :urls="urls" :data="data" />
             </v-content>
         </div>
     </v-app>
@@ -14,7 +14,8 @@
     export default {
         name: "Home",
         data: () => ({
-            data: {}
+            data: {},
+            urls: {}
         }),
         methods: {},
         components: {
@@ -22,9 +23,13 @@
         },
         beforeMount() {
             const appElement = document.getElementsByTagName('app')[0];
+            const urls = appElement.getAttribute('urls');
             const data = appElement.getAttribute('data');
             if (data) {
                 this.data = JSON.parse(data);
+            }
+            if (urls) {
+                this.urls = JSON.parse(urls);
             }
         }
     };
