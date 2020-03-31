@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <div class="profile-page">
-            <ProfileNavDrawer />
+            <ProfileNavDrawer :urls="data.urls" />
             <main class="profile-page-main">
                 <PageHeader />
                 <v-content class="profile-page-content">

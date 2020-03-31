@@ -4,29 +4,32 @@ import NavDrawerLinks from "@/components/NavDrawerLinks/NavDrawerLinks.vue"
 
 export default {
     name: "ProfileNavDrawer",
-    data: () => ({
-        iconMenu: mdiMenu,
-        drawer: document.body.classList.contains('desktop') ? true : false,
-        links: [
-            {
-                name: "Profile",
-                url: "/profile/",
-                icon: mdiAccountBox
-            },
+    props: ["urls"],
+    data: function() {
+        return {
+            iconMenu: mdiMenu,
+            drawer: document.body.classList.contains('desktop') ? true : false,
+            links: [
+                {
+                    name: "Profile",
+                    url: this.urls.profile,
+                    icon: mdiAccountBox
+                },
 
-            {
-                name: "Preferences",
-                url: "/preferences/",
-                icon: mdiCog
-            },
+                {
+                    name: "Preferences",
+                    url: this.urls.preferences,
+                    icon: mdiCog
+                },
 
-            {
-                name: "History",
-                url: "/history/",
-                icon: mdiFilmstrip
-            },
-        ]
-    }),
+                {
+                    name: "History",
+                    url: this.urls.history,
+                    icon: mdiFilmstrip
+                },
+            ]
+        }
+    },
     components: {
         Logo,
         NavDrawerLinks

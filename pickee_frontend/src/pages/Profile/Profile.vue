@@ -1,7 +1,7 @@
 <template>
     <v-app>
         <div class="profile-page">
-            <ProfileNavDrawer />
+            <ProfileNavDrawer :urls="urls" />
             <main class="profile-page-main">
                 <PageHeader />
                 <v-content class="profile-page-content">
@@ -36,6 +36,7 @@
         data: function() {
             return {
                 user: null,
+                urls: [],
                 userID: null,
             };
         },
@@ -56,8 +57,10 @@
         beforeMount() {
             const appElement = document.getElementsByTagName('app')[0];
             let user = appElement.getAttribute('user');
+            let urls = appElement.getAttribute('urls');
             if (user) {
                 this.user = JSON.parse(user);
+                this.urls = JSON.parse(urls);
                 this.userID = this.user.id;
             }
         }

@@ -3,6 +3,7 @@ import json
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 from pickee_api.forms import PickeeUserCreationForm
 from pickee_api.models import Recommendation
@@ -78,14 +79,16 @@ def user_logout(request):
 
 @login_required
 def profile(request):
+    urls = json.dumps(__get_urls());
     user_profile_data = {"age": request.user.age, "gender": request.user.gender}
     user = json.dumps({**__get_user_data(request), **user_profile_data})
-    context = {'user': user}
+    context = {'user': user, 'urls': urls}
     return render(request, 'profile.html', context=context)
 
 
 @login_required
 def history(request):
+    urls = __get_urls();
     recommendations = __get_recommendation_history(request)
     results = []
     if recommendations:
@@ -104,7 +107,8 @@ def history(request):
             results.append(result)
 
     data = json.dumps({
-        "results": results
+        "results": results,
+        'urls': urls
     })
     context = {'data': data}
     return render(request, 'history.html', context=context)
@@ -112,8 +116,9 @@ def history(request):
 
 @login_required
 def preferences(request):
+    urls = json.dumps(__get_urls());
     user = json.dumps(__get_user_data(request))
-    context = {'user': user}
+    context = {'user': user, 'urls': urls}
     return render(request, 'preferences.html', context=context)
 
 
@@ -130,6 +135,20 @@ def __get_user_data(request):
         "last_name": request.user.last_name,
         "email": request.user.email,
         "picture": request.user.picture.url if request.user.picture else None
+    }
+
+
+def __get_urls():
+    return {
+        "home": reverse("home"),
+        "about": reverse("about"),
+        "login": reverse("login"),
+        "logout": reverse("logout"),
+        "signup": reverse("signup"),
+        "profile": reverse("profile"),
+        "preferences": reverse("preferences"),
+        "history": reverse("history"),
+        "recommendation": reverse("recommendation")
     }
 
 
