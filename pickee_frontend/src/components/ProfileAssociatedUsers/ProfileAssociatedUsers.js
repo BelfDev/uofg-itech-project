@@ -40,7 +40,8 @@ export default {
                     id: data.id,
                     image: data.picture,
                     text: name,
-                    icon: mdiMinusCircle
+                    icon: mdiMinusCircle,
+                    type: 'person'
                 });
             } else {
                 // Show the error
@@ -67,7 +68,8 @@ export default {
                 id: user.id,
                 image: user.picture,
                 text: name,
-                icon: mdiMinusCircle
+                icon: mdiMinusCircle,
+                type: 'person'
             }
         });
     },
