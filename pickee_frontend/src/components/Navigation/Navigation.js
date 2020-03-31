@@ -1,6 +1,7 @@
 export default {
     name: "Navigation",
     props: {
-        isAboutPage: Boolean
+        isAboutPage: Boolean,
+        urls: Object
     }
 };

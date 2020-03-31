@@ -7,7 +7,7 @@
 
     <div id="recommendation">
         {% csrf_token %}
-        <app user="{{ user }}" preferences="{{ preferences }}"></app>
+        <app user="{{ user }}" preferences="{{ preferences }}" urls="{{ urls }}"></app>
     </div>
 
     {% render_bundle 'chunk-vendors' %}

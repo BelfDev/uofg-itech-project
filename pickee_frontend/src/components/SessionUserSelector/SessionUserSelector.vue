@@ -84,10 +84,10 @@
                                 block
                                 class="mb-4 pl-6 pr-6"
                                 color="primary"
-                                href="/login/"
+                                :href="urls.login"
                                 >Login
                             </v-btn>
-                            <v-btn class="mb-4 pl-6 pr-6" href="/signup/" block outlined>Create account </v-btn>
+                            <v-btn class="mb-4 pl-6 pr-6" :href="urls.signup" block outlined>Create account </v-btn>
                         </div>
                     </v-card-text>
                 </div>

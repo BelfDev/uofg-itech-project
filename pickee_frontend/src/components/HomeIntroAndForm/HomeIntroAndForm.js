@@ -24,10 +24,10 @@ export default {
             this.isFormActive = true;
         }
     },
-    props: ['data'],
+    props: ['data', 'urls'],
     data: () => ({
         isFormHidden: true,
-        isFormActive: false
+        isFormActive: false,
     }),
     components: {
         PageHeader,

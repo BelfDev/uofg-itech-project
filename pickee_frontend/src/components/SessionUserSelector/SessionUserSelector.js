@@ -19,7 +19,8 @@ export default {
                 id: sessionUser.id,
                 image: sessionUser.picture,
                 text: sessionUser.text,
-                icon: mdiMinusCircle
+                icon: mdiMinusCircle,
+                type: 'person'
             });
         },
         addSessionUser: async function(e) {
@@ -56,7 +57,8 @@ export default {
                     id: data.id,
                     image: data.picture,
                     text: name,
-                    icon: mdiMinusCircle
+                    icon: mdiMinusCircle,
+                    type: 'person'
                 });
             } else {
                 // Show the error
@@ -75,6 +77,7 @@ export default {
                     image: user.picture,
                     text: name,
                     icon: mdiPlusCircle,
+                    type: 'person',
                     hidden: false
                 });
             });
@@ -88,7 +91,7 @@ export default {
             return this.selectedUsers.map(item => item.id).join(',');
         }
     },
-    props: ['user'],
+    props: ['user', 'urls'],
     data: () => ({
         selectedUsers: [],
         associatedUsers: [],

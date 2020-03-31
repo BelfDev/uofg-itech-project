@@ -51,6 +51,7 @@ export default {
                 effect: "coverflow",
                 centeredSlides: true,
                 initialSlide: 1,
+                allowTouchMove: false,
                 slidesPerView: "auto",
                 spaceBetween: 0,
                 grabCursor: false,

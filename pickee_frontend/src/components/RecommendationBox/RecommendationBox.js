@@ -5,7 +5,7 @@ import api from "@/services/api";
 
 export default {
     name: "RecommendationBox",
-    props: ['preferences', 'user', 'setNewRecommendation'],
+    props: ['preferences', 'user', 'setNewRecommendation', 'urls'],
     data: function() {
         return {
             data: {},
@@ -51,10 +51,11 @@ export default {
     },
     methods: {
         navigateBackToHome: function() {
-            window.location.replace('/?step=2');
+            window.location.replace(`${this.urls.home}?step=2`);
         },
         getNewRecommendation: async function(userChoice) {
             this.isLoading = true;
+
             this.updateRecommendationStatus(userChoice);
 
             const recommendation = await api.getRecommendation(this.preferences, this.sessionID, this.offset);
@@ -92,10 +93,12 @@ export default {
             
             // If response is not empty - prepare the list
             if (response && response != {} && Object.keys(response).length !== 0) {
+                const brokenLogos = ['FandangoMoviesIVAUS', 'AtomTicketsIVAUS'];
                 this.providerList = response.results.map(item => ({
-                    logo: item.logo,
+                    logo: brokenLogos.indexOf(item.name) !== -1 ? null : item.logo,
                     text: item.name,
-                    link: item.url
+                    link: item.url,
+                    type: 'provider'
                 }));
             }
 
@@ -104,6 +107,8 @@ export default {
             this.isLoading = false;
         },
         updateRecommendationStatus: async function(userChoice) {
+            if (!this.user.id) return false;
+            
             await api.setRecommendationUserChoice(this.recData.recommendation_id, this.sessionID, this.recData.id, userChoice);
         }
     },

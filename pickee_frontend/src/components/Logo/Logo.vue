@@ -1,5 +1,6 @@
 <template>
-    <a href="/" class="logo">Pickee</a>
+    <a :href="urls.home" class="logo">Pickee</a>
 </template>
 
-<style src="./Logo.css"></style>
+<script src="./Logo.js" />
+<style src="./Logo.css" />

@@ -36,7 +36,7 @@
             <button class="action-button" :disabled="isLoading" @click="newRecEvent('REJECTED')">
                 <v-icon color="red">{{ iconThumbDown }}</v-icon>
             </button>
-            <button class="action-button" :disabled="isLoading" @click="newRecEvent('BOOKMARKED')">
+            <button class="action-button" :disabled="isLoading || !user.id" @click="newRecEvent('BOOKMARKED')">
                 <v-icon color="primary">{{ iconFavorites }}</v-icon>
             </button>
             <v-dialog v-model="dialog" width="84rem" :persistent="true">

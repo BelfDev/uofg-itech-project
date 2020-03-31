@@ -113,6 +113,11 @@
     justify-content: space-between;
 }
 
+.recommendation-descr__actions .action-button[disabled] {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
 .recommendation-descr__actions .action-button .v-icon,
 .recommendation-descr__actions .action-button svg {
     width: 7.5rem !important;

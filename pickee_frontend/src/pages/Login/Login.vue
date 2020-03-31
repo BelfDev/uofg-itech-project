@@ -1,9 +1,9 @@
 <template>
     <v-app>
         <div class="page-wrapper">
-            <PageHeader logo />
+            <PageHeader :urls="urls" logo />
             <v-content class="page-content">
-                <LoginBox :actionUrl="actionUrl" :signupUrl="signupUrl" :data="data" />
+                <LoginBox :actionUrl="urls.login" :signupUrl="urls.signup" :data="data" />
             </v-content>
         </div>
     </v-app>
@@ -17,20 +17,22 @@ export default {
     name: "Login",
     data: function() {
         return {
-            actionUrl: '',
-            signupUrl: '',
-            data: {}
+            data: {},
+            urls: {}
         };
     },
     methods: {},
     components: { PageHeader, LoginBox },
     beforeMount() {
         const appElement = document.getElementsByTagName('app')[0];
-        this.actionUrl = appElement.getAttribute('actionUrl');
-        this.signupUrl = appElement.getAttribute('signupUrl');
+        let urls = appElement.getAttribute('urls');
         const data = appElement.getAttribute('data');
         if (data) {
             this.data = JSON.parse(data);
+        }
+        if (urls) {
+            this.urls = JSON.parse(urls);
+            console.log(this.urls)
         }
     }
 };

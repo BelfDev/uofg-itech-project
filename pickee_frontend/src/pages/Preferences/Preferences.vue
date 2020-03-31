@@ -1,9 +1,9 @@
 <template>
     <v-app>
         <div class="profile-page">
-            <ProfileNavDrawer />
+            <ProfileNavDrawer :urls="urls" />
             <main class="profile-page-main">
-                <PageHeader />
+                <PageHeader :urls="urls" />
                 <v-content class="profile-page-content">
                     <div class="profile-page-blocks">
                         <PreferencesGrid 
@@ -66,6 +66,7 @@
                 newFavoriteMovies: [],
                 removedFavoriteMovies: [],
                 genreItems: [],
+                urls: {},
                 selectedGenres: null,
                 userID: null,
                 isActorLookupLoading: false,
@@ -85,7 +86,8 @@
                     id: actor.id,
                     text: actor.name, 
                     image: actor.image_url, 
-                    icon: mdiMinusCircle 
+                    icon: mdiMinusCircle,
+                    type: 'person'
                 });
             },
 
@@ -128,7 +130,8 @@
                     id: movie.id,
                     text: movie.name, 
                     picture: movie.image_url, 
-                    icon: mdiMinusCircle 
+                    icon: mdiMinusCircle,
+                    type: 'movie'
                 });
             },
             
@@ -184,7 +187,8 @@
                         refID: actorsResponse[i].id,
                         image: actorData.image_url,
                         text: actorData.name,
-                        icon: mdiMinusCircle
+                        icon: mdiMinusCircle,
+                        type: 'person'
                     })
                 }
                 this.actorItems = actors;
@@ -200,7 +204,8 @@
                         refID: moviesResponse[i].id,
                         picture: movieData.image_url,
                         text: movieData.name,
-                        icon: mdiMinusCircle
+                        icon: mdiMinusCircle,
+                        type: 'movie'
                     })
                 }
                 this.movieItems = movies;
@@ -227,8 +232,10 @@
         beforeMount() {
             const appElement = document.getElementsByTagName('app')[0];
             let user = appElement.getAttribute('user');
+            let urls = appElement.getAttribute('urls');
             if (user) {
                 user = JSON.parse(user);
+                this.urls = JSON.parse(urls);
                 this.userID = user.id;
             }
         }
