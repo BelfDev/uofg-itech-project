@@ -7,7 +7,7 @@
                         <img :src="item.image" :alt="item.text" />
                     </v-avatar>
                     <img class="item-list__element-picture" :src="item.picture" :alt="item.text" v-else-if="item.picture" />
-                    <div class="item-list__element-logo" v-if="item.logo"><img :src="item.logo" :alt="item.text" /></div>
+                    <div class="item-list__element-logo"><img v-if="item.logo" :src="item.logo" :alt="item.text" /><span v-else>{{ item.text }}</span></div>
                     <span class="item-list__element-text">{{ item.text }}</span>
                     <v-icon class="item-list__element-icon" v-if="item.icon">{{ item.icon }}</v-icon>
                 </button>

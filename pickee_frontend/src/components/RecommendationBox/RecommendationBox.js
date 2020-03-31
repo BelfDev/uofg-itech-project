@@ -92,8 +92,9 @@ export default {
             
             // If response is not empty - prepare the list
             if (response && response != {} && Object.keys(response).length !== 0) {
+                const brokenLogos = ['FandangoMoviesIVAUS', 'AtomTicketsIVAUS'];
                 this.providerList = response.results.map(item => ({
-                    logo: item.logo,
+                    logo: brokenLogos.indexOf(item.name) !== -1 ? null : item.logo,
                     text: item.name,
                     link: item.url
                 }));
