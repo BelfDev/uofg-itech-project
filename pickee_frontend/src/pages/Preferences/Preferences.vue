@@ -66,7 +66,7 @@
                 newFavoriteMovies: [],
                 removedFavoriteMovies: [],
                 genreItems: [],
-                urls: [],
+                urls: {},
                 selectedGenres: null,
                 userID: null,
                 isActorLookupLoading: false,

@@ -9,6 +9,7 @@ export default {
         return {
             iconMenu: mdiMenu,
             drawer: document.body.classList.contains('desktop') ? true : false,
+            logoutUrl: this.urls.logout,
             links: [
                 {
                     name: "Profile",

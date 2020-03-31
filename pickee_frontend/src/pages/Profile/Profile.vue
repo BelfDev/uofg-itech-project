@@ -36,7 +36,7 @@
         data: function() {
             return {
                 user: null,
-                urls: [],
+                urls: {},
                 userID: null,
             };
         },

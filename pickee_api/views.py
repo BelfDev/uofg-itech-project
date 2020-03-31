@@ -29,6 +29,8 @@ def recommendation(request):
 
 
 def user_login(request):
+    urls = json.dumps(__get_urls())
+
     if request.method == 'POST':
         # Retrieves username and password
         email = request.POST['email']
@@ -46,13 +48,17 @@ def user_login(request):
             loginFeedback = json.dumps({
                 "error": "Invalid credentials"
             })
-            context = {'loginFeedback': loginFeedback}
+            urls = json.dumps(__get_urls());
+            context = {'loginFeedback': loginFeedback, 'urls': urls}
             return render(request, 'login.html', context=context)
     else:
-        return render(request, 'login.html')
+        context = {'urls': urls}
+        return render(request, 'login.html', context=context)
 
 
 def user_signup(request):
+    urls = json.dumps(__get_urls())
+
     if request.method == 'POST':
         form = PickeeUserCreationForm(request.POST)
         if form.is_valid():
@@ -67,9 +73,10 @@ def user_signup(request):
             signupFeedback = json.dumps({
                 'errors': errorMsgs
             })
-            context = {'signupFeedback': signupFeedback}
+            context = {'signupFeedback': signupFeedback, 'urls': urls}
             return render(request, 'signup.html', context=context)
-    return render(request, 'signup.html')
+    context = {'urls': urls}
+    return render(request, 'signup.html', context=context)
 
 
 def user_logout(request):
