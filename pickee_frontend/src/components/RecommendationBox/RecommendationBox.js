@@ -55,6 +55,7 @@ export default {
         },
         getNewRecommendation: async function(userChoice) {
             this.isLoading = true;
+
             this.updateRecommendationStatus(userChoice);
 
             const recommendation = await api.getRecommendation(this.preferences, this.sessionID, this.offset);
@@ -105,6 +106,8 @@ export default {
             this.isLoading = false;
         },
         updateRecommendationStatus: async function(userChoice) {
+            if (!this.user.id) return false;
+            
             await api.setRecommendationUserChoice(this.recData.recommendation_id, this.sessionID, this.recData.id, userChoice);
         }
     },
