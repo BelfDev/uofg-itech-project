@@ -167,6 +167,11 @@
     padding-left: 0;
 }
 
+.tablet .recommendation-carousel,
+.phone .recommendation-carousel {
+    position: static;
+}
+
 .phone .recommendation-carousel {
     padding: 4rem 0 2rem;
 }
@@ -175,4 +180,16 @@
 .phone .recommendation-carousel__swiper-slide img {
     width: 18rem;
     height: 28rem;
+}
+
+.phone .recommendation-carousel__swiper-button-prev,
+.phone .recommendation-carousel__swiper-button-next {
+    top: 15rem;
+    transform: none;
+}
+
+.tablet .recommendation-carousel__swiper-button-prev,
+.tablet .recommendation-carousel__swiper-button-next {
+    top: 25rem;
+    transform: none;;
 }
