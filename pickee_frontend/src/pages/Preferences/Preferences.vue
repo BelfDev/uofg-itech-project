@@ -86,7 +86,8 @@
                     id: actor.id,
                     text: actor.name, 
                     image: actor.image_url, 
-                    icon: mdiMinusCircle 
+                    icon: mdiMinusCircle,
+                    type: 'person'
                 });
             },
 
@@ -129,7 +130,8 @@
                     id: movie.id,
                     text: movie.name, 
                     picture: movie.image_url, 
-                    icon: mdiMinusCircle 
+                    icon: mdiMinusCircle,
+                    type: 'movie'
                 });
             },
             
@@ -185,7 +187,8 @@
                         refID: actorsResponse[i].id,
                         image: actorData.image_url,
                         text: actorData.name,
-                        icon: mdiMinusCircle
+                        icon: mdiMinusCircle,
+                        type: 'person'
                     })
                 }
                 this.actorItems = actors;
@@ -201,7 +204,8 @@
                         refID: moviesResponse[i].id,
                         picture: movieData.image_url,
                         text: movieData.name,
-                        icon: mdiMinusCircle
+                        icon: mdiMinusCircle,
+                        type: 'movie'
                     })
                 }
                 this.movieItems = movies;

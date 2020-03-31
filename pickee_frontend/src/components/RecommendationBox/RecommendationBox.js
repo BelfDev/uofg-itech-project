@@ -97,7 +97,8 @@ export default {
                 this.providerList = response.results.map(item => ({
                     logo: brokenLogos.indexOf(item.name) !== -1 ? null : item.logo,
                     text: item.name,
-                    link: item.url
+                    link: item.url,
+                    type: 'provider'
                 }));
             }
 
