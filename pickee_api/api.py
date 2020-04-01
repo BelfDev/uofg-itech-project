@@ -77,6 +77,7 @@ class GenreViewSet(viewsets.ModelViewSet):
     renderer_classes = [renderers.JSONRenderer]
     queryset = models.Genre.objects.all()
     serializer_class = serializers.GenreSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class RecommendationViewSet(viewsets.ModelViewSet):
